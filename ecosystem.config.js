@@ -19,7 +19,7 @@ module.exports = {
       host: "170.187.145.195",
       ref: "origin/main",
       repo: "git@github.com:blakesmods/web.git",
-      path: "/var/services",
+      path: "/var/web",
       "post-deploy": "yarn && pm2 startOrReload ./ecosystem.config.js"
     },
     production: {
@@ -28,7 +28,7 @@ module.exports = {
       key: "~/.ssh/deploy.key",
       ref: "origin/main",
       repo: "git@github.com:blakesmods/web.git",
-      path: "/var/services",
+      path: "/var/web",
       ssh_options: "StrictHostKeyChecking=no",
       "post-deploy": "yarn && pm2 startOrReload ./ecosystem.config.js"
     }
