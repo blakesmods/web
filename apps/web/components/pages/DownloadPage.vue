@@ -1,0 +1,109 @@
+<template>
+  <div class="flex flex-col pt-24">
+    <Header filled download-link="#">
+      <NuxtLink v-if="modInfo.has_docs" :to="`/docs/${modInfo.mod_id}`">
+        Docs
+      </NuxtLink>
+      <NuxtLink v-if="modInfo.has_wiki" :to="`/wiki/${modInfo.mod_id}`">
+        Wiki
+      </NuxtLink>
+
+      <a :href="modInfo.github_link" target="_blank" rel="noopener noreferrer">
+        GitHub
+      </a>
+      <a
+        :href="modInfo.curseforge_link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        CurseForge
+      </a>
+      <a
+        :href="modInfo.modrinth_link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Modrinth
+      </a>
+    </Header>
+    <div class="container mx-auto px-4">
+      <Ad ad-slot="3524901792" />
+      <h1 class="mt-8 mb-8 text-4xl text-center">
+        Download {{ mod.mod_name }}
+      </h1>
+    </div>
+    <div
+      class="container flex flex-col lg:flex-row w-full m-auto px-4 pb-8 gap-4"
+    >
+      <div class="flex flex-col gap-4">
+        <VersionSelector :versions="mod.versions" v-model="version" />
+        <Ad ad-slot="2977397419" />
+        <ModInformation :mod="mod" />
+      </div>
+      <div class="flex flex-col w-full gap-4">
+        <FileList :mod="mod.mod_id" :version="version" />
+        <Ad ad-slot="5974260724" />
+      </div>
+    </div>
+    <Footer />
+  </div>
+</template>
+
+<script setup>
+import Ad from "~/components/Ad.vue";
+import Footer from "~/components/default/Footer.vue";
+import Header from "~/components/mods/Header.vue";
+import VersionSelector from "~/components/mods/VersionSelector.vue";
+import FileList from "~/components/mods/FileList.vue";
+import ModInformation from "~/components/mods/ModInformation.vue";
+
+const props = defineProps({
+  modId: String
+});
+
+const route = useRoute();
+const modInfo = useMod(props.modId);
+
+const mod = ref({});
+const version = ref(null);
+
+const { data } = await useAPI(`/v2/mods/${props.modId}`);
+
+mod.value = data.value.data;
+version.value = route.query.mc_version || data.value.data.versions[0];
+
+const title = `Download ${mod.value.mod_name}`;
+const description = `
+      The official download source of ${mod.value.mod_name} for Minecraft
+      ${mod.value.versions.join(", ")}
+    `;
+
+useHead({
+  title,
+  meta: [
+    {
+      hid: "description",
+      name: "description",
+      content: description
+    },
+    // Open Graph
+    { hid: "og:title", property: "og:title", content: title },
+    {
+      hid: "og:description",
+      property: "og:description",
+      content: description
+    },
+    // Twitter Card
+    {
+      hid: "twitter:title",
+      name: "twitter:title",
+      content: title
+    },
+    {
+      hid: "twitter:description",
+      name: "twitter:description",
+      content: description
+    }
+  ]
+});
+</script>

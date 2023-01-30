@@ -1,0 +1,104 @@
+.nuxt-content {
+  margin-bottom: -16px;
+  padding: 16px 0;
+  line-height: 1.5;
+
+  & > * {
+    margin-bottom: 16px;
+  }
+
+  & > h2:first-child,
+  & > h3:first-child {
+    margin-top: 0;
+  }
+
+  a {
+    color: theme("colors.primary.DEFAULT");
+
+    &:hover {
+      color: theme("colors.primary.accent");
+    }
+  }
+
+  h2,
+  h3 {
+    @apply mt-6 pb-1 border-b border-surface-border scroll-mt-36 hover:pl-4;
+
+    .icon-link {
+      position: absolute;
+      opacity: 0;
+      margin-left: -20px;
+      padding-right: 10px;
+      color: theme("colors.primary.DEFAULT");
+
+      &::before {
+        content: "#";
+      }
+    }
+
+    a {
+      scroll-margin-top: 144px;
+    }
+
+    &:hover {
+      .icon-link {
+        opacity: 1;
+      }
+    }
+  }
+
+  ul {
+    list-style: disc;
+    padding: 0 0 0 24px;
+  }
+
+  pre {
+    @apply rounded p-4;
+    @apply bg-surface-card overflow-hidden hover:overflow-auto;
+  }
+
+  & > .copy {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 12px 12px 0 0;
+    border: 1px solid theme("colors.surface.text");
+    color: theme("colors.surface.text");
+
+    &:hover {
+      background-color: darken(white, 80%);
+    }
+
+    &:focus {
+      background-color: darken(white, 60%);
+      outline: none;
+    }
+  }
+
+  &:hover {
+    & > .copy {
+      display: inline-flex;
+    }
+  }
+
+  p code,
+  li code {
+    padding: 1px 5px;
+    border-radius: 4px;
+    line-height: 1;
+    @apply bg-surface-card;
+  }
+
+  @screen lg {
+    @apply pl-4;
+  }
+
+  @screen xl {
+    @apply pr-4;
+  }
+
+  @media screen and (max-width: 450px) {
+    font-size: 80%;
+  }
+}

@@ -1,0 +1,41 @@
+name: Scrape Content
+
+on:
+  deployment_status:
+
+jobs:
+  scrape-docs:
+    if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
+    runs-on: ubuntu-20.04
+    name: Scrape docs and update Meilisearch
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run docs-scraper
+        env:
+          HOST_URL: ${{ secrets.MEILISEARCH_HOST_URL }}
+          API_KEY: ${{ secrets.MEILISEARCH_API_KEY }}
+          CONFIG_FILE_PATH: ${{ github.workspace }}/packages/config/docs-scraper.json
+        run: |
+          docker run -t --rm \
+            -e MEILISEARCH_HOST_URL=$HOST_URL \
+            -e MEILISEARCH_API_KEY=$API_KEY \
+            -v "${{ github.workspace }}/packages/config/docs-scraper.json":/docs-scraper/config.json \
+            getmeili/docs-scraper:v0.12.4 pipenv run ./docs_scraper config.json
+
+  scrape-guides:
+    if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
+    runs-on: ubuntu-20.04
+    name: Scrape wiki and update Meilisearch
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run docs-scraper
+        env:
+          HOST_URL: ${{ secrets.MEILISEARCH_HOST_URL }}
+          API_KEY: ${{ secrets.MEILISEARCH_API_KEY }}
+          CONFIG_FILE_PATH: ${{ github.workspace }}/packages/config/wiki-scraper.json
+        run: |
+          docker run -t --rm \
+            -e MEILISEARCH_HOST_URL=$HOST_URL \
+            -e MEILISEARCH_API_KEY=$API_KEY \
+            -v "${{ github.workspace }}/packages/config/wiki-scraper.json":/docs-scraper/config.json \
+            getmeili/docs-scraper:v0.12.4 pipenv run ./docs_scraper config.json

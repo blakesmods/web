@@ -1,0 +1,174 @@
+<template>
+  <div
+    class="grid w-screen h-screen bg-[rgba(18,18,18,1)] overflow-auto"
+    :style="{
+      'grid-template-columns': `repeat(${columns}, 1fr)`,
+      'grid-template-rows': `repeat(${rows}, 1fr)`
+    }"
+  >
+    <div
+      v-for="tile in tiles"
+      class="tile"
+      :key="tile"
+      :class="{
+        right: tile % columns === 0,
+        bottom: tile > tiles - columns
+      }"
+    ></div>
+    <div class="block sm:absolute w-screen h-screen z-10">
+      <div
+        class="container flex flex-col justify-between h-full mx-auto py-4 gap-4 text-white font-bold"
+      >
+        <h1
+          class="flex h-1/4 mx-auto items-center text-[60px] sm:text-[80px] text-center"
+        >
+          Blake's Mods
+        </h1>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:h-1/2 items-center"
+        >
+          <NuxtLink
+            v-for="mod in mods"
+            class="mod flex justify-center items-center"
+            :style="{
+              border: `1px solid ${mod.primary_color}`,
+              'box-shadow': `0 0 8px ${mod.primary_color}`
+            }"
+            :to="mod.url"
+            :key="mod.mod_id"
+          >
+            <div
+              class="flex flex-col w-full h-full p-4 justify-center items-center"
+              @mouseenter="onHoverMod(mod)"
+              @mouseleave="onMouseLeaveMod"
+            >
+              <img
+                :src="mod.logo"
+                :alt="mod.name + ' logo'"
+                width="100"
+                height="100"
+              />
+
+              <div class="flex flex-col text-center">
+                {{ mod.name }}
+                <span
+                  class="line flex w-0 mx-auto"
+                  :style="{
+                    'border-color': mod.primary_color
+                  }"
+                ></span>
+              </div>
+            </div>
+          </NuxtLink>
+        </div>
+        <div
+          class="flex flex-col justify-end items-center h-1/4 py-4 sm:py-0 gap-1"
+        >
+          <div class="flex justify-center text-sm md:text-base">
+            <NuxtLink to="/terms-of-service">Terms of Service</NuxtLink>
+            <span class="mx-2 font-normal text-surface-text">-</span>
+            <NuxtLink to="/privacy-policy">Privacy Policy</NuxtLink>
+            <span class="mx-2 font-normal text-surface-text">-</span>
+            <NuxtLink to="/cookie-policy">Cookie Policy</NuxtLink>
+          </div>
+          <div class="flex justify-center">
+            <span>&copy; {{ new Date().getFullYear() }} BlakeBr0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script lang="ts" setup>
+import anime from "animejs";
+
+definePageMeta({
+  layout: "blank"
+});
+
+const rows = ref(0);
+const columns = ref(0);
+const mods = useMods();
+
+const tiles = computed(() => rows.value * columns.value);
+
+function onResize() {
+  rows.value = Math.floor(document.body.clientHeight / 75);
+  columns.value = Math.floor(document.body.clientWidth / 75);
+}
+
+function onHoverMod(mod) {
+  anime({
+    targets: ".tile",
+    backgroundColor: mod.primary_color,
+    delay: anime.stagger(30, {
+      grid: [columns.value, rows.value],
+      from: "center"
+    })
+  });
+}
+
+function onMouseLeaveMod() {
+  anime({
+    targets: ".tile",
+    backgroundColor: "rgb(56 56 56)",
+    delay: anime.stagger(15, {
+      grid: [columns.value, rows.value],
+      from: "center"
+    })
+  });
+}
+
+onMounted(() => {
+  window.addEventListener("resize", onResize);
+
+  onResize();
+});
+
+onUnmounted(() => {
+  window.removeEventListener("resize", onResize);
+});
+</script>
+
+<style lang="scss" scoped>
+.tile {
+  @apply relative hidden sm:block;
+  background: rgb(56 56 56);
+
+  &:before {
+    @apply absolute inset-[0.5px];
+    content: " ";
+    background: rgb(18 18 18);
+  }
+
+  &.right:before {
+    @apply right-[1.5px];
+  }
+
+  &.bottom:before {
+    @apply bottom-[1.5px];
+  }
+}
+
+.mod {
+  @apply h-[140px] md:h-[200px] bg-black rounded-lg transition text-white;
+
+  .line {
+    transition: width 0.25s ease-in-out;
+  }
+
+  &:hover {
+    @apply z-10 duration-300;
+    transform: scale(1.05);
+
+    .line {
+      @apply w-full border-t-[4px] border-solid;
+    }
+  }
+
+  &:active {
+    transform: scale(1);
+  }
+}
+</style>
