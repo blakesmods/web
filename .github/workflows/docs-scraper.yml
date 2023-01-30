@@ -1,11 +1,15 @@
 name: Scrape Content
 
 on:
-  deployment_status:
+  workflow_run:
+    workflows: [ Publish to Cloudflare Pages ]
+    types: [ completed ]
+    branches: [ main ]
+  workflow_dispatch: 
 
 jobs:
   scrape-docs:
-    if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-20.04
     name: Scrape docs and update Meilisearch
     steps:
@@ -23,7 +27,7 @@ jobs:
             getmeili/docs-scraper:v0.12.4 pipenv run ./docs_scraper config.json
 
   scrape-guides:
-    if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-20.04
     name: Scrape wiki and update Meilisearch
     steps:

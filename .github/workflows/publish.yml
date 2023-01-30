@@ -1,0 +1,46 @@
+name: Publish to Cloudflare Pages
+
+on:
+  push:
+    paths:
+      - apps/web/**
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+        node: [ 16 ]
+
+    permissions:
+      contents: read
+      deployments: write
+
+    name: Publish to Cloudflare Pages
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          cache: yarn
+
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build
+        run: yarn workspace @blakesmods/web generate
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 2124ec156e58759bf8fdbb5e02d7bdbe
+          projectName: blakesmods
+          directory: apps/web/.output/public
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
