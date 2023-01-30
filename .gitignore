@@ -94,4 +94,4 @@ sw.*
 .output
 
 # content assets
-apps/web/public/content
+apps/web/public/assets

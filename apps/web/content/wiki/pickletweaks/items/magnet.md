@@ -1,7 +1,7 @@
 ---
 id: magnet
 title: Magnet
-icon: /img/pickletweaks/items/magnet.png
+icon: /assets/pickletweaks/items/magnet.png
 sort: 5
 ---
 

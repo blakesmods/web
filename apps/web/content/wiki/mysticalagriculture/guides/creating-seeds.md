@@ -9,7 +9,7 @@ sort: 2
 ## The Infusion Altar
 Seeds are crafted using an **Infusion Altar** and **Infusion Pedestals**. Placing the altar in the world will show you where to place the pedestals.
 
-<text-image src="/img/mysticalagriculture/gameplay-creating-seeds-1.png">
+<text-image src="/assets/mysticalagriculture/gameplay-creating-seeds-1.png">
   The Infusion Altar placed in the world showing pedestal placement locations.
 </text-image>
 

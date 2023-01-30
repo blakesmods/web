@@ -1,7 +1,7 @@
 ---
 id: meshes
 title: Meshes
-icon: /img/pickletweaks/items/mesh.png
+icon: /assets/pickletweaks/items/mesh.png
 sort: 4
 ---
 

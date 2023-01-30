@@ -21,6 +21,6 @@ Growth Accelerators apply growth ticks to the plant placed above it. Each tier o
 ### Stacking Accelerators
 Growth Accelerators of all tiers provide the same rate of growth ticks. Higher tiers however have a larger range, so you can stack more of them below a single plant. It doesn't matter which tier you use as long as the Growth Accelerator is placed within its max range.
 
-<text-image src="/img/mysticalagriculture/gameplay-speeding-up-crop-growth-1.png">
+<text-image src="/assets/mysticalagriculture/gameplay-speeding-up-crop-growth-1.png">
   Multiple tiers of Growth Accelerators stacked underneath some crops.
 </text-image>
