@@ -61,7 +61,7 @@ export default async function (fastify: FastifyInstance) {
       }
 
       if (succeeded) {
-        const fileURL = process.env.BLAKESMODS_MAVEN_URL + file.maven_path;
+        const fileURL = "https://maven.blakesmods.com" + file.maven_path;
 
         return {
           success: true,

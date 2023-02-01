@@ -31,10 +31,11 @@
       <div class="relative bottom-0">
         <div class="flex m-4 justify-between">
           <a
-            :href="`https://github.com/blakesmods/site-content/edit/main${page.path}${page.extension}`"
+            :href="`https://github.com/blakesmods/web/edit/main/apps/web/content${page._path}.${page._extension}`"
             target="_blank"
             rel="noreferrer"
           >
+            <i class="pi pi-file-edit"></i>
             Edit this page on GitHub
           </a>
           <span v-if="false">Last Updated: {{ lastUpdated }}</span>

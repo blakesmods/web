@@ -14,7 +14,7 @@
         <div class="flex justify-end items-center pl-2 text-2xl leading-4">
           <a
             class="ml-3"
-            href="https://github.com/blakesmods/site-content"
+            href="https://github.com/blakesmods/web"
             title="GitHub"
             target="_blank"
           >

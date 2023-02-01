@@ -87,7 +87,6 @@ export default defineNuxtConfig({
     "~/assets/css/main.scss"
   ],
   modules: [
-    "~/modules/assets.ts",
     "@nuxt/content",
     "@nuxtjs/tailwindcss",
     "@vueuse/nuxt",

@@ -92,6 +92,3 @@ sw.*
 .vercel
 .turbo
 .output
-
-# content assets
-apps/web/public/assets

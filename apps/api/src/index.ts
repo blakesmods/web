@@ -15,7 +15,9 @@ const start = async () => {
     server.register(FastifyCors);
     server.register(FastifyMongoDB, {
       forceClose: true,
-      url: process.env.MONGODB_URL
+      url:
+        process.env.MONGODB_URL ||
+        "mongodb://root:example@localhost:27017/blakesmods?authSource=admin"
     });
     server.register(FastifyAutoload, {
       dir: join(__dirname, "plugins"),
