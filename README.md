@@ -2,7 +2,7 @@
 
 This repository contains the source code of [blakesmods.com](https://blakesmods.com).
 
-# Contributing
+## Contributing
 
 If you would like to contribute content to the Documentation or Wiki, you can do so by editing the files in the `apps/web/content` directory. 
 
@@ -12,7 +12,7 @@ Notes relating to writing content:
 - assets (such as images) are placed in the `apps/web/public/assets` directory and can be linked to in your markdown by using the `/assets/<asset path>` url
 - components placed in the `apps/web/components/global` directory are usable in your markdown
 
-# Development
+## Development
 
 To get a local development environment set up, you can do the following:
 
@@ -22,6 +22,6 @@ To get a local development environment set up, you can do the following:
    2. to run a local database, run `docker compose up`
    3. to seed your local database with data, run `yarn workspace @blakesmods/db seed`
 
-# License
+## License
 
 [MIT License](./LICENSE)
