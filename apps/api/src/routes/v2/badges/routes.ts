@@ -30,7 +30,7 @@ export default async function (fastify: FastifyInstance) {
         schemaVersion: 1,
         label: "downloads",
         message: numeral(downloads).format(),
-        color: "orange"
+        color: "brightgreen"
       };
     }
   );
@@ -68,7 +68,7 @@ export default async function (fastify: FastifyInstance) {
         schemaVersion: 1,
         label: "version",
         message: latest_release.mod_version,
-        color: "orange"
+        color: "brightgreen"
       };
     }
   );
@@ -106,7 +106,7 @@ export default async function (fastify: FastifyInstance) {
         schemaVersion: 1,
         label: "minecraft",
         message: latest_release.mc_version,
-        color: "orange"
+        color: "brightgreen"
       };
     }
   );
