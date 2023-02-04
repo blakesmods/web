@@ -54,7 +54,7 @@ const mods: Mod[] = [
     primary_color: "#00b2e6",
     secondary_color: "#0600aa",
     has_docs: true,
-    has_wiki: false
+    has_wiki: true
   },
   {
     name: "Pickle Tweaks",
@@ -114,7 +114,7 @@ const mods: Mod[] = [
     primary_color: "#3bb500",
     secondary_color: "#009666",
     has_docs: false,
-    has_wiki: false
+    has_wiki: true
   },
   {
     name: "Mystical Customization",
@@ -143,7 +143,7 @@ const mods: Mod[] = [
     primary_color: "#8ce200",
     secondary_color: "#00bc09",
     has_docs: true,
-    has_wiki: false
+    has_wiki: true
   }
 ];
 
