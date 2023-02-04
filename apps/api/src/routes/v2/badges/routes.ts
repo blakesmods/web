@@ -104,7 +104,7 @@ export default async function (fastify: FastifyInstance) {
 
       return {
         schemaVersion: 1,
-        label: "version",
+        label: "minecraft",
         message: latest_release.mc_version,
         color: "orange"
       };
