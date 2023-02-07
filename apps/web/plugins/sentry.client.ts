@@ -21,10 +21,15 @@ export default defineNuxtPlugin(nuxtApp => {
     ],
     logErrors: false,
     tracesSampleRate: 1,
-    environment: config.public.VERCEL_ENV || "development",
+    environment: config.public.ENVIRONMENT || "development",
     beforeSend: (event, hint) => {
       // Check if it is an exception, and if so, log it.
       if (event.exception) {
+        if (hint.originalException.__nuxt_error) {
+          showError(hint.originalException);
+          return null;
+        }
+
         console.error(
           `[Exception handled by Sentry]: (${hint.originalException})`,
           { event, hint }

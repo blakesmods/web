@@ -83,6 +83,10 @@ const { data: page } = await useAsyncData(route.path, () =>
   queryContent(route.path).findOne()
 );
 
+if (!page.value) {
+  throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
+}
+
 const toc = ref(false);
 
 const hasTOC = computed(

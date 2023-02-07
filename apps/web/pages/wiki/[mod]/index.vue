@@ -45,6 +45,10 @@ const route = useRoute();
 
 const mod = useMod(route.params.mod);
 
+if (!mod.value) {
+  throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
+}
+
 const title = mod.value.name + " Wiki";
 const description = `View wiki articles about ${mod.value.name}.`;
 
@@ -82,6 +86,10 @@ const { data } = await useAsyncData("wiki-" + route.params.mod, () =>
     .sort({ sort: 1, $numeric: true })
     .find()
 );
+
+if (data.value.length === 0) {
+  throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
+}
 
 const articles = ref(
   Object.keys(categoriesJSON).reduce((a, b) => {
