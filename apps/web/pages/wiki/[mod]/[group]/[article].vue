@@ -95,10 +95,6 @@ definePageMeta({
   layout: "article"
 });
 
-defineProps({
-  documents: Object
-});
-
 const nuxtApp = useNuxtApp();
 
 const route = useRoute();

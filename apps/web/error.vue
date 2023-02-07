@@ -48,5 +48,5 @@ const props = defineProps({
   error: Object
 });
 
-const is404 = computed(() => props.error && props.error.statusCode === "404");
+const is404 = computed(() => props.error && props.error.statusCode === 404);
 </script>

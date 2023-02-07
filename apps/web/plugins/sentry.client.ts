@@ -6,7 +6,7 @@ export default defineNuxtPlugin(nuxtApp => {
   const vueApp = nuxtApp.vueApp;
 
   console.log("Sentry dsn:", config.public.SENTRY_DSN);
-  console.log("Vercel environment:", config.public.VERCEL_ENV);
+  console.log("Environment:", config.public.ENVIRONMENT);
 
   Sentry.init({
     app: vueApp,

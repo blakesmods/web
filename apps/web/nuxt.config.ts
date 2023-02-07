@@ -95,7 +95,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       SENTRY_DSN: process.env.SENTRY_DSN,
-      VERCEL_ENV: process.env.VERCEL_ENV
+      ENVIRONMENT: process.env.NODE_ENV
     }
   },
   build: {
