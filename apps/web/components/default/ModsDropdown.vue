@@ -70,6 +70,7 @@
 </template>
 
 <script setup>
+const route = useRoute();
 const mods = useMods();
 
 const el = ref(null);
@@ -83,6 +84,13 @@ function onResize() {
     left.value = "-275px";
   }
 }
+
+watch(
+  () => route.path,
+  () => {
+    active.value = false;
+  }
+);
 
 onClickOutside(el, () => {
   active.value = false;
