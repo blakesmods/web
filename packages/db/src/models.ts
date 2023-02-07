@@ -1,11 +1,5 @@
 import { ObjectId } from "mongodb";
 
-export interface DownloadStats {
-  _id?: ObjectId;
-  mod_id: string;
-  downloads: Record<any, any>;
-}
-
 export interface Mod {
   _id?: ObjectId;
   mod_id: string;
@@ -39,6 +33,12 @@ export interface ModFile {
   modrinth_id?: string | null;
   modrinth_downloads: number;
   changelog?: string;
+}
+
+export interface ModStats {
+  _id?: ObjectId;
+  mod_id: string;
+  downloads: Record<any, any>;
 }
 
 interface VersionParts {
