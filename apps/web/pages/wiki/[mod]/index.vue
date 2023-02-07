@@ -46,7 +46,7 @@ const route = useRoute();
 const mod = useMod(route.params.mod);
 
 if (!mod.value) {
-  throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
+  throw createError({ statusCode: 404, message: "Page Not Found" });
 }
 
 const title = mod.value.name + " Wiki";
@@ -88,7 +88,7 @@ const { data } = await useAsyncData("wiki-" + route.params.mod, () =>
 );
 
 if (data.value.length === 0) {
-  throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
+  throw createError({ statusCode: 404, message: "Page Not Found" });
 }
 
 const articles = ref(
