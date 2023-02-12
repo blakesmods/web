@@ -31,3 +31,17 @@ jobs:
           tags: |
             ghcr.io/blakesmods/api:latest
             ghcr.io/blakesmods/api:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.INFRASTRUCTURE_PAT }}
+          repository: blakesmods/infrastructure
+          event-type: deploy-api
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
