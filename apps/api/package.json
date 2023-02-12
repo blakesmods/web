@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "start": "ts-node -r dotenv/config src/index.ts",
+    "start": "node -r dotenv/config dist/index.js",
     "dev": "nodemon -r dotenv/config src/index.ts"
   },
   "dependencies": {
