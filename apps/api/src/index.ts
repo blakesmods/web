@@ -32,7 +32,7 @@ const start = async () => {
       return "Blake's Mods API server is running!";
     });
 
-    await server.listen({ port: +port });
+    await server.listen({ host: "0.0.0.0", port: +port });
 
     // @ts-ignore
     server.blipp();
