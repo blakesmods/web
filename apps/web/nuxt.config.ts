@@ -128,5 +128,11 @@ export default defineNuxtConfig({
   },
   sitemap: {
     hostname: "https://blakesmods.com"
+  },
+  googleFonts: {
+    family: {
+      Montserrat: true,
+      Rowdie: true
+    }
   }
 });
