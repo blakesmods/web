@@ -1,11 +1,13 @@
 <template>
   <div
-    class="page overflow-x-clip"
+    class="page overflow-x-clip relative"
     :style="{
-      '--primary-color': mod.primary_color + '20',
-      '--secondary-color': mod.secondary_color + '20'
+      '--primary-color': mod.primary_color,
+      '--secondary-color': mod.secondary_color
     }"
   >
+    <div class="background"></div>
+    <BackgroundAccent />
     <Header
       :background="`/img/svg/${mod.url.slice(1)}-gradient.svg`"
       :download-link="mod.url + '/download'"
@@ -24,27 +26,19 @@
       </a>
     </Header>
 
-    <div class="background h-full min-h-screen border-b border-surface-border">
+    <div class="h-full z-10 relative">
       <div
-        class="container flex flex-col w-full h-full min-h-screen pt-20 pb-8 pr-4 justify-between"
+        class="container flex flex-col w-full h-full pt-40 pb-12 pr-4 justify-between"
       >
         <div class="flex h-full my-auto items-center">
           <Hero :mod="mod" />
-        </div>
-        <div
-          class="hidden md:flex h-[75px] -mb-8 justify-center items-center gap-4 font-bold text-2xl"
-          style="animation: 5s item-hover infinite 0s"
-        >
-          <i class="pi pi-chevron-down" style="font-size: 24px"></i>
-          Scroll down for more information
-          <i class="pi pi-chevron-down" style="font-size: 24px"></i>
         </div>
       </div>
     </div>
 
     <slot />
 
-    <DownloadCTA class="border-t border-surface-border" :mod="mod" />
+    <DownloadCTA :mod="mod" />
     <Footer />
   </div>
 </template>
@@ -54,6 +48,7 @@ import Footer from "~/components/default/Footer.vue";
 import DownloadCTA from "~/components/mods/DownloadCTA.vue";
 import Hero from "~/components/mods/Hero.vue";
 import Header from "~/components/mods/Header.vue";
+import BackgroundAccent from "~/components/BackgroundAccent.vue";
 
 const props = defineProps({
   mod: Object
@@ -66,10 +61,16 @@ useHead({
 
 <style lang="scss" scoped>
 .background {
-  background-image: linear-gradient(
-    135deg,
-    var(--primary-color),
-    var(--secondary-color)
-  );
+  position: absolute;
+  width: 100vw;
+  max-width: 1440px;
+  height: 1272px;
+  left: 0;
+  right: 0;
+  top: -550px;
+  background: linear-gradient(270deg, #a4003c -12.17%, #c200ed 114.78%);
+  mix-blend-mode: normal;
+  opacity: 0.5;
+  filter: blur(250px);
 }
 </style>

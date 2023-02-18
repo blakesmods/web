@@ -1,9 +1,9 @@
 html {
-  --surface-color-ground: 18 18 18;
+  --surface-color-ground: 40 41 62;
   --surface-color-section: 18 18 18;
-  --surface-color-card: 30 30 30;
+  --surface-color-card: 40 41 62;
   --surface-color-overlay: 30 30 30;
-  --surface-color-border: 56 56 56;
+  --surface-color-border: 62 62 79;
   --surface-color-hover: 13 13 13;
   --surface-color-text: 255 255 255;
 
@@ -18,19 +18,12 @@ html {
   }
 }
 
-@font-face {
-  font-family: "Rubik";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  //noinspection CssUnknownTarget
-  src: url("~/assets/font/Rubik-Regular.ttf") format("truetype");
-}
-
 body {
   height: 100%;
-  font-family: Rubik, "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+  font-family: Montserrat, "Source Sans Pro", -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 100;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -60,23 +53,27 @@ h2,
 h3,
 h4,
 h5 {
-  font-weight: bold;
+  font-family: "Rowdies", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 700;
 }
 
 h1 {
-  font-size: theme("fontSize.3xl");
+  font-size: 56px;
+  line-height: 120%;
 }
 
 h2 {
-  font-size: theme("fontSize.2xl");
+  font-size: 32px;
 }
 
 h3 {
-  font-size: theme("fontSize.xl");
+  font-size: 24px;
 }
 
 h4 {
-  font-size: theme("fontSize.lg");
+  font-size: 20px;
 }
 
 .pixelated {
@@ -84,20 +81,61 @@ h4 {
 }
 
 .p-component {
-  font-family: Rubik, "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+  font-family: Montserrat, "Source Sans Pro", -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+
+  &.p-button {
+    font-family: Rowdies, "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    border-radius: 8px !important;
+    padding: 0.6rem 1rem;
+    font-weight: bold;
+
+    &.p-button-mod {
+      background: var(--primary-color) !important;
+      border-color: var(--primary-color) !important;
+
+      @extend .grower;
+    }
+
+    &.p-button-mod-outlined {
+      background: transparent !important;
+      border-color: var(--primary-color) !important;
+      border-width: 2px;
+
+      @extend .grower;
+    }
+  }
 }
 
 .p-card {
-  background: rgb(var(--surface-color-card)) !important;
+  background-image: linear-gradient(
+    270deg,
+    var(--secondary-color) -12.17%,
+    var(--primary-color) 114.78%
+  ) !important;
   color: rgb(var(--surface-color-text)) !important;
+  border-radius: 8px !important;
+  padding: 2px;
 
-  .p-card-content {
-    padding: 0 !important;
+  &.gradient .p-card-body {
+    background: rgb(var(--surface-color-card) / 0.9);
   }
 
-  &.p-card-glass {
-    background: rgba(black, 0.25);
+  .p-card-body {
+    width: 100%;
+    height: 100%;
+    background: rgb(var(--surface-color-card));
+    border-radius: 8px;
+    position: relative;
+
+    .p-card-content {
+      padding: 0 !important;
+    }
+
+    &.p-card-glass {
+      background: rgba(black, 0.25);
+    }
   }
 }
 
@@ -183,7 +221,6 @@ h4 {
 .grower {
   &:hover {
     z-index: 10;
-    transition-duration: 300ms;
     transform: scale(1.05);
   }
 

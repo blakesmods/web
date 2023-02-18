@@ -1,25 +1,12 @@
 <template>
   <footer class="block bg-surface-ground shadow-md shadow-surface-900">
-    <div class="flex py-8 border-y border-surface-border">
+    <div class="flex pt-20 pb-8">
       <div
-        class="container grid grid-cols-1 sm:grid-cols-3 w-full mx-auto px-4 gap-4 space-y-4 sm:space-y-0"
+        class="container grid grid-cols-1 md:grid-cols-3 lg:flex justify-between w-full flex-wrap mx-auto px-4 gap-8 space-y-4 sm:space-y-0"
       >
-        <div class="flex flex-col sm:col-span-3 lg:col-span-1 space-y-2">
+        <div class="flex flex-col col-span-full space-y-2">
           <NuxtLink to="/" class="mb-4">
-            <ClientOnly>
-              <img
-                v-if="theme === 'light'"
-                class="w-[245px]"
-                src="/img/logo_lightmode.png"
-                alt="blakes mods logo"
-              />
-              <img
-                v-else
-                class="w-[245px]"
-                src="/img/logo_darkmode.png"
-                alt="blakes mods logo"
-              />
-            </ClientOnly>
+            <Logo />
           </NuxtLink>
           <div class="flex flex-col space-y-1">
             <a
@@ -52,7 +39,7 @@
           </div>
         </div>
         <div class="flex flex-col space-y-1">
-          <h3 class="mb-1">{{ columns[0].title }}</h3>
+          <div class="font-semibold text-2xl mb-1">{{ columns[0].title }}</div>
           <NuxtLink
             v-for="(link, index) in columns[0].links"
             :to="link.url"
@@ -62,9 +49,19 @@
           </NuxtLink>
         </div>
         <div class="flex flex-col space-y-1">
-          <h3 class="mb-1">{{ columns[1].title }}</h3>
+          <div class="font-semibold text-2xl mb-1">{{ columns[1].title }}</div>
           <NuxtLink
             v-for="(link, index) in columns[1].links"
+            :to="link.url"
+            :key="index"
+          >
+            {{ link.name }}
+          </NuxtLink>
+        </div>
+        <div class="flex flex-col space-y-1">
+          <div class="font-semibold text-2xl mb-1">{{ columns[2].title }}</div>
+          <NuxtLink
+            v-for="(link, index) in columns[2].links"
             :to="link.url"
             :key="index"
           >
@@ -74,20 +71,19 @@
       </div>
     </div>
     <div
-      class="flex flex-col md:flex-row container min-h-16 justify-between items-center mx-auto p-4 gap-2"
+      class="flex md:justify-center flex-col md:flex-row container min-h-16 justify-between items-center mx-auto p-4 gap-2 border-t border-t-surface-border"
     >
-      <div class="flex items-center gap-4">
-        <span>&copy; {{ new Date().getFullYear() }} BlakeBr0</span>
-        <ClientOnly>
+      <div class="flex justify-center items-center gap-4">
+        <span>
+          &copy; {{ new Date().getFullYear() }} BlakeBr0 -
+          <a href="https://github.com/blakesmods/web/blob/main/LICENSE">
+            MIT License
+          </a>
+        </span>
+
+        <ClientOnly v-if="false">
           <ThemeToggle class="mt-auto" />
         </ClientOnly>
-      </div>
-      <div class="flex justify-center text-sm sm:text-base">
-        <NuxtLink to="/terms-of-service">Terms of Service</NuxtLink>
-        <span class="mx-2 font-normal text-surface-border">-</span>
-        <NuxtLink to="/privacy-policy">Privacy Policy</NuxtLink>
-        <span class="mx-2 font-normal text-surface-border">-</span>
-        <NuxtLink to="/cookie-policy">Cookie Policy</NuxtLink>
       </div>
     </div>
   </footer>
@@ -120,6 +116,23 @@ const columns = ref([
       {
         name: "Wiki",
         url: "/wiki"
+      }
+    ]
+  },
+  {
+    title: "Legal",
+    links: [
+      {
+        name: "Terms of Service",
+        url: "/terms-of-service"
+      },
+      {
+        name: "Privacy Policy",
+        url: "/privacy-policy"
+      },
+      {
+        name: "Cookie Policy",
+        url: "/cookie-policy"
       }
     ]
   }

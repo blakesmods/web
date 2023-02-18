@@ -88,6 +88,7 @@ export default defineNuxtConfig({
   ],
   modules: [
     "@nuxt/content",
+    "@nuxtjs/google-fonts",
     "@nuxtjs/tailwindcss",
     "@vueuse/nuxt",
     "nuxt-simple-sitemap" // sitemap module must be last
@@ -130,9 +131,9 @@ export default defineNuxtConfig({
     hostname: "https://blakesmods.com"
   },
   googleFonts: {
-    family: {
+    families: {
       Montserrat: true,
-      Rowdie: true
+      Rowdies: true
     }
   }
 });

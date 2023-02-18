@@ -11,9 +11,32 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: "1rem"
+      padding: "1rem",
+      fontFamily: {
+        montserrat: [
+          "Montserrat",
+          "Source Sans Pro",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "sans-serif"
+        ],
+        rowdies: [
+          "Rowdies",
+          "Source Sans Pro",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "sans-serif"
+        ]
+      }
     },
-    extend: {},
     colors: {
       black: colors.black,
       white: colors.white,

@@ -1,12 +1,13 @@
 <template>
   <div ref="el" class="flex relative justify-center">
-    <Button
-      class="p-button-outlined gap-2 !text-surface-text !font-bold !border-surface-border"
+    <a
+      class="flex items-center gap-2"
+      href="javascript:void(0)"
       @click="active = !active"
     >
       Mods
       <i class="pi pi-chevron-down"></i>
-    </Button>
+    </a>
     <transition name="fade">
       <div
         v-if="active"

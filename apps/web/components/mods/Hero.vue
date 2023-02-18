@@ -3,18 +3,19 @@
     <div
       class="flex flex-col xl:flex-row w-full items-center xl:justify-between gap-8"
     >
-      <div class="flex flex-col justify-center items-center xl:items-start">
-        <h1 class="text-center text-[52px]">{{ mod.name }}</h1>
-        <h2 class="text-center text-2xl mb-4">{{ mod.tagline }}</h2>
-        <GithubButton
-          :href="mod.github_link"
-          data-icon="octicon-star"
-          data-size="large"
-          data-show-count="true"
-          aria-label="Star buttons/github-buttons on GitHub"
-        >
-          Star
-        </GithubButton>
+      <div
+        class="flex flex-col justify-center items-center xl:items-start gap-4"
+      >
+        <h1 class="text-center xl:text-left text-[52px] uppercase">
+          {{ mod.name }}
+        </h1>
+        <h2 class="text-center text-2xl">{{ mod.tagline }}</h2>
+        <a href="#features">
+          <Button class="p-button-mod flex gap-4">
+            Learn More
+            <i class="pi pi-arrow-right"></i>
+          </Button>
+        </a>
       </div>
       <div class="right">
         <div
@@ -30,56 +31,33 @@
     </div>
 
     <div
-      class="flex flex-col md:flex-row justify-between w-full p-8 bg-surface-card/40 rounded-lg gap-8"
+      class="flex flex-col md:flex-row justify-between w-full p-[2px] rounded-lg gap-8 shadow"
       :style="{
-        border: `1px solid ${mod.primary_color}`,
-        'box-shadow': `0 0 8px ${mod.primary_color}`
+        'background-image': `linear-gradient(270deg, ${mod.secondary_color} -12.17%, ${mod.primary_color} 114.78%)`
       }"
     >
-      <div class="flex flex-col gap-2 md:gap-4">
-        <h2>Downloads</h2>
-        <div class="flex flex-col sm:flex-row gap-2 md:gap-4">
-          <NuxtLink class="flex items-center gap-2" :to="`${mod.url}/download`">
-            <i class="pi pi-download"></i>
-            Download
-            <div class="line"></div>
-          </NuxtLink>
-          <a
-            class="flex items-center fill-surface-text hover:fill-surface-text/80 gap-2"
-            :href="mod.curseforge_link"
-            target="_blank"
-          >
-            <CurseForgeLogo width="16px" />
-            CurseForge
-            <div class="line"></div>
-          </a>
-          <a
-            class="flex items-center fill-surface-text hover:fill-surface-text/80 gap-2"
-            :href="mod.modrinth_link"
-            target="_blank"
-          >
-            <ModrinthLogo width="16px" />
-            Modrinth
-            <div class="line"></div>
-          </a>
+      <div
+        class="flex flex-wrap justify-around w-full p-10 gap-2 md:gap-4 bg-surface-ground rounded-lg"
+      >
+        <div class="flex flex-col items-center">
+          <h2 :style="{ color: mod.primary_color }">{{ downloads }}+</h2>
+          <span class="text-xl">Downloads</span>
         </div>
-      </div>
-      <div class="flex flex-col gap-2 md:gap-4">
-        <h2>GitHub</h2>
-        <div class="flex flex-col sm:flex-row gap-2 md:gap-4">
-          <a class="flex items-center gap-2" :href="mod.github_link">
-            <i class="pi pi-github"></i>
-            View Source
-            <div class="line"></div>
-          </a>
-          <a
-            class="flex items-center gap-2"
-            :href="`${mod.github_link}/issues`"
-          >
-            <i class="pi pi-exclamation-triangle"></i>
-            Report Issues
-            <div class="line"></div>
-          </a>
+        <div class="flex flex-col items-center">
+          <h2 :style="{ color: mod.primary_color }">10k+</h2>
+          <span class="text-xl">Modpacks</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <h2 v-if="!pending" :style="{ color: mod.primary_color }">
+            {{ data.data.latest_release.mod_version }}
+          </h2>
+          <span class="text-xl">Latest Release</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <h2 v-if="!pending" :style="{ color: mod.primary_color }">
+            {{ data.data.latest_release.mc_version }}
+          </h2>
+          <span class="text-xl">Minecraft Version</span>
         </div>
       </div>
     </div>
@@ -87,19 +65,27 @@
 </template>
 
 <script setup>
-import GithubButton from "vue-github-button";
+import numeral from "numeral";
 
-import CurseForgeLogo from "~/components/CurseForgeLogo.vue";
-import ModrinthLogo from "~/components/ModrinthLogo.vue";
-
-defineProps({
+const props = defineProps({
   mod: Object
 });
+
+const { data, pending } = await useAPI(`/v2/mods/${props.mod.mod_id}`);
+
+const downloads = computed(() =>
+  data.value.data
+    ? numeral()
+        .add(data.value.data.curseforge_downloads)
+        .add(data.value.data.modrinth_downloads)
+        .add(data.value.data.site_downloads)
+        .format("0a")
+    : 0
+);
 </script>
 
 <style lang="scss" scoped>
 .hero {
-  display: flex;
   width: 100%;
   min-height: 500px;
   flex-direction: column;
