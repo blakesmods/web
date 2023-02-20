@@ -1,11 +1,7 @@
 <template>
   <div class="grid grid-cols-9 col-span-12 lg:col-span-9">
-    <div
-      class="col-span-12 lg:col-span-9 xl:col-span-7 w-full h-full lg:border-l xl:border-r border-surface-border"
-    >
-      <div
-        class="flex sticky top-16 py-4 lg:pl-4 xl:pr-4 z-10 justify-between items-center bg-surface-ground border-b border-surface-border"
-      >
+    <div class="col-span-12 lg:col-span-9 xl:col-span-7 w-full h-full">
+      <div class="flex py-8 lg:ml-4 xl:mr-4 z-10 justify-between items-center">
         <div class="flex items-center gap-4">
           <Button
             class="p-button-text !inline-flex lg:!hidden"
@@ -46,7 +42,7 @@
     <div
       class="hidden xl:block col-span-2 min-w-[220px] max-h-96 xl:max-h-min py-4 pl-4 z-10 xl:z-0 rounded overflow-y-auto xl:overflow-y-visible"
     >
-      <div class="sticky top-20 w-full space-y-4">
+      <div class="sticky top-24 w-full space-y-4">
         <Card v-if="hasTOC">
           <template #content>
             <TOC :page="page" />

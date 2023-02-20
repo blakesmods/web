@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h2 class="mb-4 pb-4 text-center border-b border-surface-border">
+    <h3 class="mb-4 pb-4 text-center border-b border-surface-border">
       On This Page
-    </h2>
+    </h3>
     <a
       v-for="item in links"
       class="flex w-full mb-1 text-sm"

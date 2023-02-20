@@ -8,9 +8,11 @@ export interface Mod {
   curseforge_id: number;
   curseforge_slug: string;
   curseforge_downloads: number;
+  curseforge_relations: number;
   modrinth_id: string;
   modrinth_slug: string;
   modrinth_downloads: number;
+  modrinth_relations: number;
 }
 
 export interface ModFile {

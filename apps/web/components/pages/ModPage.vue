@@ -6,8 +6,8 @@
       '--secondary-color': mod.secondary_color
     }"
   >
-    <div class="background"></div>
-    <BackgroundAccent />
+    <GradientBackground />
+
     <Header
       :background="`/img/svg/${mod.url.slice(1)}-gradient.svg`"
       :download-link="mod.url + '/download'"
@@ -48,7 +48,7 @@ import Footer from "~/components/default/Footer.vue";
 import DownloadCTA from "~/components/mods/DownloadCTA.vue";
 import Hero from "~/components/mods/Hero.vue";
 import Header from "~/components/mods/Header.vue";
-import BackgroundAccent from "~/components/BackgroundAccent.vue";
+import GradientBackground from "~/components/GradientBackground.vue";
 
 const props = defineProps({
   mod: Object
@@ -58,19 +58,3 @@ useHead({
   title: props.mod.name
 });
 </script>
-
-<style lang="scss" scoped>
-.background {
-  position: absolute;
-  width: 100vw;
-  max-width: 1440px;
-  height: 1272px;
-  left: 0;
-  right: 0;
-  top: -550px;
-  background: linear-gradient(270deg, #a4003c -12.17%, #c200ed 114.78%);
-  mix-blend-mode: normal;
-  opacity: 0.5;
-  filter: blur(250px);
-}
-</style>

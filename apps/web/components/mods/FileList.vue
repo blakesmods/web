@@ -2,11 +2,11 @@
   <div class="files w-full">
     <Message
       v-if="mod !== 'cucumber' && !['1.10', '1.11'].includes(version)"
-      class="!mt-0"
+      class="!mt-0 !mb-8"
       icon="_"
       :closable="false"
     >
-      <div class="flex flex-col xl:flex-row justify-between items-center gap-4">
+      <div class="flex flex-col xl:flex-row justify-between items-center gap-8">
         <div class="flex text-2xl font-bold">
           <span class="flex mr-4 items-center">
             <i
@@ -27,7 +27,7 @@
       </div>
     </Message>
 
-    <Card class="min-h-[700px]">
+    <Card class="gradient">
       <template #content>
         <DataTable
           data-key="_id"
@@ -75,6 +75,7 @@
                   {{ formatDownloadCount(data, "0[.]0a") }}
                 </div>
                 <Button
+                  class="p-button-mod"
                   icon="pi pi-download"
                   :disabled="downloadPending"
                   :loading="downloadPending && data._id === downloadPending"

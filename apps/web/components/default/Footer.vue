@@ -1,5 +1,7 @@
 <template>
-  <footer class="block bg-surface-ground shadow-md shadow-surface-900">
+  <footer
+    class="block bg-surface-ground shadow-md shadow-surface-900 border-t border-surface-border"
+  >
     <div class="flex pt-20 pb-8">
       <div
         class="container grid grid-cols-1 md:grid-cols-3 lg:flex justify-between w-full flex-wrap mx-auto px-4 gap-8 space-y-4 sm:space-y-0"

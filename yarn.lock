@@ -4187,11 +4187,6 @@ git-url-parse@^13.1.0:
   dependencies:
     git-up "^7.0.0"
 
-github-buttons@^2.22.0:
-  version "2.22.3"
-  resolved "https://registry.yarnpkg.com/github-buttons/-/github-buttons-2.22.3.tgz#ad0766618dadfbb46c12c5dca1f8c14c1e7d90f3"
-  integrity sha512-09/pJ7X6D1whEeFz+fKSjOBEEDnY/nxbPN7zduxAU5zGwo4RkXjL86AiOVHgIYDothbHAS43eaVk76a8Lp4YYw==
-
 github-slugger@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/github-slugger/-/github-slugger-2.0.0.tgz#52cf2f9279a21eb6c59dd385b410f0c0adda8f1a"
@@ -7299,9 +7294,9 @@ sass-loader@10:
     semver "^7.3.2"
 
 sass@^1.32.8:
-  version "1.57.1"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.57.1.tgz#dfafd46eb3ab94817145e8825208ecf7281119b5"
-  integrity sha512-O2+LwLS79op7GI0xZ8fqzF7X2m/m8WFfI02dHOdsK5R2ECeS5F62zrwg/relM1rjSLy7Vd/DiMNIvPrQGsA0jw==
+  version "1.58.3"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.58.3.tgz#2348cc052061ba4f00243a208b09c40e031f270d"
+  integrity sha512-Q7RaEtYf6BflYrQ+buPudKR26/lH+10EmO9bBqbmPh/KeLqv8bjpTNqxe71ocONqXq+jYiCbpPUmQMS+JJPk4A==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
     immutable "^4.0.0"
@@ -8412,13 +8407,6 @@ vue-devtools-stub@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/vue-devtools-stub/-/vue-devtools-stub-0.1.0.tgz#a65b9485edecd4273cedcb8102c739b83add2c81"
   integrity sha512-RutnB7X8c5hjq39NceArgXg28WZtZpGc3+J16ljMiYnFhKvd8hITxSWQSQ5bvldxMDU6gG5mkxl1MTQLXckVSQ==
-
-vue-github-button@3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/vue-github-button/-/vue-github-button-3.1.0.tgz#a95751c43db68cb3ba790af1f63df7e3a2be6dae"
-  integrity sha512-S69NFalucetUW4AjMkLlHY/fgTWu6LEGEtehMewXRNLnjODhDvJj4lwt0u0BSPXLTDB+PLk1tWlwx3pw+ItLgQ==
-  dependencies:
-    github-buttons "^2.22.0"
 
 vue-router@^4.1.6:
   version "4.1.6"

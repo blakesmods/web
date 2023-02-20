@@ -1,5 +1,13 @@
 <template>
-  <div class="flex flex-col pt-24">
+  <div
+    class="flex flex-col pt-24"
+    :style="{
+      '--primary-color': modInfo.primary_color,
+      '--secondary-color': modInfo.secondary_color
+    }"
+  >
+    <GradientBackground />
+
     <Header filled download-link="#">
       <NuxtLink v-if="modInfo.has_docs" :to="`/docs/${modInfo.mod_id}`">
         Docs
@@ -26,21 +34,20 @@
         Modrinth
       </a>
     </Header>
-    <div class="container mx-auto px-4">
+
+    <div class="container relative mx-auto px-4 z-20">
       <Ad ad-slot="3524901792" />
-      <h1 class="mt-8 mb-8 text-4xl text-center">
-        Download {{ mod.mod_name }}
-      </h1>
+      <h1 class="mt-8 mb-8 text-center">Download {{ mod.mod_name }}</h1>
     </div>
     <div
-      class="container flex flex-col lg:flex-row w-full m-auto px-4 pb-8 gap-4"
+      class="container relative flex flex-col lg:flex-row w-full m-auto px-4 pb-8 gap-8 z-20"
     >
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-8">
         <VersionSelector :versions="mod.versions" v-model="version" />
         <Ad ad-slot="2977397419" />
         <ModInformation :mod="mod" />
       </div>
-      <div class="flex flex-col w-full gap-4">
+      <div class="flex flex-col w-full gap-8">
         <FileList :mod="mod.mod_id" :version="version" />
         <Ad ad-slot="5974260724" />
       </div>
@@ -56,6 +63,7 @@ import Header from "~/components/mods/Header.vue";
 import VersionSelector from "~/components/mods/VersionSelector.vue";
 import FileList from "~/components/mods/FileList.vue";
 import ModInformation from "~/components/mods/ModInformation.vue";
+import GradientBackground from "~/components/GradientBackground.vue";
 
 const props = defineProps({
   modId: String

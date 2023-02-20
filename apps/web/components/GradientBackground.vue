@@ -1,4 +1,12 @@
 <template>
+  <div
+    class="absolute w-[100vw] max-w-[1440p] h-[1272px] left-0 right-0 top-[-550px] opacity-50"
+    :style="{
+      background: `linear-gradient(270deg, var(--secondary-color) -12.17%, var(--primary-color) 114.78%)`,
+      filter: 'blur(250px)',
+      'mix-blend-mode': 'normal'
+    }"
+  ></div>
   <svg
     class="absolute container inset-0"
     width="1440"

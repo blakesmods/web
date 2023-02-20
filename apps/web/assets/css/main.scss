@@ -1,10 +1,10 @@
 html {
   --surface-color-ground: 40 41 62;
-  --surface-color-section: 18 18 18;
+  --surface-color-section: 53 54 82;
   --surface-color-card: 40 41 62;
   --surface-color-overlay: 30 30 30;
-  --surface-color-border: 62 62 79;
-  --surface-color-hover: 13 13 13;
+  --surface-color-border: 75 75 94;
+  --surface-color-hover: 31 31 46;
   --surface-color-text: 255 255 255;
 
   &.light {
@@ -142,8 +142,8 @@ h4 {
 .p-datatable {
   .p-datatable-thead > tr > th {
     padding: 0 0 1rem 0 !important;
-    background: theme("colors.surface.card") !important;
-    border-color: theme("colors.surface.border") !important;
+    background: transparent !important;
+    border-color: transparent !important;
     color: theme("colors.surface.text") !important;
 
     &.right {
@@ -154,7 +154,7 @@ h4 {
   }
 
   .p-datatable-tbody > tr {
-    background: theme("colors.surface.card") !important;
+    background: transparent !important;
     color: theme("colors.surface.text") !important;
 
     & > td {
@@ -164,7 +164,7 @@ h4 {
   }
 
   .p-paginator {
-    background: theme("colors.surface.card");
+    background: transparent;
     border: none;
     border-bottom: 1px solid theme("colors.surface.border");
 
@@ -218,7 +218,19 @@ h4 {
   }
 }
 
+.p-tooltip {
+  .p-tooltip-text {
+    background: theme("colors.surface.hover") !important;
+  }
+
+  .p-tooltip-arrow {
+    border-top-color: theme("colors.surface.hover") !important;
+  }
+}
+
 .grower {
+  transition-duration: 300ms;
+
   &:hover {
     z-index: 10;
     transform: scale(1.05);

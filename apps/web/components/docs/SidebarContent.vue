@@ -1,37 +1,35 @@
 <template>
-  <div>
-    <h2 class="mb-4 pb-4 text-center border-b border-surface-border">
-      <NuxtLink class="font-bold" to="/docs">Documentation</NuxtLink>
-    </h2>
-    <div v-for="category in categories" class="mb-2 last:mb-0">
-      <div
-        class="flex justify-between items-center -mx-2 px-2 py-1 cursor-pointer hover:bg-surface-hover rounded"
-        :class="{ '!bg-surface-ground': isCurrentCategory(category.name) }"
-        @click="onClickCategory(category.name)"
+  <h3 class="mb-4 pb-4 text-center border-b border-surface-border">
+    <NuxtLink class="font-bold" to="/docs">Documentation</NuxtLink>
+  </h3>
+  <div v-for="category in categories" class="mb-2 last:mb-0">
+    <div
+      class="flex justify-between items-center -mx-2 px-2 py-1 cursor-pointer hover:bg-surface-hover rounded"
+      :class="{ '!bg-surface-ground': isCurrentCategory(category.name) }"
+      @click="onClickCategory(category.name)"
+    >
+      <h4 class="font-bold">{{ category.name }}</h4>
+      <i
+        :class="[
+          'pi',
+          category.active ? 'pi-chevron-down' : 'pi-chevron-right'
+        ]"
+      ></i>
+    </div>
+    <div
+      class="flex flex-col overflow-hidden"
+      :class="[category.active ? 'h-full' : 'h-0']"
+    >
+      <NuxtLink
+        v-for="document in documents[category.name].filter(d => !d.hidden)"
+        class="link relative mb-1 pl-2 text-sm first:mt-2 border-l border-surface-border"
+        :class="{
+          'text-surface-text/80 border-primary': document._path === route.path
+        }"
+        :to="document._path"
       >
-        <h4 class="font-bold">{{ category.name }}</h4>
-        <i
-          :class="[
-            'pi',
-            category.active ? 'pi-chevron-down' : 'pi-chevron-right'
-          ]"
-        ></i>
-      </div>
-      <div
-        class="flex flex-col overflow-hidden"
-        :class="[category.active ? 'h-full' : 'h-0']"
-      >
-        <NuxtLink
-          v-for="document in documents[category.name].filter(d => !d.hidden)"
-          class="link relative mb-1 pl-2 text-sm first:mt-2 border-l border-surface-border"
-          :class="{
-            'text-surface-text/80 border-primary': document._path === route.path
-          }"
-          :to="document._path"
-        >
-          {{ document.title }}
-        </NuxtLink>
-      </div>
+        {{ document.title }}
+      </NuxtLink>
     </div>
   </div>
 </template>

@@ -1,11 +1,11 @@
 <template>
   <div
     v-if="previous || next"
-    class="flex justify-between items-center border-t border-surface-border"
+    class="flex justify-between items-center mx-4 border-t border-surface-border"
   >
     <NuxtLink
       v-if="previous"
-      class="flex w-full p-4 items-center gap-4"
+      class="flex w-full py-4 items-center gap-4"
       :to="previous._path"
     >
       <i class="pi pi-arrow-left"></i>
@@ -13,7 +13,7 @@
     </NuxtLink>
     <NuxtLink
       v-if="next"
-      class="flex w-full p-4 justify-end items-center gap-4"
+      class="flex w-full py-4 justify-end items-center gap-4"
       :to="next._path"
     >
       {{ next.title }}

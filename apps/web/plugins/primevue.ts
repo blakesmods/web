@@ -7,6 +7,7 @@ import Divider from "primevue/divider";
 import Dropdown from "primevue/dropdown";
 import Message from "primevue/message";
 import Sidebar from "primevue/sidebar";
+import Skeleton from "primevue/skeleton";
 import Toast from "primevue/toast";
 import ToastService from "primevue/toastservice";
 import Tooltip from "primevue/tooltip";
@@ -14,7 +15,7 @@ import Tooltip from "primevue/tooltip";
 export default defineNuxtPlugin(nuxtApp => {
   const app = nuxtApp.vueApp;
 
-  app.use(PrimeVue, { ripple: false });
+  app.use(PrimeVue, { ripple: false } as any);
   app.use(ToastService);
 
   app.component("Button", Button);
@@ -25,6 +26,7 @@ export default defineNuxtPlugin(nuxtApp => {
   app.component("Dropdown", Dropdown);
   app.component("Message", Message);
   app.component("Sidebar", Sidebar);
+  app.component("Skeleton", Skeleton);
   app.component("Toast", Toast);
 
   app.directive("tooltip", Tooltip);

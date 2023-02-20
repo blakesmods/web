@@ -1,6 +1,6 @@
 <template>
   <div class="container my-4 pt-16 space-y-4">
-    <h1>Cookies Policy</h1>
+    <h1 class="text-center my-8">Cookies Policy</h1>
     <p>Last updated: August 08, 2021</p>
     <p>
       This Cookies Policy explains what Cookies are and how We use them. You
@@ -19,14 +19,14 @@
       We do not store sensitive personal information, such as mailing addresses,
       account passwords, etc. in the Cookies We use.
     </p>
-    <h1>Interpretation and Definitions</h1>
-    <h2>Interpretation</h2>
+    <h2>Interpretation and Definitions</h2>
+    <h3>Interpretation</h3>
     <p>
       The words of which the initial letter is capitalized have meanings defined
       under the following conditions. The following definitions shall have the
       same meaning regardless of whether they appear in singular or in plural.
     </p>
-    <h2>Definitions</h2>
+    <h3>Definitions</h3>
     <p>For the purposes of this Cookies Policy:</p>
     <ul>
       <li>
@@ -59,8 +59,8 @@
         using the Website, as applicable.
       </li>
     </ul>
-    <h1>The use of the Cookies</h1>
-    <h2>Type of Cookies We Use</h2>
+    <h2>The use of the Cookies</h2>
+    <h3>Type of Cookies We Use</h3>
     <p>
       Cookies can be &quot;Persistent&quot; or &quot;Session&quot; Cookies.
       Persistent Cookies remain on your personal computer or mobile device when
@@ -138,7 +138,7 @@
         </p>
       </li>
     </ul>
-    <h2>Your Choices Regarding Cookies</h2>
+    <h3>Your Choices Regarding Cookies</h3>
     <p>
       If You prefer to avoid the use of Cookies on the Website, first You must
       disable the use of Cookies in your browser and then delete the Cookies
@@ -208,7 +208,7 @@
       For any other web browser, please visit your web browser's official web
       pages.
     </p>
-    <h2>More Information about Cookies</h2>
+    <h3>More Information about Cookies</h3>
     <p>
       You can learn more about cookies:
       <a href="https://www.privacypolicies.com/blog/cookies/" target="_blank">
@@ -216,7 +216,7 @@
       </a>
       .
     </p>
-    <h2>Contact Us</h2>
+    <h3>Contact Us</h3>
     <p>
       If you have any questions about this Cookies Policy, You can contact us:
     </p>

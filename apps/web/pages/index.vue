@@ -22,7 +22,7 @@
         <h1
           class="flex h-1/4 mx-auto items-center text-[60px] sm:text-[80px] text-center"
         >
-          Blake's Mods
+          <Logo style="transform: scale(2.34)" />
         </h1>
         <div
           class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:h-1/2 items-center"
@@ -112,7 +112,7 @@ function onHoverMod(mod) {
 function onMouseLeaveMod() {
   anime({
     targets: ".tile",
-    backgroundColor: "rgb(56 56 56)",
+    backgroundColor: "rgb(75 75 94)",
     delay: anime.stagger(15, {
       grid: [columns.value, rows.value],
       from: "center"
@@ -139,7 +139,7 @@ onUnmounted(() => {
   &:before {
     @apply absolute inset-[0.5px];
     content: " ";
-    background: rgb(18 18 18);
+    background: theme("colors.surface.hover");
   }
 
   &.right:before {
@@ -152,7 +152,7 @@ onUnmounted(() => {
 }
 
 .mod {
-  @apply h-[140px] md:h-[200px] bg-black rounded-lg transition text-white;
+  @apply h-[140px] md:h-[200px] bg-surface-card rounded-lg transition text-white;
 
   .line {
     transition: width 0.25s ease-in-out;

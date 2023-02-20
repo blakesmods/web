@@ -1,4 +1,10 @@
 <template>
+  <div id="features" class="text-center scroll-mt-32">
+    <span class="text-[24px] font-semibold" style="color: var(--primary-color)">
+      {{ title }}
+    </span>
+    <h2>{{ subtitle }}</h2>
+  </div>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
     <Card v-for="feature in features" class="gradient min-h-[350px]">
       <template #title>
@@ -89,6 +95,8 @@
 
 <script setup>
 defineProps({
+  title: String,
+  subtitle: String,
   features: Array
 });
 </script>

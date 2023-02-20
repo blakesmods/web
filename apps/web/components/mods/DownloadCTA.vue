@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex justify-center"
+    class="flex justify-center border-t border-surface-border"
     :style="{ 'background-color': mod.primary_color + '20' }"
   >
     <div class="container flex flex-col w-full relative py-16 z-10 gap-8">

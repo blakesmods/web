@@ -1,17 +1,11 @@
 <template>
   <ModPage :mod="mod">
     <div class="container relative flex flex-col my-8 gap-8 z-10">
-      <div class="text-center">
-        <span
-          class="text-[24px] font-semibold"
-          :style="{ color: mod.primary_color }"
-        >
-          Key Features
-        </span>
-        <h2>Resource Collection Reimagined</h2>
-      </div>
-
-      <KeyFeatures id="features" class="scroll-mt-60" :features="features" />
+      <KeyFeatures
+        title="Key Features"
+        subtitle="Resource Collection Reimagined"
+        :features="features"
+      />
       <FeatureCarousel />
     </div>
   </ModPage>
