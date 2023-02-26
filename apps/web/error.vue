@@ -1,7 +1,8 @@
 <template>
-  <div class="min-h-screen bg-[url(/img/svg/404.svg)] bg-cover">
+  <ErrorBackground />
+  <div class="relative min-h-screen z-10">
     <Header />
-    <div class="container flex h-[80vh] pt-16 items-center fill-surface-border">
+    <div class="container relative flex h-[80vh] pt-16 items-center z-10">
       <Card class="flex mx-auto text-center">
         <template #title>
           <h1 v-if="is404">Page Not Found</h1>
@@ -18,9 +19,6 @@
               this as soon as possible.
             </p>
             <Divider />
-            <h2 v-if="is404" class="mb-4">
-              Perhaps you were looking for one of these?
-            </h2>
             <div class="flex flex-wrap justify-center gap-4">
               <NuxtLink to="/">
                 <Button>Home</Button>
@@ -43,6 +41,7 @@
 <script setup>
 import Header from "~/components/default/Header.vue";
 import Footer from "~/components/default/Footer.vue";
+import ErrorBackground from "~/components/ErrorBackground.vue";
 
 const props = defineProps({
   error: Object

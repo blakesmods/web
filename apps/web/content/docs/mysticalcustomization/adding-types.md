@@ -16,10 +16,10 @@ Crop types are added via JSON files placed in `/config/mysticalcustomization/typ
 ## The Crop Type File
 This section will go over the values available to use in crop type file. Syntax can be inferred from the example json below.
 
-**Note:** Any field below marked with a yellow badge is required. Any field marked with a green badge requires at least the version specified.
+**Note:** Any field below marked with a purple badge is required. Any field marked with a green badge requires at least the version specified.
 
 ### Textures
-<badge>Required</badge>
+<tag value="Required"></tag>
 
 You must assign a stem texture for this crop type. This location is used for every crop growth stage (0-7), which are differentiated by an `_#` suffix.
 ```json
@@ -34,7 +34,7 @@ You must assign a stem texture for this crop type. This location is used for eve
 - `mysticalagriculture:block/mystical_mob_crop`
 
 ### Crafting Seed
-<badge>Required</badge>
+<tag value="Required"></tag>
 
 You must set an item to use as the crafting seed for all crops of this type.
 ```json

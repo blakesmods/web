@@ -83,8 +83,8 @@
           </a>
         </span>
 
-        <ClientOnly v-if="false">
-          <ThemeToggle class="mt-auto" />
+        <ClientOnly>
+          <ThemeToggle />
         </ClientOnly>
       </div>
     </div>

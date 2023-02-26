@@ -77,7 +77,7 @@ const downloads = computed(() =>
         .add(data.value.data.curseforge_downloads)
         .add(data.value.data.modrinth_downloads)
         .add(data.value.data.site_downloads)
-        .format("0a")
+        .format("0a", Math.floor)
     : 0
 );
 
@@ -86,7 +86,7 @@ const relations = computed(() =>
     ? numeral()
         .add(data.value.data.curseforge_relations)
         .add(data.value.data.modrinth_relations)
-        .format("0a")
+        .format("0a", Math.floor)
     : 0
 );
 </script>

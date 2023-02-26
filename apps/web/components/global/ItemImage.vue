@@ -1,5 +1,6 @@
 <template>
   <img
+    class="pixelated"
     :src="src"
     :alt="alt"
     :width="size"
@@ -22,9 +23,3 @@ const style = computed(() => ({
   height: Number.isNaN(props.size) ? props.size : props.size + "px"
 }));
 </script>
-
-<style lang="scss" scoped>
-img {
-  image-rendering: pixelated;
-}
-</style>

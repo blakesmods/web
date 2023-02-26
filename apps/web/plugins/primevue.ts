@@ -8,6 +8,7 @@ import Dropdown from "primevue/dropdown";
 import Message from "primevue/message";
 import Sidebar from "primevue/sidebar";
 import Skeleton from "primevue/skeleton";
+import Tag from "primevue/tag";
 import Toast from "primevue/toast";
 import ToastService from "primevue/toastservice";
 import Tooltip from "primevue/tooltip";
@@ -27,6 +28,7 @@ export default defineNuxtPlugin(nuxtApp => {
   app.component("Message", Message);
   app.component("Sidebar", Sidebar);
   app.component("Skeleton", Skeleton);
+  app.component("Tag", Tag);
   app.component("Toast", Toast);
 
   app.directive("tooltip", Tooltip);

@@ -14,7 +14,7 @@ Mob soul types are added via JSON files placed in `/config/mysticalcustomization
 ## The Mob Soul Type File
 This section will go over the values available to use in mob soul type file. Syntax can be inferred from the example json below.
 
-**Note:** Any field below marked with a yellow badge is required. Any field marked with a green badge requires at least the version specified.
+**Note:** Any field below marked with a purple badge is required. Any field marked with a green badge requires at least the version specified.
 
 ### Name
 You can manually set a name for this mob soul type. If you plan to use more than one entity you should probably use this.
@@ -26,7 +26,7 @@ You can manually set a name for this mob soul type. If you plan to use more than
 Omitting this field will use the default display name for the provided entity.
 
 ### Souls
-<badge>Required</badge>
+<tag value="Required"></tag>
 
 You must assign this mob soul type a required amount of souls.
 ```json
@@ -36,7 +36,7 @@ You must assign this mob soul type a required amount of souls.
 ```
 
 ### Entities
-<badge>Required</badge>
+<tag value="Required"></tag>
 
 You must assign entities to this mob soul type.
 ```json
@@ -63,7 +63,7 @@ You should set the color of the Soul Jar for this mob soul type. Colors are set 
 ```
 
 ### Enabled
-<badge color="green">2.1.2+</badge>
+<tag value="2.1.2+" severity="success"></tag>
 
 You can disable this mob soul type during the creation process if you really want to I guess.
 ```json

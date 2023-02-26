@@ -15,10 +15,10 @@ This section will go over the values available to use in jetpack file. Syntax ca
 
 **Tip:** Use the stats of the default jetpacks to decide what the values should be for your custom jetpacks, since the values themselves are quite cryptic.
 
-**Note:** Any field below marked with a yellow badge is required. Any field marked with a green badge requires at least the version specified.
+**Note:** Any field below marked with a purple badge is required. Any field marked with a green badge requires at least the version specified.
 
 ### Name
-<badge>Required</badge>
+<tag value="Required"></tag>
 
 The name of the jetpack. **This name must be all lower case and have underscores for spaces.** This will be used for registry names as well as localized names. The name will be formatted automatically for localized names, including spaces and capitalization.
 ```json
@@ -31,7 +31,7 @@ The name of the jetpack. **This name must be all lower case and have underscores
 
 
 ### Disable
-<badge>Required</badge>
+<tag value="Required"></tag>
 
 You can set the disable field to true to disable a jetpack. Alternatively, you could just delete the JSON file.
 ```json
@@ -41,7 +41,7 @@ You can set the disable field to true to disable a jetpack. Alternatively, you c
 ```
 
 ### Tier
-<badge>Required</badge>
+<tag value="Required"></tag>
 
 The crafting tier of the jetpack. Make sure there is at least 1 jetpack per tier, in succession (ex 1, 2, 3 all have at least one jetpack). Tier -1 is creative.
 ```json
@@ -51,7 +51,7 @@ The crafting tier of the jetpack. Make sure there is at least 1 jetpack per tier
 ```
 
 ### Color
-<badge>Required</badge>
+<tag value="Required"></tag>
 
 The color of the jetpack and related items as an integer. This color should be a HEX value.
 ```json
@@ -61,7 +61,7 @@ The color of the jetpack and related items as an integer. This color should be a
 ```
 
 ### Armor Points
-<badge>Required</badge>
+<tag value="Required"></tag>
 
 The amount of armor the jetpack should give when worn.
 ```json
@@ -71,7 +71,7 @@ The amount of armor the jetpack should give when worn.
 ```
 
 ### Enchantability
-<badge>Required</badge>
+<tag value="Required"></tag>
 
 How enchantable the armor should be.
 ```json
@@ -81,7 +81,7 @@ How enchantable the armor should be.
 ```
 
 ### Crafting Material
-<badge>Required</badge>
+<tag value="Required"></tag>
 
 The material used to craft the jetpack and its components. Syntax is `modid:itemid` for items and `tag:modid:tagid` for tag entries.
 ```json
@@ -109,7 +109,7 @@ The item rarity of this jetpack. This is basically just used to change the color
 Omitting this field will default to `0`.
 
 ### Toughness
-<badge color="green">4.2.1+</badge>
+<tag value="4.2.1+" severity="success"></tag>
 
 The amount of armor toughness this jetpack should give when worn.
 ```json
@@ -119,7 +119,7 @@ The amount of armor toughness this jetpack should give when worn.
 ```
 
 ### Knockback Resistance
-<badge color="green">4.2.1+</badge>
+<tag value="4.2.1+" severity="success"></tag>
 
 The amount of knockback resistance this jetpack should give when worn.
 ```json
@@ -129,7 +129,7 @@ The amount of knockback resistance this jetpack should give when worn.
 ```
 
 ### Capacity
-<badge>Required</badge>
+<tag value="Required"></tag>
 
 How much FE (energy) this jetpack can hold.
 ```json
@@ -139,7 +139,7 @@ How much FE (energy) this jetpack can hold.
 ```
 
 ### Usage
-<badge>Required</badge>
+<tag value="Required"></tag>
 
 How much FE this jetpack should use when flying/hovering.
 ```json
@@ -149,7 +149,7 @@ How much FE this jetpack should use when flying/hovering.
 ```
 
 ### Curios
-<badge color="green">5.1.1+</badge>
+<tag value="5.1.1+" severity="success"></tag>
 
 Wether or not this jetpack should be wearable as a Curio. They work as a Curio by default.
 ```json
@@ -159,7 +159,7 @@ Wether or not this jetpack should be wearable as a Curio. They work as a Curio b
 ```
 
 ### Vertical Speed
-<badge>Required</badge>
+<tag value="Required"></tag>
 
 How fast the jetpack should fly upwards.
 ```json
@@ -169,7 +169,7 @@ How fast the jetpack should fly upwards.
 ```
 
 ### Vertical Acceleration
-<badge>Required</badge>
+<tag value="Required"></tag>
 
 How fast the initial takeoff is.
 ```json
@@ -179,7 +179,7 @@ How fast the initial takeoff is.
 ```
 
 ### Sideways Speed
-<badge>Required</badge>
+<tag value="Required"></tag>
 
 How fast the jetpack should make you move forwards (when holding forwards).
 ```json
@@ -189,7 +189,8 @@ How fast the jetpack should make you move forwards (when holding forwards).
 ```
 
 ### Ascending Hover Speed
-<badge>Required</badge> <badge color="green">5.0.0+</badge>
+<tag value="Required"></tag> 
+<tag value="5.0.0+" severity="success"></tag>
 
 How fast the jetpack should ascend when hover mode is on and you're flying.
 ```json
@@ -199,7 +200,7 @@ How fast the jetpack should ascend when hover mode is on and you're flying.
 ```
 
 ### Descending Hover Speed
-<badge>Required</badge>
+<tag value="Required"></tag>
 
 How fast the jetpack should descend when hover mode is on and you're sneaking.
 ```json
@@ -209,7 +210,7 @@ How fast the jetpack should descend when hover mode is on and you're sneaking.
 ```
 
 ### Hover Speed
-<badge>Required</badge>
+<tag value="Required"></tag>
 
 How fast the jetpack should descend when hovering.
 ```json
@@ -219,7 +220,7 @@ How fast the jetpack should descend when hovering.
 ```
 
 ### Sprint Speed Multiplier
-<badge>Required</badge>
+<tag value="Required"></tag>
 
 How much faster the player should fly when sprinting while flying forwards.
 ```json
@@ -229,7 +230,7 @@ How much faster the player should fly when sprinting while flying forwards.
 ```
 
 ### Sprint Speed Vertical Multiplier 
-<badge color="green">4.2.0+</badge>
+<tag value="4.2.0+" severity="success"></tag>
 
 How much faster the player should fly when sprinting while flying upwards.
 ```json
@@ -240,7 +241,7 @@ How much faster the player should fly when sprinting while flying upwards.
 Omitting this field will default to `1.0`.
 
 ### Sprint Fuel Multiplier
-<badge>Required</badge>
+<tag value="Required"></tag>
 
 How much more fuel should the jetpack use while sprinting.
 ```json

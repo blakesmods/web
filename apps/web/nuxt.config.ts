@@ -124,8 +124,7 @@ export default defineNuxtConfig({
         default: "github-light",
         dark: "github-dark"
       }
-    },
-    ignores: ["assets"]
+    }
   },
   sitemap: {
     hostname: "https://blakesmods.com"

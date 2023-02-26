@@ -1,5 +1,6 @@
 <template>
   <div
+    ref="el"
     class="grid w-screen h-screen bg-[rgba(18,18,18,1)] overflow-auto"
     :style="{
       'grid-template-columns': `repeat(${columns}, 1fr)`,
@@ -64,14 +65,16 @@
         <div
           class="flex flex-col justify-end items-center h-1/4 py-4 sm:py-0 gap-1"
         >
-          <div class="flex justify-center text-sm md:text-base">
+          <div
+            class="flex justify-center text-sm md:text-base text-surface-text"
+          >
             <NuxtLink to="/terms-of-service">Terms of Service</NuxtLink>
             <span class="mx-2 font-normal text-surface-text">-</span>
             <NuxtLink to="/privacy-policy">Privacy Policy</NuxtLink>
             <span class="mx-2 font-normal text-surface-text">-</span>
             <NuxtLink to="/cookie-policy">Cookie Policy</NuxtLink>
           </div>
-          <div class="flex justify-center">
+          <div class="flex justify-center text-surface-text">
             <span>&copy; {{ new Date().getFullYear() }} BlakeBr0</span>
           </div>
         </div>
@@ -87,16 +90,13 @@ definePageMeta({
   layout: "blank"
 });
 
-const rows = ref(0);
-const columns = ref(0);
 const mods = useMods();
 
-const tiles = computed(() => rows.value * columns.value);
+const el = ref(null);
+const rows = ref(0);
+const columns = ref(0);
 
-function onResize() {
-  rows.value = Math.floor(document.body.clientHeight / 75);
-  columns.value = Math.floor(document.body.clientWidth / 75);
-}
+const tiles = computed(() => rows.value * columns.value);
 
 function onHoverMod(mod) {
   anime({
@@ -120,14 +120,9 @@ function onMouseLeaveMod() {
   });
 }
 
-onMounted(() => {
-  window.addEventListener("resize", onResize);
-
-  onResize();
-});
-
-onUnmounted(() => {
-  window.removeEventListener("resize", onResize);
+useResizeObserver(el, () => {
+  rows.value = Math.floor(document.body.clientHeight / 75);
+  columns.value = Math.floor(document.body.clientWidth / 75);
 });
 </script>
 
@@ -152,7 +147,7 @@ onUnmounted(() => {
 }
 
 .mod {
-  @apply h-[140px] md:h-[200px] bg-surface-card rounded-lg transition text-white;
+  @apply h-[140px] md:h-[200px] bg-surface-card rounded-lg transition text-surface-text;
 
   .line {
     transition: width 0.25s ease-in-out;

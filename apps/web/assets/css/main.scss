@@ -16,6 +16,9 @@ html {
     --surface-color-hover: 233 236 239;
     --surface-color-text: 73 80 87;
   }
+
+  --primary-color: #ba68c8;
+  --secondary-color: #b052c0;
 }
 
 body {
@@ -31,6 +34,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  background: rgb(var(--surface-color-ground)) !important;
 }
 
 *,
@@ -100,6 +104,7 @@ h4 {
 
     &.p-button-mod-outlined {
       background: transparent !important;
+      color: rgb(var(--surface-color-text)) !important;
       border-color: var(--primary-color) !important;
       border-width: 2px;
 

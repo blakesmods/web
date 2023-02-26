@@ -1,19 +1,15 @@
 <template>
   <NuxtLink class="hidden md:block" to="/">
-    <Logo />
+    <Logo :color="color" />
   </NuxtLink>
 
   <NuxtLink class="block md:hidden !ml-0" to="/">
-    <Logo small />
+    <Logo small :color="color" />
   </NuxtLink>
 </template>
 
 <script setup>
 const props = defineProps({
-  darkOnly: Boolean
+  color: String
 });
-
-const theme = useColorMode();
-
-const isDark = computed(() => theme.value === "dark" || props.darkOnly);
 </script>
