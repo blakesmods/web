@@ -88,6 +88,7 @@ export default defineNuxtConfig({
   ],
   modules: [
     "@nuxt/content",
+    "@nuxtjs/google-adsense",
     "@nuxtjs/google-fonts",
     "@nuxtjs/tailwindcss",
     "@vueuse/nuxt",
@@ -128,6 +129,9 @@ export default defineNuxtConfig({
   },
   sitemap: {
     hostname: "https://blakesmods.com"
+  },
+  "google-adsense": {
+    id: "ca-pub-9433168950133481"
   },
   googleFonts: {
     families: {

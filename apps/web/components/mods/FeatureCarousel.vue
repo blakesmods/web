@@ -798,62 +798,16 @@
           class="text-[24px] font-semibold"
           style="color: var(--primary-color)"
         >
-          Key Features
+          {{ title }}
         </span>
-        <h2>Resource Collection Reimagined</h2>
-        <p>
-          This is some text This is some text This is some text This is some
-          text This is some text This is some text This is some text This is
-          some text
-        </p>
+        <h2>{{ subtitle }}</h2>
+        <p class="my-2">{{ description }}</p>
       </div>
-      <Card>
+      <Card v-for="feature in features">
         <template #title>
-          <span class="ml-20">Test</span>
-        </template>
-        <template #content>
-          <div class="absolute inset-y-0 flex items-center">
-            <svg
-              width="57"
-              height="57"
-              viewBox="0 0 57 57"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="57" height="57" rx="8" fill="var(--primary-color)" />
-            </svg>
-          </div>
-          <div class="ml-20">
-            Test Test Test Test Test Test Test Test Test Test Test Test Test
-            Test Test Test Test Test Test Test Test Test Test Test Test Test
-          </div>
-        </template>
-      </Card>
-      <Card>
-        <template #title>
-          <span class="ml-20">Test</span>
-        </template>
-        <template #content>
-          <div class="absolute inset-y-0 flex items-center">
-            <svg
-              width="57"
-              height="57"
-              viewBox="0 0 57 57"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="57" height="57" rx="8" fill="var(--primary-color)" />
-            </svg>
-          </div>
-          <div class="ml-20">
-            Test Test Test Test Test Test Test Test Test Test Test Test Test
-            Test Test Test Test Test Test Test Test Test Test Test Test Test
-          </div>
-        </template>
-      </Card>
-      <Card>
-        <template #title>
-          <span class="ml-20">Test</span>
+          <span class="ml-20">
+            {{ feature.title }}
+          </span>
         </template>
         <template #content>
           <div class="absolute inset-y-0 flex items-center">
@@ -871,9 +825,10 @@
               />
             </svg>
           </div>
-          <div class="ml-20">
-            Test Test Test Test Test Test Test Test Test Test Test Test Test
-            Test Test Test Test Test Test Test Test Test Test Test Test Test
+          <div class="ml-20 space-y-2">
+            <p v-for="line in feature.description">
+              {{ line }}
+            </p>
           </div>
         </template>
       </Card>
@@ -883,6 +838,9 @@
 
 <script setup>
 defineProps({
+  title: String,
+  subtitle: String,
+  description: String,
   features: Array
 });
 </script>

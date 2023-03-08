@@ -24,7 +24,7 @@
         v-for="document in documents[category.name].filter(d => !d.hidden)"
         class="link relative mb-1 pl-2 text-sm first:mt-2 border-l border-surface-border"
         :class="{
-          'text-surface-text/80 border-primary': document._path === route.path
+          'text-surface-text/80 !border-primary': document._path === route.path
         }"
         :to="document._path"
       >

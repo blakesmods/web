@@ -1,37 +1,11 @@
 <template>
   <ModPage :mod="mod">
-    <div class="container flex flex-col my-8 gap-8">
-      <h1 class="text-center">Cucumber flavor text!</h1>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <Card>
-          <template #title>What &amp; Why</template>
-          <template #content>
-            <div class="flex flex-col gap-4">
-              <p>
-                Cucumber Library is a required dependency for all of my mods.
-                Cucumber contains shared code and functionality that is used by
-                all of the mods listed below.
-              </p>
-            </div>
-          </template>
-        </Card>
-        <Card>
-          <template #title>Tag Tooltips</template>
-          <template #content>
-            <div class="flex flex-col gap-4">
-              <p>
-                Cucumber adds advanced tooltips to all blocks and items that
-                list all of the tags that block or item belongs to.
-              </p>
-              <img
-                class="mx-auto w-[350px]"
-                src="/img/landing/cucumber-tag_tooltip.png"
-              />
-            </div>
-          </template>
-        </Card>
-      </div>
+    <div class="container relative flex flex-col my-8 gap-8 z-10">
+      <KeyFeatures
+        title="Key Features"
+        subtitle="Cucumber Flavored"
+        :features="features"
+      />
 
       <h1 class="text-center">Check out the actual mods!</h1>
 
@@ -74,6 +48,7 @@
 
 <script setup>
 import ModPage from "~/components/pages/ModPage.vue";
+import KeyFeatures from "~/components/mods/KeyFeatures.vue";
 
 definePageMeta({
   layout: "mods"
@@ -81,4 +56,19 @@ definePageMeta({
 
 const mod = useMod("cucumber");
 const mods = useModsExcept(["cucumber"]);
+
+const features = ref([
+  {
+    title: "What & Why",
+    description: [
+      "Cucumber Library is a required dependency for all of my mods. Cucumber contains shared code and functionality that is used by all of the mods listed below."
+    ]
+  },
+  {
+    title: "Tag Tooltips",
+    description: [
+      "Cucumber adds advanced tooltips to all blocks and items that list all of the tags that block or item belongs to."
+    ]
+  }
+]);
 </script>

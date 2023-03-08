@@ -1,11 +1,11 @@
 <template>
   <header
-    class="fixed w-full h-16 top-0 z-40 bg-surface-ground border-b border-b-surface-border"
+    class="fixed w-full h-[73px] top-0 z-40 shadow bg-surface-ground border-b border-b-surface-border"
   >
-    <div class="flex container h-16 m-auto px-4 justify-between items-center">
-      <div class="flex items-center leading-4">
+    <div class="container flex h-full m-auto px-4 justify-between items-center">
+      <div class="flex items-center gap-8">
         <ReactiveLogo />
-        <ModsDropdown class="ml-6 mr-4" />
+        <ModsDropdown />
       </div>
 
       <div class="flex">

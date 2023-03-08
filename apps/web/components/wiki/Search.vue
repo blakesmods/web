@@ -1,24 +1,27 @@
 <template>
-  <div class="flex flex md:w-[288px] relative">
+  <div class="flex flex lg:w-[288px] relative">
     <div
-      class="flex justify-center items-center absolute -top-1 md:top-0 right-0 w-8 h-8 z-10 bg-surface-card border border-surface-border cursor-pointer md:pointer-events-none"
+      class="lg:hidden flex justify-center items-center absolute -top-1 right-0 w-8 h-8 z-10 bg-surface-card border border-surface-border cursor-pointer lg:pointer-events-none rounded-lg"
       @click="show = !show"
     >
       <i class="pi pi-search"></i>
     </div>
     <div
-      class="absolute md:static md:flex flex-1 top-12 right-0 w-[300px] p-4 md:p-0 bg-surface-hover md:bg-none border border-surface-border md:border-none rounded"
+      class="absolute lg:static lg:flex flex-1 top-12 right-0 w-[300px] p-4 lg:p-0 bg-surface-hover lg:bg-none border border-surface-border lg:border-none rounded"
       :class="{ hidden: !show }"
     >
       <div
         v-if="!search"
-        class="hidden md:block flex justify-center items-center absolute top-[5px] px-1.5 right-9 z-10 text-sm border border-surface-border rounded pointer-events-none opacity-50"
+        class="hidden lg:block flex justify-center items-center absolute top-[5px] px-1.5 right-2 z-10 text-sm border border-surface-border rounded pointer-events-none opacity-50"
       >
         /
       </div>
+      <i
+        class="pi pi-search absolute top-6 left-6 lg:top-2 lg:left-2 z-20 text-surface-text/50"
+      ></i>
       <input
         id="search"
-        class="flex w-full h-8 pl-2 pr-8 bg-surface-card border border-surface-border placeholder-surface-text/50"
+        class="flex w-full h-8 pl-7 pr-2 bg-surface-card border border-surface-border placeholder-surface-text/50 rounded-lg"
         type="text"
         placeholder="Search the wiki..."
         v-model="search"

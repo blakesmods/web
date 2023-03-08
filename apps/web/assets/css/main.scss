@@ -144,6 +144,20 @@ h4 {
   }
 }
 
+.p-carousel {
+  .p-carousel-indicators {
+    button {
+      background: rgb(var(--surface-color-border)) !important;
+    }
+
+    .p-highlight {
+      button {
+        background: var(--primary-color) !important;
+      }
+    }
+  }
+}
+
 .p-datatable {
   .p-datatable-thead > tr > th {
     padding: 0 0 1rem 0 !important;
@@ -179,8 +193,12 @@ h4 {
     }
 
     .p-paginator-element {
+      &.p-highlight {
+        background-color: rgb(var(--surface-color-text) / 0.15) !important;
+      }
+
       &:hover {
-        background: theme("colors.surface.ground / 80%") !important;
+        background-color: rgb(var(--surface-color-text) / 0.1) !important;
       }
     }
   }
@@ -207,6 +225,8 @@ h4 {
 }
 
 .p-message {
+  border-radius: 8px;
+
   .p-message-wrapper,
   .p-message-text {
     width: 100%;

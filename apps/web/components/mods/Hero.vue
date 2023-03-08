@@ -12,15 +12,16 @@
           {{ mod.name }}
         </h1>
         <h2 class="text-center text-2xl">{{ mod.tagline }}</h2>
-        <a href="#features" class="mt-4">
-          <Button class="p-button-mod flex gap-4">
-            Learn More
-            <i class="pi pi-arrow-right"></i>
-          </Button>
-        </a>
+        <Button
+          class="p-button-mod flex !mt-4 gap-4"
+          @click="$emit('learn-more')"
+        >
+          Learn More
+          <i class="pi pi-arrow-right"></i>
+        </Button>
       </div>
-      <div class="right">
-        <img :src="`/svg/home.svg`" />
+      <div class="flex xl:max-w-[40%] xl:h-[550px] xl:items-center">
+        <img :src="mod.hero_img" :alt="`${mod.name} hero image`" />
       </div>
     </div>
 
@@ -64,6 +65,7 @@
 
 <script setup>
 import numeral from "numeral";
+import { isDevelopment } from "std-env";
 
 const props = defineProps({
   mod: Object

@@ -31,7 +31,7 @@
         class="container flex flex-col w-full h-full pt-40 pb-12 pr-4 justify-between"
       >
         <div class="flex h-full my-auto items-center">
-          <Hero :mod="mod" />
+          <Hero :mod="mod" @learn-more="onClickLearnMore" />
         </div>
       </div>
     </div>
@@ -57,4 +57,12 @@ const props = defineProps({
 useHead({
   title: props.mod.name
 });
+
+function onClickLearnMore() {
+  const featuresEl = document.querySelector("#features");
+
+  if (featuresEl) {
+    featuresEl.scrollIntoView({ behavior: "smooth" });
+  }
+}
 </script>

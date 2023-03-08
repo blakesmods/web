@@ -1,5 +1,6 @@
 import Button from "primevue/button";
 import Card from "primevue/card";
+import Carousel from "primevue/carousel";
 import Column from "primevue/column";
 import PrimeVue from "primevue/config";
 import DataTable from "primevue/datatable";
@@ -21,6 +22,7 @@ export default defineNuxtPlugin(nuxtApp => {
 
   app.component("Button", Button);
   app.component("Card", Card);
+  app.component("Carousel", Carousel);
   app.component("Column", Column);
   app.component("DataTable", DataTable);
   app.component("Divider", Divider);

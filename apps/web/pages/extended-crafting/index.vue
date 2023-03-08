@@ -1,90 +1,13 @@
 <template>
   <ModPage :mod="mod">
-    <div class="container flex flex-col my-8 gap-8">
-      <h1 class="text-center">Pride and accomplishment!</h1>
-
-      <Card>
-        <template #title>Crafting Tables</template>
-        <template #content>
-          <div class="flex flex-col md:flex-row gap-4">
-            <div class="flex flex-col gap-4 w-full">
-              <p>
-                Extended Crafting adds 4 tiers of crafting tables. 3x3, 5x5,
-                7x7, 9x9
-              </p>
-              <img src="/img/landing/extendedcrafting-table_crafting.png" />
-            </div>
-            <div class="flex flex-col gap-4 w-full">
-              <img
-                class="h-[300px]"
-                style="margin-top: 0"
-                src="/img/landing/extendedcrafting-table_crafting_example.png"
-              />
-              <div class="flex flex-col gap-4">
-                <small>
-                  Credit:
-                  <a
-                    href="https://www.curseforge.com/minecraft/modpacks/enigmatica2expert"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Enigmatica 2: Expert
-                  </a>
-                </small>
-              </div>
-            </div>
-          </div>
-        </template>
-      </Card>
+    <div class="container relative flex flex-col my-8 gap-8 z-10">
+      <KeyFeatures
+        title="Key Features"
+        subtitle="Pride and Accomplishment"
+        :features="features"
+      />
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <Card>
-          <template #title>Combination Crafting</template>
-          <template #content>
-            <div class="flex flex-col gap-4">
-              <p>
-                The Combination Crafting setup is a shapeless in-world crafting
-                mechanism. Using a Crafting Core and up to 49 pedestals, you can
-                make creating key-items more exciting.
-              </p>
-              <img
-                class="mx-auto h-[200px]"
-                src="/img/landing/extendedcrafting-combination_crafting.png"
-              />
-            </div>
-          </template>
-        </Card>
-        <Card>
-          <template #title>Ender Crafting</template>
-          <template #content>
-            <div class="flex flex-col gap-4">
-              <p>
-                The Ender Crafter is a 3x3 crafting table that takes time to
-                craft. The amount of time required depends on the recipe and can
-                be decreased by placing Ender Alternators.
-              </p>
-              <img
-                class="mx-auto h-[200px]"
-                src="/img/landing/extendedcrafting-ender_crafting.png"
-              />
-            </div>
-          </template>
-        </Card>
-        <Card>
-          <template #title>Quantum Compression</template>
-          <template #content>
-            <div class="flex flex-col gap-4">
-              <p>
-                The Quantum Compressor is a high-tier FE-powered machine that
-                can compress large amounts of a single item into a new item.
-              </p>
-              <img
-                class="mx-auto h-[200px]"
-                src="/img/landing/extendedcrafting-compression_crafting.png"
-              />
-            </div>
-          </template>
-        </Card>
         <Card>
           <template #title>Singularities</template>
           <template #content>
@@ -162,10 +85,38 @@
 
 <script setup>
 import ModPage from "~/components/pages/ModPage.vue";
+import KeyFeatures from "~/components/mods/KeyFeatures.vue";
 
 definePageMeta({
   layout: "mods"
 });
 
 const mod = useMod("extendedcrafting");
+
+const features = ref([
+  {
+    title: "Crafting Tables",
+    description: [
+      "Extended Crafting adds 4 tiers of crafting tables. 3x3, 5x5, 7x7, 9x9"
+    ]
+  },
+  {
+    title: "Combination Crafting",
+    description: [
+      "The Combination Crafting setup is a shapeless in-world crafting mechanism. Using a Crafting Core and up to 49 pedestals, you can make creating key-items more exciting."
+    ]
+  },
+  {
+    title: "Ender Crafting",
+    description: [
+      "The Ender Crafter is a 3x3 crafting table that takes time to craft. The amount of time required depends on the recipe and can be decreased by placing Ender Alternators."
+    ]
+  },
+  {
+    title: "Quantum Compressor",
+    description: [
+      "The Quantum Compressor is a high-tier FE-powered machine that can compress large amounts of a single item into a new item."
+    ]
+  }
+]);
 </script>

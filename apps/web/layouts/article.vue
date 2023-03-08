@@ -1,10 +1,6 @@
 <template>
   <div
     class="flex flex-col min-h-screen pt-20 bg-surface-ground text-surface-text"
-    :style="{
-      '--primary-color': mod.primary_color,
-      '--secondary-color': mod.secondary_color
-    }"
   >
     <Header />
     <div class="container mb-4">
@@ -19,11 +15,9 @@
           <div
             class="hidden lg:block min-w-[244px] max-h-96 lg:max-h-full col-span-3 pr-4 py-4 z-20 bg-surface-ground rounded overflow-y-auto lg:overflow-y-visible"
           >
-            <Card class="sticky top-24 w-full">
-              <template #content>
-                <SidebarContent />
-              </template>
-            </Card>
+            <div class="sticky top-24 w-full">
+              <SidebarContent />
+            </div>
           </div>
           <slot />
         </div>
@@ -43,18 +37,9 @@ import Header from "~/components/wiki/Header.vue";
 import SidebarContent from "~/components/wiki/SidebarContent.vue";
 import "~/assets/css/nuxt-content.scss";
 
-const route = useRoute();
-const mod = useMod(route.params.mod);
 const toggleSidebar = useEventBus("wiki:toggleSidebar");
 
 const sidebar = ref(false);
-
-watch(
-  () => route.path,
-  () => {
-    sidebar.value = false;
-  }
-);
 
 toggleSidebar.on(() => {
   sidebar.value = !sidebar.value;

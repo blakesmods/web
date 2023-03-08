@@ -1,3 +1,4 @@
+import { useState } from "#app";
 import { ref } from "vue";
 
 interface Mod {
@@ -6,6 +7,7 @@ interface Mod {
   mod_id: ModID;
   url: string;
   logo: string;
+  hero_img: string;
   curseforge_link: string;
   modrinth_link: string;
   github_link: string;
@@ -32,6 +34,7 @@ const mods: Mod[] = [
     mod_id: "mysticalagriculture",
     url: "/mystical-agriculture",
     logo: "/img/logo/mysticalagriculture_logo.png",
+    hero_img: "/img/hero/mysticalagriculture-hero.png",
     curseforge_link:
       "https://www.curseforge.com/minecraft/mc-mods/mystical-agriculture",
     modrinth_link: "https://modrinth.com/mod/mystical-agriculture",
@@ -47,6 +50,7 @@ const mods: Mod[] = [
     mod_id: "ironjetpacks",
     url: "/iron-jetpacks",
     logo: "/img/logo/ironjetpacks_logo.png",
+    hero_img: "/img/hero/ironjetpacks-hero.png",
     curseforge_link:
       "https://www.curseforge.com/minecraft/mc-mods/iron-jetpacks",
     modrinth_link: "https://modrinth.com/mod/iron-jetpacks",
@@ -62,6 +66,7 @@ const mods: Mod[] = [
     mod_id: "pickletweaks",
     url: "/pickle-tweaks",
     logo: "/img/logo/pickletweaks_logo.png",
+    hero_img: "/img/hero/pickletweaks-hero.png",
     curseforge_link:
       "https://www.curseforge.com/minecraft/mc-mods/pickle-tweaks",
     modrinth_link: "https://modrinth.com/mod/pickle-tweaks",
@@ -77,6 +82,7 @@ const mods: Mod[] = [
     mod_id: "mysticalagradditions",
     url: "/mystical-agradditions",
     logo: "/img/logo/mysticalagradditions_logo.png",
+    hero_img: "/img/hero/mysticalagradditions-hero.png",
     curseforge_link:
       "https://www.curseforge.com/minecraft/mc-mods/mystical-agradditions",
     modrinth_link: "https://modrinth.com/mod/mystical-agradditions",
@@ -92,6 +98,7 @@ const mods: Mod[] = [
     mod_id: "extendedcrafting",
     url: "/extended-crafting",
     logo: "/img/logo/extendedcrafting_logo.png",
+    hero_img: "/img/hero/extendedcrafting-hero.png",
     curseforge_link:
       "https://www.curseforge.com/minecraft/mc-mods/extended-crafting",
     modrinth_link: "https://modrinth.com/mod/extended-crafting",
@@ -107,6 +114,7 @@ const mods: Mod[] = [
     mod_id: "morebuckets",
     url: "/more-buckets",
     logo: "/img/logo/morebuckets_logo.png",
+    hero_img: "/img/hero/morebuckets-hero.png",
     curseforge_link:
       "https://www.curseforge.com/minecraft/mc-mods/more-buckets",
     modrinth_link: "https://modrinth.com/mod/more-buckets",
@@ -122,6 +130,7 @@ const mods: Mod[] = [
     mod_id: "mysticalcustomization",
     url: "/mystical-customization",
     logo: "/img/logo/mysticalcustomization_logo.png",
+    hero_img: "/img/hero/mysticalcustomization-hero.png",
     curseforge_link:
       "https://www.curseforge.com/minecraft/mc-mods/mystical-customization",
     modrinth_link: "https://modrinth.com/mod/mystical-customization",
@@ -137,6 +146,7 @@ const mods: Mod[] = [
     mod_id: "cucumber",
     url: "/cucumber",
     logo: "/img/logo/cucumber_logo.png",
+    hero_img: "/img/hero/cucumber-hero.png",
     curseforge_link: "https://www.curseforge.com/minecraft/mc-mods/cucumber",
     modrinth_link: "https://modrinth.com/mod/cucumber",
     github_link: "https://github.com/BlakeBr0/Cucumber",
@@ -151,3 +161,5 @@ export const useMod = (modID: ModID) => ref(mods.find(m => m.mod_id == modID));
 export const useMods = () => ref(mods);
 export const useModsExcept = (modIDs: ModID[]) =>
   ref(mods.filter(m => !modIDs.includes(m.mod_id)));
+
+export const useModsDropdown = () => useState("mods-dropdown", () => false);

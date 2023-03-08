@@ -18,7 +18,7 @@
         </div>
         <a class="flex" :href="cucumberURL" target="_blank">
           <Button
-            class="p-button-secondary"
+            class="p-button-mod"
             label="Get Cucumber"
             icon="pi pi-external-link"
             icon-pos="right"

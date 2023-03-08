@@ -3,7 +3,8 @@
     class="header fixed w-full h-[75px] top-0 z-40"
     :class="{
       'bg-surface-ground/80 border-b border-b-surface-border backdrop-blur-md':
-        scrolled || filled
+        (scrolled || filled) && !dropdown,
+      'bg-surface-ground': dropdown
     }"
   >
     <div
@@ -53,7 +54,7 @@ defineProps({
   filled: Boolean
 });
 
-const dropdown = ref(null);
+const dropdown = useModsDropdown();
 const scrolled = ref(false);
 const menu = ref(false);
 
@@ -62,10 +63,6 @@ const theme = useColorMode();
 function onScrollWindow() {
   scrolled.value = window.scrollY > 60;
 }
-
-onClickOutside(dropdown, () => {
-  menu.value = false;
-});
 
 onMounted(() => {
   window.addEventListener("scroll", onScrollWindow);

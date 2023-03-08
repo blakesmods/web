@@ -6,7 +6,17 @@
         subtitle="Resource Collection Reimagined"
         :features="features"
       />
-      <FeatureCarousel />
+      <FeatureCarousel
+        title="Addons"
+        subtitle="We're Just Getting Started"
+        description="Install these additional addons for more features and functions."
+        :features="addons"
+      />
+      <ScreenshotCarousel
+        title="Screenshots"
+        subtitle="Take A Closer Look"
+        :screenshots="screenshots"
+      />
     </div>
   </ModPage>
 </template>
@@ -15,6 +25,7 @@
 import ModPage from "~/components/pages/ModPage.vue";
 import KeyFeatures from "~/components/mods/KeyFeatures.vue";
 import FeatureCarousel from "~/components/mods/FeatureCarousel.vue";
+import ScreenshotCarousel from "~/components/mods/ScreenshotCarousel.vue";
 
 definePageMeta({
   layout: "mods"
@@ -61,6 +72,39 @@ const features = ref([
   {
     title: "Enchanter",
     description: ["Coming Soon!"]
+  }
+]);
+
+const addons = ref([
+  {
+    title: "Mystical Agradditions",
+    description: [
+      "Mystical Agradditions adds tier 6 crops, paxels, and Tinkers' construct integration."
+    ]
+  },
+  {
+    title: "Mystical Customization",
+    description: [
+      "Make use of Mystical Customization to add new crops as well as modify existing crops."
+    ]
+  }
+]);
+
+const screenshots = ref([
+  {
+    title: "Test Screenshot",
+    description: ["Test Description"],
+    image: "/img/hero/mysticalagriculture-hero.png"
+  },
+  {
+    title: "Test Screenshot",
+    description: ["Test Description"],
+    image: "/img/hero/mysticalagriculture-hero.png"
+  },
+  {
+    title: "Test Screenshot",
+    description: ["Test Description"],
+    image: "/img/hero/mysticalagriculture-hero.png"
   }
 ]);
 </script>

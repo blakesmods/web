@@ -43,11 +43,7 @@
       class="hidden xl:block col-span-2 min-w-[220px] max-h-96 xl:max-h-min py-4 pl-4 z-10 xl:z-0 rounded overflow-y-auto xl:overflow-y-visible"
     >
       <div class="sticky top-24 w-full space-y-4">
-        <Card v-if="hasTOC">
-          <template #content>
-            <TOC :page="page" />
-          </template>
-        </Card>
+        <TOC v-if="hasTOC" :page="page" />
       </div>
     </div>
     <Sidebar

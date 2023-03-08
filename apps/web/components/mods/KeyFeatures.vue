@@ -1,5 +1,5 @@
 <template>
-  <div id="features" class="text-center scroll-mt-32">
+  <div id="features" class="text-center scroll-mt-24">
     <span class="text-[24px] font-semibold" style="color: var(--primary-color)">
       {{ title }}
     </span>
@@ -79,14 +79,25 @@
             </p>
           </div>
           <NuxtLink
+            v-if="feature.link"
             class="absolute bottom-4 inset-x-0 flex justify-center"
-            to="/"
+            :to="feature.link"
           >
             <h4 style="color: var(--primary-color)">
               Learn More
               <i class="pi pi-chevron-right"></i>
             </h4>
           </NuxtLink>
+          <div
+            v-if="feature.onClick"
+            class="absolute bottom-4 inset-x-0 flex justify-center"
+            @click="feature.onClick"
+          >
+            <h4 style="color: var(--primary-color)">
+              Learn More
+              <i class="pi pi-chevron-right"></i>
+            </h4>
+          </div>
         </div>
       </template>
     </Card>
