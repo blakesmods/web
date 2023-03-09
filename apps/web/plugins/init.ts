@@ -14,11 +14,6 @@ export default defineNuxtPlugin(nuxtApp => {
   nuxtApp.provide("formatNumber", formatNumber);
 
   nuxtApp.vueApp.mixin({
-    data() {
-      return {
-        isDev: process.env.NODE_ENV === "development"
-      };
-    },
     methods: {
       formatDate,
       formatNumber

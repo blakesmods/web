@@ -7,14 +7,14 @@
         :features="features"
       />
       <FeatureCarousel
-        v-if="isDev"
+        v-if="false"
         title="Addons"
         subtitle="We're Just Getting Started"
         description="Install these additional addons for more features and functions."
         :features="addons"
       />
       <ScreenshotCarousel
-        v-if="isDev"
+        v-if="false"
         title="Screenshots"
         subtitle="Take A Closer Look"
         :screenshots="screenshots"
