@@ -1,9 +1,9 @@
 <template>
   <Card>
     <template #title>
-      <h2 class="mb-4 pb-4 text-center border-b border-surface-border">
+      <h3 class="mb-4 pb-4 text-center border-b border-surface-border">
         Minecraft Version
-      </h2>
+      </h3>
     </template>
     <template #content>
       <!--mobile-->

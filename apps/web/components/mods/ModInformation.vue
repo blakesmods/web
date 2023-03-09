@@ -1,9 +1,9 @@
 <template>
   <Card class="min-w-[300px]">
     <template #title>
-      <h2 class="mb-4 pb-4 text-center border-b border-surface-border">
+      <h3 class="mb-4 pb-4 text-center border-b border-surface-border">
         Mod Information
-      </h2>
+      </h3>
     </template>
     <template #content>
       <div class="space-y-1">
