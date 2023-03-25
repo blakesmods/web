@@ -1,7 +1,7 @@
 <template>
   <div
     ref="el"
-    class="grid w-screen h-screen bg-[rgba(18,18,18,1)] overflow-auto"
+    class="grid w-screen h-screen overflow-auto"
     :style="{
       'grid-template-columns': `repeat(${columns}, 1fr)`,
       'grid-template-rows': `repeat(${rows}, 1fr)`
@@ -9,11 +9,11 @@
   >
     <div
       v-for="tile in tiles"
-      class="tile"
+      class="tile relative hidden sm:block bg-[rgb(75,75,94)] before:absolute before:inset-[0.5px] before:bg-surface-hover"
       :key="tile"
-      :class="{
-        right: tile % columns === 0,
-        bottom: tile > tiles - columns
+      :style="{
+        'before:right-[1.5px]': tile % columns === 0,
+        'before:bottom-[1.5px]': tile > tiles - columns
       }"
     ></div>
     <div class="block sm:absolute w-screen h-screen z-10">
@@ -30,7 +30,7 @@
         >
           <NuxtLink
             v-for="mod in mods"
-            class="mod flex justify-center items-center"
+            class="group flex justify-center items-center h-[140px] md:h-[200px] bg-surface-card rounded-lg transition text-surface-text hover:z-10 hover:duration-300 hover:scale-105 active:scale-100"
             :style="{
               border: `1px solid ${mod.primary_color}`,
               'box-shadow': `0 0 8px ${mod.primary_color}`
@@ -53,9 +53,10 @@
               <div class="flex flex-col text-center">
                 {{ mod.name }}
                 <span
-                  class="line flex w-0 mx-auto"
+                  class="flex w-0 mx-auto group-hover:w-full group-hover:border-t-[4px] group-hover:border-solid"
                   :style="{
-                    'border-color': mod.primary_color
+                    'border-color': mod.primary_color,
+                    transition: 'width 0.25s ease-in-out'
                   }"
                 ></span>
               </div>
@@ -125,45 +126,3 @@ useResizeObserver(el, () => {
   columns.value = Math.floor(document.body.clientWidth / 75);
 });
 </script>
-
-<style lang="scss" scoped>
-.tile {
-  @apply relative hidden sm:block;
-  background: rgb(56 56 56);
-
-  &:before {
-    @apply absolute inset-[0.5px];
-    content: " ";
-    background: theme("colors.surface.hover");
-  }
-
-  &.right:before {
-    @apply right-[1.5px];
-  }
-
-  &.bottom:before {
-    @apply bottom-[1.5px];
-  }
-}
-
-.mod {
-  @apply h-[140px] md:h-[200px] bg-surface-card rounded-lg transition text-surface-text;
-
-  .line {
-    transition: width 0.25s ease-in-out;
-  }
-
-  &:hover {
-    @apply z-10 duration-300;
-    transform: scale(1.05);
-
-    .line {
-      @apply w-full border-t-[4px] border-solid;
-    }
-  }
-
-  &:active {
-    transform: scale(1);
-  }
-}
-</style>

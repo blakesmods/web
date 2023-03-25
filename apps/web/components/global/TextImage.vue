@@ -1,7 +1,9 @@
 <template>
-  <div class="image">
-    <img :src="src" />
-    <div class="bottom">
+  <div
+    class="flex flex-col bg-surface-card border border-surface-border rounded overflow-hidden"
+  >
+    <img class="w-full" :src="src" alt="" />
+    <div class="px-3 py-2 text-xs border-t border-surface-border">
       <slot />
     </div>
   </div>
@@ -12,24 +14,3 @@ defineProps({
   src: String
 });
 </script>
-
-<style lang="scss" scoped>
-.image {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid theme("colors.surface.border");
-  border-radius: 8px;
-  background-color: theme("colors.surface.card");
-  overflow: hidden;
-
-  img {
-    width: 100%;
-  }
-
-  .bottom {
-    padding: 5px 10px;
-    border-top: 1px solid theme("colors.surface.border");
-    font-size: 12px;
-  }
-}
-</style>

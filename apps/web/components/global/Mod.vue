@@ -25,31 +25,3 @@ defineProps({
   name: String
 });
 </script>
-
-<style lang="scss" scoped>
-.mod {
-  display: flex;
-  width: calc(50% - 20px);
-  margin: 10px;
-  border-radius: 8px;
-
-  a {
-    display: flex;
-
-    .left {
-      display: flex;
-      margin: 5px 10px;
-    }
-
-    .right {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-  }
-
-  @media screen and (max-width: 750px) {
-    width: 100%;
-  }
-}
-</style>

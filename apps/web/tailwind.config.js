@@ -1,5 +1,16 @@
 const colors = require("tailwindcss/colors");
 
+const fontFallback = [
+  "Source Sans Pro",
+  "-apple-system",
+  "BlinkMacSystemFont",
+  "Segoe UI",
+  "Roboto",
+  "Helvetica Neue",
+  "Arial",
+  "sans-serif"
+];
+
 module.exports = {
   content: [
     "./components/**/*.{js,vue,ts}",
@@ -11,31 +22,7 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: "1rem",
-      fontFamily: {
-        montserrat: [
-          "Montserrat",
-          "Source Sans Pro",
-          "-apple-system",
-          "BlinkMacSystemFont",
-          "Segoe UI",
-          "Roboto",
-          "Helvetica Neue",
-          "Arial",
-          "sans-serif"
-        ],
-        rowdies: [
-          "Rowdies",
-          "Source Sans Pro",
-          "-apple-system",
-          "BlinkMacSystemFont",
-          "Segoe UI",
-          "Roboto",
-          "Helvetica Neue",
-          "Arial",
-          "sans-serif"
-        ]
-      }
+      padding: "1rem"
     },
     colors: {
       black: colors.black,
@@ -53,6 +40,10 @@ module.exports = {
         DEFAULT: "rgb(186 104 200 / <alpha-value>)",
         accent: "rgb(176 82 192 / <alpha-value>)"
       }
+    },
+    fontFamily: {
+      montserrat: ["Montserrat", ...fontFallback],
+      rowdies: ["Rowdies", ...fontFallback]
     }
   },
   plugins: []
