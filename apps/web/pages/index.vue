@@ -11,7 +11,7 @@
       v-for="tile in tiles"
       class="tile relative hidden sm:block bg-[rgb(75,75,94)] before:absolute before:inset-[0.5px] before:bg-surface-hover"
       :key="tile"
-      :style="{
+      :class="{
         'before:right-[1.5px]': tile % columns === 0,
         'before:bottom-[1.5px]': tile > tiles - columns
       }"
