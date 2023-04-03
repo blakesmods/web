@@ -31,7 +31,7 @@ export async function createModFiles(db: Db) {
           minor: mcVersion[1],
           patch: mcVersion[2] || 0
         },
-        md5_hash: faker.git.commitSha(),
+        md5_hash: faker.git.commitSha().slice(0, 32),
         mod_id: mod.mod_id,
         mod_version: version.join("."),
         mod_version_parts: {

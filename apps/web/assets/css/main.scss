@@ -226,10 +226,17 @@ h4 {
 
 .p-message {
   border-radius: 8px;
+  border-width: 1px 1px 1px 6px !important;
 
   .p-message-wrapper,
   .p-message-text {
     width: 100%;
+  }
+
+  &-info {
+    background: rgb(var(--surface-color-card)) !important;
+    border-color: rgb(var(--surface-color-border)) !important;
+    color: theme("colors.surface.text") !important;
   }
 }
 

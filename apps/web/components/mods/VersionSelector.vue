@@ -14,7 +14,7 @@
         <div
           v-for="(version, index) in versions"
           class="flex justify-between items-center px-2 py-1 font-bold cursor-pointer bg-surface-card hover:bg-surface-hover rounded"
-          :class="{ '!bg-surface-ground': version === modelValue }"
+          :class="{ '!bg-surface-hover': version === modelValue }"
           :key="index"
           @click="emit('update:modelValue', version)"
         >
@@ -35,7 +35,7 @@ const emit = defineEmits(["update:modelValue"]);
 
 const model = computed({
   get() {
-    return this.modelValue;
+    return props.modelValue;
   },
   set(value) {
     emit("update:modelValue", value);

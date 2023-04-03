@@ -86,24 +86,24 @@
           </Column>
 
           <template #expansion="{ data }">
-            <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 py-2">
+            <div class="flex flex-wrap gap-4 py-2 justify-between">
               <div class="col-span-1">
-                <h4>Java Version</h4>
+                <h5>Java Version</h5>
                 <span>{{ data.java_version }}</span>
               </div>
               <div class="col-span-1">
-                <h4>Minecraft Version</h4>
+                <h5>Minecraft Version</h5>
                 <span>{{ data.mc_version }}</span>
               </div>
               <div class="col-span-1">
-                <h4>File Size</h4>
+                <h5>File Size</h5>
                 <span>{{ formatNumber(data.file_size, "0.00 b") }}</span>
               </div>
               <div class="col-span-2 lg:col-span-5 xl:col-span-2">
-                <h4>MD5 Hash</h4>
+                <h5>MD5 Hash</h5>
                 <span>{{ data.md5_hash }}</span>
               </div>
-              <div class="col-span-2 lg:col-span-5">
+              <div class="w-full">
                 <h4>Changelog</h4>
                 <span v-html="data.changelog"></span>
               </div>
