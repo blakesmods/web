@@ -9,6 +9,6 @@
   },
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
-    "mongodb": "^5.0.0"
+    "mongodb": "^5.1.0"
   }
 }
