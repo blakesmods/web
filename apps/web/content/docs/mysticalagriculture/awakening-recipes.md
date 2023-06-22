@@ -11,7 +11,73 @@ Mystical Agriculture allows you easily add your own Awakening Crafting recipes. 
 - Mystical Agriculture uses the vanilla datapack system for recipe customization. [(Learn More)](https://minecraft.gamepedia.com/Data_pack)
 - Recipes are added using json files, similar to vanilla recipes. [(Learn More)](https://minecraft.gamepedia.com/Recipe)
 
-### The Recipe File
+### The Recipe File (v8.0.0+)
+This section will go over the values available to use in an Awakening Crafting recipe. Syntax can be inferred from the example json below.
+- `type`: The recipe type must be `mysticalagriculture:awakening`.
+- `input`: The item that will be placed on the Awakening Altar.
+- `essences`: An array of 1-4 items that will be placed in the Essence Vessels. 
+- `ingredients`: An array of 1-4 items that will be placed on the Awakening Pedestals.
+- `result`: The item that this recipe will output once finished.
+
+### Example File (v8.0.0+)
+```json
+{
+  "type": "mysticalagriculture:awakening",
+  "input": {
+    "item": "minecraft:apple"
+  },
+  "essences": [
+    {
+      "item": "mysticalagriculture:air_essence",
+      "count": 40
+    },
+    {
+      "item": "mysticalagriculture:earth_essence",
+      "count": 40
+    },
+    {
+      "item": "mysticalagriculture:water_essence",
+      "count": 40
+    },
+    {
+      "item": "mysticalagriculture:fire_essence",
+      "count": 40
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "minecraft:carrot"
+    }
+  ],
+  "result": {
+    "item": "minecraft:potato"
+  }
+}
+```
+
+### Essence Vessel Colors (v8.0.0+)
+By default the 4 elemental essences have colors assigned. To set the colors for any additional items you plan on using, you can create a resource pack containing an `essence_vessel_colors.json` file.
+
+This file is a single JSON object where the keys are the item IDs and the values are hex color codes. Below is the `essence_vessel_colors.json` included in the mod by default.
+```json
+{
+  "mysticalagriculture:air_essence": "#DAD64D",
+  "mysticalagriculture:earth_essence": "#54DA4D",
+  "mysticalagriculture:water_essence": "#4D7EDA",
+  "mysticalagriculture:fire_essence": "#DA4D4D"
+}
+```
+
+### The Recipe File (v7.0.0+)
 This section will go over the values available to use in an Awakening Crafting recipe. Syntax can be inferred from the example json below.
 - `type`: The recipe type must be `mysticalagriculture:awakening`.
 - `input`: The item that will be placed on the Awakening Altar.
@@ -19,7 +85,7 @@ This section will go over the values available to use in an Awakening Crafting r
 - `ingredients`: An array of 1-4 items that will be placed on the Awakening Pedestals.
 - `result`: The item that this recipe will output once finished.
 
-### Example File
+### Example File (v7.0.0+)
 ```json
 {
   "type": "mysticalagriculture:awakening",
