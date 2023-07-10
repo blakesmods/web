@@ -1,16 +1,14 @@
 <template>
-  <div
-    class="flex flex-col min-h-screen pt-16 bg-surface-ground text-surface-text"
-  >
+  <div class="flex flex-col min-h-screen pt-16">
     <Header />
     <main class="flex flex-auto container mx-auto px-4">
       <div class="flex flex-nowrap flex-1 max-w-full justify-center">
         <div class="grid grid-cols-12 relative w-full min-h-[800px]">
-          <Sidebar v-model:visible="sidebar">
+          <USlideover side="left" v-model="sidebar">
             <SidebarContent />
-          </Sidebar>
+          </USlideover>
           <div
-            class="hidden lg:block min-w-[244px] max-h-96 lg:max-h-full col-span-3 pr-4 py-8 z-20 bg-surface-ground rounded overflow-y-auto lg:overflow-y-visible"
+            class="hidden lg:block sticky top-[65px] min-w-[244px] max-h-96 lg:max-h-[calc(100vh-65px)] col-span-3 pr-2 py-8 z-20 rounded overflow-y-auto"
           >
             <div class="sticky top-24 w-full">
               <SidebarContent />

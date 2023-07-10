@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="previous || next"
-    class="flex justify-between items-center mx-4 border-t border-surface-border"
+    class="flex justify-between items-center mx-4 border-t border-gray-200 dark:border-gray-800"
   >
     <NuxtLink
       v-if="previous"

@@ -13,7 +13,8 @@
   }
 
   a {
-    color: var(--primary-color);
+    color: theme("colors.primary.500");
+    font-weight: bold;
 
     &:hover {
       opacity: 0.95;
@@ -46,33 +47,7 @@
   }
 
   pre {
-    @apply rounded p-4;
-    @apply bg-surface-section overflow-hidden hover:overflow-auto;
-  }
-
-  & > .copy {
-    display: none;
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 12px 12px 0 0;
-    border: 1px solid theme("colors.surface.text");
-    color: theme("colors.surface.text");
-
-    &:hover {
-      background-color: darken(white, 80%);
-    }
-
-    &:focus {
-      background-color: darken(white, 60%);
-      outline: none;
-    }
-  }
-
-  &:hover {
-    & > .copy {
-      display: inline-flex;
-    }
+    @apply p-4 bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded overflow-hidden hover:overflow-auto;
   }
 
   p code,
@@ -80,7 +55,7 @@
     padding: 1px 5px;
     border-radius: 4px;
     line-height: 1;
-    @apply bg-surface-section;
+    @apply bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-700;
   }
 
   @screen lg {

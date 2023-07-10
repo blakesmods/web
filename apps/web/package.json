@@ -10,7 +10,9 @@
     "prepare": "nuxt prepare"
   },
   "devDependencies": {
+    "@iconify-json/simple-icons": "^1.1.59",
     "@nuxt/content": "^2.7.0",
+    "@nuxthq/ui": "^2.4.1",
     "@nuxtjs/google-adsense": "^2.1.0",
     "@nuxtjs/google-fonts": "^3.0.1",
     "@nuxtjs/tailwindcss": "^6.8.0",

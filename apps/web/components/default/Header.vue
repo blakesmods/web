@@ -1,6 +1,6 @@
 <template>
   <header
-    class="fixed w-full h-16 top-0 z-40 shadow bg-surface-ground border-b border-surface-border"
+    class="fixed w-full h-16 top-0 z-40 shadow backdrop-blur border-b border-gray-200 dark:border-gray-800 bg-white/75 dark:bg-gray-900/75"
   >
     <div class="container flex h-16 m-auto px-4 justify-between items-center">
       <div class="flex items-center gap-8">
@@ -33,9 +33,10 @@
           Modrinth
         </a>
       </div>
-      <Button
+      <UButton
         class="!inline-flex lg:!hidden leading-4"
-        icon="pi pi-bars"
+        color="gray"
+        icon="i-heroicons-bars-3-solid"
         @click="sidebar = !sidebar"
       />
     </div>

@@ -1,18 +1,18 @@
 <template>
-  <Card>
-    <template #title>In This Section</template>
-    <template #content>
-      <div class="flex flex-col gap-1">
-        <NuxtLink
-          v-for="page in pages"
-          class="flex pl-2 first:mt-2 border-l border-surface-border"
-          :to="page._path"
-        >
-          {{ page.title }}
-        </NuxtLink>
-      </div>
+  <UCard>
+    <template #header>
+      <h3 class="!mt-0">In This Section</h3>
     </template>
-  </Card>
+    <div class="flex flex-col">
+      <NuxtLink
+        v-for="page in pages"
+        class="flex pl-2 py-0.5 border-l border-gray-300 dark:border-gray-700"
+        :to="page._path"
+      >
+        {{ page.title }}
+      </NuxtLink>
+    </div>
+  </UCard>
 </template>
 
 <script setup>

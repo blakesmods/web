@@ -1,8 +1,12 @@
 <template>
-  <Button
+  <UButton
     ref="copy"
-    class="copy p-button-outlined"
-    :icon="`pi ${state === 'copied' ? 'pi-check' : 'pi-copy'}`"
+    class="copy"
+    :icon="
+      state === 'copied'
+        ? 'i-heroicons-check-solid'
+        : 'i-heroicons-clipboard-solid'
+    "
   />
 </template>
 

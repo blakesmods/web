@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="flex flex-col min-h-screen pt-8 bg-surface-ground text-surface-text"
-  >
+  <div class="flex flex-col min-h-screen pt-8">
     <Header />
     <main class="flex flex-auto container mx-auto px-4 py-8">
       <div class="flex flex-nowrap flex-1 max-w-full justify-center">

@@ -3,10 +3,10 @@
     <div class="col-span-12 lg:col-span-9 xl:col-span-7 w-full h-full">
       <div class="flex py-8 lg:ml-4 xl:mr-4 z-10 justify-between items-center">
         <div class="flex items-center gap-4">
-          <Button
+          <UButton
             class="p-button-text !inline-flex lg:!hidden"
             ref="sidebarToggle"
-            icon="pi pi-bars"
+            icon="i-heroicons-bars-3-solid"
             @click="onToggleSidebar"
           />
           <h1 class="flex items-center gap-4">
@@ -19,11 +19,11 @@
             {{ page.title }}
           </h1>
         </div>
-        <Button
+        <UButton
           v-if="hasTOC"
           ref="tocToggle"
-          class="p-button-text !inline-flex xl:!hidden"
-          icon="pi pi-list"
+          class="!inline-flex xl:!hidden"
+          icon="i-heroicons-bars-3-solid"
           @click="toc = !toc"
         />
       </div>
@@ -67,14 +67,9 @@
         <TOC v-if="hasTOC" :page="page" />
       </div>
     </div>
-    <Sidebar
-      v-if="hasTOC"
-      class="lg:hidden"
-      position="right"
-      v-model:visible="toc"
-    >
+    <USlideover v-if="hasTOC" class="lg:hidden" position="right" v-model="toc">
       <TOC :page="page" />
-    </Sidebar>
+    </USlideover>
   </div>
 </template>
 

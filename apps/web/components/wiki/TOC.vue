@@ -1,12 +1,10 @@
 <template>
   <div>
-    <h3 class="mb-4 pb-4 text-center border-b border-surface-border">
-      On This Page
-    </h3>
+    <h3 class="pb-4">On This Page</h3>
     <a
       v-for="item in links"
       class="flex w-full mb-1 text-sm"
-      :class="{ 'pl-2': item.depth === 3 }"
+      :class="{ 'pl-4': item.depth === 3 }"
       :key="item.id"
       :href="`#${item.id}`"
     >

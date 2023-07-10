@@ -20,7 +20,7 @@ export default defineNuxtPlugin(nuxtApp => {
   app.use(PrimeVue, { ripple: false } as any);
   app.use(ToastService);
 
-  app.component("Button", Button);
+  // app.component("Button", Button);
   app.component("Card", Card);
   app.component("Carousel", Carousel);
   app.component("Column", Column);

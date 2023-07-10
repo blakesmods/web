@@ -1,21 +1,24 @@
 <template>
   <div class="grid grid-cols-9 col-span-12 lg:col-span-9">
-    <div class="col-span-12 lg:col-span-9 xl:col-span-7 w-full h-full">
+    <div class="col-span-12 lg:col-span-9 xl:col-span-7 w-full h-full px-4">
       <div class="flex py-8 lg:ml-4 xl:mr-4 z-10 justify-between items-center">
         <div class="flex items-center gap-4">
-          <Button
-            class="p-button-text !inline-flex lg:!hidden"
+          <UButton
+            class="!inline-flex lg:!hidden"
             ref="sidebarToggle"
-            icon="pi pi-bars"
+            icon="i-heroicons-bars-3-solid"
             @click="onToggleSidebar"
           />
-          <h1>{{ page.title }}</h1>
+          <div class="flex flex-col gap-2">
+            <span class="text-primary-500 font-bold">{{ page.category }}</span>
+            <h1>{{ page.title }}</h1>
+          </div>
         </div>
-        <Button
+        <UButton
           v-if="hasTOC"
           ref="tocToggle"
-          class="p-button-text !inline-flex xl:!hidden"
-          icon="pi pi-list"
+          class="!inline-flex xl:!hidden"
+          icon="i-heroicons-bars-3-solid"
           @click="toc = !toc"
         />
       </div>
@@ -24,20 +27,19 @@
         <ContentRendererMarkdown class="nuxt-content" :value="page" />
       </ContentRenderer>
 
-      <div class="relative bottom-0">
-        <div class="flex m-4 justify-between">
-          <a
-            :href="`https://github.com/blakesmods/web/edit/main/apps/web/content${page._path}.${page._extension}`"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <i class="pi pi-file-edit"></i>
-            Edit this page on GitHub
-          </a>
-          <span v-if="false">Last Updated: {{ lastUpdated }}</span>
-        </div>
-        <Pagination :current="page" />
+      <div class="flex justify-between lg:px-4 py-4">
+        <UButton
+          :to="`https://github.com/blakesmods/web/edit/main/apps/web/content${page._path}.${page._extension}`"
+          target="_blank"
+          variant="ghost"
+          rel="noopener noreferrer"
+        >
+          <UIcon name="i-heroicons-pencil-square-solid" />
+          Edit this page on GitHub
+        </UButton>
+        <span v-if="false">Last Updated: {{ lastUpdated }}</span>
       </div>
+      <Pagination :current="page" />
     </div>
     <div
       class="hidden xl:block col-span-2 min-w-[220px] max-h-96 xl:max-h-min py-4 pl-4 z-10 xl:z-0 rounded overflow-y-auto xl:overflow-y-visible"
@@ -46,19 +48,13 @@
         <TOC v-if="hasTOC" :page="page" />
       </div>
     </div>
-    <Sidebar
-      v-if="hasTOC"
-      class="lg:hidden"
-      position="right"
-      v-model:visible="toc"
-    >
+    <USlideover v-if="hasTOC" class="xl:hidden" side="right" v-model="toc">
       <TOC :page="page" />
-    </Sidebar>
+    </USlideover>
   </div>
 </template>
 
 <script setup>
-import CodeCopyButton from "~/components/CodeCopyButton.vue";
 import Pagination from "~/components/docs/Pagination.vue";
 import TOC from "~/components/wiki/TOC.vue";
 
@@ -92,18 +88,4 @@ const lastUpdated = computed(() =>
 function onToggleSidebar() {
   toggleSidebar.emit();
 }
-
-onMounted(() => {
-  setTimeout(() => {
-    const blocks = document.getElementsByClassName("nuxt-content-highlight");
-
-    for (const block of blocks) {
-      const component = defineComponent({ extends: CodeCopyButton });
-      const div = document.createElement("div");
-
-      block.appendChild(div);
-      createApp(component).mount(div);
-    }
-  }, 100);
-});
 </script>

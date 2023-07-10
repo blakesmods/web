@@ -88,23 +88,26 @@ const props = defineProps({
   color: String
 });
 
-const isDark = useDark();
+const colorMode = useColorMode();
 
 const color = ref(props.color ? props.color : "white");
 
-watch(isDark, value => {
-  if (props.color) {
-    color.value = props.color;
-  } else {
-    color.value = value ? "white" : "black";
+watch(
+  () => colorMode.preference,
+  value => {
+    if (props.color) {
+      color.value = props.color;
+    } else {
+      color.value = value === "dark" ? "white" : "black";
+    }
   }
-});
+);
 
 onMounted(() => {
   if (props.color) {
     color.value = props.color;
   } else {
-    color.value = isDark.value ? "white" : "black";
+    color.value = colorMode.preference === "dark" ? "white" : "black";
   }
 });
 </script>

@@ -6,26 +6,20 @@
       :to="mod.disabled ? '/wiki' : `/wiki/${mod.path}`"
       :key="mod.path"
     >
-      <Card class="transition hover:scale-105 active:scale-100">
-        <template #content>
-          <div class="flex gap-4 mr-4">
-            <img :src="mod.icon" class="w-16 h-16" />
-            <div class="flex flex-col justify-center">
-              <h2
-                class="text-lg sm:text-2xl group-hover:underline underline-offset-4"
-              >
-                {{ mod.title }}
-              </h2>
-              <span v-if="mod.disabled" class="text-surface-text/80">
-                Coming soon
-              </span>
-              <span v-else class="text-surface-text/80">
-                Click to view articles
-              </span>
-            </div>
+      <UCard class="transition hover:scale-105 active:scale-100">
+        <div class="flex gap-4 mr-4">
+          <img :src="mod.icon" class="w-16 h-16" alt="" />
+          <div class="flex flex-col justify-center gap-2">
+            <h2
+              class="text-lg sm:text-2xl group-hover:underline underline-offset-4"
+            >
+              {{ mod.title }}
+            </h2>
+            <span v-if="mod.disabled" class="opacity-80">Coming soon</span>
+            <span v-else class="opacity-80">Click to view articles</span>
           </div>
-        </template>
-      </Card>
+        </div>
+      </UCard>
     </NuxtLink>
   </div>
 </template>
