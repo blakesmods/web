@@ -41,7 +41,7 @@
       />
     </div>
 
-    <Sidebar position="right" v-model:visible="sidebar">
+    <USlideover side="right" v-model="sidebar">
       <div class="flex flex-col gap-4">
         <NuxtLink to="/docs">Docs</NuxtLink>
         <NuxtLink to="/wiki">Wiki</NuxtLink>
@@ -68,7 +68,7 @@
           Modrinth
         </a>
       </div>
-    </Sidebar>
+    </USlideover>
   </header>
 </template>
 

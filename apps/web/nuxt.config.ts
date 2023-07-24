@@ -105,7 +105,7 @@ export default defineNuxtConfig({
     }
   },
   build: {
-    transpile: ["sitemap", "primevue", "vue-github-button"]
+    transpile: ["sitemap", "primevue"]
   },
   hooks: {
     "pages:extend": router => {
@@ -144,6 +144,15 @@ export default defineNuxtConfig({
   },
   ui: {
     global: true,
-    icons: ["heroicons", "simple-icons"]
+    icons: ["heroicons", "simple-icons"],
+    safelistColors: [
+      "white",
+      "black",
+      "red",
+      "green",
+      "blue",
+      "yellow",
+      "purple"
+    ]
   }
 });

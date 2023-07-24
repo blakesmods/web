@@ -87,9 +87,7 @@
           </a>
         </span>
 
-        <ClientOnly>
-          <ThemeToggle />
-        </ClientOnly>
+        <ThemeToggle />
       </div>
     </div>
   </footer>

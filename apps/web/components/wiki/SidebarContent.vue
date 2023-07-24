@@ -9,10 +9,7 @@
       :key="category.slug"
     >
       <div
-        class="flex justify-between items-center -mx-2 px-2 py-1 cursor-pointer bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded"
-        :class="{
-          'bg-gray-200 dark:bg-gray-800': isCurrentCategory(category.slug)
-        }"
+        class="flex justify-between items-center -mx-2 px-2 py-1 cursor-pointer"
         @click="onClickCategory(category.slug)"
       >
         <h4 class="capitalize">{{ category.name }}</h4>

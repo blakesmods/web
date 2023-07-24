@@ -1,12 +1,10 @@
 <template>
   <NuxtLayout>
-    <ClientOnly>
-      <Toast position="bottom-right" />
-    </ClientOnly>
     <NuxtLoadingIndicator
       color="repeating-linear-gradient(to right, var(--color-secondary) 0%, var(--color-primary) 50%, var(--color-secondary) 100%)"
     />
     <NuxtPage />
+    <UNotifications />
   </NuxtLayout>
 </template>
 

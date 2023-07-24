@@ -29,6 +29,11 @@ module.exports = {
       white: colors.white,
       fuchsia: colors.fuchsia,
       cool: colors.gray,
+      red: colors.red,
+      green: colors.green,
+      blue: colors.blue,
+      yellow: colors.yellow,
+      purple: colors.purple,
       surface: {
         ground: "rgb(var(--surface-color-ground) / <alpha-value>)",
         section: "rgb(var(--surface-color-section) / <alpha-value>)",

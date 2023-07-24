@@ -19,7 +19,7 @@ This section will go over the values available to use in crop type file. Syntax 
 **Note:** Any field below marked with a purple badge is required. Any field marked with a green badge requires at least the version specified.
 
 ### Textures
-<tag value="Required"></tag>
+<u-badge label="Required"></u-badge>
 
 You must assign a stem texture for this crop type. This location is used for every crop growth stage (0-7), which are differentiated by an `_#` suffix.
 ```json
@@ -34,7 +34,7 @@ You must assign a stem texture for this crop type. This location is used for eve
 - `mysticalagriculture:block/mystical_mob_crop`
 
 ### Crafting Seed
-<tag value="Required"></tag>
+<u-badge label="Required"></u-badge>
 
 You must set an item to use as the crafting seed for all crops of this type.
 ```json

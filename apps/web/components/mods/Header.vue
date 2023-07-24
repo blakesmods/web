@@ -1,10 +1,10 @@
 <template>
   <header
-    class="header fixed w-full top-0 z-40"
+    class="fixed w-full top-0 z-40"
     :class="{
-      'bg-surface-ground/80 border-b border-b-surface-border backdrop-blur-md':
+      'bg-gray-100 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800 backdrop-blur':
         (scrolled || filled) && !dropdown,
-      'bg-surface-ground': dropdown
+      'bg-gray-100 dark:bg-gray-900': dropdown
     }"
   >
     <div
@@ -14,39 +14,35 @@
         <ReactiveLogo />
         <ModsDropdown />
 
-        <div
-          class="hidden lg:block links mr-6 space-x-4 xl:space-x-8"
-          :class="{ active: menu }"
-        >
+        <div class="hidden lg:block mr-6 space-x-4 xl:space-x-8">
           <slot />
         </div>
       </div>
       <div
-        class="right flex justify-end items-center text-lg font-bold leading-4 gap-4"
+        class="flex justify-end items-center text-lg font-bold leading-4 gap-4"
       >
         <UButton
           :to="downloadLink"
           color="gray"
           size="md"
-          icon="i-heroicons-arrow-down-tray-solid"
-          trailing
+          trailing-icon="i-heroicons-arrow-down-tray-solid"
         >
           <span class="font-bold">Download</span>
         </UButton>
         <UButton
-          class="!inline-flex lg:!hidden leading-4"
+          class="inline-flex lg:hidden leading-4"
           color="gray"
           icon="i-heroicons-bars-3-solid"
           @click="menu = !menu"
         />
       </div>
 
-      <Sidebar v-model:visible="menu" position="right">
+      <USlideover side="right" v-model="menu">
         <div class="flex flex-col gap-4">
           <NuxtLink class="font-bold" :to="downloadLink">Download</NuxtLink>
           <slot />
         </div>
-      </Sidebar>
+      </USlideover>
     </div>
   </header>
 </template>

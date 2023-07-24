@@ -10,7 +10,7 @@ export default defineAppConfig({
         base: "border-b border-gray-300 dark:border-gray-700"
       },
       footer: {
-        base: "border-b border-gray-300 dark:border-gray-700"
+        base: "border-t border-gray-300 dark:border-gray-700"
       }
     },
     slideover: {

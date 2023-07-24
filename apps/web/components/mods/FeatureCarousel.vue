@@ -803,35 +803,31 @@
         <h2>{{ subtitle }}</h2>
         <p class="my-2">{{ description }}</p>
       </div>
-      <Card v-for="feature in features">
-        <template #title>
-          <span class="ml-20">
-            {{ feature.title }}
-          </span>
-        </template>
-        <template #content>
-          <div class="absolute inset-y-0 flex items-center">
-            <svg
-              width="57"
-              height="57"
-              viewBox="0 0 57 57"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="57" height="57" rx="8" fill="#C200ED" />
-              <path
-                d="M34.3333 35.5122V34.1899H30.3333V30.223H34.3333V32.8676H37V35.5122H35.6667V38.1568H33V40.8014H30.3333V36.8345H33V35.5122H34.3333ZM41 40.8014H35.6667V38.1568H38.3333V35.5122H41V40.8014ZM17 17H27.6667V27.5784H17V17ZM30.3333 17H41V27.5784H30.3333V17ZM17 30.223H27.6667V40.8014H17V30.223ZM37 30.223H41V32.8676H37V30.223ZM21 20.9669V23.6115H23.6667V20.9669H21ZM21 34.1899V36.8345H23.6667V34.1899H21ZM34.3333 20.9669V23.6115H37V20.9669H34.3333Z"
-                fill="white"
-              />
-            </svg>
-          </div>
-          <div class="ml-20 space-y-2">
-            <p v-for="line in feature.description">
-              {{ line }}
-            </p>
-          </div>
-        </template>
-      </Card>
+      <UCard v-for="feature in features" class="relative">
+        <span class="block ml-20 mb-4 text-lg">
+          {{ feature.title }}
+        </span>
+        <div class="absolute inset-y-0 flex items-center">
+          <svg
+            width="57"
+            height="57"
+            viewBox="0 0 57 57"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="57" height="57" rx="8" fill="#C200ED" />
+            <path
+              d="M34.3333 35.5122V34.1899H30.3333V30.223H34.3333V32.8676H37V35.5122H35.6667V38.1568H33V40.8014H30.3333V36.8345H33V35.5122H34.3333ZM41 40.8014H35.6667V38.1568H38.3333V35.5122H41V40.8014ZM17 17H27.6667V27.5784H17V17ZM30.3333 17H41V27.5784H30.3333V17ZM17 30.223H27.6667V40.8014H17V30.223ZM37 30.223H41V32.8676H37V30.223ZM21 20.9669V23.6115H23.6667V20.9669H21ZM21 34.1899V36.8345H23.6667V34.1899H21ZM34.3333 20.9669V23.6115H37V20.9669H34.3333Z"
+              fill="white"
+            />
+          </svg>
+        </div>
+        <div class="ml-20 space-y-2">
+          <p v-for="line in feature.description">
+            {{ line }}
+          </p>
+        </div>
+      </UCard>
     </div>
   </div>
 </template>

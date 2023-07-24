@@ -47,14 +47,15 @@
 
       <div class="relative bottom-0">
         <div class="flex m-4 justify-between">
-          <a
-            :href="`https://github.com/blakesmods/web/edit/main/apps/web/content${page._path}.${page._extension}`"
+          <UButton
+            :to="`https://github.com/blakesmods/web/edit/main/apps/web/content${page._path}.${page._extension}`"
             target="_blank"
-            rel="noreferrer"
+            variant="ghost"
+            rel="noopener noreferrer"
           >
-            <i class="pi pi-file-edit"></i>
+            <UIcon name="i-heroicons-pencil-square-solid" />
             Edit this page on GitHub
-          </a>
+          </UButton>
           <span v-if="false">Last Updated: {{ lastUpdated }}</span>
         </div>
         <Pagination :current="page" />
@@ -74,7 +75,6 @@
 </template>
 
 <script setup>
-import CodeCopyButton from "~/components/CodeCopyButton.vue";
 import TOC from "~/components/wiki/TOC.vue";
 import Pagination from "~/components/wiki/Pagination.vue";
 
@@ -148,18 +148,4 @@ watch(
 function onToggleSidebar() {
   toggleSidebar.emit();
 }
-
-onMounted(() => {
-  setTimeout(() => {
-    const blocks = document.getElementsByClassName("nuxt-content-highlight");
-
-    for (const block of blocks) {
-      const component = defineComponent({ extends: CodeCopyButton });
-      const div = document.createElement("div");
-
-      block.appendChild(div);
-      createApp(component).mount(div);
-    }
-  }, 100);
-});
 </script>

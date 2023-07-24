@@ -9,7 +9,16 @@
       );
     "
   >
-    <UCard class="w-full h-full border-none" v-bind="$props">
+    <UCard
+      class="w-full h-full border-none"
+      v-bind="$props"
+      :ui="{
+        header: {
+          base: 'border-b border-gray-300/50 dark:border-gray-700/50'
+        },
+        background: 'bg-gray-200/90 dark:bg-gray-800/90'
+      }"
+    >
       <template v-if="$slots.header" #header>
         <slot name="header" />
       </template>

@@ -14,7 +14,7 @@
       <UInput
         id="search"
         icon="i-heroicons-magnifying-glass"
-        placeholder="Search"
+        placeholder="Search..."
         v-model="search"
       >
         <template #trailing>

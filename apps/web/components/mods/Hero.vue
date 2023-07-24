@@ -16,7 +16,7 @@
           class="flex font-bold mt-4"
           size="xl"
           color="gray"
-          trailing-icon="i-heroicons-arrow-right"
+          trailing-icon="i-heroicons-arrow-right-solid"
           @click="$emit('learn-more')"
         >
           <strong>Learn More</strong>

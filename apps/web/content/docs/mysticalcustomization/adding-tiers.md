@@ -26,7 +26,7 @@ You can manually define the display name for this crop tier.
 Omitting this field will auto generate a translation key with the format `cropTier.mysticalcustomization.{id}`.
 
 ### Value
-<tag value="Required"></tag>
+<u-badge label="Required"></u-badge>
 
 You must assign an integer tier value to this tier. This is used internally to sort tiers. Higher value = higher tier. For example `mysticalagriculture:elemental` has a tier value of 1.
 ```json
@@ -36,7 +36,7 @@ You must assign an integer tier value to this tier. This is used internally to s
 ```
 
 ### Essence
-<tag value="Required"></tag>
+<u-badge label="Required"></u-badge>
 
 You must set an essence item to be used in the crafting recipes of this tiers seeds.
 ```json
@@ -70,7 +70,7 @@ You can disable the ability for crops of this tier to have a chance of dropping 
 ```
 
 ### Base Secondary Drop Chance
-<tag value="3.0.1+" severity="success"></tag>
+<u-badge label="3.0.1+" color="green"></u-badge>
 
 You can modify the base chance of a second seed/essence dropping from the this crop tier's crops when planted on a valid farmland. Can be any value from 0.0 to 1.0.
 

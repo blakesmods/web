@@ -80,7 +80,7 @@ You can disable a crop if you want to hide it.
 ```
 
 ### Glint
-<badge color="green">2.0.0+</badge>
+<u-badge color="green">2.0.0+</u-badge>
 
 You can enable the enchantment glint effect for this crops items.
 ```json
@@ -90,7 +90,7 @@ You can enable the enchantment glint effect for this crops items.
 ```
 
 ### Required Biomes
-<badge color="green">2.1.2+</badge>
+<u-badge color="green">2.1.2+</u-badge>
 
 You can specify required biomes for this crop to be able to grow in.
 ```json
@@ -103,7 +103,7 @@ You can specify required biomes for this crop to be able to grow in.
 ```
 
 ### Base Secondary Drop Chance
-<badge color="green">3.0.1+</badge>
+<u-badge color="green">3.0.1+</u-badge>
 
 You can modify the base chance of a second seed/essence dropping from the crop when planted on a valid farmland. Can be any value from 0.0 to 1.0.
 ```json
@@ -113,7 +113,7 @@ You can modify the base chance of a second seed/essence dropping from the crop w
 ```
 
 ### Essence Item
-<badge color="green">3.1.1+</badge>
+<u-badge color="green">3.1.1+</u-badge>
 
 You can specify your own essence item. This is the item that will drop from the crop when harvested. 
 
@@ -125,7 +125,7 @@ You can specify your own essence item. This is the item that will drop from the 
 ```
 
 ### Recipe Config
-<badge color="green">3.1.2+</badge>
+<u-badge color="green">3.1.2+</u-badge>
 
 You can disable the auto-generated recipes for a crop.
 
