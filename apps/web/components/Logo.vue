@@ -92,7 +92,7 @@ const colorMode = useColorMode();
 const color = ref(props.color ? props.color : "white");
 
 watch(
-  () => colorMode.preference,
+  () => colorMode.value,
   value => {
     if (props.color) {
       color.value = props.color;
@@ -106,7 +106,7 @@ onMounted(() => {
   if (props.color) {
     color.value = props.color;
   } else {
-    color.value = colorMode.preference === "dark" ? "white" : "black";
+    color.value = colorMode.value === "dark" ? "white" : "black";
   }
 });
 </script>
