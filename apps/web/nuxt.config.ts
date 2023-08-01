@@ -3,12 +3,15 @@ import { resolve } from "path";
 const description =
   "The official website of BlakeBr0's Minecraft mods. Including Mystical Agriculture, Pickle Tweaks, Iron Jetpacks and more!";
 
-// @ts-ignore
 export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: {
         lang: "en"
+      },
+      bodyAttrs: {
+        class:
+          "antialiased font-sans text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-900"
       },
       meta: [
         { charset: "utf-8" },
@@ -87,10 +90,10 @@ export default defineNuxtConfig({
     "~/assets/css/main.scss"
   ],
   modules: [
+    "@nuxthq/ui",
     "@nuxt/content",
     "@nuxtjs/google-adsense",
     "@nuxtjs/google-fonts",
-    "@nuxtjs/tailwindcss",
     "@vueuse/nuxt",
     "nuxt-simple-sitemap" // sitemap module must be last
   ],
@@ -102,7 +105,7 @@ export default defineNuxtConfig({
     }
   },
   build: {
-    transpile: ["sitemap", "primevue", "vue-github-button"]
+    transpile: ["sitemap", "primevue"]
   },
   hooks: {
     "pages:extend": router => {
@@ -138,5 +141,18 @@ export default defineNuxtConfig({
       Montserrat: true,
       Rowdies: true
     }
+  },
+  ui: {
+    global: true,
+    icons: ["heroicons", "simple-icons"],
+    safelistColors: [
+      "white",
+      "black",
+      "red",
+      "green",
+      "blue",
+      "yellow",
+      "purple"
+    ]
   }
 });

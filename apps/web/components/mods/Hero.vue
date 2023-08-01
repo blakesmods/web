@@ -12,13 +12,15 @@
           {{ mod.name }}
         </h1>
         <h2 class="text-center text-2xl">{{ mod.tagline }}</h2>
-        <Button
-          class="p-button-mod flex !mt-4 gap-4"
+        <UButton
+          class="flex font-bold mt-4"
+          size="xl"
+          color="gray"
+          trailing-icon="i-heroicons-arrow-right-solid"
           @click="$emit('learn-more')"
         >
-          Learn More
-          <i class="pi pi-arrow-right"></i>
-        </Button>
+          <strong>Learn More</strong>
+        </UButton>
       </div>
       <div class="flex xl:max-w-[40%] xl:h-[550px] xl:items-center">
         <img :src="mod.hero_img" :alt="`${mod.name} hero image`" />
@@ -32,7 +34,7 @@
       }"
     >
       <div
-        class="flex flex-wrap justify-around w-full p-10 gap-2 md:gap-4 bg-surface-ground rounded-lg"
+        class="flex flex-wrap justify-around w-full p-10 gap-2 md:gap-4 bg-gray-200 dark:bg-gray-800 rounded-lg"
       >
         <div class="flex flex-col items-center">
           <Skeleton v-if="pending" width="100px" height="48px" />

@@ -65,7 +65,7 @@ You can disable the ability for crops of a tier to have a chance of dropping a s
 ```
 
 ### Base Secondary Drop Chance
-<badge color="green">3.0.1+</badge>
+<u-badge color="green">3.0.1+</u-badge>
 
 You can modify the base chance of a second seed/essence dropping from the this crop tier's crops when planted on a valid farmland. Can be any value from 0.0 to 1.0.
 

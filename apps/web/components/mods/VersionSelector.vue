@@ -1,28 +1,30 @@
 <template>
-  <Card>
-    <template #title>
-      <h3 class="mb-4 pb-4 text-center border-b border-surface-border">
-        Minecraft Version
-      </h3>
+  <UCard>
+    <template #header>
+      <h3 class="text-center">Minecraft Version</h3>
     </template>
-    <template #content>
-      <!--mobile-->
-      <Dropdown class="w-full lg:!hidden" :options="versions" v-model="model" />
 
-      <!--desktop-->
-      <div class="hidden lg:block space-y-1">
-        <div
-          v-for="(version, index) in versions"
-          class="flex justify-between items-center px-2 py-1 font-bold cursor-pointer bg-surface-card hover:bg-surface-hover rounded"
-          :class="{ '!bg-surface-hover': version === modelValue }"
-          :key="index"
-          @click="emit('update:modelValue', version)"
-        >
-          {{ version }}
-        </div>
+    <!--mobile-->
+    <USelectMenu
+      class="w-full"
+      :ui="{ wrapper: 'relative lg:!hidden' }"
+      :options="versions"
+      v-model="model"
+    />
+
+    <!--desktop-->
+    <div class="hidden lg:block space-y-1">
+      <div
+        v-for="(version, index) in versions"
+        class="flex justify-between items-center px-2 py-1 font-bold cursor-pointer hover:bg-gray-300 hover:dark:bg-gray-900 rounded"
+        :class="{ 'bg-gray-300 dark:!bg-gray-900': version === modelValue }"
+        :key="index"
+        @click="emit('update:modelValue', version)"
+      >
+        {{ version }}
       </div>
-    </template>
-  </Card>
+    </div>
+  </UCard>
 </template>
 
 <script setup>

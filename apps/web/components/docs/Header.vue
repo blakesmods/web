@@ -1,26 +1,22 @@
 <template>
   <header
-    class="fixed w-full h-[73px] top-0 z-40 shadow bg-surface-ground border-b border-b-surface-border"
+    class="fixed w-full top-0 z-40 shadow backdrop-blur border-b border-gray-200 dark:border-gray-800 bg-white/75 dark:bg-gray-900/75"
   >
-    <div class="container flex h-full m-auto px-4 justify-between items-center">
+    <div class="container flex h-16 m-auto px-4 justify-between items-center">
       <div class="flex items-center gap-8">
         <ReactiveLogo />
         <ModsDropdown />
       </div>
 
-      <div class="flex">
+      <div class="flex gap-2">
         <Search />
-
-        <div class="flex justify-end items-center pl-2 text-2xl leading-4">
-          <a
-            class="ml-3"
-            href="https://github.com/blakesmods/web"
-            title="GitHub"
-            target="_blank"
-          >
-            <i class="pi pi-github !text-[24px]"></i>
-          </a>
-        </div>
+        <ColorModeButton />
+        <UButton
+          to="https://github.com/blakesmods/web"
+          target="_blank"
+          color="gray"
+          icon="i-simple-icons-github"
+        />
       </div>
     </div>
   </header>
@@ -30,4 +26,5 @@
 import ModsDropdown from "~/components/default/ModsDropdown.vue";
 import ReactiveLogo from "~/components/default/ReactiveLogo.vue";
 import Search from "~/components/docs/Search.vue";
+import ColorModeButton from "~/components/ColorModeButton.vue";
 </script>

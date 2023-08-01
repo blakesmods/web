@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="block bg-surface-ground shadow-md shadow-surface-900 border-t border-surface-border"
+    class="block dark:bg-gray-800/25 shadow-md shadow-gray-900 border-t border-gray-200 dark:border-gray-800"
   >
     <div class="flex pt-20 pb-8">
       <div
@@ -17,7 +17,7 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i class="pi pi-github"></i>
+              <UIcon name="i-simple-icons-github" width="16px" />
               GitHub
             </a>
             <a
@@ -73,19 +73,21 @@
       </div>
     </div>
     <div
-      class="flex md:justify-center flex-col md:flex-row container min-h-16 justify-between items-center mx-auto p-4 gap-2 border-t border-t-surface-border"
+      class="flex md:justify-center flex-col md:flex-row container min-h-16 justify-between items-center mx-auto p-4 gap-2 border-t border-gray-200 dark:border-gray-800"
     >
       <div class="flex justify-center items-center gap-4">
         <span>
           &copy; {{ new Date().getFullYear() }} BlakeBr0 -
-          <a href="https://github.com/blakesmods/web/blob/main/LICENSE">
+          <a
+            href="https://github.com/blakesmods/web/blob/main/LICENSE"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             MIT License
           </a>
         </span>
 
-        <ClientOnly>
-          <ThemeToggle />
-        </ClientOnly>
+        <ThemeToggle />
       </div>
     </div>
   </footer>
@@ -97,7 +99,6 @@ import ModrinthLogo from "~/components/ModrinthLogo.vue";
 import ThemeToggle from "~/components/ThemeToggle.vue";
 
 const mods = useMods();
-const theme = useColorMode();
 
 const columns = ref([
   {

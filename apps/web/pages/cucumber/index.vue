@@ -10,37 +10,35 @@
       <h1 class="text-center">Check out the actual mods!</h1>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <Card
+        <UCard
           v-for="mod in mods"
           class="mod"
           :class="mod.mod_id"
           :key="mod.mod_id"
         >
-          <template #content>
-            <div class="flex gap-4">
-              <img class="my-auto" :src="mod.logo" width="100" />
-              <div class="flex flex-col justify-center">
-                <h3>{{ mod.name }}</h3>
-                <p>{{ mod.tagline }}</p>
+          <div class="flex gap-4">
+            <img class="my-auto" :src="mod.logo" width="100" alt="" />
+            <div class="flex flex-col justify-center">
+              <h3>{{ mod.name }}</h3>
+              <p>{{ mod.tagline }}</p>
 
-                <div class="flex mt-2 gap-4">
-                  <NuxtLink
-                    :to="mod.url"
-                    class="text-primary hover:text-primary-accent"
-                  >
-                    View
-                  </NuxtLink>
-                  <NuxtLink
-                    :to="mod.url + '/download'"
-                    class="text-primary hover:text-primary-accent"
-                  >
-                    Download
-                  </NuxtLink>
-                </div>
+              <div class="flex mt-2 gap-4">
+                <NuxtLink
+                  :to="mod.url"
+                  class="text-primary hover:text-primary-accent"
+                >
+                  View
+                </NuxtLink>
+                <NuxtLink
+                  :to="mod.url + '/download'"
+                  class="text-primary hover:text-primary-accent"
+                >
+                  Download
+                </NuxtLink>
               </div>
             </div>
-          </template>
-        </Card>
+          </div>
+        </UCard>
       </div>
     </div>
   </ModPage>

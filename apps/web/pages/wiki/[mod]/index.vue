@@ -4,32 +4,30 @@
       <h1>{{ mod.name }} Wiki</h1>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 pt-4 gap-4">
-      <Card v-for="category in categories">
-        <template #title>
+      <UCard v-for="category in categories">
+        <template #header>
           <h3 class="capitalize">{{ category }}</h3>
         </template>
-        <template #content>
-          <div class="flex flex-col gap-1">
-            <NuxtLink
-              v-for="article in articles[category]"
-              class="flex pl-2 first:mt-2 border-l border-surface-border"
-              :to="article._path"
-            >
-              <img
-                v-if="article.icon"
-                class="my-auto pr-1 w-5 h-4"
-                :src="article.icon"
-                :alt="article.title"
-                v-tooltip.top="{
-                  value: `<img src='${article.icon}' class='w-16 h-16 pixelated' alt='${article.title}' />`,
-                  escape: true
-                }"
-              />
-              {{ article.title }}
-            </NuxtLink>
-          </div>
-        </template>
-      </Card>
+        <div class="flex flex-col gap-1">
+          <NuxtLink
+            v-for="article in articles[category]"
+            class="flex pl-2 first:mt-2 border-l border-surface-border"
+            :to="article._path"
+          >
+            <img
+              v-if="article.icon"
+              class="my-auto pr-1 w-5 h-4"
+              :src="article.icon"
+              :alt="article.title"
+              v-tooltip.top="{
+                value: `<img src='${article.icon}' class='w-16 h-16 pixelated' alt='${article.title}' />`,
+                escape: true
+              }"
+            />
+            {{ article.title }}
+          </NuxtLink>
+        </div>
+      </UCard>
     </div>
   </div>
 </template>

@@ -18,8 +18,7 @@
   </svg>
   <svg
     v-else
-    width="289"
-    height="46"
+    width="100%"
     viewBox="0 0 289 46"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -88,23 +87,26 @@ const props = defineProps({
   color: String
 });
 
-const isDark = useDark();
+const colorMode = useColorMode();
 
 const color = ref(props.color ? props.color : "white");
 
-watch(isDark, value => {
-  if (props.color) {
-    color.value = props.color;
-  } else {
-    color.value = value ? "white" : "black";
+watch(
+  () => colorMode.preference,
+  value => {
+    if (props.color) {
+      color.value = props.color;
+    } else {
+      color.value = value === "dark" ? "white" : "black";
+    }
   }
-});
+);
 
 onMounted(() => {
   if (props.color) {
     color.value = props.color;
   } else {
-    color.value = isDark.value ? "white" : "black";
+    color.value = colorMode.preference === "dark" ? "white" : "black";
   }
 });
 </script>

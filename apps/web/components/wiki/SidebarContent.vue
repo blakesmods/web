@@ -1,25 +1,26 @@
 <template>
   <div>
-    <h2 class="mb-4 pb-4 text-center border-b border-surface-border">
+    <h2 class="pb-4">
       <NuxtLink class="font-bold" to="/wiki">Wiki</NuxtLink>
     </h2>
     <div
       v-for="category in categories"
-      class="mb-2 last:mb-0"
+      class="mb-4 last:mb-0"
       :key="category.slug"
     >
       <div
-        class="flex justify-between items-center -mx-2 px-2 py-1 cursor-pointer hover:bg-surface-hover rounded"
-        :class="{ '!bg-surface-ground': isCurrentCategory(category.slug) }"
+        class="flex justify-between items-center -mx-2 px-2 py-1 cursor-pointer"
         @click="onClickCategory(category.slug)"
       >
         <h4 class="capitalize">{{ category.name }}</h4>
-        <i
-          :class="[
-            'pi',
-            category.active ? 'pi-chevron-down' : 'pi-chevron-right'
-          ]"
-        ></i>
+        <UIcon
+          class="text-2xl"
+          :name="
+            category.active
+              ? 'i-heroicons-chevron-down'
+              : 'i-heroicons-chevron-right'
+          "
+        />
       </div>
       <div
         class="flex flex-col overflow-hidden"
@@ -27,9 +28,10 @@
       >
         <NuxtLink
           v-for="article in articles[route.params.mod][category.slug]"
-          class="link flex relative mb-1 pl-2 text-sm first:mt-2 border-l border-surface-border"
+          class="flex relative pl-2 py-1 text-sm first:mt-2 border-l border-gray-300 dark:border-gray-700"
           :class="{
-            'text-surface-text/80 border-primary': article._path === route.path
+            'text-primary-500 hover:text-primary-500 !border-primary-500 font-semibold':
+              article._path === route.path
           }"
           :to="article._path"
         >
@@ -57,7 +59,7 @@ const route = useRoute();
 
 const articles = ref({});
 
-const { data } = await useAsyncData("wiki-sidebar", () =>
+const { data } = await useAsyncData("wiki-sidebar-content", () =>
   queryContent("wiki")
     .only(["title", "category", "icon", "_path", "_dir"])
     .sort({ sort: 1, $numeric: true })

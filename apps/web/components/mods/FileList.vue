@@ -17,101 +17,97 @@
           Cucumber Library is required to use this mod.
         </div>
         <a class="flex" :href="cucumberURL" target="_blank">
-          <Button
-            class="p-button-mod"
-            label="Get Cucumber"
-            icon="pi pi-external-link"
-            icon-pos="right"
-          />
+          <UButton
+            color="gray"
+            trailing-icon="i-heroicons-arrow-top-right-on-square-solid"
+          >
+            Get Cucumber
+          </UButton>
         </a>
       </div>
     </Message>
 
-    <Card class="gradient">
-      <template #content>
-        <DataTable
-          data-key="_id"
-          paginator-template="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
-          current-page-report-template="Showing {first} to {last} of {totalRecords} files"
-          lazy
-          paginator
-          :value="files"
-          :loading="pending"
-          :rows="10"
-          :total-records="count"
-          v-model:expanded-rows="expandedRows"
-          @page="onPaginate"
-        >
-          <Column name="expander" expander :header-style="{ width: '40px' }" />
-          <Column field="file_name" header="File Name" expander>
-            <template #body="{ data }">{{ data.file_name }}</template>
-          </Column>
-          <Column
-            field="upload_date"
-            header="Release Date"
-            header-class="right"
-          >
-            <template #body="{ data }">
-              <div class="flex justify-end items-center">
-                <div
-                  v-tooltip.top="
-                    formatDate(data.upload_date, 'ddd, MMM D, YYYY h:mm A')
-                  "
-                >
-                  {{ formatDate(data.upload_date, "MM/DD/YYYY") }}
-                </div>
-              </div>
-            </template>
-          </Column>
-          <Column field="downloads" header="Downloads" header-class="right">
-            <template #body="{ data }">
-              <div class="flex justify-end items-center">
-                <div
-                  class="mr-4 font-bold"
-                  v-tooltip.top="
-                    `${formatDownloadCount(data, '0,0')} downloads`
-                  "
-                >
-                  {{ formatDownloadCount(data, "0[.]0a") }}
-                </div>
-                <Button
-                  class="p-button-mod"
-                  icon="pi pi-download"
-                  :disabled="downloadPending"
-                  :loading="downloadPending && data._id === downloadPending"
-                  @click="onDownloadFile(data)"
-                />
-              </div>
-            </template>
-          </Column>
-
-          <template #expansion="{ data }">
-            <div class="flex flex-wrap gap-4 py-2 justify-between">
-              <div class="col-span-1">
-                <h5>Java Version</h5>
-                <span>{{ data.java_version }}</span>
-              </div>
-              <div class="col-span-1">
-                <h5>Minecraft Version</h5>
-                <span>{{ data.mc_version }}</span>
-              </div>
-              <div class="col-span-1">
-                <h5>File Size</h5>
-                <span>{{ formatNumber(data.file_size, "0.00 b") }}</span>
-              </div>
-              <div class="col-span-2 lg:col-span-5 xl:col-span-2">
-                <h5>MD5 Hash</h5>
-                <span>{{ data.md5_hash }}</span>
-              </div>
-              <div class="w-full">
-                <h4>Changelog</h4>
-                <span v-html="data.changelog"></span>
+    <GradientUCard>
+      <DataTable
+        data-key="_id"
+        paginator-template="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
+        current-page-report-template="Showing {first} to {last} of {totalRecords} files"
+        lazy
+        paginator
+        :value="files"
+        :loading="pending"
+        :rows="10"
+        :total-records="count"
+        v-model:expanded-rows="expandedRows"
+        @page="onPaginate"
+      >
+        <Column name="expander" expander :header-style="{ width: '40px' }" />
+        <Column field="file_name" header="File Name" expander>
+          <template #body="{ data }">{{ data.file_name }}</template>
+        </Column>
+        <Column field="upload_date" header="Release Date" header-class="right">
+          <template #body="{ data }">
+            <div class="flex justify-end items-center">
+              <div
+                v-tooltip.top="
+                  formatDate(data.upload_date, 'ddd, MMM D, YYYY h:mm A')
+                "
+              >
+                {{ formatDate(data.upload_date, "MM/DD/YYYY") }}
               </div>
             </div>
           </template>
-        </DataTable>
-      </template>
-    </Card>
+        </Column>
+        <Column field="downloads" header="Downloads" header-class="right">
+          <template #body="{ data }">
+            <div class="flex justify-end items-center">
+              <div
+                class="mr-4 font-bold"
+                v-tooltip.top="`${formatDownloadCount(data, '0,0')} downloads`"
+              >
+                {{ formatDownloadCount(data, "0[.]0a") }}
+              </div>
+              <UButton
+                color="gray"
+                :trailing-icon="
+                  downloadPending && data._id === downloadPending
+                    ? null
+                    : 'i-heroicons-arrow-down-tray-solid'
+                "
+                :disabled="downloadPending"
+                :loading="downloadPending && data._id === downloadPending"
+                @click="onDownloadFile(data)"
+              />
+            </div>
+          </template>
+        </Column>
+
+        <template #expansion="{ data }">
+          <div class="flex flex-wrap gap-4 py-2 justify-between">
+            <div class="col-span-1">
+              <h5>Java Version</h5>
+              <span>{{ data.java_version }}</span>
+            </div>
+            <div class="col-span-1">
+              <h5>Minecraft Version</h5>
+              <span>{{ data.mc_version }}</span>
+            </div>
+            <div class="col-span-1">
+              <h5>File Size</h5>
+              <span>{{ formatNumber(data.file_size, "0.00 b") }}</span>
+            </div>
+            <div class="col-span-2 lg:col-span-5 xl:col-span-2">
+              <h5>MD5 Hash</h5>
+              <span>{{ data.md5_hash }}</span>
+            </div>
+            <div class="w-full">
+              <h4>Changelog</h4>
+              <span v-html="data.changelog"></span>
+            </div>
+          </div>
+        </template>
+      </DataTable>
+    </GradientUCard>
   </div>
 </template>
 

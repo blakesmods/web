@@ -26,7 +26,7 @@ You can manually define the display name for this crop.
 Omitting this field will auto generate a translation key with the format `crop.mysticalcustomization.{id}`.
 
 ### Type
-<tag value="Required"></tag>
+<u-badge label="Required"></u-badge>
 
 You must assign this crop to a type, using that type's ID. Learn more about types and how to add your own [here](adding-types.md).
 
@@ -39,7 +39,7 @@ You must assign this crop to a type, using that type's ID. Learn more about type
 **Tip:** You can see all the registered types in-game with the `/mysticalcustomization types` command.
 
 ### Tier
-<tag value="Required"></tag>
+<u-badge label="Required"></u-badge>
 
 You must assign this crop to a tier, using the tier's ID. Learn more about tiers and how to add your own [here](adding-tiers.md).
 ```json
@@ -50,7 +50,7 @@ You must assign this crop to a tier, using the tier's ID. Learn more about tiers
 **Tip:** You can see all of the registered tiers in-game with the `/mysticalcustomization tiers` command.
 
 ### Ingredient
-<tag value="Required"></tag>
+<u-badge label="Required"></u-badge>
 
 You must assign the crafting ingredient used to craft this crop's seed. This can be either an item or a tag, and uses the same syntax as a crafting recipe.
 
@@ -128,7 +128,7 @@ You can disable this crop during the creation process if you really want to I gu
 ```
 
 ### Glint
-<tag value="2.0.0+" severity="success"></tag>
+<u-badge label="2.0.0+" color="green"></u-badge>
 
 You can enable the enchantment glint effect for this crop's items.
 ```json
@@ -138,7 +138,7 @@ You can enable the enchantment glint effect for this crop's items.
 ```
 
 ### Required Biomes
-<tag value="2.1.2+" severity="success"></tag>
+<u-badge label="2.1.2+" color="green"></u-badge>
 
 You can specify required biomes for this crop to be able to grow in.
 ```json
@@ -151,7 +151,7 @@ You can specify required biomes for this crop to be able to grow in.
 ```
 
 ### Base Secondary Drop Chance
-<tag value="3.0.1+" severity="success"></tag>
+<u-badge label="3.0.1+" color="green"></u-badge>
 
 You can modify the base chance of a second seed/essence dropping from the crop when planted on a valid farmland. Can be any value from 0.0 to 1.0.
 ```json
@@ -161,7 +161,7 @@ You can modify the base chance of a second seed/essence dropping from the crop w
 ```
 
 ### Essence Item
-<tag value="3.1.1+" severity="success"></tag>
+<u-badge label="3.1.1+" color="green"></u-badge>
 
 You can specify your own essence item. This is the item that will drop from the crop when harvested. 
 
@@ -173,7 +173,7 @@ You can specify your own essence item. This is the item that will drop from the 
 ```
 
 ### Recipe Config
-<tag value="3.1.2+" severity="success"></tag>
+<u-badge label="3.1.2+" color="green"></u-badge>
 
 You can optionally disable the auto-generated recipes for your crops if you plan on adding your own instead.
 ```json5

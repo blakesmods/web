@@ -1,31 +1,26 @@
 <template>
-  <div class="flex flex lg:w-[288px] relative">
-    <div
-      class="lg:hidden flex justify-center items-center absolute -top-1 right-0 w-8 h-8 z-10 bg-surface-card border border-surface-border cursor-pointer lg:pointer-events-none rounded-lg"
+  <div ref="el" class="flex relative">
+    <UButton
+      class="lg:hidden"
+      color="gray"
+      icon="i-heroicons-magnifying-glass"
       @click="show = !show"
-    >
-      <i class="pi pi-search"></i>
-    </div>
+    />
+
     <div
-      class="absolute lg:static lg:flex flex-1 top-12 right-0 w-[300px] p-4 lg:p-0 bg-surface-hover lg:bg-none border border-surface-border lg:border-none rounded"
+      class="absolute min-w-[300px] lg:min-w-0 lg:static lg:flex flex-1 top-12 right-0 p-4 lg:p-0 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 lg:border-none rounded"
       :class="{ hidden: !show }"
     >
-      <div
-        v-if="!search"
-        class="hidden lg:block flex justify-center items-center absolute top-[5px] px-1.5 right-2 z-10 text-sm border border-surface-border rounded pointer-events-none opacity-50"
-      >
-        /
-      </div>
-      <i
-        class="pi pi-search absolute top-6 left-6 lg:top-2 lg:left-2 z-20 text-surface-text/50"
-      ></i>
-      <input
+      <UInput
         id="search"
-        class="flex w-full h-8 pl-7 pr-2 bg-surface-card border border-surface-border placeholder-surface-text/50 rounded-lg"
-        type="text"
-        placeholder="Search the wiki..."
+        icon="i-heroicons-magnifying-glass"
+        placeholder="Search..."
         v-model="search"
-      />
+      >
+        <template #trailing>
+          <UKbd>/</UKbd>
+        </template>
+      </UInput>
     </div>
   </div>
 </template>

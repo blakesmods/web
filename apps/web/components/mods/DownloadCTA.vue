@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex justify-center border-t border-surface-border"
+    class="flex justify-center border-t border-gray-200 dark:border-gray-800"
     :style="{ 'background-color': mod.primary_color + '20' }"
   >
     <div class="container flex flex-col w-full relative py-16 z-10 gap-8">
@@ -42,35 +42,32 @@
 
       <h1 class="text-[52px] text-center">Download {{ mod.name }}</h1>
       <div class="flex flex-wrap justify-center gap-8">
-        <NuxtLink
-          class="grower flex justify-center items-center w-[200px] p-4"
+        <UButton
           :to="mod.url + '/download'"
+          color="gray"
+          size="xl"
+          leading-icon="i-heroicons-arrow-down-tray-solid"
         >
-          <Button class="p-button-mod gap-4">
-            <i class="pi pi-download"></i>
-            Download
-          </Button>
-        </NuxtLink>
-        <a
-          class="grower flex justify-center items-center w-[200px] p-4 gap-2"
-          :href="mod.curseforge_link"
+          Download
+        </UButton>
+        <UButton
+          :to="mod.curseforge_link"
           target="_blank"
+          color="gray"
+          size="xl"
+          leading-icon="i-heroicons-arrow-top-right-on-square-solid"
         >
-          <Button class="p-button-mod-outlined gap-4">
-            <i class="pi pi-external-link"></i>
-            CurseForge
-          </Button>
-        </a>
-        <a
-          class="grower flex justify-center items-center w-[200px] p-4 gap-2"
-          :href="mod.modrinth_link"
+          CurseForge
+        </UButton>
+        <UButton
+          :to="mod.modrinth_link"
           target="_blank"
+          color="gray"
+          size="xl"
+          leading-icon="i-heroicons-arrow-top-right-on-square-solid"
         >
-          <Button class="p-button-mod-outlined gap-4">
-            <i class="pi pi-external-link"></i>
-            Modrinth
-          </Button>
-        </a>
+          Modrinth
+        </UButton>
       </div>
     </div>
   </div>

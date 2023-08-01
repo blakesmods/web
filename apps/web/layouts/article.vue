@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="flex flex-col min-h-screen pt-20 bg-surface-ground text-surface-text"
-  >
+  <div class="flex flex-col min-h-screen pt-20">
     <Header />
     <div class="container mb-4">
       <Ad ad-slot="1098619789" />
@@ -9,11 +7,11 @@
     <main class="flex flex-auto container mx-auto px-4">
       <div class="flex flex-nowrap flex-1 max-w-full justify-center">
         <div class="docs grid grid-cols-12 relative w-full min-h-[800px]">
-          <Sidebar v-model:visible="sidebar">
+          <USlideover side="left" v-model="sidebar">
             <SidebarContent />
-          </Sidebar>
+          </USlideover>
           <div
-            class="hidden lg:block min-w-[244px] max-h-96 lg:max-h-full col-span-3 pr-4 py-4 z-20 bg-surface-ground rounded overflow-y-auto lg:overflow-y-visible"
+            class="hidden lg:block min-w-[244px] max-h-96 lg:max-h-full col-span-3 pr-4 py-4 z-20 rounded overflow-y-auto lg:overflow-y-visible"
           >
             <div class="sticky top-24 w-full">
               <SidebarContent />

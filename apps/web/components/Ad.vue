@@ -1,7 +1,9 @@
 <template>
   <adsbygoogle
     class="adsbygoogle text-center"
-    :class="{ 'border border-surface-border rounded': !adLayout }"
+    :class="{
+      'border border-gray-200 dark:border-gray-800 rounded': !adLayout
+    }"
     :ad-layout="adLayout"
     :ad-slot="adSlot"
     :ad-format="adFormat"

@@ -3,10 +3,10 @@
     <div class="col-span-12 lg:col-span-9 xl:col-span-7 w-full h-full">
       <div class="flex py-8 lg:ml-4 xl:mr-4 z-10 justify-between items-center">
         <div class="flex items-center gap-4">
-          <Button
+          <UButton
             class="p-button-text !inline-flex lg:!hidden"
             ref="sidebarToggle"
-            icon="pi pi-bars"
+            icon="i-heroicons-bars-3-solid"
             @click="onToggleSidebar"
           />
           <h1 class="flex items-center gap-4">
@@ -19,11 +19,11 @@
             {{ page.title }}
           </h1>
         </div>
-        <Button
+        <UButton
           v-if="hasTOC"
           ref="tocToggle"
-          class="p-button-text !inline-flex xl:!hidden"
-          icon="pi pi-list"
+          class="!inline-flex xl:!hidden"
+          icon="i-heroicons-bars-3-solid"
           @click="toc = !toc"
         />
       </div>
@@ -47,14 +47,15 @@
 
       <div class="relative bottom-0">
         <div class="flex m-4 justify-between">
-          <a
-            :href="`https://github.com/blakesmods/web/edit/main/apps/web/content${page._path}.${page._extension}`"
+          <UButton
+            :to="`https://github.com/blakesmods/web/edit/main/apps/web/content${page._path}.${page._extension}`"
             target="_blank"
-            rel="noreferrer"
+            variant="ghost"
+            rel="noopener noreferrer"
           >
-            <i class="pi pi-file-edit"></i>
+            <UIcon name="i-heroicons-pencil-square-solid" />
             Edit this page on GitHub
-          </a>
+          </UButton>
           <span v-if="false">Last Updated: {{ lastUpdated }}</span>
         </div>
         <Pagination :current="page" />
@@ -67,19 +68,13 @@
         <TOC v-if="hasTOC" :page="page" />
       </div>
     </div>
-    <Sidebar
-      v-if="hasTOC"
-      class="lg:hidden"
-      position="right"
-      v-model:visible="toc"
-    >
+    <USlideover v-if="hasTOC" class="lg:hidden" position="right" v-model="toc">
       <TOC :page="page" />
-    </Sidebar>
+    </USlideover>
   </div>
 </template>
 
 <script setup>
-import CodeCopyButton from "~/components/CodeCopyButton.vue";
 import TOC from "~/components/wiki/TOC.vue";
 import Pagination from "~/components/wiki/Pagination.vue";
 
@@ -153,18 +148,4 @@ watch(
 function onToggleSidebar() {
   toggleSidebar.emit();
 }
-
-onMounted(() => {
-  setTimeout(() => {
-    const blocks = document.getElementsByClassName("nuxt-content-highlight");
-
-    for (const block of blocks) {
-      const component = defineComponent({ extends: CodeCopyButton });
-      const div = document.createElement("div");
-
-      block.appendChild(div);
-      createApp(component).mount(div);
-    }
-  }, 100);
-});
 </script>

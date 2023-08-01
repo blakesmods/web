@@ -27,6 +27,13 @@ module.exports = {
     colors: {
       black: colors.black,
       white: colors.white,
+      fuchsia: colors.fuchsia,
+      cool: colors.gray,
+      red: colors.red,
+      green: colors.green,
+      blue: colors.blue,
+      yellow: colors.yellow,
+      purple: colors.purple,
       surface: {
         ground: "rgb(var(--surface-color-ground) / <alpha-value>)",
         section: "rgb(var(--surface-color-section) / <alpha-value>)",
@@ -35,10 +42,6 @@ module.exports = {
         border: "rgb(var(--surface-color-border) / <alpha-value>)",
         hover: "rgb(var(--surface-color-hover) / <alpha-value>)",
         text: "rgb(var(--surface-color-text) / <alpha-value>)"
-      },
-      primary: {
-        DEFAULT: "rgb(186 104 200 / <alpha-value>)",
-        accent: "rgb(176 82 192 / <alpha-value>)"
       }
     },
     fontFamily: {

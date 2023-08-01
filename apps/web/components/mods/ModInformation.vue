@@ -1,36 +1,33 @@
 <template>
-  <Card class="min-w-[300px]">
-    <template #title>
-      <h3 class="mb-4 pb-4 text-center border-b border-surface-border">
-        Mod Information
-      </h3>
+  <UCard class="min-w-[300px]">
+    <template #header>
+      <h3 class="text-center">Mod Information</h3>
     </template>
-    <template #content>
-      <div class="space-y-1">
-        <div class="flex justify-between gap-4">
-          <strong>Total Downloads</strong>
-          <span>{{ formatNumber(downloads) }}</span>
-        </div>
-        <div v-if="mod.latest_release" class="flex justify-between gap-4">
-          <strong>Latest Release</strong>
-          <span
-            v-tooltip.top="
-              `Released on ${formatDate(
-                mod.latest_release.upload_date,
-                'ddd, MMM D, YYYY h:mm A'
-              )}`
-            "
-          >
-            {{ mod.latest_release.mod_version }}
-          </span>
-        </div>
-        <div class="flex justify-between gap-4">
-          <strong>License</strong>
-          <span>MIT License</span>
-        </div>
+
+    <div class="space-y-1">
+      <div class="flex justify-between gap-4">
+        <strong>Total Downloads</strong>
+        <span>{{ formatNumber(downloads) }}</span>
       </div>
-    </template>
-  </Card>
+      <div v-if="mod.latest_release" class="flex justify-between gap-4">
+        <strong>Latest Release</strong>
+        <span
+          v-tooltip.top="
+            `Released on ${formatDate(
+              mod.latest_release.upload_date,
+              'ddd, MMM D, YYYY h:mm A'
+            )}`
+          "
+        >
+          {{ mod.latest_release.mod_version }}
+        </span>
+      </div>
+      <div class="flex justify-between gap-4">
+        <strong>License</strong>
+        <span>MIT License</span>
+      </div>
+    </div>
+  </UCard>
 </template>
 
 <script setup>
