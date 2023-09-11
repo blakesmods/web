@@ -33,7 +33,7 @@
 </template>
 
 <script setup>
-import categoriesJSON from "~/content/wiki/categories.json";
+import categoriesJSON from "~/content/wiki/.categories.json";
 
 definePageMeta({
   layout: "wiki"
