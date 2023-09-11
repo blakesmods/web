@@ -1,9 +1,10 @@
+import { DefineNuxtConfig } from "nuxt/config";
 import { resolve } from "path";
 
 const description =
   "The official website of BlakeBr0's Minecraft mods. Including Mystical Agriculture, Pickle Tweaks, Iron Jetpacks and more!";
 
-export default defineNuxtConfig({
+export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
   app: {
     head: {
       htmlAttrs: {
@@ -90,7 +91,7 @@ export default defineNuxtConfig({
     "~/assets/css/main.scss"
   ],
   modules: [
-    "@nuxthq/ui",
+    "@nuxt/ui",
     "@nuxt/content",
     "@nuxtjs/google-adsense",
     "@nuxtjs/google-fonts",
