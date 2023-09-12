@@ -2,7 +2,7 @@ import { DefineNuxtConfig } from "nuxt/config";
 import { resolve } from "path";
 
 const description =
-  "The official website of BlakeBr0's Minecraft mods. Including Mystical Agriculture, Pickle Tweaks, Iron Jetpacks and more!";
+  "Official home of Mystical Agriculture, Pickle Tweaks, Iron Jetpacks, Extended Crafting, Mystical Agradditions, Mystical Customization, More Buckets and Cucumber Library!";
 
 export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
   app: {
