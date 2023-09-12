@@ -1,7 +1,7 @@
 ---
-id: essence-furnaces
-title: Essence Furnaces
+id: essence-furnace
+title: Essence Furnace
 icon: /assets/mysticalagriculture/blocks/inferium_furnace.png
-sort: 31
+sort: 59
 ---
 

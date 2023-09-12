@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col min-h-screen pt-20">
     <Header />
-    <div class="container mb-4">
+    <div class="container h-[280px] mb-4">
       <Ad ad-slot="1098619789" />
     </div>
     <main class="flex flex-auto container mx-auto px-4">
