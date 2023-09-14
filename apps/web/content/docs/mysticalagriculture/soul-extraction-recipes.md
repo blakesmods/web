@@ -7,9 +7,17 @@ category: Mystical Agriculture
 Mystical Agriculture allows you easily add your own Soul Extractor recipes. Here's how you do it.
 
 ## Datapacks
-### Prerequisits
-- Mystical Agriculture uses the vanilla datapack system for recipe customization. [(Learn More)](https://minecraft.gamepedia.com/Data_pack)
-- Recipes are added using json files, similar to vanilla recipes. [(Learn More)](https://minecraft.gamepedia.com/Recipe)
+
+<alert title="Prerequisites">
+  <ul>
+    <li>
+      You can learn more about using vanilla datapacks <a href="https://minecraft.gamepedia.com/Data_pack">here</a>.
+    </li>
+    <li>
+      You can learn more about creating recipe JSON files <a href="https://minecraft.gamepedia.com/Recipe">here</a>.
+    </li>
+  </ul>
+</alert>
 
 ### The Recipe File
 This section will go over the values available to use in a Soul Extraction recipe. Syntax can be inferred from the example json below.
