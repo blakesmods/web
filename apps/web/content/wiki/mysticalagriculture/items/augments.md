@@ -5,3 +5,10 @@ icon: /assets/mysticalagriculture/items/unattuned_augment.png
 sort: 52
 ---
 
+## Overview
+
+Augments are used to add new capabilities to [Essence Tools](essence-tools.md) and [Essence Armor](essence-armor.md).
+
+## Usage
+
+Augments can be added to tools and armor using a [Tinkering Table](../blocks/tinkering-table.md).

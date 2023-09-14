@@ -5,3 +5,10 @@ icon: /assets/mysticalagriculture/items/mystical_fertilizer.png
 sort: 16
 ---
 
+## Overview
+
+Mystical Fertilizer is a more effective plant growth item. Any crop or sapling grown using Mystical Fertilizer will instantly grow to full maturity.
+
+## Usage
+
+Right-click on an un-grown crop or sapling to grow it instantly.

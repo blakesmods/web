@@ -5,3 +5,9 @@ icon: /assets/mysticalagriculture/items/prosperity_seed_base.png
 sort: 10
 ---
 
+## Overview
+
+Seed Bases are crafting components used to create [Resource Seeds](resource-seeds.md). There are two variants available:
+
+- Prosperity Seed Base: Used to create resource crops for harvestable materials.
+- Soulium Seed Base: Used to create crops for mob drops.

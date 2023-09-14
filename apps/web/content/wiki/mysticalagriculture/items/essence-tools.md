@@ -5,3 +5,6 @@ icon: /assets/mysticalagriculture/items/inferium_pickaxe.png
 sort: 50
 ---
 
+## Overview
+
+Essence Tools are higher tier tools that can be upgraded using [Augments](augments.md).
