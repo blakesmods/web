@@ -23,7 +23,11 @@
         </UButton>
       </div>
       <div class="flex xl:max-w-[40%] xl:h-[550px] xl:items-center">
-        <img :src="mod.hero_img" :alt="`${mod.name} hero image`" />
+        <img
+          class="border border-gray-300 dark:border-gray-700 rounded-xl shadow"
+          :src="mod.hero_img"
+          :alt="`${mod.name} hero image`"
+        />
       </div>
     </div>
 
