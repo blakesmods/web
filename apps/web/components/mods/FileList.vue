@@ -1,33 +1,40 @@
 <template>
   <div class="files w-full">
-    <Message
-      v-if="mod !== 'cucumber' && !['1.10', '1.11'].includes(version)"
-      class="!mt-0 !mb-8"
-      icon="_"
-      :closable="false"
-    >
-      <div class="flex flex-col xl:flex-row justify-between items-center gap-8">
-        <div class="flex text-2xl font-bold">
-          <span class="flex mr-4 items-center">
-            <i
-              class="pi p-badge-info pi-info-circle"
-              style="font-size: 2rem"
-            ></i>
-          </span>
-          Cucumber Library is required to use this mod.
+    <UCard>
+      <template #header>
+        <div
+          class="flex flex-col xl:flex-row justify-between items-center gap-8"
+        >
+          <div class="flex text-2xl font-bold">
+            <span class="flex mr-4 items-center">
+              <i
+                class="pi p-badge-info pi-info-circle"
+                style="font-size: 2rem"
+              ></i>
+            </span>
+            Cucumber Library is required to use this mod.
+          </div>
+          <a class="flex">
+            <UButton
+              :to="cucumberURL"
+              target="_blank"
+              color="green"
+              trailing-icon="i-heroicons-arrow-top-right-on-square-solid"
+            >
+              Get Cucumber
+            </UButton>
+          </a>
         </div>
-        <a class="flex" :href="cucumberURL" target="_blank">
-          <UButton
-            color="gray"
-            trailing-icon="i-heroicons-arrow-top-right-on-square-solid"
-          >
-            Get Cucumber
-          </UButton>
-        </a>
-      </div>
-    </Message>
+      </template>
 
-    <GradientUCard>
+      <div
+        class="flex flex-col gap-4 pb-6 mb-6 border-b border-gray-300 dark:border-gray-700"
+      >
+        <UFormGroup class="w-full md:w-64" label="Minecraft Version">
+          <USelectMenu :options="versions" v-model="version" />
+        </UFormGroup>
+      </div>
+
       <DataTable
         data-key="_id"
         paginator-template="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
@@ -48,25 +55,23 @@
         <Column field="upload_date" header="Release Date" header-class="right">
           <template #body="{ data }">
             <div class="flex justify-end items-center">
-              <div
-                v-tooltip.top="
-                  formatDate(data.upload_date, 'ddd, MMM D, YYYY h:mm A')
-                "
+              <UTooltip
+                :text="formatDate(data.upload_date, 'ddd, MMM D, YYYY h:mm A')"
               >
                 {{ formatDate(data.upload_date, "MM/DD/YYYY") }}
-              </div>
+              </UTooltip>
             </div>
           </template>
         </Column>
         <Column field="downloads" header="Downloads" header-class="right">
           <template #body="{ data }">
             <div class="flex justify-end items-center">
-              <div
+              <UTooltip
                 class="mr-4 font-bold"
-                v-tooltip.top="`${formatDownloadCount(data, '0,0')} downloads`"
+                :text="`${formatDownloadCount(data, '0,0')} downloads`"
               >
                 {{ formatDownloadCount(data, "0[.]0a") }}
-              </div>
+              </UTooltip>
               <UButton
                 color="gray"
                 :trailing-icon="
@@ -107,14 +112,14 @@
           </div>
         </template>
       </DataTable>
-    </GradientUCard>
+    </UCard>
   </div>
 </template>
 
 <script setup>
 const props = defineProps({
   mod: String,
-  version: String
+  versions: Array
 });
 
 const nuxtApp = useNuxtApp();
@@ -122,6 +127,7 @@ const nuxtApp = useNuxtApp();
 const route = useRoute();
 const router = useRouter();
 
+const version = ref(route.query.mc_version || props.versions[0]);
 const files = ref([]);
 const count = ref(0);
 const page = ref(1);
@@ -129,10 +135,10 @@ const downloadPending = ref(false);
 const expandedRows = ref([]);
 
 const cucumberURL = computed(
-  () => "/cucumber/download?mc_version=" + props.version
+  () => "/cucumber/download?mc_version=" + version.value
 );
 
-const url = computed(() => `/v2/mods/${props.mod}/${props.version}`);
+const url = computed(() => `/v2/mods/${props.mod}/${version.value}`);
 const params = computed(() => ({ page: page.value }));
 
 const { data, execute, pending } = await useAPI(url, {
@@ -171,7 +177,7 @@ function formatDownloadCount(file, format) {
 }
 
 watch(
-  () => props.version,
+  () => version.value,
   (value, oldValue) => {
     if (oldValue !== null) {
       router.push({

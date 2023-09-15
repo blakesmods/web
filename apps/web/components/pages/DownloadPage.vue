@@ -43,12 +43,11 @@
       class="container relative flex flex-col lg:flex-row w-full m-auto px-4 pb-8 gap-8 z-20"
     >
       <div class="flex flex-col gap-8">
-        <VersionSelector :versions="mod.versions" v-model="version" />
-        <Ad ad-slot="2977397419" />
         <ModInformation :mod="mod" />
+        <Ad ad-slot="2977397419" />
       </div>
       <div class="flex flex-col w-full gap-8">
-        <FileList :mod="mod.mod_id" :version="version" />
+        <FileList :mod="mod.mod_id" :versions="mod.versions" />
         <Ad ad-slot="5974260724" />
       </div>
     </div>
@@ -60,7 +59,6 @@
 import Ad from "~/components/Ad.vue";
 import Footer from "~/components/default/Footer.vue";
 import Header from "~/components/mods/Header.vue";
-import VersionSelector from "~/components/mods/VersionSelector.vue";
 import FileList from "~/components/mods/FileList.vue";
 import ModInformation from "~/components/mods/ModInformation.vue";
 import GradientBackground from "~/components/GradientBackground.vue";
@@ -69,16 +67,13 @@ const props = defineProps({
   modId: String
 });
 
-const route = useRoute();
 const modInfo = useMod(props.modId);
 
 const mod = ref({});
-const version = ref(null);
 
 const { data } = await useAPI(`/v2/mods/${props.modId}`);
 
 mod.value = data.value.data;
-version.value = route.query.mc_version || data.value.data.versions[0];
 
 const title = `Download ${mod.value.mod_name}`;
 const description = `

@@ -103,11 +103,14 @@ h4 {
 }
 
 .p-datatable {
+  .p-datatable-wrapper {
+    @apply #{"!rounded-md border border-gray-300 dark:border-gray-700"};
+  }
+
   .p-datatable-thead > tr > th {
-    padding: 0 0 1rem 0 !important;
-    background: transparent !important;
-    border-color: transparent !important;
-    color: theme("colors.surface.text") !important;
+    padding: 1rem !important;
+
+    @apply #{"!bg-white dark:!bg-gray-900 border-gray-300 dark:border-gray-700"};
 
     &.right {
       .p-column-header-content {
@@ -117,12 +120,11 @@ h4 {
   }
 
   .p-datatable-tbody > tr {
-    background: transparent !important;
-    color: theme("colors.surface.text") !important;
+    @apply #{"!bg-white dark:!bg-gray-900"};
 
     & > td {
-      padding: 0.5rem 0 !important;
-      border-color: theme("colors.surface.border") !important;
+      padding: 0.5rem 1rem !important;
+      @apply #{"border-gray-300 dark:border-gray-700"};
     }
   }
 
@@ -149,22 +151,6 @@ h4 {
 
   .p-paginator-bottom {
     border: none !important;
-  }
-}
-
-.p-message {
-  border-radius: 8px;
-  border-width: 1px 1px 1px 6px !important;
-
-  .p-message-wrapper,
-  .p-message-text {
-    width: 100%;
-  }
-
-  &-info {
-    background: rgb(var(--surface-color-card)) !important;
-    border-color: rgb(var(--surface-color-border)) !important;
-    color: theme("colors.surface.text") !important;
   }
 }
 
