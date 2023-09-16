@@ -14,7 +14,10 @@
       v-bind="$props"
       :ui="{
         header: {
-          base: 'border-b border-gray-300/50 dark:border-gray-700/50'
+          base: 'pb-0 border-0'
+        },
+        body: {
+          base: '!border-0'
         },
         background: 'bg-gray-200/90 dark:bg-gray-800/90'
       }"

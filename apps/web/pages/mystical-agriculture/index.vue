@@ -37,11 +37,14 @@ const mod = useMod("mysticalagriculture");
 
 const features = ref([
   {
-    image: null,
     title: "Grow Your Resources",
     description: [
       "The main purpose of Mystical Agriculture is to provide an alternative form of resource collection.",
       "Mystical Agriculture adds more then 150+ unique crops to Minecraft; such as Coal, Iron, Diamond, Creeper and so many more!"
+    ],
+    images: [
+      "/assets/mysticalagriculture/items/diamond_essence.png",
+      "/assets/mysticalagriculture/items/diamond_seeds.png"
     ]
   },
   {
@@ -49,6 +52,10 @@ const features = ref([
     description: [
       "Essences can be used to create better tools and armor. They can also be upgraded with additional abilities like jump boost, strength, flight and wither resistance using Augments!",
       "Upgrade your gear even further to Awakened Supremium tier! Enjoy benefits like even greater stats and additional Augment slots."
+    ],
+    images: [
+      "/assets/mysticalagriculture/items/inferium_pickaxe.png",
+      "/assets/mysticalagriculture/items/inferium_helmet.png"
     ]
   },
   {
@@ -56,6 +63,10 @@ const features = ref([
     description: [
       "Water your crops manually with a Watering Can to substantially increase crop growth rates.",
       "Stack Growth Accelerators underneath your crops to increase their growth rate."
+    ],
+    images: [
+      "/assets/mysticalagriculture/items/watering_can.png",
+      "/assets/mysticalagriculture/blocks/inferium_growth_accelerator.png"
     ]
   },
   {
@@ -63,17 +74,25 @@ const features = ref([
     description: [
       "Harvest large areas of crops in one fell swoop using a Scythe.",
       "Automatically harvest a field of crops using a Harvester."
+    ],
+    images: [
+      "/assets/mysticalagriculture/items/diamond_scythe.png",
+      "/assets/mysticalagriculture/blocks/harvester.png"
     ]
   },
   {
     title: "Essence Furnaces",
     description: [
       "Use your extra essences to create furnaces with increased speed and fuel efficiency."
-    ]
+    ],
+    images: ["/assets/mysticalagriculture/blocks/inferium_furnace.png"]
   },
   {
     title: "Enchanter",
-    description: ["Coming Soon!"]
+    description: [
+      "Enchant your tools, armor or books with crafting materials and Experience Essence."
+    ],
+    images: ["/assets/mysticalagriculture/blocks/enchanter.png"]
   }
 ]);
 
@@ -81,7 +100,7 @@ const addons = ref([
   {
     title: "Mystical Agradditions",
     description: [
-      "Mystical Agradditions adds tier 6 crops, paxels, and Tinkers' construct integration."
+      "Mystical Agradditions adds tier 6 crops, Paxels, and Tinkers' construct integration."
     ]
   },
   {
