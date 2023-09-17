@@ -131,8 +131,8 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
       }
     }
   },
-  sitemap: {
-    hostname: "https://blakesmods.com"
+  site: {
+    url: "https://blakesmods.com"
   },
   "google-adsense": {
     id: "ca-pub-9433168950133481"
