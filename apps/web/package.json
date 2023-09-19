@@ -31,9 +31,5 @@
     "primevue": "^3.34.1",
     "sass": "^1.66.1",
     "tailwindcss": "^3.3.3"
-  },
-  "dependencies": {
-    "@types/node": "^16.18.12",
-    "turbo": "^1.10.5"
   }
 }
