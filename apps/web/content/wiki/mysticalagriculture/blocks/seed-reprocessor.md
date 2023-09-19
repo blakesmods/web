@@ -11,9 +11,9 @@ The Seed Reprocessor is a machine built for converting extra seeds into essences
 
 ## Usage
 
-<alert>
+::alert
   Make sure you have <a href="https://www.curseforge.com/minecraft/mc-mods/jei">Just Enough Items</a> installed to easily view all available Seed Reprocessor recipes.
-</alert>
+::
 
 The Seed Reprocessor requires energy to function. You can either provide energy via any Forge Energy compatible energy transfer, or use the internal solid-fuel based generator.
 

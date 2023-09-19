@@ -8,3 +8,17 @@ sort: 2
 ## Overview
 
 Inferium Ore is an Overworld ore usually found between Y levels **64** and **-32**. Inferium Ore requires a Pickaxe of at least Stone mining level. When broken it'll drop [Inferium Essence](../items/inferium-essence.md). 
+
+## Screenshots
+
+::screenshots
+---
+screenshots:
+  - name: Inferium Ore
+    description: A vein of Inferium Ore generated in Stone.
+    image: /assets/mysticalagriculture/screenshots/inferium_ore_1.png
+  - name: Deepslate Inferium Ore
+    description: A vein of Deepslate Inferium Ore generated in Deepslate.
+    image: /assets/mysticalagriculture/screenshots/inferium_ore_2.png
+---
+::

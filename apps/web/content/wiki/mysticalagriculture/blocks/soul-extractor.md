@@ -7,13 +7,13 @@ sort: 61
 
 ## Overview
 
-The Soul Extracter is a machine used for extracting Mob Souls from items into [Soul Jars](../items/soul-jar.md).  
+The Soul Extractor is a machine used for extracting Mob Souls from items into [Soul Jars](../items/soul-jar.md).  
 
 ## Usage
 
-<alert>
+::alert
   Make sure you have <a href="https://www.curseforge.com/minecraft/mc-mods/jei">Just Enough Items</a> installed to easily view all available Soul Extractor recipes.
-</alert>
+::
 
 The Soul Extractor requires energy to function. You can either provide energy via any Forge Energy compatible energy transfer, or use the internal solid-fuel based generator.
 

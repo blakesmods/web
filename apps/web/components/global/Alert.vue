@@ -1,7 +1,7 @@
 <template>
   <UAlert color="primary" variant="subtle">
     <template #title>
-      <strong class="text-lg">{{ title || "Heads Up!" }}</strong>
+      <strong class="text-lg">{{ title }}</strong>
     </template>
     <template #description>
       <slot></slot>
@@ -11,6 +11,9 @@
 
 <script setup>
 defineProps({
-  title: String
+  title: {
+    type: String,
+    default: "Heads Up!"
+  }
 });
 </script>

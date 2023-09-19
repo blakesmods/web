@@ -12,3 +12,14 @@ Soulstone is a new type of Stone that spawns in veins in the Nether. Soulstone v
 ## Usage
 
 Soulstone can be used to create Soul Dust or to create different decorative blocks.
+
+## Screenshots
+
+::screenshots
+---
+screenshots:
+  - name: Soulstone
+    description: Multiple Soulstone veins generated inside Netherrack in the Nether.
+    image: /assets/mysticalagriculture/screenshots/soulstone_1.png
+---
+::

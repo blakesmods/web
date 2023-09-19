@@ -14,3 +14,14 @@ Each tier has an increased range, but provide the same amount of growth. Placing
 ## Usage
 
 Place them underneath the block your plant is planted on. In the case of crops that would be underneath the farmland block. Stack additional Growth Accelerators below it for more plant growth speed.
+
+## Screenshots
+
+::screenshots
+---
+screenshots:
+  - name: Growth Accelerators
+    description: Growth Accelerators stacked on top of each other for maximum efficiency and taking advantage of each tier's full range.
+    image: /assets/mysticalagriculture/screenshots/growth_accelerators_1.png
+---
+::
