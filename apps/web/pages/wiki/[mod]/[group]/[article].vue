@@ -9,15 +9,18 @@
             icon="i-heroicons-bars-3-solid"
             @click="onToggleSidebar"
           />
-          <h1 class="flex items-center gap-4">
-            <img
-              v-if="page.icon"
-              class="w-12 h-12 pixelated object-contain"
-              :src="page.icon"
-              :alt="page.title"
-            />
-            {{ page.title }}
-          </h1>
+          <div class="flex flex-col gap-2">
+            <span class="text-primary-500 font-bold">{{ mod.name }}</span>
+            <h1 class="flex items-center gap-4">
+              <img
+                v-if="page.icon"
+                class="w-12 h-12 pixelated object-contain"
+                :src="page.icon"
+                :alt="page.title"
+              />
+              {{ page.title }}
+            </h1>
+          </div>
         </div>
         <UButton
           v-if="hasTOC"
