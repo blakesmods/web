@@ -35,16 +35,22 @@
           }"
           :to="article._path"
         >
-          <img
+          <UPopover
             v-if="article.icon"
             class="my-auto pr-1 w-5 h-4"
-            :src="article.icon"
-            :alt="article.title"
-            v-tooltip.top="{
-              value: `<img src='${article.icon}' class='w-16 h-16 pixelated' alt='${article.title}' />`,
-              escape: true
-            }"
-          />
+            mode="hover"
+            :popper="{ placement: 'top' }"
+          >
+            <img :src="article.icon" :alt="article.title" />
+
+            <template #panel>
+              <img
+                class="w-16 h-16 pixelated"
+                :alt="article.title"
+                :src="article.icon"
+              />
+            </template>
+          </UPopover>
           {{ article.title }}
         </NuxtLink>
       </div>

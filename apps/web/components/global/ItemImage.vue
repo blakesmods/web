@@ -1,14 +1,15 @@
 <template>
-  <img
-    class="pixelated"
-    :src="src"
-    :alt="alt"
-    :width="size"
-    :height="size"
-    :style="style"
-    v-bind="$attrs"
-    v-tooltip.top="tooltip"
-  />
+  <UTooltip :text="tooltip" :popper="{ placement: 'top' }">
+    <img
+      class="pixelated"
+      :src="src"
+      :alt="alt"
+      :width="size"
+      :height="size"
+      :style="style"
+      v-bind="$attrs"
+    />
+  </UTooltip>
 </template>
 
 <script setup>

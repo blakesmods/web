@@ -11,16 +11,14 @@
       </div>
       <div v-if="mod.latest_release" class="flex justify-between gap-4">
         <strong>Latest Release</strong>
-        <span
-          v-tooltip.top="
-            `Released on ${formatDate(
-              mod.latest_release.upload_date,
-              'ddd, MMM D, YYYY h:mm A'
-            )}`
-          "
+        <UTooltip
+          :text="`Released on ${formatDate(
+            mod.latest_release.upload_date,
+            'ddd, MMM D, YYYY h:mm A'
+          )}`"
         >
           {{ mod.latest_release.mod_version }}
-        </span>
+        </UTooltip>
       </div>
       <div class="flex justify-between gap-4">
         <strong>License</strong>

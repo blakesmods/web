@@ -11,19 +11,25 @@
         <div class="flex flex-col gap-1">
           <NuxtLink
             v-for="article in articles[category]"
-            class="flex pl-2 first:mt-2 border-l border-surface-border"
+            class="flex relative py-0.5 pl-2 text-sm border-l border-gray-300 dark:border-gray-700"
             :to="article._path"
           >
-            <img
+            <UPopover
               v-if="article.icon"
               class="my-auto pr-1 w-5 h-4"
-              :src="article.icon"
-              :alt="article.title"
-              v-tooltip.top="{
-                value: `<img src='${article.icon}' class='w-16 h-16 pixelated' alt='${article.title}' />`,
-                escape: true
-              }"
-            />
+              mode="hover"
+              :popper="{ placement: 'top' }"
+            >
+              <img :src="article.icon" :alt="article.title" />
+
+              <template #panel>
+                <img
+                  class="w-16 h-16 pixelated"
+                  :alt="article.title"
+                  :src="article.icon"
+                />
+              </template>
+            </UPopover>
             {{ article.title }}
           </NuxtLink>
         </div>
