@@ -27,11 +27,11 @@
     @apply mt-6 pb-1 scroll-mt-52;
 
     a {
-      color: theme("colors.surface.text");
+      @apply text-gray-700 dark:text-gray-300;
       scroll-margin-top: 144px;
 
       &:hover {
-        color: theme("colors.surface.text");
+        @apply text-gray-700 dark:text-gray-300;
 
         &::before {
           content: "#";

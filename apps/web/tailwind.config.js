@@ -33,16 +33,7 @@ module.exports = {
       green: colors.green,
       blue: colors.blue,
       yellow: colors.yellow,
-      purple: colors.purple,
-      surface: {
-        ground: "rgb(var(--surface-color-ground) / <alpha-value>)",
-        section: "rgb(var(--surface-color-section) / <alpha-value>)",
-        card: "rgb(var(--surface-color-card) / <alpha-value>)",
-        overlay: "rgb(var(--surface-color-overlay) / <alpha-value>)",
-        border: "rgb(var(--surface-color-border) / <alpha-value>)",
-        hover: "rgb(var(--surface-color-hover) / <alpha-value>)",
-        text: "rgb(var(--surface-color-text) / <alpha-value>)"
-      }
+      purple: colors.purple
     },
     fontFamily: {
       montserrat: ["Montserrat", ...fontFallback],

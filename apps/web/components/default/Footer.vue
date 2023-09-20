@@ -21,7 +21,7 @@
               GitHub
             </a>
             <a
-              class="flex items-center fill-surface-text hover:fill-surface-text/80 gap-2"
+              class="flex items-center gap-2 fill-black dark:fill-white hover:fill-black/80 dark:hover:fill-white/80"
               href="https://www.curseforge.com/members/blakebr0/projects"
               target="_blank"
               rel="noopener noreferrer"
@@ -30,7 +30,7 @@
               CurseForge
             </a>
             <a
-              class="flex items-center fill-black dark:fill-white hover:fill-black/80 dark:hover:fill-white/80 gap-2"
+              class="flex items-center gap-2 fill-black dark:fill-white hover:fill-black/80 dark:hover:fill-white/80"
               href="https://modrinth.com/user/BlakeBr0"
               target="_blank"
               rel="noopener noreferrer"

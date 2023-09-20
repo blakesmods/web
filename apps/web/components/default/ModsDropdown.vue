@@ -43,7 +43,9 @@
                   >
                     {{ mod.name }}
                   </span>
-                  <span class="text-surface-text/80 leading-snug">
+                  <span
+                    class="text-gray-700/80 dark:text-gray-200/80 leading-snug"
+                  >
                     {{ mod.tagline }}
                   </span>
                   <div class="flex flex-1 items-end gap-4">

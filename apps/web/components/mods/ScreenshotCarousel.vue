@@ -15,7 +15,7 @@
             :alt="data.title"
           />
           <div
-            class="absolute inset-x-0 bottom-0 space-y-2 py-4 text-center bg-surface-ground/50 backdrop-blur-[12px]"
+            class="absolute inset-x-0 bottom-0 space-y-2 py-4 text-center bg-gray-300/50 dark:bg-gray-700/50 backdrop-blur-[12px]"
           >
             <h3>{{ data.title }}</h3>
             <p v-for="line in data.description">
