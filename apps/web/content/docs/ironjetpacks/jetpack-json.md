@@ -18,7 +18,7 @@ This section will go over the values available to use in jetpack file. Syntax ca
 **Note:** Any field below marked with a purple badge is required. Any field marked with a green badge requires at least the version specified.
 
 ### Name
-<u-badge value="Required"></u-badge>
+<u-badge label="Required"></u-badge>
 
 The name of the jetpack. **This name must be all lower case and have underscores for spaces.** This will be used for registry names as well as localized names. The name will be formatted automatically for localized names, including spaces and capitalization.
 ```json
