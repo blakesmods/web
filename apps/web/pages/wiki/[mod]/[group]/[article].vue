@@ -71,7 +71,7 @@
         <TOC v-if="hasTOC" :page="page" />
       </div>
     </div>
-    <USlideover v-if="hasTOC" class="lg:hidden" position="right" v-model="toc">
+    <USlideover v-if="hasTOC" class="xl:hidden" position="right" v-model="toc">
       <TOC :page="page" />
     </USlideover>
   </div>
