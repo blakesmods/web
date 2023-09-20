@@ -15,7 +15,7 @@
             >
               {{ mod.title }}
             </h2>
-            <span v-if="mod.disabled" class="opacity-80">Coming soon</span>
+            <span v-if="mod.disabled" class="opacity-80">Coming soon™</span>
             <span v-else class="opacity-80">Click to view articles</span>
           </div>
         </div>
@@ -34,32 +34,27 @@ const mods = ref([
   {
     title: "Iron Jetpacks",
     path: "ironjetpacks",
-    icon: "/img/logo/ironjetpacks_logo.png",
-    disabled: true
+    icon: "/img/logo/ironjetpacks_logo.png"
   },
   {
     title: "Pickle Tweaks",
     path: "pickletweaks",
-    icon: "/img/logo/pickletweaks_logo.png",
-    disabled: true
+    icon: "/img/logo/pickletweaks_logo.png"
   },
   {
     title: "Mystical Agradditions",
     path: "mysticalagradditions",
-    icon: "/img/logo/mysticalagradditions_logo.png",
-    disabled: true
+    icon: "/img/logo/mysticalagradditions_logo.png"
   },
   {
     title: "Extended Crafting",
     path: "extendedcrafting",
-    icon: "/img/logo/extendedcrafting_logo.png",
-    disabled: true
+    icon: "/img/logo/extendedcrafting_logo.png"
   },
   {
     title: "More Buckets",
     path: "morebuckets",
-    icon: "/img/logo/morebuckets_logo.png",
-    disabled: true
+    icon: "/img/logo/morebuckets_logo.png"
   },
   {
     title: "Mystical Customization",
@@ -70,8 +65,7 @@ const mods = ref([
   {
     title: "Cucumber Library",
     path: "cucumber",
-    icon: "/img/logo/cucumber_logo.png",
-    disabled: true
+    icon: "/img/logo/cucumber_logo.png"
   }
 ]);
 </script>
