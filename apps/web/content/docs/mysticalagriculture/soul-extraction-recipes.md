@@ -42,6 +42,10 @@ This section will go over the values available to use in a Soul Extraction recip
 ## CraftTweaker
 As of version 4.2.0, Mystical Agriculture allows you easily add your own Soul Extraction recipes using CraftTweaker. Here's how you do it.
 
+::alert{title="Recipe Manager"}
+As of version **7.0.4**, CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers!</a> Access all applicable methods using **\<recipetype:mysticalagriculture:soul_extraction\>**!
+::
+
 ### Adding A Recipe
 ```java
 mods.mysticalagriculture.SoulExtractorCrafting.addRecipe(name, <output>, <input>);

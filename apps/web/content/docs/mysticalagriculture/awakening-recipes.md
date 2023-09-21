@@ -73,7 +73,7 @@ This section will go over the values available to use in an Awakening Crafting r
 ```
 
 ### Essence Vessel Colors (v7.0.0+)
-By default the 4 elemental essences have colors assigned. To set the colors for any additional items you plan on using, you can create a resource pack containing an `essence_vessel_colors.json` file.
+By default, the 4 elemental essences have colors assigned. To set the colors for any additional items you plan on using, you can create a resource pack containing an `essence_vessel_colors.json` file.
 
 This file is a single JSON object where the keys are the item IDs and the values are hex color codes. Below is the `essence_vessel_colors.json` included in the mod by default.
 ```json
@@ -128,6 +128,10 @@ This section will go over the values available to use in an Awakening Crafting r
 
 ## CraftTweaker
 As of version 6.0.4, Mystical Agriculture allows you easily add your own Awakening Crafting recipes using CraftTweaker. Here's how you do it.
+
+::alert{title="Recipe Manager"}
+As of version **7.0.4**, CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers!</a> Access all applicable methods using **\<recipetype:mysticalagriculture:awakening\>**!
+::
 
 ### Adding A Recipe (v7.0.0+)
 ```java
