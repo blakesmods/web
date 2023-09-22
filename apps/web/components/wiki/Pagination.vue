@@ -10,7 +10,12 @@
       size="lg"
       icon="i-heroicons-arrow-left"
     >
-      {{ previous.title }}
+      <div class="flex flex-col text-right">
+        {{ previous.title }}
+        <small class="text-gray-600 dark:text-gray-300">
+          {{ formatModName(previous) }}
+        </small>
+      </div>
     </UButton>
     <UButton
       v-if="next"
@@ -21,7 +26,12 @@
       icon="i-heroicons-arrow-right"
       trailing
     >
-      {{ next.title }}
+      <div class="flex flex-col">
+        {{ next.title }}
+        <small class="text-gray-600 dark:text-gray-300">
+          {{ formatModName(next) }}
+        </small>
+      </div>
     </UButton>
   </div>
 </template>
@@ -31,9 +41,17 @@ const props = defineProps({
   current: Object
 });
 
+const mods = useMods();
+
 const parts = props.current._path.split("/").slice(1);
 
 const [previous, next] = await queryContent(parts[0], parts[1], parts[2])
   .sort({ sort: 1, $numeric: true })
   .findSurround(props.current._path);
+
+function formatModName(document) {
+  const name = document._path.split("/").at(2);
+  const mod = mods.value.find(mod => mod.mod_id === name);
+  return mod ? mod.name : name;
+}
 </script>
