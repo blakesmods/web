@@ -1,5 +1,5 @@
 <template>
-  <UAlert color="primary" variant="subtle">
+  <UAlert color="primary" variant="subtle" :title="title">
     <template #title>
       <strong class="text-lg">{{ title }}</strong>
     </template>

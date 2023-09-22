@@ -28,12 +28,10 @@
     </template>
   </Carousel>
 
-  <UModal v-model="isModalOpen" :ui="{ width: 'md:max-w-2xl' }">
-    <div v-if="screenshot">
-      <img :src="screenshot.image" alt="" />
-      <h4 class="mx-4 my-2">{{ screenshot.name }}</h4>
-      <p class="mx-4 my-2">{{ screenshot.description }}</p>
-    </div>
+  <UModal v-model="isModalOpen" :ui="{ width: 'md:max-w-2xl lg:max-w-3xl' }">
+    <img :src="screenshot.image" alt="" />
+    <h4 class="mx-4 my-2">{{ screenshot.name }}</h4>
+    <p class="mx-4 my-2">{{ screenshot.description }}</p>
   </UModal>
 </template>
 
