@@ -21,9 +21,12 @@ Mystical Agriculture allows you easily add your own Enchanter recipes. Here's ho
 
 ### The Recipe File
 This section will go over the values available to use in a Seed Reprocessor recipe. Syntax can be inferred from the example json below.
-- `type`: The recipe type must be `mysticalagriculture:enchanter`.
-- `ingredients`: A list of 1-2 input ingredients. Each ingredient has a count for the amount of items needed per enchantment level. Note that the highest enchantment level cannot be larger than 512 items.
-- `enchantment`: The ID of the resulting enchantment.
+
+| Field         | Required | Description                                                                                                                                                                                 |
+|---------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `type`        | ✓        | The recipe type must be `mysticalagriculture:enchanter`.                                                                                                                                    |
+| `ingredients` | ✓        | A list of 1-2 input ingredients. Each ingredient has a count for the amount of items needed per enchantment level. Note that the highest enchantment level cannot be larger than 512 items. |
+| `enchantment` | ✓        | The ID of the resulting enchantment.                                                                                                                                                        |
 
 ### Example File
 ```json
@@ -55,9 +58,11 @@ As of version **7.0.4**, CraftTweaker integration now supports <a href="https://
 mods.mysticalagriculture.EnchanterCrafting.addRecipe(name, <enchantment>, [<inputs>]);
 ```
 
-- `name`: A unique name for this recipe. Must be all lower case and have no spaces.
-- `output`: The output item for this recipe.
-- `input`: The item that is required to make the output.
+| Field         | Required | Description                                                                                                                                                                                 |
+|---------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `name`        | ✓        | A unique name for this recipe. Must be all lower case and have no spaces.                                                                                                                   |
+| `enchantment` | ✓        | The ID of the resulting enchantment.                                                                                                                                                        |
+| `inputs`      | ✓        | A list of 1-2 input ingredients. Each ingredient has a count for the amount of items needed per enchantment level. Note that the highest enchantment level cannot be larger than 512 items. |
 
 #### Example
 ```java
@@ -71,4 +76,6 @@ mods.mysticalagriculture.EnchanterCrafting.addRecipe("fancy_sharpness", "minecra
 mods.mysticalagriculture.EnchanterCrafting.remove(<enchantment>);
 ```
 
-- `enchantment`: The ID of the enchantment to remove all recipes for.
+| Field         | Required | Description                                          |
+|---------------|----------|------------------------------------------------------|
+| `enchantment` | ✓        | The ID of the enchantment to remove all recipes for. |

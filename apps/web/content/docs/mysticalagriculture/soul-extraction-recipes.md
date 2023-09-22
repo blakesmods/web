@@ -21,9 +21,12 @@ Mystical Agriculture allows you easily add your own Soul Extractor recipes. Here
 
 ### The Recipe File
 This section will go over the values available to use in a Soul Extraction recipe. Syntax can be inferred from the example json below.
-- `type`: The recipe type must be `mysticalagriculture:soul_extraction`.
-- `input`: The item that will be placed in the input slot.
-- `output`: The souls granted from this item.
+
+| Field    | Required | Description                                                    |
+|----------|----------|----------------------------------------------------------------|
+| `type`   | ✓        | The recipe type must be `mysticalagriculture:soul_extraction`. |
+| `input`  | ✓        | The item that will be placed in the input slot.                |
+| `output` | ✓        | The souls granted from this item.                              |
 
 ### Example File
 ```json
@@ -51,10 +54,12 @@ As of version **7.0.4**, CraftTweaker integration now supports <a href="https://
 mods.mysticalagriculture.SoulExtractorCrafting.addRecipe(name, <output>, <input>);
 ```
 
-- `name`: A unique name for this recipe. Must be all lower case and have no spaces.
-- `input`: The item that is required to make the output.
-- `type`: The id of the resulting mob soul type.
-- `souls`: The amount of the resulting mob soul type. 
+| Field   | Required | Description                                                               |
+|---------|----------|---------------------------------------------------------------------------|
+| `name`  | ✓        | A unique name for this recipe. Must be all lower case and have no spaces. |
+| `input` | ✓        | The item that is required to make the output.                             |
+| `type`  | ✓        | The id of the resulting mob soul type.                                    |
+| `souls` | ✓        | The amount of the resulting mob soul type.                                |
 
 #### Example
 ```java
@@ -67,11 +72,15 @@ mods.mysticalagriculture.SoulExtractorCrafting.addRecipe("test", <tag:forge:ingo
 mods.mysticalagriculture.SoulExtractorCrafting.remove(<output>);
 ```
 
-- `output`: The item to remove all recipes for.
+| Field    | Required | Description                         |
+|----------|----------|-------------------------------------|
+| `output` | ✓        | The item to remove all recipes for. |
 
 #### Remove By Mob Soul Type
 ```java
 mods.mysticalagriculture.SoulExtractorCrafting.remove("type");
 ```
 
-- `type`: The mob soul type to remove all recipes for.
+| Field  | Required | Description                                  |
+|--------|----------|----------------------------------------------|
+| `type` | ✓        | The mob soul type to remove all recipes for. |

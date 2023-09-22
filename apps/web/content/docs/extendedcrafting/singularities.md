@@ -10,12 +10,15 @@ To add a singularity, you just need to add a singularity json file to the /confi
 
 ### The Singularity File
 This section will go over the values available to use in a Singularity json. Syntax can be inferred from the example json below.
-- `name`: The name of this singularity. You can either put the name you want to see here, or a translation key.
-- `colors`: The overlay and underlay colors (in that order).
-- `ingredient`: The item used to create this singularity.
-- `materialCount`: The amount of materials required to create this singularity.
-- `inUltimateSingularity`: (**optional**) Whether this singularity should be a part of the Ultimate Singularity recipe. If omitted will default to `true`.
-- `enabled`: (**optional**) Whether this singularity should be registered. If omitted will default to `true`. (Added in version 4.1.0)
+
+| Field                   | Required | Description                                                                                                      |
+|-------------------------|----------|------------------------------------------------------------------------------------------------------------------|
+| `name`                  | ✓        | The name of this singularity. You can either put the name you want to see here, or a translation key.            |
+| `colors`                | ✓        | The overlay and underlay colors (in that order).                                                                 |
+| `ingredient`            | ✓        | The item used to create this singularity.                                                                        |
+| `materialCount`         | ✓        | The amount of materials required to create this singularity.                                                     |
+| `inUltimateSingularity` |          | Whether this singularity should be a part of the Ultimate Singularity recipe. If omitted will default to `true`. |
+| `enabled`               |          | Whether this singularity should be registered. If omitted will default to `true`. (Added in version 4.1.0)       |
 
 ### Example File
 ```json

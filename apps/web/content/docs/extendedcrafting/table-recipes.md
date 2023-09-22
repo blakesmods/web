@@ -5,6 +5,7 @@ category: Extended Crafting
 ---
 
 Extended Crafting allows you easily add your own Extended Crafting Table recipes. Here's how you do it.
+
 ## Datapacks
 
 <alert title="Prerequisites">
@@ -19,19 +20,24 @@ Extended Crafting allows you easily add your own Extended Crafting Table recipes
 </alert>
 
 ### The Recipe File
-This section will go over the values available to use in a Ender Crafting recipe. Syntax can be inferred from the example jsons below.
+This section will go over the values available to use in a Table Crafting recipe. Syntax can be inferred from the example jsons below.
+
 #### Shaped
-- `type`: The recipe type must be `extendedcrafting:shaped_table`.
-- `tier`: The tier of table required for this recipe. If omitted the recipe will work for all tables with enough grid space.
-- `pattern`: The recipe pattern.
-- `key`: The recipe key, for specifying which item each character represents.
-- `result`: The item that this recipe will output once finished.
+| Field     | Required | Description                                                                                                        |
+|-----------|----------|--------------------------------------------------------------------------------------------------------------------|
+| `type`    | ✓        | The recipe type must be `extendedcrafting:shaped_table`.                                                           |
+| `tier`    |          | The tier of table required for this recipe. If omitted the recipe will work for all tables with enough grid space. |
+| `pattern` | ✓        | The recipe pattern.                                                                                                |
+| `key`     | ✓        | The recipe key, for specifying which item each character represents.                                               |
+| `result`  | ✓        | The item that this recipe will output when crafted.                                                                |
 
 #### Shapeless
-- `type`: The recipe type must be `extendedcrafting:shapeless_table`.
-- `tier`: The tier of table required for this recipe. If omitted the recipe will work for all tables with enough grid space.
-- `ingredients`: An array of 1-81 input items.
-- `result`: The item that this recipe will output once finished.
+| Field         | Required | Description                                                                                                        |
+|---------------|----------|--------------------------------------------------------------------------------------------------------------------|
+| `type`        | ✓        | The recipe type must be `extendedcrafting:shapeless_table`.                                                        |
+| `tier`        |          | The tier of table required for this recipe. If omitted the recipe will work for all tables with enough grid space. |
+| `ingredients` | ✓        | An array of 1-81 input items.                                                                                      |
+| `result`      | ✓        | The item that this recipe will output when crafted.                                                                |
 
 ### Example Files
 #### Shaped
@@ -159,10 +165,12 @@ mods.extendedcrafting.TableCrafting.addShaped(name, tier, <output>, [[<>, <>, <>
 mods.extendedcrafting.TableCrafting.addShaped(name, tier, <output>, [[<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>]]);
 ```
 
-- `name`: A unique name for this recipe. Must be all lower case and have no spaces.
-- `tier`: (**optional**) The required crafting table tier. The tiers are 1-4, or 0 for any that are big enough. Not adding this parameter will make the tier 0.
-- `output`: The output item of this recipe.
-- `<>`: An input ingredient for the slot shown
+| Field    | Required | Description                                                                                                                            |
+|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------|
+| `name`   | ✓        | A unique name for this recipe. Must be all lower case and have no spaces.                                                              |
+| `tier`   |          | The required crafting table tier. The tiers are 1-4, or 0 for any that are big enough. Not adding this parameter will make the tier 0. |
+| `output` | ✓        | The output item of this recipe.                                                                                                        |
+| `<>`     | ✓        | An input ingredient for the slot shown.                                                                                                |
 
 The input arrays work in the same way as the normal crafting recipes, check out the CraftTweaker wiki for more information.
 
@@ -181,10 +189,12 @@ mods.extendedcrafting.TableCrafting.addShapeless(name, <output>, [<input>, <inpu
 mods.extendedcrafting.TableCrafting.addShapeless(name, tier, <output>, [<input>, <input>]);  
 ```
 
-- `name`: A unique name for this recipe. Must be all lower case and have no spaces.
-- `tier`: (**optional**) The required crafting table tier. The tiers are 1-4, or 0 for any that are big enough. Not adding this parameter will make the tier 0
-- `output`: The output item of this recipe.
-- `input`: An array of 1-81 items required to make the recipe.
+| Field    | Required | Description                                                                                                                            |
+|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------|
+| `name`   | ✓        | A unique name for this recipe. Must be all lower case and have no spaces.                                                              |
+| `tier`   |          | The required crafting table tier. The tiers are 1-4, or 0 for any that are big enough. Not adding this parameter will make the tier 0. |
+| `output` | ✓        | The output item of this recipe.                                                                                                        |
+| `input`  | ✓        | An array of 1-81 items required to make the recipe.                                                                                    |
 
 #### Example
 ```java
@@ -198,4 +208,6 @@ mods.extendedcrafting.TableCrafting.addShaped("test_shaped", 2, <item:minecraft:
 mods.extendedcrafting.TableCrafting.remove(<output>);
 ```
 
-- `output`: The item to remove all recipes for.
+| Field    | Required | Description                         |
+|----------|----------|-------------------------------------|
+| `output` | ✓        | The item to remove all recipes for. |

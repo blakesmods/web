@@ -20,19 +20,24 @@ Extended Crafting allows you easily add your own Ender Crafting recipes. Here's 
 </alert>
 
 ### The Recipe File
-This section will go over the values available to use in a Ender Crafting recipe. Syntax can be inferred from the example jsons below.
+This section will go over the values available to use in an Ender Crafting recipe. Syntax can be inferred from the example jsons below.
+
 #### Shaped
-- `type`: The recipe type must be `extendedcrafting:shaped_ender_crafter`.
-- `craftingTime`: (**optional**) The amount of time (in seconds) this recipe should take.
-- `pattern`: The recipe pattern.
-- `key`: The recipe key, for specifying which item each character represents.
-- `result`: The item that this recipe will output once finished.
+| Field          | Required | Description                                                          |
+|----------------|----------|----------------------------------------------------------------------|
+| `type`         | ✓        | The recipe type must be `extendedcrafting:shaped_ender_crafter`.     |
+| `craftingTime` |          | The amount of time (in seconds) this recipe should take.             |
+| `pattern`      | ✓        | The recipe pattern.                                                  |
+| `key`          | ✓        | The recipe key, for specifying which item each character represents. |
+| `result`       | ✓        | The item that this recipe will output once finished                  |
 
 #### Shapeless
-- `type`: The recipe type must be `extendedcrafting:shapeless_ender_crafter`.
-- `craftingTime`: (**optional**) The amount of time (in seconds) this recipe should take.
-- `ingredients`: An array of 1-9 input items.
-- `result`: The item that this recipe will output once finished.
+| Field          | Required | Description                                                         |
+|----------------|----------|---------------------------------------------------------------------|
+| `type`         | ✓        | The recipe type must be `extendedcrafting:shapeless_ender_crafter`. |
+| `craftingTime` |          | The amount of time (in seconds) this recipe should take.            |
+| `ingredients`  | ✓        | An array of 1-9 input items.                                        |
+| `result`       | ✓        | The item that this recipe will output once finished.                |
 
 **Note**: `craftingTime` refers to the amount of time in seconds that the recipe should take with a single alternator. Adding more alternators will make the crafting operation faster.
 
@@ -82,10 +87,12 @@ Extended Crafting allows you easily add your own Ender Crafting recipes using Cr
 mods.extendedcrafting.EnderCrafting.addShaped(name, <output>, [[<>, <>, <>], [<>, <>, <>], [<>, <>, <>]], seconds);  
 ```
 
-- `name`: A unique name for this recipe. Must be all lower case and have no spaces.
-- `output`: The output item for this recipe.
-- `<>`: An input ingredient for the slot shown.
-- `seconds`: (**optional**) The amount of seconds this recipe should take. If this parameter isn't added, it will use the default rate defined in the config file.
+| Field     | Required | Description                                                                                                                            |
+|-----------|----------|----------------------------------------------------------------------------------------------------------------------------------------|
+| `name`    | ✓        | A unique name for this recipe. Must be all lower case and have no spaces.                                                              |
+| `output`  | ✓        | The output item for this recipe.                                                                                                       |
+| `<>`      | ✓        | An input ingredient for the slot shown.                                                                                                |
+| `seconds` |          | The amount of seconds this recipe should take. If this parameter isn't added, it will use the default rate defined in the config file. |
 
 The input arrays work in the same way as the normal crafting recipes, check out the CraftTweaker wiki for more information.
 
@@ -102,10 +109,12 @@ mods.extendedcrafting.EnderCrafting.addShapeless("test_shapeless", <item:minecra
 mods.extendedcrafting.EnderCrafting.addShapeless(name, <output>, [inputs], seconds); 
 ```
 
-- `name`: A unique name for this recipe. Must be all lower case and have no spaces.
-- `output`: The output item for this recipe.
-- `inputs`: An array of 1-9 items required to make the recipe.
-- `seconds`: (**optional**) The amount of seconds this recipe should take. If this parameter isn't added, it will use the default rate defined in the config file.
+| Field     | Required | Description                                                                                                                            |
+|-----------|----------|----------------------------------------------------------------------------------------------------------------------------------------|
+| `name`    | ✓        | A unique name for this recipe. Must be all lower case and have no spaces.                                                              |
+| `output`  | ✓        | The output item for this recipe.                                                                                                       |
+| `inputs`  | ✓        | An array of 1-9 items required to make the recipe.                                                                                     |
+| `seconds` |          | The amount of seconds this recipe should take. If this parameter isn't added, it will use the default rate defined in the config file. |
 
 #### Example
 ```java
@@ -121,4 +130,6 @@ mods.extendedcrafting.EnderCrafting.addShaped("test_shaped", <item:minecraft:sti
 mods.extendedcrafting.EnderCrafting.remove(<output>);
 ```
 
-- `output`: The item to all remove recipes for.
+| Field    | Required | Description                         |
+|----------|----------|-------------------------------------|
+| `output` | ✓        | The item to all remove recipes for. |

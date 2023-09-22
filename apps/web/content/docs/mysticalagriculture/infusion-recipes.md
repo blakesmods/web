@@ -21,10 +21,13 @@ Mystical Agriculture allows you easily add your own Infusion Crafting recipes. H
 
 ### The Recipe File
 This section will go over the values available to use in an Infusion Crafting recipe. Syntax can be inferred from the example json below.
-- `type`: The recipe type must be `mysticalagriculture:infusion`.
-- `input`: The item that will be placed on the Infusion Altar.
-- `ingredients`: An array of 1-8 items that will be placed on the Infusion Pedestals.
-- `result`: The item that this recipe will output once finished.
+
+| Field         | Required | Description                                                          |
+|---------------|----------|----------------------------------------------------------------------|
+| `type`        | ✓        | The recipe type must be `mysticalagriculture:infusion`.              |
+| `input`       | ✓        | The item that will be placed on the Infusion Altar.                  |
+| `ingredients` | ✓        | An array of 1-8 items that will be placed on the Infusion Pedestals. |
+| `result`      | ✓        | The item that this recipe will output once finished.                 |
 
 ### Example File
 ```json
@@ -68,9 +71,11 @@ As of version **7.0.4**, CraftTweaker integration now supports <a href="https://
 mods.mysticalagriculture.InfusionCrafting.addRecipe(name, <output>, [inputs]);
 ```
 
-- `name`: A unique name for this recipe. Must be all lower case and have no spaces.
-- `output`: The output item for this recipe.
-- `inputs`: An array of 1-9 items. The first item is the item that goes on the Infusion Altar, and the rest go on the pedestals.
+| Field    | Required | Description                                                                                                          |
+|----------|----------|----------------------------------------------------------------------------------------------------------------------|
+| `name`   | ✓        | A unique name for this recipe. Must be all lower case and have no spaces.                                            |
+| `output` | ✓        | The output item for this recipe.                                                                                     |
+| `inputs` | ✓        | An array of 1-9 items. The first item is the item that goes on the Infusion Altar, and the rest go on the pedestals. |
 
 #### Example
 ```java
@@ -82,4 +87,6 @@ mods.mysticalagriculture.InfusionCrafting.addRecipe("test", <item:minecraft:stic
 mods.mysticalagriculture.InfusionCrafting.remove(<output>);
 ```
 
-- `output`: The item to remove all recipes for.
+| Field    | Required | Description                         |
+|----------|----------|-------------------------------------|
+| `output` | ✓        | The item to remove all recipes for. |

@@ -22,19 +22,23 @@ Extended Crafting allows you easily add your own Flux Crafting recipes. Here's h
 ### The Recipe File
 This section will go over the values available to use in a Ender Crafting recipe. Syntax can be inferred from the example jsons below.
 #### Shaped
-- `type`: The recipe type must be `extendedcrafting:shaped_flux_crafter`.
-- `powerRequired`: The amount of FE this recipe needs per craft.
-- `powerRate`: (**optional**) The amount of FE/t this recipe should take from each Flux Alternator. If omitted will use the default set in the config file.
-- `pattern`: The recipe pattern.
-- `key`: The recipe key, for specifying which item each character represents.
-- `result`: The item that this recipe will output once finished.
+| Field           | Required | Description                                                                                                                   |
+|-----------------|----------|-------------------------------------------------------------------------------------------------------------------------------|
+| `type`          | ✓        | The recipe type must be `extendedcrafting:shaped_flux_crafter`.                                                               |
+| `powerRequired` | ✓        | The amount of FE this recipe needs per craft.                                                                                 |
+| `powerRate`     |          | The amount of FE/t this recipe should take from each Flux Alternator. If omitted will use the default set in the config file. |
+| `pattern`       | ✓        | The recipe pattern.                                                                                                           |
+| `key`           | ✓        | The recipe key, for specifying which item each character represents.                                                          |
+| `result`        | ✓        | The item that this recipe will output once finished                                                                           |
 
 #### Shapeless
-- `type`: The recipe type must be `extendedcrafting:shapeless_flux_crafter`.
-- `powerRequired`: The amount of FE this recipe needs per craft.
-- `powerRate`: (**optional**) The amount of FE/t this recipe should take from each Flux Alternator. If omitted will use the default set in the config file.
-- `ingredients`: An array of 1-9 input items.
-- `result`: The item that this recipe will output once finished.
+| Field           | Required | Description                                                                                                                   |
+|-----------------|----------|-------------------------------------------------------------------------------------------------------------------------------|
+| `type`          | ✓        | The recipe type must be `extendedcrafting:shapeless_flux_crafter`.                                                            |
+| `powerRequired` | ✓        | The amount of FE this recipe needs per craft.                                                                                 |
+| `powerRate`     |          | The amount of FE/t this recipe should take from each Flux Alternator. If omitted will use the default set in the config file. |
+| `ingredients`   | ✓        | An array of 1-9 input items.                                                                                                  |
+| `result`        | ✓        | The item that this recipe will output once finished                                                                           |
 
 ### Example Files
 #### Shaped
@@ -86,11 +90,13 @@ Extended Crafting allows you easily add your own Ender Crafting recipes using Cr
 mods.extendedcrafting.FluxCrafting.addShaped(name, <output>, [[<>, <>, <>], [<>, <>, <>], [<>, <>, <>]], powerRequired, powerRate);  
 ```
 
-- `name`: A unique name for this recipe. Must be all lower case and have no spaces.
-- `output`: The output item for this recipe.
-- `<>`: An input ingredient for the slot shown.
-- `powerRequired`: The amount of FE this recipe needs per craft.
-- `powerRate`: (**optional**) The amount of FE/t this recipe should take from each Flux Alternator. If omitted will use the default set in the config file.
+| Field           | Required | Description                                                                                                                   |
+|-----------------|----------|-------------------------------------------------------------------------------------------------------------------------------|
+| `name`          | ✓        | A unique name for this recipe. Must be all lower case and have no spaces.                                                     |
+| `output`        | ✓        | The output item for this recipe.                                                                                              |
+| `<>`            | ✓        | An input ingredient for the slot shown.                                                                                       |
+| `powerRequired` | ✓        | The amount of FE this recipe needs per craft.                                                                                 |
+| `powerRate`     |          | The amount of FE/t this recipe should take from each Flux Alternator. If omitted will use the default set in the config file. |
 
 The input arrays work in the same way as the normal crafting recipes, check out the CraftTweaker wiki for more information.
 
@@ -106,11 +112,13 @@ mods.extendedcrafting.FluxCrafting.addShapeless("test_shapeless", <item:minecraf
 mods.extendedcrafting.FluxCrafting.addShapeless(name, <output>, [inputs], powerRequired, powerRate); 
 ```
 
-- `name`: A unique name for this recipe. Must be all lower case and have no spaces.
-- `output`: The output item for this recipe.
-- `inputs`: An array of 1-9 items required to make the recipe.
-- `powerRequired`: The amount of FE this recipe needs per craft.
-- `powerRate`: (**optional**) The amount of FE/t this recipe should take from each Flux Alternator. If omitted will use the default set in the config file.
+| Field           | Required | Description                                                                                                                   |
+|-----------------|----------|-------------------------------------------------------------------------------------------------------------------------------|
+| `name`          | ✓        | A unique name for this recipe. Must be all lower case and have no spaces.                                                     |
+| `output`        | ✓        | The output item for this recipe.                                                                                              |
+| `inputs`        | ✓        | An array of 1-9 items required to make the recipe.                                                                            |
+| `powerRequired` | ✓        | The amount of FE this recipe needs per craft.                                                                                 |
+| `powerRate`     |          | The amount of FE/t this recipe should take from each Flux Alternator. If omitted will use the default set in the config file. |
 
 #### Example
 ```java
@@ -126,4 +134,6 @@ mods.extendedcrafting.FluxCrafting.addShaped("test_shaped", <item:minecraft:stic
 mods.extendedcrafting.FluxCrafting.remove(<output>);
 ```
 
-- `output`: The item to all remove recipes for.
+| Field    | Required | Description                         |
+|----------|----------|-------------------------------------|
+| `output` | ✓        | The item to all remove recipes for. |
