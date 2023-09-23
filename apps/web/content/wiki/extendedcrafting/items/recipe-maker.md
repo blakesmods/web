@@ -5,3 +5,12 @@ icon: /assets/extendedcrafting/items/recipe_maker.png
 sort: 11
 ---
 
+## Overview
+
+The Recipe Maker is a modpack developer tool used to easily create CraftTweaker scripts or Datapack entries for [Extended Crafting Table](../blocks/crafting-tables.md), [Crafting Core](../blocks/crafting-core.md), [Ender Crafter](../blocks/ender-crafter.md) or [Flux Crafter](../blocks/flux-crafter.md) recipes.
+
+## Usage
+
+To create a recipe, first place the items in the pattern you would like inside one of the compatible blocks. Then, simply right-click the block with a Recipe Maker. The recipe will then be copied to your clipboard in the format you asked for. Just paste (ctrl + v) into a text editor.
+
+If you shift-right-click the Recipe Maker in the air, it'll change between Shaped and Shapeless modes.

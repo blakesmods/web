@@ -5,3 +5,18 @@ icon: /assets/extendedcrafting/blocks/crafting_core.png
 sort: 1
 ---
 
+## Overview
+
+::alert
+Extended Crafting is a mod built specifically for modpack makers. What you can craft using the different crafting mechanisms will differ from modpack to modpack.
+::
+
+The Crafting Core is one of the key components of the Combination Crafting mechanism. Along with [Pedestals](pedestal.md), the Crafting Core can be used to craft different items using energy and a combination of up to 49 different items.
+
+## Usage
+
+The Combination Crafting setup does not have a specific shape. The Crafting Core can combine items from any Pedestals placed within a **3 block radius**.
+
+To place an item on the Crafting Core, you need to right-click on the top. Right-clicking on any of the sides will show a GUI which displays the current power, Pedestals in range, as well as the recipe being created. 
+
+The Crafting Core must be supplied with power to craft. Once a valid recipe is placed the Crafting Core will automatically begin to craft. Once it has consumed enough power it will then combine all the items together and produce the output. 
