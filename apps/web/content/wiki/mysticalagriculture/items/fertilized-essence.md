@@ -16,4 +16,4 @@ Every Resource Seed has a **10%** chance to drop a Fertilized Essence when harve
 Fertilized Essence can be used in a couple of ways:
 
 - You can use it like Bonemeal on any crop or plant to grow it.
-- Use it to make [Mystical Fertilizer](mystical-fertilizer.md) or a [Watering Can](watering-can.md).
+- Use it to make [Mystical Fertilizer](mystical-fertilizer.md) or a [Watering Can](watering-cans.md).

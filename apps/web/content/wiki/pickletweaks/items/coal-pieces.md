@@ -5,3 +5,6 @@ icon: /assets/pickletweaks/items/coal_piece.png
 sort: 1
 ---
 
+## Overview
+
+Coal and Charcoal pieces are used to cook a single item at a time, for potentially more efficient use of fuel.

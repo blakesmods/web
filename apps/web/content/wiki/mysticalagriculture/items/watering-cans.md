@@ -1,6 +1,6 @@
 ---
-id: watering-can
-title: Watering Can
+id: watering-cans
+title: Watering Cans
 icon: /assets/mysticalagriculture/items/watering_can.png
 sort: 18
 ---

@@ -11,7 +11,7 @@ sort: 1
 Jetpacks in this mod are completely configurable. Jetpack stats and materials may differ from modpack to modpack.
 ::
 
-Jetpacks make use of Forge Energy to allow the player to fly. Higher tier Jetpacks
+Jetpacks make use of Forge Energy to allow the player to fly. Higher tier Jetpacks can have greater speed and energy capacity.
 
 ## Usage
 

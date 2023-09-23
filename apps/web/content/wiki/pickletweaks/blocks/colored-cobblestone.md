@@ -5,3 +5,6 @@ icon: /assets/pickletweaks/blocks/white_cobblestone.png
 sort: 1
 ---
 
+## Overview
+
+Colored Cobblestone blocks are for decoration. They have all the same properties as regular Cobblestone.

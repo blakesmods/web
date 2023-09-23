@@ -5,3 +5,6 @@ icon: /assets/pickletweaks/blocks/smooth_glowstone.png
 sort: 2
 ---
 
+## Overview
+
+Smooth Glowstone is for decoration. It has all the same block properties as regular Glowstone.
