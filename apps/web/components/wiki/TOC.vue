@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mb-8">
     <h3 class="pb-4">On This Page</h3>
     <a
       v-for="item in links"
@@ -11,9 +11,13 @@
       {{ item.text }}
     </a>
   </div>
+
+  <BisectHostingBanner vertical />
 </template>
 
 <script setup>
+import BisectHostingBanner from "~/components/BisectHostingBanner.vue";
+
 const props = defineProps({
   page: Object
 });
