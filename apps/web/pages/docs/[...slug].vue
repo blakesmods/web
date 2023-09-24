@@ -10,7 +10,9 @@
             @click="onToggleSidebar"
           />
           <div class="flex flex-col gap-2">
-            <span class="text-primary-500 font-bold">{{ page.category }}</span>
+            <span class="text-primary-500 font-bold lvl1">
+              {{ page.category }}
+            </span>
             <h1>{{ page.title }}</h1>
           </div>
         </div>
