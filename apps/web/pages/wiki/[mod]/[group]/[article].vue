@@ -10,7 +10,7 @@
             @click="onToggleSidebar"
           />
           <div class="flex flex-col gap-2">
-            <span class="text-primary-500 font-bold">{{ mod.name }}</span>
+            <span class="text-primary-500 font-bold lvl0">{{ mod.name }}</span>
             <h1 class="flex items-center gap-4">
               <img
                 v-if="page.icon"

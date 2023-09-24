@@ -10,6 +10,7 @@
     >
       <div
         class="flex justify-between items-center -mx-2 px-2 py-1 cursor-pointer"
+        :class="{ lvl1: category.isCurrentCategory }"
         @click="onClickCategory(category.slug)"
       >
         <h4 class="capitalize">{{ category.name }}</h4>
@@ -102,7 +103,8 @@ const categories = computed(() =>
     .map(c => ({
       slug: c,
       name: categoriesJSON[c] || c,
-      active: opened.value.includes(c) || isCurrentCategory(c)
+      active: opened.value.includes(c) || isCurrentCategory(c),
+      isCurrentCategory: isCurrentCategory(c)
     }))
 );
 
