@@ -10,17 +10,17 @@
   "dependencies": {
     "@blakesmods/db": "*",
     "@fastify/autoload": "^5.7.1",
-    "@fastify/cookie": "^8.3.0",
-    "@fastify/cors": "^8.3.0",
-    "@fastify/mongodb": "^7.0.0",
-    "@sentry/node": "^7.56.0",
-    "@types/numeral": "^2.0.2",
-    "@types/semver": "^7.5.0",
-    "dayjs": "^1.11.8",
+    "@fastify/cookie": "^9.1.0",
+    "@fastify/cors": "^8.4.0",
+    "@fastify/mongodb": "^8.0.0",
+    "@sentry/node": "^7.70.0",
+    "@types/numeral": "^2.0.3",
+    "@types/semver": "^7.5.2",
+    "dayjs": "^1.11.10",
     "dotenv": "^16.3.1",
-    "fastify": "^4.18.0",
+    "fastify": "^4.23.2",
     "fastify-blipp": "3.1.0",
     "numeral": "^2.0.6",
-    "semver": "^7.5.2"
+    "semver": "^7.5.4"
   }
 }
