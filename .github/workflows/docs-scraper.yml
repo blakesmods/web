@@ -24,7 +24,7 @@ jobs:
             -e MEILISEARCH_HOST_URL=$HOST_URL \
             -e MEILISEARCH_API_KEY=$API_KEY \
             -v "${{ github.workspace }}/packages/config/docs-scraper.json":/docs-scraper/config.json \
-            getmeili/docs-scraper:v0.12.4 pipenv run ./docs_scraper config.json
+            getmeili/docs-scraper:v0.12.12 pipenv run ./docs_scraper config.json
 
   scrape-guides:
     if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
@@ -42,4 +42,4 @@ jobs:
             -e MEILISEARCH_HOST_URL=$HOST_URL \
             -e MEILISEARCH_API_KEY=$API_KEY \
             -v "${{ github.workspace }}/packages/config/wiki-scraper.json":/docs-scraper/config.json \
-            getmeili/docs-scraper:v0.12.4 pipenv run ./docs_scraper config.json
+            getmeili/docs-scraper:v0.12.12 pipenv run ./docs_scraper config.json
