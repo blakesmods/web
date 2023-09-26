@@ -28,7 +28,7 @@ const features = ref([
       "Your tools will become ineffective right before breaking, allowing for quick repairs."
     ],
     images: ["/assets/pickletweaks/items/emerald_pickaxe.png"],
-    link: "/wiki/pickletweaks/items/crafting-grid-tool-repair"
+    link: "/wiki/pickletweaks/features/crafting-grid-tool-repair"
   },
   {
     title: "New Tools",
@@ -71,7 +71,7 @@ const features = ref([
     title: "Right Click Harvest",
     description: ["Right click crops to harvest them."],
     images: ["/assets/pickletweaks/items/emerald_hoe.png"],
-    link: "/wiki/pickletweaks/items/right-click-harvest"
+    link: "/wiki/pickletweaks/features/right-click-harvest"
   },
   {
     title: "And More!",
