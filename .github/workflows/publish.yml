@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         os: [ ubuntu-latest ]
-        node: [ 16 ]
+        node: [ 18 ]
 
     permissions:
       contents: read
