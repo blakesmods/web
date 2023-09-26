@@ -6,7 +6,7 @@
     <h2>{{ subtitle }}</h2>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-    <GradientUCard v-for="feature in features" class="min-h-[350px]">
+    <GradientUCard v-for="feature in features" class="relative min-h-[364px]">
       <template #header>
         <div class="flex flex-col items-center gap-4">
           <div v-if="feature.images" class="flex gap-4">
@@ -19,7 +19,7 @@
               class="pixelated object-cover"
             />
           </div>
-          <h3>{{ feature.title }}</h3>
+          <h3 class="text-center">{{ feature.title }}</h3>
         </div>
       </template>
 
@@ -32,7 +32,10 @@
           class="absolute bottom-4 inset-x-0 flex justify-center"
           :to="feature.link"
         >
-          <h4 style="color: var(--primary-color)">
+          <h4
+            class="flex items-center gap-2"
+            style="color: var(--primary-color)"
+          >
             Learn More
             <UIcon name="i-heroicons-arrow-right-solid" />
           </h4>
@@ -42,7 +45,10 @@
           class="absolute bottom-4 inset-x-0 flex justify-center"
           @click="feature.onClick"
         >
-          <h4 style="color: var(--primary-color)">
+          <h4
+            class="flex items-center gap-2"
+            style="color: var(--primary-color)"
+          >
             Learn More
             <UIcon name="i-heroicons-arrow-right-solid" />
           </h4>

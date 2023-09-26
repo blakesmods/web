@@ -39,24 +39,24 @@ const features = ref([
   {
     title: "Grow Your Resources",
     description: [
-      "The main purpose of Mystical Agriculture is to provide an alternative form of resource collection.",
-      "Mystical Agriculture adds more then 150+ unique crops to Minecraft; such as Coal, Iron, Diamond, Creeper and so many more!"
+      "Mystical Agriculture adds more then 150+ resource unique crops to Minecraft; such as Coal, Iron, Diamond, Creeper and so many more!"
     ],
     images: [
       "/assets/mysticalagriculture/items/diamond_essence.png",
       "/assets/mysticalagriculture/items/diamond_seeds.png"
-    ]
+    ],
+    link: "/wiki/mysticalagriculture/items/resource-seeds"
   },
   {
     title: "Tools & Armor",
     description: [
-      "Essences can be used to create better tools and armor. They can also be upgraded with additional abilities like jump boost, strength, flight and wither resistance using Augments!",
-      "Upgrade your gear even further to Awakened Supremium tier! Enjoy benefits like even greater stats and additional Augment slots."
+      "Create more powerful tools and armor using Essences. Upgrade your gear with greater abilities using Augments."
     ],
     images: [
       "/assets/mysticalagriculture/items/inferium_pickaxe.png",
       "/assets/mysticalagriculture/items/inferium_helmet.png"
-    ]
+    ],
+    link: "/wiki/mysticalagriculture/items/essence-armor"
   },
   {
     title: "Growth Speed",
@@ -67,7 +67,8 @@ const features = ref([
     images: [
       "/assets/mysticalagriculture/items/watering_can.png",
       "/assets/mysticalagriculture/blocks/inferium_growth_accelerator.png"
-    ]
+    ],
+    link: "/wiki/mysticalagriculture/blocks/growth-accelerators"
   },
   {
     title: "Farming Improvements",
@@ -78,21 +79,24 @@ const features = ref([
     images: [
       "/assets/mysticalagriculture/items/diamond_scythe.png",
       "/assets/mysticalagriculture/blocks/harvester.png"
-    ]
+    ],
+    link: "/wiki/mysticalagriculture/blocks/harvester"
   },
   {
     title: "Essence Furnaces",
     description: [
       "Use your extra essences to create furnaces with increased speed and fuel efficiency."
     ],
-    images: ["/assets/mysticalagriculture/blocks/inferium_furnace.png"]
+    images: ["/assets/mysticalagriculture/blocks/inferium_furnace.png"],
+    link: "/wiki/mysticalagriculture/blocks/essence-furnaces"
   },
   {
     title: "Enchanter",
     description: [
       "Enchant your tools, armor or books with crafting materials and Experience Essence."
     ],
-    images: ["/assets/mysticalagriculture/blocks/enchanter.png"]
+    images: ["/assets/mysticalagriculture/blocks/enchanter.png"],
+    link: "/wiki/mysticalagriculture/blocks/enchanter"
   }
 ]);
 

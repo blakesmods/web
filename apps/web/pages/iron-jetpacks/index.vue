@@ -24,38 +24,50 @@ const features = ref([
   {
     title: "Jetpacks Redefined",
     description: [
-      "Iron Jetpacks is a Minecraft mod focused entirely on adding simple and easy to use jetpacks."
-    ]
+      "Iron Jetpacks is a Minecraft mod focused entirely on adding simple and easy to use Jetpacks."
+    ],
+    images: ["/assets/ironjetpacks/items/diamond_jetpack.png"],
+    link: "/wiki/ironjetpacks/items/jetpacks"
   },
   {
     title: "Fully Customizable",
     description: [
-      "All jetpack values can be tweaked to your liking using the jetpack JSON files. You can even add entirely new jetpacks, or remove the ones you don't need."
-    ]
+      "All Jetpack values can be tweaked to your liking using the Jetpack JSON files. You can even add entirely new jetpacks, or remove the ones you don't need."
+    ],
+    images: ["/assets/ironjetpacks/code_icon.svg"],
+    link: "/docs/ironjetpacks"
   },
   {
     title: "Throttle Controls",
     description: [
-      "You can change the flight speed of your jetpack on the fly! Use the Increase/Decrease throttle keybind to change your jetpack's movement speed."
-    ]
+      "You can change the flight speed of your jetpack on the fly! Use the Increase/Decrease Throttle keybindings to change your Jetpack's movement speed."
+    ],
+    images: ["/assets/ironjetpacks/adjustments_icon.svg"],
+    link: "/wiki/ironjetpacks/items/jetpacks"
   },
   {
     title: "Intuitive Display",
     description: [
-      "View your jetpacks energy, throttle, engine and hover status quickly using the in-game HUD."
-    ]
+      "View your Jetpacks energy, throttle, engine and hover status quickly using the in-game HUD."
+    ],
+    images: ["/assets/ironjetpacks/features/hud.png"],
+    link: "/wiki/ironjetpacks/features/hud"
   },
   {
     title: "Curios Integration",
     description: [
-      "With Curios installed, your jetpack can be equipped as a Curio."
-    ]
+      "With Curios installed, your Jetpack can be equipped as a Curio."
+    ],
+    images: ["/assets/ironjetpacks/features/curios_logo.png"],
+    link: "/wiki/ironjetpacks/items/jetpacks#curios-integration"
   },
   {
     title: "Powered by Forge Energy",
     description: [
-      "Jetpacks are fueled using Forge Energy (FE). This means that jetpacks can be charged using other mods chargers."
-    ]
+      "Jetpacks are fueled using Forge Energy (FE). This means that Jetpacks can be charged using other mods chargers."
+    ],
+    images: ["/assets/ironjetpacks/forge_logo.png"],
+    link: "/wiki/ironjetpacks/items/jetpacks"
   }
 ]);
 </script>

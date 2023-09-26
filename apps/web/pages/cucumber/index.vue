@@ -7,7 +7,7 @@
         :features="features"
       />
 
-      <h1 class="text-center">Check out the actual mods!</h1>
+      <h2 class="text-center">Check out the actual mods!</h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <UCard
@@ -60,13 +60,22 @@ const features = ref([
     title: "What & Why",
     description: [
       "Cucumber Library is a required dependency for all of my mods. Cucumber contains shared code and functionality that is used by all of the mods listed below."
-    ]
+    ],
+    link: "/wiki/cucumber"
   },
   {
     title: "Tag Tooltips",
     description: [
       "Cucumber adds advanced tooltips to all blocks and items that list all of the tags that block or item belongs to."
-    ]
+    ],
+    link: "/wiki/cucumber/features/tag-tooltips"
+  },
+  {
+    title: "NBT Tooltips",
+    description: [
+      "Cucumber adds advanced tooltips to all items that shows the items NBT."
+    ],
+    link: "/wiki/cucumber/features/nbt-tooltips"
   }
 ]);
 </script>
