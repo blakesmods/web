@@ -12,71 +12,67 @@
     <transition name="fade">
       <div
         v-if="active"
-        class="fixed left-0 top-16 p-8 w-full max-h-[calc(100vh-160px)] border-y border-gray-200 dark:border-gray-800 bg-white/90 dark:bg-gray-900/95 shadow-lg overflow-y-auto backdrop-blur-md"
+        class="fixed left-0 top-16 p-8 w-full max-h-[calc(100vh-160px)] border-y border-gray-200 dark:border-gray-800 bg-white/90 dark:bg-gray-900/95 shadow-lg overflow-y-auto backdrop-blur"
       >
         <div
           class="container grid grid-cols-[repeat(1,1fr)] lg:grid-cols-[repeat(2,1fr)] xl:grid-cols-[repeat(3,1fr)] gap-4"
         >
           <h2 class="col-span-full text-center mb-4">Mods</h2>
-          <NuxtLink
+          <GradientUCard
             v-for="(mod, index) in mods"
-            class="group flex flex-nowrap w-full h-36 rounded transition-transform hover:scale-105 active:scale-100"
-            :to="mod.url"
+            class="flex w-full h-36 items-center"
+            :style="{
+              '--primary-color': mod.primary_color,
+              '--secondary-color': mod.secondary_color
+            }"
             :key="index"
           >
-            <GradientUCard
-              class="flex w-full h-full items-center"
-              :style="{
-                '--primary-color': mod.primary_color,
-                '--secondary-color': mod.secondary_color
-              }"
-            >
-              <div class="flex h-[96px]">
-                <img
-                  class="w-20 h-20 mr-4 my-auto object-contain"
-                  :src="mod.logo"
-                  :alt="mod.name + ' logo'"
-                />
-                <div class="flex flex-col justify-center gap-2">
-                  <span
-                    class="whitespace-nowrap font-bold group-hover:underline underline-offset-4"
+            <div class="flex h-[96px]">
+              <img
+                class="w-20 h-20 mr-4 my-auto object-contain"
+                :src="mod.logo"
+                :alt="mod.name + ' logo'"
+              />
+              <div class="flex flex-col justify-center gap-2">
+                <NuxtLink
+                  class="whitespace-nowrap font-bold group-hover:underline underline-offset-4"
+                  :to="mod.url"
+                >
+                  {{ mod.name }}
+                </NuxtLink>
+                <span
+                  class="text-gray-700/80 dark:text-gray-200/80 leading-snug"
+                >
+                  {{ mod.tagline }}
+                </span>
+                <div class="flex flex-1 items-end gap-4">
+                  <NuxtLink
+                    class="hover:opacity-75"
+                    :to="mod.url + '/download'"
+                    :style="{ color: mod.primary_color }"
                   >
-                    {{ mod.name }}
-                  </span>
-                  <span
-                    class="text-gray-700/80 dark:text-gray-200/80 leading-snug"
+                    Download
+                  </NuxtLink>
+                  <NuxtLink
+                    v-if="mod.has_docs"
+                    class="hover:opacity-75"
+                    :to="'/docs/' + mod.mod_id"
+                    :style="{ color: mod.primary_color }"
                   >
-                    {{ mod.tagline }}
-                  </span>
-                  <div class="flex flex-1 items-end gap-4">
-                    <NuxtLink
-                      class="hover:opacity-80"
-                      :to="mod.url + '/download'"
-                      :style="{ color: mod.primary_color }"
-                    >
-                      Download
-                    </NuxtLink>
-                    <NuxtLink
-                      v-if="mod.has_docs"
-                      class="hover:opacity-80"
-                      :to="'/docs/' + mod.mod_id"
-                      :style="{ color: mod.primary_color }"
-                    >
-                      Docs
-                    </NuxtLink>
-                    <NuxtLink
-                      v-if="mod.has_wiki"
-                      class="hover:opacity-80"
-                      :to="'/wiki/' + mod.mod_id"
-                      :style="{ color: mod.primary_color }"
-                    >
-                      Wiki
-                    </NuxtLink>
-                  </div>
+                    Docs
+                  </NuxtLink>
+                  <NuxtLink
+                    v-if="mod.has_wiki"
+                    class="hover:opacity-75"
+                    :to="'/wiki/' + mod.mod_id"
+                    :style="{ color: mod.primary_color }"
+                  >
+                    Wiki
+                  </NuxtLink>
                 </div>
               </div>
-            </GradientUCard>
-          </NuxtLink>
+            </div>
+          </GradientUCard>
         </div>
       </div>
     </transition>
@@ -84,10 +80,18 @@
 </template>
 
 <script setup>
+const route = useRoute();
 const mods = useMods();
 const active = useModsDropdown();
 
 const el = ref(null);
+
+watch(
+  () => route.path,
+  () => {
+    active.value = false;
+  }
+);
 
 onClickOutside(el, () => {
   active.value = false;

@@ -9,17 +9,7 @@
 </template>
 
 <script setup>
-const route = useRoute();
-const modsDropdown = useModsDropdown();
-
 useHead({
   titleTemplate: title => (title ? `${title} · Blake's Mods` : "Blake's Mods")
 });
-
-watch(
-  () => route.path,
-  () => {
-    modsDropdown.value = false;
-  }
-);
 </script>
