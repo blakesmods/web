@@ -125,6 +125,7 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
   },
   content: {
     highlight: {
+      preload: ["java"],
       theme: {
         default: "github-light",
         dark: "github-dark"
