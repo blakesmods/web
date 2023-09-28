@@ -10,7 +10,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@types/node": "^16.18.12",
+    "@types/node": "^18.18.0",
     "nodemon": "^2.0.22",
     "prettier": "^2.8.8",
     "ts-node": "^10.9.1",
