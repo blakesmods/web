@@ -76,6 +76,10 @@ This section will go over the values available to use in a Combination Crafting 
 ## CraftTweaker
 Extended Crafting allows you easily add your own Combination Crafting recipes using CraftTweaker. Here's how you do it.
 
+::alert{title="Recipe Manager"}
+As of version **6.0.3**, CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers!</a> Access all applicable methods using **\<recipetype:extendedcrafting:combination\>**!
+::
+
 ### Adding A Recipe
 ```java
 mods.extendedcrafting.CombinationCrafting.addRecipe(name, <output>, powerCost, [inputs]);

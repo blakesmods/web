@@ -80,7 +80,13 @@ This section will go over the values available to use in an Ender Crafting recip
 }
 ```
 
+## CraftTweaker
+
 Extended Crafting allows you easily add your own Ender Crafting recipes using CraftTweaker. Here's how you do it.
+
+::alert{title="Recipe Manager"}
+As of version **6.0.3**, CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers!</a> Access all applicable methods using **\<recipetype:extendedcrafting:ender_crafter\>**!
+::
 
 ### Adding A Shaped Recipe
 ```java

@@ -54,6 +54,10 @@ This section will go over the values available to use in a Compressor recipe. Sy
 
 Extended Crafting allows you easily add your own Compression Crafting recipes using CraftTweaker. Here's how you do it.
 
+::alert{title="Recipe Manager"}
+As of version **6.0.3**, CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers!</a> Access all applicable methods using **\<recipetype:extendedcrafting:compressor\>**!
+::
+
 ### Adding a Recipe
 ```java
 mods.extendedcrafting.CompressionCrafting.addRecipe(name, <input>, <output>, inputCount, <catalyst>, powerCost);    
