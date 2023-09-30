@@ -29,6 +29,7 @@ export interface ModFile {
   mc_version_parts: VersionParts;
   mod_version: string;
   mod_version_parts: VersionParts;
+  mod_loader: string;
   java_version?: number;
   curseforge_id?: number | null;
   curseforge_downloads: number;

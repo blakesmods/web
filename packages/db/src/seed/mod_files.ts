@@ -18,10 +18,10 @@ export async function createModFiles(db: Db) {
 
       const file: ModFile = {
         changelog: faker.lorem.lines(5),
-        curseforge_downloads: faker.datatype.number(10000000),
-        curseforge_id: faker.datatype.number(10000),
+        curseforge_downloads: faker.number.int(10000000),
+        curseforge_id: faker.number.int(10000),
         file_name: `${name}-${mcVersion.join(".")}-${version.join(".")}`,
-        file_size: faker.datatype.number(10000000),
+        file_size: faker.number.int(10000000),
         java_version: 17,
         maven_path: faker.system.filePath(),
         mc_version: mcVersion.join("."),
@@ -39,9 +39,10 @@ export async function createModFiles(db: Db) {
           minor: version[1],
           patch: version[2]
         },
-        modrinth_downloads: faker.datatype.number(10000000),
-        modrinth_id: faker.datatype.string(12),
-        site_downloads: faker.datatype.number(10000000),
+        mod_loader: "Forge",
+        modrinth_downloads: faker.number.int(10000000),
+        modrinth_id: faker.string.nanoid(12),
+        site_downloads: faker.number.int(10000000),
         upload_date: faker.date.past()
       };
 
