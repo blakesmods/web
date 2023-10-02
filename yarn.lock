@@ -327,10 +327,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/selector-specificity/-/selector-specificity-2.2.0.tgz#2cbcf822bf3764c9658c4d2e568bd0c0cb748016"
   integrity sha512-+OJ9konv95ClSTOJCmMZqpd5+YGsB2S+x6w3E1oaM8UuR5j8nTNHYSz8c9BEPGDOCMQYIEEGlVPj/VY64iTbGw==
 
-"@egoist/tailwindcss-icons@^1.1.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@egoist/tailwindcss-icons/-/tailwindcss-icons-1.2.0.tgz#93285df9bfc4078ff0406b08a5d8928522774369"
-  integrity sha512-rEnRIB3j6kHc9w5f2B7K0/urojTHQo3CEhCgEx0aLddne5iir3YiyF/rwZ2W+dmvDlQqm6AMrO82oCFYpCTaCA==
+"@egoist/tailwindcss-icons@^1.2.0":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@egoist/tailwindcss-icons/-/tailwindcss-icons-1.3.1.tgz#bb6babc8737ba86172ca0705a3aedd590bf0dbaa"
+  integrity sha512-/wQ1gJW2QNNSOIfCL5bBFNfJ6YEnaXQXVEszx22OMVY/l7fPpecIqXm21iICFoVnfceFH7pJnwBZSOCaLr+JPw==
   dependencies:
     "@iconify/utils" "^2.1.4"
 
@@ -616,6 +616,11 @@
     fastify-plugin "^4.0.0"
     mongodb "^6.0.0"
 
+"@headlessui/tailwindcss@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@headlessui/tailwindcss/-/tailwindcss-0.2.0.tgz#2c55c98fd8eee4b4f21ec6eb35a014b840059eec"
+  integrity sha512-fpL830Fln1SykOCboExsWr3JIVeQKieLJ3XytLe/tt1A0XzqUthOftDmjcCYLW62w7mQI7wXcoPXr3tZ9QfGxw==
+
 "@headlessui/vue@^1.7.16":
   version "1.7.16"
   resolved "https://registry.yarnpkg.com/@headlessui/vue/-/vue-1.7.16.tgz#bdc9d32d329248910325539b99e6abfce0c69f89"
@@ -824,7 +829,7 @@
     "@nuxt/schema" "^3.7.3"
     execa "^7.2.0"
 
-"@nuxt/kit@3.7.4", "@nuxt/kit@^3.0.0-rc.12", "@nuxt/kit@^3.5.0", "@nuxt/kit@^3.5.3", "@nuxt/kit@^3.6.5", "@nuxt/kit@^3.7.1", "@nuxt/kit@^3.7.3", "@nuxt/kit@^3.7.4", "@nuxt/kit@latest":
+"@nuxt/kit@3.7.4", "@nuxt/kit@^3.0.0-rc.12", "@nuxt/kit@^3.5.0", "@nuxt/kit@^3.5.3", "@nuxt/kit@^3.6.5", "@nuxt/kit@^3.7.3", "@nuxt/kit@^3.7.4", "@nuxt/kit@latest":
   version "3.7.4"
   resolved "https://registry.yarnpkg.com/@nuxt/kit/-/kit-3.7.4.tgz#31c0bd57397cc56a1098af5d6504353cc2e855a2"
   integrity sha512-/S5abZL62BITCvC/TY3KWA6N721U1Osln3cQdBb56XHIeafZCBVqTi92Xb0o7ovl72mMRhrKwRu7elzvz9oT/g==
@@ -910,15 +915,16 @@
   resolved "https://registry.yarnpkg.com/@nuxt/ui-templates/-/ui-templates-1.3.1.tgz#35f5c1adced7495a8c1284e37246a16e373ef5d5"
   integrity sha512-5gc02Pu1HycOVUWJ8aYsWeeXcSTPe8iX8+KIrhyEtEoOSkY0eMBuo0ssljB8wALuEmepv31DlYe5gpiRwkjESA==
 
-"@nuxt/ui@^2.8.1":
-  version "2.8.1"
-  resolved "https://registry.yarnpkg.com/@nuxt/ui/-/ui-2.8.1.tgz#4a1604c08b8669d67600cadfb7e9034c19048ee9"
-  integrity sha512-SVOo1PTroStUyv8ZcXTdDVgkV9U2Q0dtq7nQDF7NNZkvyH96Zbrbdk11wr1uHKuQdTcaEAq50OGleD+t6ceWEQ==
+"@nuxt/ui@^2.9.0":
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/@nuxt/ui/-/ui-2.9.0.tgz#c68f2ceab359c615536afb3764008a0db909ad13"
+  integrity sha512-e7Xo7xq9C71zdkLFO/IRMAxsX0ms3wMWxQq2kKUuh/ZiLD7/NjxeDle/XAwEAfzn5vdXCkygIK3w0R5UO9I5Pg==
   dependencies:
-    "@egoist/tailwindcss-icons" "^1.1.0"
+    "@egoist/tailwindcss-icons" "^1.2.0"
+    "@headlessui/tailwindcss" "^0.2.0"
     "@headlessui/vue" "^1.7.16"
     "@iconify-json/heroicons" "^1.1.12"
-    "@nuxt/kit" "^3.7.1"
+    "@nuxt/kit" "^3.7.4"
     "@nuxtjs/color-mode" "^3.3.0"
     "@nuxtjs/tailwindcss" "^6.8.0"
     "@popperjs/core" "^2.11.8"
@@ -931,7 +937,9 @@
     "@vueuse/math" "^10.4.1"
     defu "^6.1.2"
     fuse.js "^6.6.2"
-    lodash-es "^4.17.21"
+    ohash "^1.1.3"
+    pathe "^1.1.1"
+    scule "^1.0.0"
     tailwind-merge "^1.14.0"
     tailwindcss "^3.3.3"
 
@@ -4293,11 +4301,6 @@ locate-path@^6.0.0:
   integrity sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==
   dependencies:
     p-locate "^5.0.0"
-
-lodash-es@^4.17.21:
-  version "4.17.21"
-  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
-  integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
 
 lodash._reinterpolate@^3.0.0:
   version "3.0.0"
