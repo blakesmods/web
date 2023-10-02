@@ -12,4 +12,15 @@
 useHead({
   titleTemplate: title => (title ? `${title} · Blake's Mods` : "Blake's Mods")
 });
+
+const route = useRoute();
+
+const dropdown = useModsDropdown();
+
+watch(
+  () => route.path,
+  () => {
+    dropdown.value = false;
+  }
+);
 </script>

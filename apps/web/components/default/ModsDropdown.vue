@@ -80,18 +80,10 @@
 </template>
 
 <script setup>
-const route = useRoute();
 const mods = useMods();
 const active = useModsDropdown();
 
 const el = ref(null);
-
-watch(
-  () => route.path,
-  () => {
-    active.value = false;
-  }
-);
 
 onClickOutside(el, () => {
   active.value = false;
