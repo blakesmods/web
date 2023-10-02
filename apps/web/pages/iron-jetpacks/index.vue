@@ -26,7 +26,7 @@ const features = ref([
     description: [
       "Iron Jetpacks is a Minecraft mod focused entirely on adding simple and easy to use Jetpacks."
     ],
-    images: ["/assets/ironjetpacks/items/diamond_jetpack.png"],
+    images: ["/img/landing/ironjetpacks/jetpack_icon.svg"],
     link: "/wiki/ironjetpacks/items/jetpacks"
   },
   {
@@ -34,7 +34,7 @@ const features = ref([
     description: [
       "All Jetpack values can be tweaked to your liking using the Jetpack JSON files. You can even add entirely new jetpacks, or remove the ones you don't need."
     ],
-    images: ["/assets/ironjetpacks/code_icon.svg"],
+    images: ["/img/landing/ironjetpacks/code_icon.svg"],
     link: "/docs/ironjetpacks"
   },
   {
@@ -42,7 +42,7 @@ const features = ref([
     description: [
       "You can change the flight speed of your jetpack on the fly! Use the Increase/Decrease Throttle keybindings to change your Jetpack's movement speed."
     ],
-    images: ["/assets/ironjetpacks/adjustments_icon.svg"],
+    images: ["/img/landing/ironjetpacks/adjustments_icon.svg"],
     link: "/wiki/ironjetpacks/items/jetpacks"
   },
   {
@@ -50,7 +50,7 @@ const features = ref([
     description: [
       "View your Jetpacks energy, throttle, engine and hover status quickly using the in-game HUD."
     ],
-    images: ["/assets/ironjetpacks/features/hud.png"],
+    images: ["/img/landing/ironjetpacks/chart_icon.svg"],
     link: "/wiki/ironjetpacks/features/hud"
   },
   {
@@ -58,7 +58,7 @@ const features = ref([
     description: [
       "With Curios installed, your Jetpack can be equipped as a Curio."
     ],
-    images: ["/assets/ironjetpacks/features/curios_logo.png"],
+    images: ["/img/landing/ironjetpacks/curios_icon.svg"],
     link: "/wiki/ironjetpacks/items/jetpacks#curios-integration"
   },
   {
@@ -66,7 +66,7 @@ const features = ref([
     description: [
       "Jetpacks are fueled using Forge Energy (FE). This means that Jetpacks can be charged using other mods chargers."
     ],
-    images: ["/assets/ironjetpacks/forge_logo.png"],
+    images: ["/img/landing/ironjetpacks/forge_icon.svg"],
     link: "/wiki/ironjetpacks/items/jetpacks"
   }
 ]);
