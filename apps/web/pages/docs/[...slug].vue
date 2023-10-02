@@ -64,10 +64,10 @@ definePageMeta({
   layout: "docs"
 });
 
-const nuxtApp = useNuxtApp();
-
 const route = useRoute();
 const toggleSidebar = useEventBus("docs:toggleSidebar");
+
+const { formatDate } = useFormatters();
 
 const { data: page } = await useAsyncData(route.path, () =>
   queryContent(route.path).findOne()
@@ -84,7 +84,7 @@ const hasTOC = computed(
 );
 
 const lastUpdated = computed(() =>
-  nuxtApp.$formatDate(page.value.updatedAt, "YYYY/MM/DD")
+  formatDate(page.value.updatedAt, "YYYY/MM/DD")
 );
 
 function onToggleSidebar() {

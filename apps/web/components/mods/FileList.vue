@@ -122,10 +122,10 @@ const props = defineProps({
   versions: Array
 });
 
-const nuxtApp = useNuxtApp();
-
 const route = useRoute();
 const router = useRouter();
+
+const { formatDate, formatNumber } = useFormatters();
 
 const version = ref(route.query.mc_version || props.versions[0]);
 const files = ref([]);
@@ -173,7 +173,7 @@ function formatDownloadCount(file, format) {
   const count =
     file.site_downloads + file.curseforge_downloads + file.modrinth_downloads;
 
-  return nuxtApp.$formatNumber(count, format);
+  return formatNumber(count, format);
 }
 
 watch(

@@ -85,10 +85,10 @@ definePageMeta({
   layout: "article"
 });
 
-const nuxtApp = useNuxtApp();
-
 const route = useRoute();
 const toggleSidebar = useEventBus("wiki:toggleSidebar");
+
+const { formatDate } = useFormatters();
 const mod = useMod(route.params.mod);
 
 const { data: page } = await useAsyncData(route.path, () =>
@@ -138,7 +138,7 @@ const hasTOC = computed(
 );
 
 const lastUpdated = computed(() =>
-  nuxtApp.$formatDate(page.value.updatedAt, "YYYY/MM/DD")
+  formatDate(page.value.updatedAt, "YYYY/MM/DD")
 );
 
 watch(

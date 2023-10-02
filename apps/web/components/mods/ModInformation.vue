@@ -33,6 +33,8 @@ const props = defineProps({
   mod: Object
 });
 
+const { formatDate, formatNumber } = useFormatters();
+
 const downloads = computed(
   () =>
     props.mod.site_downloads +
