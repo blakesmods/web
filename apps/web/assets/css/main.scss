@@ -143,3 +143,38 @@ h4 {
 .fade-leave-to {
   opacity: 0;
 }
+
+html {
+  ::-webkit-scrollbar {
+    background-color: transparent;
+    height: 0.6em;
+    width: 0.6em;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: rgb(var(--color-gray-100));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgb(var(--color-gray-300));
+    border-radius: 0.6em;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(var(--color-gray-400));
+  }
+
+  &.dark {
+    ::-webkit-scrollbar-track {
+      background-color: rgb(var(--color-gray-800));
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: rgb(var(--color-gray-700));
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: rgb(var(--color-gray-600));
+    }
+  }
+}
