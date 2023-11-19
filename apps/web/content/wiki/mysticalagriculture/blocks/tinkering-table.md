@@ -13,6 +13,14 @@ The Tinkering Table is a block used to add [Augments](../items/augments.md) to [
 
 Place a compatible tool or armor piece into the center slot of the GUI. On the right, 1 or more slots will be unlocked. There you can place any applicable [Augment](../items/augments.md). Remove the tool from the center slot and the Augment will have been applied. You can remove Augments at any time by placing the tool or armor piece back into the center slot and taking out the Augment.
 
+## Screen Overview
+
+![](/assets/mysticalagriculture/screens/tinkering_table_screen.png)
+
+1. **Elemental Essence Slots:** (currently unused)
+2. **Tinkerable Slot:** Place the gear piece to modify here.
+3. **Augment Slots:** Will unlock once a valid item is placed in the Tinkerable Slot. You can then place Augments in any of the unlocked slots.
+
 ## Screenshots
 
 ::screenshots

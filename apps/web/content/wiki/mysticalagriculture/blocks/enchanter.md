@@ -16,3 +16,11 @@ The Enchanter is a block that can apply enchantments to books, tools or armor us
 ::
 
 To enchant an item, place it in the 3rd slot. Then, place enough of the required items into the first or second slots. Each level of the enchantment will require additional items.
+
+## Screen Overview
+
+![](/assets/mysticalagriculture/screens/enchanter_screen.png)
+
+1. **Input Slots:** Place the input ingredients here. 
+2. **Enchantable Slot:** Place the item you would like to enchant here.
+3. **Output Slot:** The recipe output will appear here.

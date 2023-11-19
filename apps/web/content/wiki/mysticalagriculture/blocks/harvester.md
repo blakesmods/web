@@ -17,6 +17,15 @@ Once placed, the harvester will harvest a 3x3 area of crops in front of it. To i
 
 The harvester can be disabled at any time with a Redstone signal.
 
+## Screen Overview
+
+![](/assets/mysticalagriculture/screens/harvester_screen.png)
+
+1. **Energy Bar:** Displays the amount of energy this block contains.
+2. **Fuel Slot:** Burnable items can be placed here to generate energy.
+3. **Output Slots:** The items collected by the Harvester will appear here.
+4. **Upgrade Slot:** Place a [Machine Upgrade](../items/machine-upgrades.md) here to upgrade the machine.
+
 ## Screenshots
 
 ::screenshots

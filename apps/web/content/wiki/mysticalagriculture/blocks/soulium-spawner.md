@@ -17,6 +17,16 @@ Place some essences in the input slot and provide power. After processing time h
 
 The spawner will not be able to spawn mobs if there are 32 or more entities of the type being spawned within its spawn radius.
 
+## Screen Overview
+
+![](/assets/mysticalagriculture/screens/soulium_spawner_screen.png)
+
+1. **Energy Bar:** Displays the amount of energy this block contains.
+2. **Fuel Slot:** Burnable items can be placed here to generate energy.
+3. **Input Slot:** Place your input ingredients here.
+4. **Output Entity Display:** A display of the entities that would spawn based on the input.
+5. **Upgrade Slot:** Place a [Machine Upgrade](../items/machine-upgrades.md) here to upgrade the machine.
+
 ## Screenshots
 
 ::screenshots
