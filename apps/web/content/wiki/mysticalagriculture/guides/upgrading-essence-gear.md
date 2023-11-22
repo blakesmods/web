@@ -16,4 +16,4 @@ The [Tinkering Table](../blocks/tinkering-table.md) is used to add/remove Augmen
 Each augment has a tier. This tier is the **minimum** tier of gear that the Augment can be applied to. You can apply lower tier Augments to higher tier gear.
 
 ### Augment Slots
-Each piece of gear can only have a certain amount of Augment slots. Most items only have a single Augment slot, but [Awakened Supremium](../items/awakened-supremium.md) gear pieces have 2!
+Each piece of gear can only have a certain amount of Augment slots. Most items only have a single Augment slot, but [Awakened Supremium](../guides/awakened-supremium.md) gear pieces have 2!
