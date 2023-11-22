@@ -20,3 +20,11 @@ The Combination Crafting setup does not have a specific shape. The Crafting Core
 To place an item on the Crafting Core, you need to right-click on the top. Right-clicking on any of the sides will show a GUI which displays the current power, Pedestals in range, as well as the recipe being created. 
 
 The Crafting Core must be supplied with power to craft. Once a valid recipe is placed the Crafting Core will automatically begin to craft. Once it has consumed enough power it will then combine all the items together and produce the output. 
+
+## Screen Overview
+
+![](/assets/extendedcrafting/screens/crafting_core_screen.png)
+
+1. **Energy Bar:** Displays the amount of energy this block contains.
+2. **Status Display:** Information about your current crafting setup will be displayed here.
+3. **Output Display:** The recipe output will be displayed here.
