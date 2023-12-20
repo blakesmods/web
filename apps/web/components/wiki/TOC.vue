@@ -12,7 +12,7 @@
     </a>
   </div>
 
-  <BisectHostingBanner vertical />
+  <BisectHostingBanner v-if="showBanner" vertical />
 </template>
 
 <script setup>
@@ -22,7 +22,11 @@ const props = defineProps({
   page: Object
 });
 
+const route = useRoute();
+
 const links = computed(() =>
   props.page.body.toc.links.flatMap(l => [l, ...(l.children || [])])
 );
+
+const showBanner = computed(() => !route.path.startsWith("/docs"));
 </script>
