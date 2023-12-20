@@ -9,8 +9,8 @@
             icon="i-heroicons-bars-3-solid"
             @click="onToggleSidebar"
           />
-          <div class="flex flex-col gap-2">
-            <span class="text-primary-500 font-bold lvl0">{{ mod.name }}</span>
+          <div class="flex flex-col gap-4">
+            <UBreadcrumb :links="breadcrumbs" />
             <h1 class="flex items-center gap-4">
               <img
                 v-if="page.icon"
@@ -75,7 +75,9 @@
 </template>
 
 <script setup>
-import TOC from "~/components/wiki/TOC.vue";
+import categories from "~/content/wiki/.categories.json";
+
+import TOC from "~/components/TOC.vue";
 import Pagination from "~/components/wiki/Pagination.vue";
 
 definePageMeta({
@@ -129,6 +131,30 @@ useHead({
 });
 
 const toc = ref(false);
+const pathParts = page.value._path.split("/");
+
+const breadcrumbs = computed(() =>
+  [
+    {
+      label: "Wiki",
+      icon: "i-heroicons-home",
+      to: "/wiki"
+    },
+    pathParts.length > 2 && {
+      label: mod.value.name,
+      icon: "i-heroicons-squares-2x2",
+      to: pathParts.length > 3 ? pathParts.slice(0, 3).join("/") : undefined
+    },
+    pathParts.length > 3 && {
+      label: categories[pathParts[3]] ?? pathParts[3],
+      icon: "i-heroicons-square-3-stack-3d"
+    },
+    pathParts.length > 4 && {
+      label: page.value.title,
+      icon: "i-heroicons-book-open"
+    }
+  ].filter(Boolean)
+);
 
 const hasTOC = computed(
   () => page.value.body.toc && page.value.body.toc.links.length

@@ -1,7 +1,9 @@
 <template>
   <div class="grid grid-cols-9 col-span-12 lg:col-span-9">
     <div class="col-span-12 lg:col-span-9 xl:col-span-7 w-full h-full px-4">
-      <div class="flex py-8 lg:ml-4 xl:mr-4 z-10 justify-between items-center">
+      <div
+        class="flex py-8 lg:ml-4 xl:mr-4 z-10 justify-between items-center border-b border-gray-200 dark:border-gray-800"
+      >
         <div class="flex items-center gap-4">
           <UButton
             class="!inline-flex lg:!hidden"
@@ -9,10 +11,8 @@
             icon="i-heroicons-bars-3-solid"
             @click="onToggleSidebar"
           />
-          <div class="flex flex-col gap-2">
-            <span class="text-primary-500 font-bold lvl1">
-              {{ page.category }}
-            </span>
+          <div class="flex flex-col gap-4">
+            <UBreadcrumb :links="breadcrumbs" />
             <h1>{{ page.title }}</h1>
           </div>
         </div>
@@ -54,8 +54,8 @@
 </template>
 
 <script setup>
+import TOC from "~/components/TOC.vue";
 import Pagination from "~/components/docs/Pagination.vue";
-import TOC from "~/components/wiki/TOC.vue";
 
 definePageMeta({
   layout: "docs"
@@ -75,6 +75,26 @@ if (!page.value) {
 }
 
 const toc = ref(false);
+const pathParts = page.value._path.split("/");
+
+const breadcrumbs = computed(() =>
+  [
+    {
+      label: "Docs",
+      icon: "i-heroicons-home",
+      to: "/docs"
+    },
+    pathParts.length > 2 && {
+      label: page.value.category,
+      icon: "i-heroicons-square-3-stack-3d",
+      to: pathParts.length > 3 ? pathParts.slice(0, 3).join("/") : undefined
+    },
+    pathParts.length > 3 && {
+      label: page.value.title,
+      icon: "i-heroicons-book-open"
+    }
+  ].filter(Boolean)
+);
 
 const hasTOC = computed(
   () => page.value.body.toc && page.value.body.toc.links.length

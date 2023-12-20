@@ -50,7 +50,7 @@
   }
 
   .docs-searchbar-suggestion--highlight {
-    @apply text-primary-500 #{!important};
+    @apply text-primary-500 dark:text-primary-400 #{!important};
 
     background: transparent !important;
     box-shadow: none !important;

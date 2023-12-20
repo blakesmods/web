@@ -1,5 +1,6 @@
 <template>
   <div class="w-full py-4">
+    <UBreadcrumb :links="breadcrumbs" />
     <div class="py-4 text-center">
       <h1>{{ mod.name }} Wiki</h1>
     </div>
@@ -109,6 +110,19 @@ for (const article of data.value) {
 
   articles.value[article._dir].push(article);
 }
+
+const breadcrumbs = computed(() => [
+  {
+    label: "Wiki",
+    icon: "i-heroicons-home",
+    to: "/wiki"
+  },
+  {
+    label: mod.value.name,
+    icon: "i-heroicons-squares-2x2",
+    to: `/wiki/${mod.value.mod_id}`
+  }
+]);
 
 const categories = computed(() =>
   Object.keys(articles.value).filter(c => articles.value[c].length > 0)

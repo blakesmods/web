@@ -6,13 +6,16 @@
     <UButton
       v-if="previous"
       :to="previous._path"
+      class="group"
       color="gray"
       size="lg"
       icon="i-heroicons-arrow-left"
     >
       <div class="flex flex-col text-right">
         {{ previous.title }}
-        <small class="text-gray-600 dark:text-gray-300">
+        <small
+          class="text-gray-600 dark:text-gray-300 group-hover:text-gray-500 dark:group-hover:text-gray-400"
+        >
           {{ formatModName(previous) }}
         </small>
       </div>
@@ -20,7 +23,7 @@
     <UButton
       v-if="next"
       :to="next._path"
-      class="ml-auto"
+      class="ml-auto group"
       color="gray"
       size="lg"
       icon="i-heroicons-arrow-right"
@@ -28,7 +31,9 @@
     >
       <div class="flex flex-col">
         {{ next.title }}
-        <small class="text-gray-600 dark:text-gray-300">
+        <small
+          class="text-gray-600 dark:text-gray-300 group-hover:text-gray-500 dark:group-hover:text-gray-400"
+        >
           {{ formatModName(next) }}
         </small>
       </div>

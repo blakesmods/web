@@ -13,11 +13,10 @@
   }
 
   a {
-    @apply text-primary-500;
-    font-weight: bold;
+    @apply text-primary-500 dark:text-primary-400 font-bold;
 
     &:hover {
-      opacity: 0.95;
+      @apply underline;
     }
   }
 
@@ -31,7 +30,7 @@
       scroll-margin-top: 144px;
 
       &:hover {
-        @apply text-gray-700 dark:text-gray-300;
+        @apply text-gray-700 dark:text-gray-300 no-underline;
 
         &::before {
           content: "#";

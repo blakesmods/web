@@ -24,14 +24,14 @@
         />
       </div>
       <div
-        class="flex flex-col overflow-hidden"
+        class="flex flex-col overflow-hidden text-gray-500 dark:text-gray-400"
         :class="[category.active ? 'h-full' : 'h-0']"
       >
         <NuxtLink
           v-for="article in articles[route.params.mod][category.slug]"
-          class="flex relative pl-2 py-1 text-sm first:mt-2 border-l border-gray-300 dark:border-gray-700"
+          class="flex relative pl-2 py-1 text-sm first:mt-2 hover:text-gray-700 dark:hover:text-gray-200 border-l border-gray-300 dark:border-gray-700"
           :class="{
-            'text-primary-500 hover:text-primary-500 !border-primary-500 font-semibold':
+            '!text-primary-500 dark:!text-primary-400 font-semibold':
               article._path === route.path
           }"
           :to="article._path"

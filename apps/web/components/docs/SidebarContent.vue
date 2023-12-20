@@ -1,15 +1,13 @@
 <template>
-  <h3 class="mb-4">
-    <NuxtLink class="font-bold" to="/docs">Documentation</NuxtLink>
-  </h3>
+  <h3 class="mb-4">Documentation</h3>
   <div v-for="category in categories" class="mb-4 last:mb-0">
     <h4 class="font-bold">{{ category }}</h4>
-    <div class="flex flex-col">
+    <div class="flex flex-col text-gray-500 dark:text-gray-400">
       <NuxtLink
         v-for="document in documents[category]"
-        class="relative pl-4 py-1 text-sm first:mt-2 border-l border-gray-300 dark:border-gray-700"
+        class="relative pl-4 py-1 text-sm first:mt-2 hover:text-gray-700 dark:hover:text-gray-200 border-l border-gray-300 dark:border-gray-700"
         :class="{
-          'text-primary-500 hover:text-primary-500 !border-primary-500 font-semibold':
+          '!text-primary-500 dark:!text-primary-400 font-semibold':
             document._path === route.path
         }"
         :to="document._path"
