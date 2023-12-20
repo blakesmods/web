@@ -7,4 +7,5 @@ hidden: true
 
 Welcome to the Mystical Customization documentation. Here you will find information useful to you if you plan on using Mystical Customization in your modpack.
 
-<docs-section-list mod="mysticalcustomization"></docs-section-list>
+::docs-section-list{mod="mysticalcustomization"}
+::
