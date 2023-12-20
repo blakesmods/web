@@ -1,6 +1,6 @@
 <template>
   <div class="mb-8">
-    <h3 class="pb-4">On This Page</h3>
+    <h3>On This Page</h3>
     <a
       v-for="item in links"
       class="flex w-full mb-1 text-sm"

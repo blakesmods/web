@@ -30,15 +30,6 @@
       </ContentRenderer>
 
       <div class="flex justify-between lg:px-4 py-4">
-        <UButton
-          :to="`https://github.com/blakesmods/web/edit/main/apps/web/content${page._path}.${page._extension}`"
-          target="_blank"
-          variant="ghost"
-          rel="noopener noreferrer"
-        >
-          <UIcon name="i-heroicons-pencil-square-solid" />
-          Edit this page on GitHub
-        </UButton>
         <span v-if="false">Last Updated: {{ lastUpdated }}</span>
       </div>
       <Pagination :current="page" />
@@ -48,10 +39,16 @@
     >
       <div class="sticky top-24 w-full space-y-4">
         <TOC v-if="hasTOC" :page="page" />
+        <ContentLinks
+          :edit-url="`https://github.com/blakesmods/web/edit/main/apps/web/content${page._path}.${page._extension}`"
+        />
       </div>
     </div>
     <USlideover v-if="hasTOC" class="xl:hidden" side="right" v-model="toc">
       <TOC :page="page" />
+      <ContentLinks
+        :edit-url="`https://github.com/blakesmods/web/edit/main/apps/web/content${page._path}.${page._extension}`"
+      />
     </USlideover>
   </div>
 </template>
