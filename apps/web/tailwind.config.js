@@ -25,6 +25,7 @@ module.exports = {
       padding: "1rem"
     },
     colors: {
+      current: "currentColor",
       black: colors.black,
       white: colors.white,
       fuchsia: colors.fuchsia,
