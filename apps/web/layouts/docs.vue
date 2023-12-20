@@ -10,9 +10,7 @@
           <div
             class="hidden lg:block sticky top-[65px] min-w-[244px] max-h-96 lg:max-h-[calc(100vh-65px)] col-span-3 pr-2 py-8 z-20 rounded overflow-y-auto"
           >
-            <div class="sticky top-24 w-full">
-              <SidebarContent />
-            </div>
+            <SidebarContent />
           </div>
           <slot />
         </div>
