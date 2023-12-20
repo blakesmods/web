@@ -90,6 +90,13 @@ The material used to craft the jetpack and its components. Syntax is `modid:item
 }
 ```
 
+If you don't want any of the default crafting recipes to be generated you can set the `craftingMaterial` field to `"null"`.
+```json
+{
+  "craftingMaterial": "null"
+}
+```
+
 ### Creative
 Is the jetpack a creative tier jetpack?
 ```json
