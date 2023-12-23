@@ -2,7 +2,7 @@
   <adsbygoogle
     class="adsbygoogle text-center"
     :class="{
-      'border border-gray-200 dark:border-gray-800 rounded': !adLayout
+      'mx-auto border border-gray-200 dark:border-gray-800 rounded': !adLayout
     }"
     :ad-layout="adLayout"
     :ad-slot="adSlot"

@@ -1,8 +1,6 @@
 <template>
   <div>
-    <h2 class="pb-4">
-      <NuxtLink class="font-bold" to="/wiki">Wiki</NuxtLink>
-    </h2>
+    <h3 class="mb-4">Wiki</h3>
     <div
       v-for="category in categories"
       class="mb-4 last:mb-0"
