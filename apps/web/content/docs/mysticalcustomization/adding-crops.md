@@ -47,7 +47,7 @@ You must assign this crop to a tier, using the tier's ID. Learn more about tiers
   "tier": "mysticalagriculture:1"
 }
 ```
-**Tip:** You can see all of the registered tiers in-game with the `/mysticalcustomization tiers` command.
+**Tip:** You can see all the registered tiers in-game with the `/mysticalcustomization tiers` command.
 
 ### Ingredient
 <u-badge label="Required"></u-badge>
@@ -92,11 +92,17 @@ You should set the textures you want to use for your crop, essence and seeds.
   }
 }
 ```
-#### Built In Crop Textures
+
+::alert
+In versions **4.1.0** and later, due to changes in Minecraft, this option now uses **Model Locations** instead of textures. Mystical Agriculture comes with models for each of the default textures listed below.
+::
+
+#### Built In Flower Textures
 - `mysticalagriculture:block/flower_ingot`
 - `mysticalagriculture:block/flower_rock`
 - `mysticalagriculture:block/flower_dust`
 - `mysticalagriculture:block/flower_face`
+
 #### Built In Essence Textures
 - `mysticalagriculture:item/essence_ingot`
 - `mysticalagriculture:item/essence_rock`
@@ -106,6 +112,7 @@ You should set the textures you want to use for your crop, essence and seeds.
 - `mysticalagriculture:item/essence_diamond`
 - `mysticalagriculture:item/essence_quartz`
 - `mysticalagriculture:item/essence_flame`
+
 #### Built In Seed Textures
 - `mysticalagriculture:item/mystical_seeds`
 

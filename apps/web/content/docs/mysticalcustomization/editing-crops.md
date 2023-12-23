@@ -40,7 +40,7 @@ You can change the type of a crop using that type's ID. Learn more about types a
   "type": "resource"
 }
 ```
-**Tip:** You can see all of the registered types in-game with the `/mysticalcustomization types` command.
+**Tip:** You can see all the registered types in-game with the `/mysticalcustomization types` command.
 
 ### Tier
 You can change the tier of a crop using the tier's ID. Learn more about tiers and how to add your own [here](adding-tiers.md).
@@ -49,7 +49,7 @@ You can change the tier of a crop using the tier's ID. Learn more about tiers an
   "tier": "mysticalagriculture:1"
 }
 ```
-**Tip:** You can see all of the registered tiers in-game with the `/mysticalcustomization tiers` command.
+**Tip:** You can see all the registered tiers in-game with the `/mysticalcustomization tiers` command.
 
 ### Ingredient
 You can change the crafting ingredient used to craft a crop's seed. This can be either an item or a tag, and uses the same syntax as a crafting recipe.
@@ -82,7 +82,7 @@ You can disable a crop if you want to hide it.
 ### Glint
 <u-badge color="green">2.0.0+</u-badge>
 
-You can enable the enchantment glint effect for this crops items.
+You can enable the enchantment glint effect for this crop's items.
 ```json
 {
   "glint": true
@@ -130,7 +130,7 @@ You can specify your own essence item. This is the item that will drop from the 
 You can disable the auto-generated recipes for a crop.
 
 **Note:** The auto-generated recipes for the Mystical Agriculture built-in crops are already disabled by default.
-```json
+```json5
 {
   "recipes": {
     "crafting": false, // the vanilla 3x3 recipe (if enabled in the config)
