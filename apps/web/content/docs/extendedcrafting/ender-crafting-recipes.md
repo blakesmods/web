@@ -104,12 +104,13 @@ The input arrays work in the same way as the normal crafting recipes, check out 
 
 #### Example
 ```java
-mods.extendedcrafting.EnderCrafting.addShapeless("test_shapeless", <item:minecraft:cobblestone>, [
-  <tag:forge:gems/diamond>, <tag:forge:gems/diamond>, <tag:forge:gems/diamond>, <tag:forge:gems/diamond>, <tag:forge:gems/diamond>, <tag:forge:gems/diamond>
-]);
+mods.extendedcrafting.EnderCrafting.addShaped("test_shaped", <item:minecraft:stick>, [
+  [<tag:items:forge:ingots/iron>, <item:minecraft:air>, <item:minecraft:air>], 
+  [<tag:items:forge:ingots/gold>, <tag:items:forge:ingots/gold>, <item:minecraft:air>], 
+  [<tag:items:forge:ingots/gold>, <item:minecraft:air>, <item:minecraft:air>]
+], 500);
 ```
 
-## CraftTweaker
 ### Adding A Shapeless Recipe
 ```java
 mods.extendedcrafting.EnderCrafting.addShapeless(name, <output>, [inputs], seconds); 
@@ -124,11 +125,9 @@ mods.extendedcrafting.EnderCrafting.addShapeless(name, <output>, [inputs], secon
 
 #### Example
 ```java
-mods.extendedcrafting.EnderCrafting.addShaped("test_shaped", <item:minecraft:stick>, [
-  [<tag:forge:ingots/iron>, <item:minecraft:air>, <item:minecraft:air>], 
-  [<tag:forge:ingots/gold>, <tag:forge:ingots/gold>, <item:minecraft:air>], 
-  [<tag:forge:ingots/gold>, <item:minecraft:air>, <item:minecraft:air>]
-], 500);
+mods.extendedcrafting.EnderCrafting.addShapeless("test_shapeless", <item:minecraft:cobblestone>, [
+  <tag:items:forge:gems/diamond>, <tag:items:forge:gems/diamond>, <tag:items:forge:gems/diamond>, <tag:items:forge:gems/diamond>, <tag:items:forge:gems/diamond>, <tag:items:forge:gems/diamond>
+], 30);
 ```
 
 ### Removing Recipes
