@@ -7758,10 +7758,10 @@ primeicons@^6.0.1:
   resolved "https://registry.yarnpkg.com/primeicons/-/primeicons-6.0.1.tgz#431fa7c79825934eefd62087d8e1faa6a9e376ad"
   integrity sha512-KDeO94CbWI4pKsPnYpA1FPjo79EsY9I+M8ywoPBSf9XMXoe/0crjbUK7jcQEDHuc0ZMRIZsxH3TYLv4TUtHmAA==
 
-primevue@^3.44.0:
-  version "3.44.0"
-  resolved "https://registry.yarnpkg.com/primevue/-/primevue-3.44.0.tgz#b69a84b0158300f804fed0fbdac86d863c5ac535"
-  integrity sha512-BqSg6rKP0vq7WRHhLlVt4BD4rQZbVVXjgSfOAcebv3mO4wJZcJbgC04mxAI9fl26PhmPy1jLOuCtNOBWo7IekA==
+primevue@^3.45.0:
+  version "3.45.0"
+  resolved "https://registry.yarnpkg.com/primevue/-/primevue-3.45.0.tgz#f7d4761a4c044dd58874459e81fea0de3642d6ed"
+  integrity sha512-qtA2YDi6SSBkGRb33lUXL2WnzMd7VZd4IC/YLXiUZLnxCGxqtB4iYj+jGqINNDcIFVqIYYMrc1UhiX+C68GQEQ==
 
 proc-log@^3.0.0:
   version "3.0.0"
