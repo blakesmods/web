@@ -94,7 +94,7 @@ You should set the textures you want to use for your crop, essence and seeds.
 ```
 
 ::alert
-In versions **4.1.0** and later, due to changes in Minecraft, this option now uses **Model Locations** instead of textures. Mystical Agriculture comes with models for each of the default textures listed below.
+In versions **4.1.0** and later, due to changes in Minecraft, this option now uses **Model Locations** instead of textures. Mystical Agriculture comes with models for each of the default textures listed below. If you would like to use your own, see [Custom Models](#custom-models).
 ::
 
 #### Built In Flower Textures
@@ -117,6 +117,92 @@ In versions **4.1.0** and later, due to changes in Minecraft, this option now us
 - `mysticalagriculture:item/mystical_seeds`
 
 Omitting this field (or any sub-field) will automatically assign to the Ingot textures. For the seed it will just be the regular seed texture.
+
+#### Custom Models
+You can use your own custom models by using a Resource Pack. Learn more about creating Resource Packs [here](https://minecraft.fandom.com/wiki/Resource_pack).
+
+::u-accordion
+---
+items:
+  - label: Custom Crop Models
+    slot: crop
+  - label: Custom Essence Models
+    slot: essence
+  - label: Custom Seed Models
+    slot: seed
+---
+
+#crop
+To use a custom crop model, you will need to add both a BlockState and Model JSON to your resource pack at `/mysticalagriculture/blockstates/<crop_id>_crop.json` and `/mysticalagriculture/models/item/<crop_id>_essence.json` respectively.
+
+##### Example BlockState File
+```json[diamond_crop.json]
+{
+  "variants": {
+    "age=0": {
+      "model": "mysticalagriculture:block/mystical_resource_crop_0"
+    },
+    "age=1": {
+      "model": "mysticalagriculture:block/mystical_resource_crop_1"
+    },
+    "age=2": {
+      "model": "mysticalagriculture:block/mystical_resource_crop_2"
+    },
+    "age=3": {
+      "model": "mysticalagriculture:block/mystical_resource_crop_3"
+    },
+    "age=4": {
+      "model": "mysticalagriculture:block/mystical_resource_crop_4"
+    },
+    "age=5": {
+      "model": "mysticalagriculture:block/mystical_resource_crop_5"
+    },
+    "age=6": {
+      "model": "mysticalagriculture:block/mystical_resource_crop_6"
+    },
+    "age=7": {
+      "model": "mysticalagriculture:block/diamond_crop"
+    }
+  }
+}
+```
+
+##### Example Model File
+```json[diamond_crop.json]
+{
+  "parent": "mysticalagriculture:block/mystical_resource_crop_7",
+  "textures": {
+    "flower": "mysticalagriculture:block/flower/diamond_flower"
+  }
+}
+```
+
+#essence
+To use a custom essence model, you will need to add a Model JSON to your resource pack at `/mysticalagriculture/models/item/<crop_id>_essence.json`.
+
+##### Example Model File
+```json[diamond_seeds.json]
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mysticalagriculture:item/seeds/diamond_essence"
+  }
+}
+```
+
+#seed
+To use a custom seed model, you will need to add a Model JSON to your resource pack at `/mysticalagriculture/models/item/<crop_id>_seeds.json`.
+
+##### Example Model File
+```json[diamond_seeds.json]
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mysticalagriculture:item/seeds/diamond_seeds"
+  }
+}
+```
+::
 
 ### Crux
 You can add a required crux block to this crop. A crux is a block that must be placed underneath the farmland for this crop to grow.
