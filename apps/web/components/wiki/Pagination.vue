@@ -50,9 +50,13 @@ const mods = useMods();
 
 const parts = props.current._path.split("/").slice(1);
 
-const [previous, next] = await queryContent(parts[0], parts[1], parts[2])
-  .sort({ sort: 1, $numeric: true })
-  .findSurround(props.current._path);
+const { data } = await useAsyncData(() =>
+  queryContent(parts[0], parts[1], parts[2])
+    .sort({ sort: 1, $numeric: true })
+    .findSurround(props.current._path)
+);
+
+const [previous, next] = data.value;
 
 function formatModName(document) {
   const name = document._path.split("/")[2];
