@@ -87,7 +87,7 @@ const features = ref([
     description: [
       "Use your extra essences to create furnaces with increased speed and fuel efficiency."
     ],
-    images: ["/assets/mysticalagriculture/blocks/inferium_furnace.png"],
+    images: ["/assets/mysticalagriculture/blocks/furnace.png"],
     link: "/wiki/mysticalagriculture/blocks/essence-furnace"
   },
   {
