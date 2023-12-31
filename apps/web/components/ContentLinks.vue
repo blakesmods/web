@@ -45,5 +45,5 @@ defineProps({
 });
 
 const route = useRoute();
-const mod = useMod(route.path.split("/").at(2));
+const mod = useMod(route.path.split("/")[2]);
 </script>

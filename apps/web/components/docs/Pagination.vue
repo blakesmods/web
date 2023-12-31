@@ -55,7 +55,7 @@ const [previous, next] = await queryContent(parts[0], parts[1]).findSurround(
 );
 
 function formatModName(document) {
-  const name = document._path.split("/").at(2);
+  const name = document._path.split("/")[2];
   const mod = mods.value.find(mod => mod.mod_id === name);
   return mod ? mod.name : name;
 }
