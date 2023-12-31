@@ -92,7 +92,8 @@ for (const doc of data.value) {
 
 const opened = ref([]);
 const categories = computed(() =>
-  Object.keys(articles.value[route.params.mod])
+  // route.params is updated asynchronously and can be undefined
+  Object.keys(articles.value[route.params.mod] ?? {})
     .filter(
       c =>
         articles.value[route.params.mod][c] &&
