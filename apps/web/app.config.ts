@@ -9,6 +9,20 @@ export default defineAppConfig({
         padding: "p-4"
       }
     },
+    alert: {
+      title: "text-base font-bold",
+      color: {
+        white: {
+          solid:
+            "text-gray-800 dark:text-gray-100 bg-gray-200 dark:bg-gray-800 ring-1 ring-gray-300 dark:ring-gray-700"
+        }
+      }
+    },
+    badge: {
+      default: {
+        variant: "subtle"
+      }
+    },
     card: {
       base: "border border-gray-300 dark:border-gray-700",
       background: "bg-gray-200 dark:bg-gray-800",

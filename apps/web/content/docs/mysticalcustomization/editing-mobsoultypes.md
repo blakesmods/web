@@ -4,14 +4,16 @@ title: Editing Mob Soul Types
 category: Mystical Customization
 ---
 
-Mystical Customization allows you easily edit registered mob soul types. Here's how you do it.
+Mystical Customization allows you easily edit registered mob soul types.
 
 ## Editing A Mob Soul Type
+
 Mob soul types are edited via a JSON file located in `/config/mysticalcustomization/` called `configure-mobsoultypes.json`.
 
 This file will contain an empty JSON object on first launch. You will use this as a mob soul type ID -> mob soul type changes map.
 
 ### Example Entry
+
 ```json
 {
   "mysticalagriculture:zombie": {
@@ -22,9 +24,11 @@ This file will contain an empty JSON object on first launch. You will use this a
 ```
 
 ## The configure-mobsoultypes File
+
 This section will go over the values available to use to edit mob soul types. Syntax can be inferred from the example json below.
 
 ### Name
+
 You can change the name of a mob soul type.
 ```json
 {
@@ -33,6 +37,7 @@ You can change the name of a mob soul type.
 ```
 
 ### Souls
+
 You can change the amount of souls required for a mob soul type.
 ```json
 {
@@ -41,7 +46,8 @@ You can change the amount of souls required for a mob soul type.
 ```
 
 ### Entities
-<u-badge color="green">2.1.5+</u-badge>
+::u-badge{label="2.1.5+" color="green"}
+::
 
 You can add or remove entities from a mob soul type. These use an array of entity ids to define which entities should be added or removed. Do note that an entity can only be added to a single mob soul type at a time, so make sure to remove the entities from their current mob soul types if applicable.
 ```json
@@ -58,15 +64,17 @@ You can add or remove entities from a mob soul type. These use an array of entit
 ```
 
 ### Color
+
 You can change the color of the Soul Jar for a mob soul type. Colors are set using HEX values.
 ```json
 {
-  "color": "aaaaaa" 
+  "color": "#aaaaaa" 
 }
 ```
 
 ### Enabled
-<u-badge color="green">2.1.2+</u-badge>
+::u-badge{label="2.1.2+" color="green"}
+::
 
 You can disable a mob soul type if you want to hide it and make it unobtainable.
 ```json
@@ -76,12 +84,13 @@ You can disable a mob soul type if you want to hide it and make it unobtainable.
 ```
 
 ## Example File
+
 ```json
 {
   "mysticalagriculture:zombie": {
     "name": "Zombie, but Modified",
     "souls": 23,
-    "color": "3434a1"
+    "color": "#3434a1"
   },
   "mysticalagriculture:skeleton": {
     "souls": 5000

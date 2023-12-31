@@ -4,22 +4,17 @@ title: Infusion Recipes
 category: Mystical Agriculture
 ---
 
-Mystical Agriculture allows you easily add your own Infusion Crafting recipes. Here's how you do it.
+Mystical Agriculture allows you easily add your own Infusion Crafting recipes using both Datapacks and CraftTweaker.
 
 ## Datapacks
 
-<alert title="Prerequisites">
-  <ul>
-    <li>
-      You can learn more about using vanilla datapacks <a href="https://minecraft.gamepedia.com/Data_pack">here</a>.
-    </li>
-    <li>
-      You can learn more about creating recipe JSON files <a href="https://minecraft.gamepedia.com/Recipe">here</a>.
-    </li>
-  </ul>
-</alert>
+::callout{title="Prerequisites" icon="i-heroicons-information-circle-solid"}
+- You can learn more about using vanilla datapacks <a href="https://minecraft.gamepedia.com/Data_pack" target="_blank">here</a>.
+- You can learn more about creating recipe JSON files <a href="https://minecraft.gamepedia.com/Recipe" target="_blank">here</a>.
+::
 
 ### The Recipe File
+
 This section will go over the values available to use in an Infusion Crafting recipe. Syntax can be inferred from the example json below.
 
 | Field         | Required | Description                                                          |
@@ -30,6 +25,7 @@ This section will go over the values available to use in an Infusion Crafting re
 | `result`      | ✓        | The item that this recipe will output once finished.                 |
 
 ### Example File
+
 ```json
 {
   "type": "mysticalagriculture:infusion",
@@ -60,13 +56,15 @@ This section will go over the values available to use in an Infusion Crafting re
 ```
 
 ## CraftTweaker
+
 As of version 3.0.8, Mystical Agriculture allows you easily add your own Infusion Crafting recipes using CraftTweaker. Here's how you do it.
 
-::alert{title="Recipe Manager"}
-As of version **7.0.4**, CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers!</a> Access all applicable methods using **\<recipetype:mysticalagriculture:infusion\>**!
+::callout{title="Recipe Manager Support" icon="i-heroicons-information-circle-solid"}
+As of version **7.0.4**, CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:mysticalagriculture:infusion\>**!
 ::
 
 ### Adding A Recipe
+
 ```java
 mods.mysticalagriculture.InfusionCrafting.addRecipe(name, <output>, [inputs]);
 ```
@@ -78,11 +76,13 @@ mods.mysticalagriculture.InfusionCrafting.addRecipe(name, <output>, [inputs]);
 | `inputs` | ✓        | An array of 1-9 items. The first item is the item that goes on the Infusion Altar, and the rest go on the pedestals. |
 
 #### Example
+
 ```java
 mods.mysticalagriculture.InfusionCrafting.addRecipe("test", <item:minecraft:stick> * 10, [<item:minecraft:diamond>, <tag:forge:ingots/iron>, <item:minecraft:stick>]);
 ```
 
 ### Removing Recipes
+
 ```java
 mods.mysticalagriculture.InfusionCrafting.remove(<output>);
 ```

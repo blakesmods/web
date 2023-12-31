@@ -5,18 +5,22 @@ category: Cucumber
 ---
 
 ## What It's For
+
 The `cucumber-tags.json` file added in Cucumber Library version 3.0.3 is used to configure the output item of recipes that use a tag as an output. This system was added to allow for recipes that don't depend on a specific mod being present, as well as to allow pack devs to ensure these recipes give the correct item output.
 
-This system is currently used by Mystical Agriculture version 3.0.1+ and Extended Crafting 2.0.0+.
+This system is currently used by Mystical Agriculture versions 3.0.1 and newer.
 
 ## How To Use It
+
 This file is a simple list of key-value pairs. The key being the tag and the value being the item that recipes using that tag should output. This file will automatically populate with any tags used by this system during recipe loading. If there is no entry for a tag, or the output item is `"null"`, an entry will attempt to be added for one of the items in that tag.
 
 There should be no need to add an entry manually. Once you load into a world, all applicable entries should be generated. You can then change the item ids to the ones you want to use.
 
 ## Example Config
+
 Below is an example of what this file could look like after loading a world for the first time.
-```json
+
+```json[cucumber-tags.json]
 {
   "forge:ingots/titanium": "null",
   "forge:ingots/electrum": "silents_mechanisms:electrum_ingot",

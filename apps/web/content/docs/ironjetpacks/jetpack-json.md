@@ -5,20 +5,28 @@ category: Iron Jetpacks
 ---
 
 ## Adding A Jetpack
+
 Jetpacks are added via JSON files placed in `/config/ironjetpacks/jetpacks/`. Each file represents a new jetpack to be added.
 
 ## Editing A Jetpack
+
 After initial load, all the default jetpack JSON files will be generated. You can then edit the values as you see fit.
 
 ## The Jetpack File
+
 This section will go over the values available to use in jetpack file. Syntax can be inferred from the example json below.
 
-**Tip:** Use the stats of the default jetpacks to decide what the values should be for your custom jetpacks, since the values themselves are quite cryptic.
+::callout{title="Tip" icon="i-heroicons-light-bulb-solid"}
+Use the stats of the default jetpacks to decide what the values should be for your custom jetpacks, since the values themselves are quite cryptic.
+::
 
-**Note:** Any field below marked with a purple badge is required. Any field marked with a green badge requires at least the version specified.
+::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+Any field below marked with a <span class="text-primary-500">purple</span> badge is required. Any field marked with a <span class="text-green-500">green</span> badge requires at least the version specified.
+::
 
 ### Name
-<u-badge label="Required"></u-badge>
+::u-badge{label="Required"}
+::
 
 The name of the jetpack. **This name must be all lower case and have underscores for spaces.** This will be used for registry names as well as localized names. The name will be formatted automatically for localized names, including spaces and capitalization.
 ```json
@@ -29,9 +37,9 @@ The name of the jetpack. **This name must be all lower case and have underscores
 
 **Version 6.0.1+:** Translation keys will be automatically created for the provided jetpack name. For example, a jetpack with the name `emerald` will have the translation key `jetpack.emerald.name`. You can use this key in your Resource Pack translation files to translate the name into different languages.
 
-
 ### Disable
-<u-badge label="Required"></u-badge>
+::u-badge{label="Required"}
+::
 
 You can set the disable field to true to disable a jetpack. Alternatively, you could just delete the JSON file.
 ```json
@@ -41,7 +49,8 @@ You can set the disable field to true to disable a jetpack. Alternatively, you c
 ```
 
 ### Tier
-<u-badge label="Required"></u-badge>
+::u-badge{label="Required"}
+::
 
 The crafting tier of the jetpack. Make sure there is at least 1 jetpack per tier, in succession (ex 1, 2, 3 all have at least one jetpack). Tier -1 is creative.
 ```json
@@ -51,7 +60,8 @@ The crafting tier of the jetpack. Make sure there is at least 1 jetpack per tier
 ```
 
 ### Color
-<u-badge label="Required"></u-badge>
+::u-badge{label="Required"}
+::
 
 The color of the jetpack and related items as an integer. This color should be a HEX value.
 ```json
@@ -61,7 +71,8 @@ The color of the jetpack and related items as an integer. This color should be a
 ```
 
 ### Armor Points
-<u-badge label="Required"></u-badge>
+::u-badge{label="Required"}
+::
 
 The amount of armor the jetpack should give when worn.
 ```json
@@ -71,7 +82,8 @@ The amount of armor the jetpack should give when worn.
 ```
 
 ### Enchantability
-<u-badge label="Required"></u-badge>
+::u-badge{label="Required"}
+::
 
 How enchantable the armor should be.
 ```json
@@ -81,7 +93,8 @@ How enchantable the armor should be.
 ```
 
 ### Crafting Material
-<u-badge label="Required"></u-badge>
+::u-badge{label="Required"}
+::
 
 The material used to craft the jetpack and its components. Syntax is `modid:itemid` for items and `tag:modid:tagid` for tag entries.
 ```json
@@ -98,6 +111,7 @@ If you don't want any of the default crafting recipes to be generated you can se
 ```
 
 ### Creative
+
 Is the jetpack a creative tier jetpack?
 ```json
 {
@@ -107,6 +121,7 @@ Is the jetpack a creative tier jetpack?
 Omitting this field will default to `false`.
 
 ### Rarity
+
 The item rarity of this jetpack. This is basically just used to change the color of the tooltip. Valid values are 0-3.
 ```json
 {
@@ -116,7 +131,8 @@ The item rarity of this jetpack. This is basically just used to change the color
 Omitting this field will default to `0`.
 
 ### Toughness
-<u-badge label="4.2.1+" color="green"></u-badge>
+::u-badge{label="4.2.1+" color="green"}
+::
 
 The amount of armor toughness this jetpack should give when worn.
 ```json
@@ -126,7 +142,8 @@ The amount of armor toughness this jetpack should give when worn.
 ```
 
 ### Knockback Resistance
-<u-badge label="4.2.1+" color="green"></u-badge>
+::u-badge{label="4.2.1+" color="green"}
+::
 
 The amount of knockback resistance this jetpack should give when worn.
 ```json
@@ -136,7 +153,8 @@ The amount of knockback resistance this jetpack should give when worn.
 ```
 
 ### Capacity
-<u-badge label="Required"></u-badge>
+::u-badge{label="Required"}
+::
 
 How much FE (energy) this jetpack can hold.
 ```json
@@ -146,7 +164,8 @@ How much FE (energy) this jetpack can hold.
 ```
 
 ### Usage
-<u-badge label="Required"></u-badge>
+::u-badge{label="Required"}
+::
 
 How much FE this jetpack should use when flying/hovering.
 ```json
@@ -156,9 +175,10 @@ How much FE this jetpack should use when flying/hovering.
 ```
 
 ### Curios
-<u-badge label="5.1.1+" color="green"></u-badge>
+::u-badge{label="5.1.1+" color="green"}
+::
 
-Wether or not this jetpack should be wearable as a Curio. They work as a Curio by default.
+Whether this jetpack should be wearable as a Curio. They work as a Curio by default.
 ```json
 {
   "curios": false
@@ -166,7 +186,8 @@ Wether or not this jetpack should be wearable as a Curio. They work as a Curio b
 ```
 
 ### Vertical Speed
-<u-badge label="Required"></u-badge>
+::u-badge{label="4.2.1+" color="green"}
+::
 
 How fast the jetpack should fly upwards.
 ```json
@@ -176,7 +197,8 @@ How fast the jetpack should fly upwards.
 ```
 
 ### Vertical Acceleration
-<u-badge label="Required"></u-badge>
+::u-badge{label="4.2.1+" color="green"}
+::
 
 How fast the initial takeoff is.
 ```json
@@ -186,7 +208,8 @@ How fast the initial takeoff is.
 ```
 
 ### Sideways Speed
-<u-badge label="Required"></u-badge>
+::u-badge{label="4.2.1+" color="green"}
+::
 
 How fast the jetpack should make you move forwards (when holding forwards).
 ```json
@@ -196,10 +219,12 @@ How fast the jetpack should make you move forwards (when holding forwards).
 ```
 
 ### Ascending Hover Speed
-<u-badge label="Required"></u-badge> 
-<u-badge label="5.0.0+" color="green"></u-badge>
+::u-badge{label="Required"}
+::
+::u-badge{label="5.0.0+" color="green"}
+::
 
-How fast the jetpack should ascend when hover mode is on and you're flying.
+How fast the jetpack should ascend when hover mode is on, and you're flying.
 ```json
 {
   "speedHoverAscend": 0.45
@@ -207,9 +232,10 @@ How fast the jetpack should ascend when hover mode is on and you're flying.
 ```
 
 ### Descending Hover Speed
-<u-badge label="Required"></u-badge>
+::u-badge{label="Required"}
+::
 
-How fast the jetpack should descend when hover mode is on and you're sneaking.
+How fast the jetpack should descend when hover mode is on, and you're sneaking.
 ```json
 {
   "speedHoverDescend": 0.25
@@ -217,7 +243,8 @@ How fast the jetpack should descend when hover mode is on and you're sneaking.
 ```
 
 ### Hover Speed
-<u-badge label="Required"></u-badge>
+::u-badge{label="Required"}
+::
 
 How fast the jetpack should descend when hovering.
 ```json
@@ -227,7 +254,8 @@ How fast the jetpack should descend when hovering.
 ```
 
 ### Sprint Speed Multiplier
-<u-badge label="Required"></u-badge>
+::u-badge{label="Required"}
+::
 
 How much faster the player should fly when sprinting while flying forwards.
 ```json
@@ -237,7 +265,8 @@ How much faster the player should fly when sprinting while flying forwards.
 ```
 
 ### Sprint Speed Vertical Multiplier 
-<u-badge label="4.2.0+" color="green"></u-badge>
+::u-badge{label="4.2.0+" color="green"}
+::
 
 How much faster the player should fly when sprinting while flying upwards.
 ```json
@@ -248,7 +277,8 @@ How much faster the player should fly when sprinting while flying upwards.
 Omitting this field will default to `1.0`.
 
 ### Sprint Fuel Multiplier
-<u-badge label="Required"></u-badge>
+::u-badge{label="Required"}
+::
 
 How much more fuel should the jetpack use while sprinting.
 ```json
@@ -258,6 +288,7 @@ How much more fuel should the jetpack use while sprinting.
 ```
 
 ## Example File
+
 ```json
 {
   "name": "emerald",

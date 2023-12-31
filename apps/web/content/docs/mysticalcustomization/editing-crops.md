@@ -3,14 +3,16 @@ id: editing-crops
 title: Editing Crops
 category: Mystical Customization
 ---
-Mystical Customization allows you easily edit registered crops. Here's how you do it.
+Mystical Customization allows you easily edit registered crops.
 
 ## Editing A Crop
+
 Crops are edited via a JSON file located in `/config/mysticalcustomization/` called `configure-crops.json`.
 
 This file will contain an empty JSON object on first launch. You will use this as a crop ID -> crop changes map.
 
 ### Example Entry
+
 ```json
 {
   "mysticalagriculture:iron": {
@@ -21,9 +23,11 @@ This file will contain an empty JSON object on first launch. You will use this a
 ```
 
 ## The configure-crops File
+
 This section will go over the values available to use to edit crops. Syntax can be inferred from the example json below.
 
 ### Name
+
 You can change the display name of a crop like so.
 ```json
 {
@@ -32,26 +36,38 @@ You can change the display name of a crop like so.
 ```
 
 ### Type
-You can change the type of a crop using that type's ID. Learn more about types and how to add your own [here](adding-types.md).
 
-**Note:** As of version 3.0.0, crop types must be prefixed with a mod ID. In this case it would now be `mysticalagriculture:resource`.
+You can change the crop type of a crop using that type's ID. Learn more about types and how to add your own [here](adding-types.md).
+
 ```json
 {
-  "type": "resource"
+  "type": "mysticalagriculture:resource"
 }
 ```
-**Tip:** You can see all the registered types in-game with the `/mysticalcustomization types` command.
+
+::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+In versions prior to 3.0.0, the crop type IDs did not contain mod IDs. So the above example would use `resource` instead.
+::
+
+::callout{title="Tip" icon="i-heroicons-light-bulb-solid"}
+You can see all the registered types in-game with the `/mysticalcustomization types` command.
+::
 
 ### Tier
+
 You can change the tier of a crop using the tier's ID. Learn more about tiers and how to add your own [here](adding-tiers.md).
 ```json
 {
   "tier": "mysticalagriculture:1"
 }
 ```
-**Tip:** You can see all the registered tiers in-game with the `/mysticalcustomization tiers` command.
+
+::callout{title="Tip" icon="i-heroicons-light-bulb-solid"}
+You can see all the registered tiers in-game with the `/mysticalcustomization tiers` command.
+::
 
 ### Ingredient
+
 You can change the crafting ingredient used to craft a crop's seed. This can be either an item or a tag, and uses the same syntax as a crafting recipe.
 ```json
 {
@@ -62,6 +78,7 @@ You can change the crafting ingredient used to craft a crop's seed. This can be 
 ```
 
 ### Crux
+
 You can change the required crux block to this crop. A crux is a block that must be placed underneath the farmland for this crop to grow.
 
 **2.1.7 or later:** you can remove the crux from a crop by setting the value to `null`.
@@ -72,6 +89,7 @@ You can change the required crux block to this crop. A crux is a block that must
 ```
 
 ### Enabled
+
 You can disable a crop if you want to hide it.
 ```json
 {
@@ -80,7 +98,8 @@ You can disable a crop if you want to hide it.
 ```
 
 ### Glint
-<u-badge color="green">2.0.0+</u-badge>
+::u-badge{label="2.0.0+" color="green"}
+::
 
 You can enable the enchantment glint effect for this crop's items.
 ```json
@@ -90,7 +109,8 @@ You can enable the enchantment glint effect for this crop's items.
 ```
 
 ### Required Biomes
-<u-badge color="green">2.1.2+</u-badge>
+::u-badge{label="2.1.2+" color="green"}
+::
 
 You can specify required biomes for this crop to be able to grow in.
 ```json
@@ -103,7 +123,8 @@ You can specify required biomes for this crop to be able to grow in.
 ```
 
 ### Base Secondary Drop Chance
-<u-badge color="green">3.0.1+</u-badge>
+::u-badge{label="3.0.1+" color="green"}
+::
 
 You can modify the base chance of a second seed/essence dropping from the crop when planted on a valid farmland. Can be any value from 0.0 to 1.0.
 ```json
@@ -113,23 +134,26 @@ You can modify the base chance of a second seed/essence dropping from the crop w
 ```
 
 ### Essence Item
-<u-badge color="green">3.1.1+</u-badge>
+::u-badge{label="3.1.1+" color="green"}
+::
 
 You can specify your own essence item. This is the item that will drop from the crop when harvested. 
 
-**Note:** Setting this value will **not** prevent the crop's current essence item from being registered.
 ```json
 {
   "essence": "minecraft:apple"
 }
 ```
 
+::callout{title="Note" icon="i-heroicons-light-bulb-solid"}
+Setting this value will **not** prevent the crop's current essence item from being registered.
+::
+
 ### Recipe Config
-<u-badge color="green">3.1.2+</u-badge>
+::u-badge{label="3.1.2+" color="green"}
+::
 
 You can disable the auto-generated recipes for a crop.
-
-**Note:** The auto-generated recipes for the Mystical Agriculture built-in crops are already disabled by default.
 ```json5
 {
   "recipes": {
@@ -140,7 +164,12 @@ You can disable the auto-generated recipes for a crop.
 }
 ```
 
+::callout{title="Note" icon="i-heroicons-light-bulb-solid"}
+The auto-generated recipes for the Mystical Agriculture built-in crops are already disabled by default.
+::
+
 ## Example File
+
 ```json
 {
   "mysticalagriculture:iron": {

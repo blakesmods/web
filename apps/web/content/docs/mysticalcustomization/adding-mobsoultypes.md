@@ -4,19 +4,26 @@ title: Adding Mob Soul Types
 category: Mystical Customization
 ---
 
-Mystical Customization allows you easily add your own mob soul types. Here's how you do it.
+Mystical Customization allows you easily add your own mob soul types.
 
 ## Adding A Mob Soul Type
+
 Mob soul types are added via JSON files placed in `/config/mysticalcustomization/mobsoultypes/`. Each file represents a new mob soul type to be added.
 
-**Important:** The name of the file is used as the mob soul types ID. The ID **must** be all lowercase with underscores '_' in place of spaces.
+::callout{title="Important" icon="i-heroicons-information-circle-solid"}
+The name of the file is used as the crops ID. The ID **must** be all lowercase with underscores '_' in place of spaces. 
+::
 
 ## The Mob Soul Type File
+
 This section will go over the values available to use in mob soul type file. Syntax can be inferred from the example json below.
 
-**Note:** Any field below marked with a purple badge is required. Any field marked with a green badge requires at least the version specified.
+::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+Any field below marked with a <span class="text-primary-500">purple</span> badge is required. Any field marked with a <span class="text-green-500">green</span> badge requires at least the version specified.
+::
 
 ### Name
+
 You can manually set a name for this mob soul type. If you plan to use more than one entity you should probably use this.
 ```json
 {
@@ -26,7 +33,8 @@ You can manually set a name for this mob soul type. If you plan to use more than
 Omitting this field will use the default display name for the provided entity.
 
 ### Souls
-<u-badge label="Required"></u-badge>
+::u-badge{label="Required"}
+::
 
 You must assign this mob soul type a required amount of souls.
 ```json
@@ -36,7 +44,8 @@ You must assign this mob soul type a required amount of souls.
 ```
 
 ### Entities
-<u-badge label="Required"></u-badge>
+::u-badge{label="Required"}
+::
 
 You must assign entities to this mob soul type.
 ```json
@@ -47,6 +56,7 @@ You must assign entities to this mob soul type.
   ]
 }
 ```
+
 You can also just specify a single entity instead.
 ```json
 {
@@ -55,15 +65,17 @@ You can also just specify a single entity instead.
 ```
 
 ### Color
+
 You should set the color of the Soul Jar for this mob soul type. Colors are set using HEX values.
 ```json
 {
-  "color": "aaaaaa" 
+  "color": "#aaaaaa" 
 }
 ```
 
 ### Enabled
-<u-badge label="2.1.2+" color="green"></u-badge>
+::u-badge{label="2.1.2+" color="green"}
+::
 
 You can disable this mob soul type during the creation process if you really want to I guess.
 ```json
@@ -73,6 +85,7 @@ You can disable this mob soul type during the creation process if you really wan
 ```
 
 ## Example File
+
 ```json
 {
   "name": "Test",

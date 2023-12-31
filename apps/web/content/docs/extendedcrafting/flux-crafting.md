@@ -4,26 +4,21 @@ title: Flux Recipes
 category: Extended Crafting
 ---
 
-Extended Crafting allows you easily add your own Flux Crafting recipes. Here's how you do it.
+Extended Crafting allows you easily add your own Flux Crafting recipes using both Datapacks and CraftTweaker.
 
 ## Datapacks
 
-<alert title="Prerequisites">
-  <ul>
-    <li>
-      You can learn more about using vanilla datapacks <a href="https://minecraft.gamepedia.com/Data_pack">here</a>.
-    </li>
-    <li>
-      You can learn more about creating recipe JSON files <a href="https://minecraft.gamepedia.com/Recipe">here</a>.
-    </li>
-  </ul>
-</alert>
+::callout{title="Prerequisites" icon="i-heroicons-information-circle-solid"}
+- You can learn more about using vanilla datapacks <a href="https://minecraft.gamepedia.com/Data_pack" target="_blank">here</a>.
+- You can learn more about creating recipe JSON files <a href="https://minecraft.gamepedia.com/Recipe" target="_blank">here</a>.
+::
 
 ### The Recipe File
 
-This section will go over the values available to use in a Ender Crafting recipe. Syntax can be inferred from the example jsons below.
+This section will go over the values available to use in an Ender Crafting recipe. Syntax can be inferred from the example jsons below.
 
 #### Shaped
+
 | Field           | Required | Description                                                                                                                   |
 |-----------------|----------|-------------------------------------------------------------------------------------------------------------------------------|
 | `type`          | ✓        | The recipe type must be `extendedcrafting:shaped_flux_crafter`.                                                               |
@@ -34,6 +29,7 @@ This section will go over the values available to use in a Ender Crafting recipe
 | `result`        | ✓        | The item that this recipe will output once finished                                                                           |
 
 #### Shapeless
+
 | Field           | Required | Description                                                                                                                   |
 |-----------------|----------|-------------------------------------------------------------------------------------------------------------------------------|
 | `type`          | ✓        | The recipe type must be `extendedcrafting:shapeless_flux_crafter`.                                                            |
@@ -44,6 +40,7 @@ This section will go over the values available to use in a Ender Crafting recipe
 
 ### Example Files
 #### Shaped
+
 ```json
 {
   "type": "extendedcrafting:shaped_flux_crafter",
@@ -65,6 +62,7 @@ This section will go over the values available to use in a Ender Crafting recipe
 ```
 
 #### Shapeless
+
 ```json
 {
   "type": "extendedcrafting:shapeless_flux_crafter",
@@ -85,13 +83,14 @@ This section will go over the values available to use in a Ender Crafting recipe
 
 ## CraftTweaker
 
-Extended Crafting allows you easily add your own Ender Crafting recipes using CraftTweaker. Here's how you do it.
+Extended Crafting comes with CraftTweaker support built-in. You can make use of CraftTweaker to easily manage Flux Crafting recipes.
 
-::alert{title="Recipe Manager"}
-As of version **6.0.3**, CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers!</a> Access all applicable methods using **\<recipetype:extendedcrafting:flux_crafter\>**!
+::callout{title="Recipe Manager Support" icon="i-heroicons-information-circle-solid"}
+As of version **6.0.3**, CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:extendedcrafting:flux_crafter\>**!
 ::
 
 ### Adding A Shaped Recipe
+
 ```java
 mods.extendedcrafting.FluxCrafting.addShaped(name, <output>, [[<>, <>, <>], [<>, <>, <>], [<>, <>, <>]], powerRequired, powerRate);  
 ```
@@ -107,6 +106,7 @@ mods.extendedcrafting.FluxCrafting.addShaped(name, <output>, [[<>, <>, <>], [<>,
 The input arrays work in the same way as the normal crafting recipes, check out the CraftTweaker wiki for more information.
 
 #### Example
+
 ```java
 mods.extendedcrafting.FluxCrafting.addShaped("test_shaped", <item:minecraft:stick>, [
   [<tag:items:forge:ingots/iron>, <item:minecraft:air>, <item:minecraft:air>], 
@@ -116,6 +116,7 @@ mods.extendedcrafting.FluxCrafting.addShaped("test_shaped", <item:minecraft:stic
 ```
 
 ### Adding A Shapeless Recipe
+
 ```java
 mods.extendedcrafting.FluxCrafting.addShapeless(name, <output>, [inputs], powerRequired, powerRate); 
 ```
@@ -129,6 +130,7 @@ mods.extendedcrafting.FluxCrafting.addShapeless(name, <output>, [inputs], powerR
 | `powerRate`     |          | The amount of FE/t this recipe should take from each Flux Alternator. If omitted will use the default set in the config file. |
 
 #### Example
+
 ```java
 mods.extendedcrafting.FluxCrafting.addShapeless("test_shapeless", <item:minecraft:cobblestone>, [
   <tag:items:forge:gems/diamond>, <tag:itemsforge:gems/diamond>, <tag:itemsforge:gems/diamond>, <tag:items:forge:gems/diamond>, <tag:itemsforge:gems/diamond>, <tag:itemsforge:gems/diamond>
@@ -136,6 +138,7 @@ mods.extendedcrafting.FluxCrafting.addShapeless("test_shapeless", <item:minecraf
 ```
 
 ### Removing Recipes
+
 ```java
 mods.extendedcrafting.FluxCrafting.remove(<output>);
 ```

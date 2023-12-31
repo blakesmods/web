@@ -4,22 +4,17 @@ title: Soul Extraction Recipes
 category: Mystical Agriculture
 ---
 
-Mystical Agriculture allows you easily add your own Soul Extractor recipes. Here's how you do it.
+Mystical Agriculture allows you easily add your own Soul Extractor recipes using both Datapacks and CraftTweaker.
 
 ## Datapacks
 
-<alert title="Prerequisites">
-  <ul>
-    <li>
-      You can learn more about using vanilla datapacks <a href="https://minecraft.gamepedia.com/Data_pack">here</a>.
-    </li>
-    <li>
-      You can learn more about creating recipe JSON files <a href="https://minecraft.gamepedia.com/Recipe">here</a>.
-    </li>
-  </ul>
-</alert>
+::callout{title="Prerequisites" icon="i-heroicons-information-circle-solid"}
+- You can learn more about using vanilla datapacks <a href="https://minecraft.gamepedia.com/Data_pack" target="_blank">here</a>.
+- You can learn more about creating recipe JSON files <a href="https://minecraft.gamepedia.com/Recipe" target="_blank">here</a>.
+::
 
 ### The Recipe File
+
 This section will go over the values available to use in a Soul Extraction recipe. Syntax can be inferred from the example json below.
 
 | Field    | Required | Description                                                    |
@@ -29,6 +24,7 @@ This section will go over the values available to use in a Soul Extraction recip
 | `output` | ✓        | The souls granted from this item.                              |
 
 ### Example File
+
 ```json
 {
   "type": "mysticalagriculture:soul_extraction",
@@ -43,13 +39,15 @@ This section will go over the values available to use in a Soul Extraction recip
 ```
 
 ## CraftTweaker
+
 As of version 4.2.0, Mystical Agriculture allows you easily add your own Soul Extraction recipes using CraftTweaker. Here's how you do it.
 
-::alert{title="Recipe Manager"}
-As of version **7.0.4**, CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers!</a> Access all applicable methods using **\<recipetype:mysticalagriculture:soul_extraction\>**!
+::callout{title="Recipe Manager Support" icon="i-heroicons-information-circle-solid"}
+As of version **7.0.4**, CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:mysticalagriculture:soul_extraction\>**!
 ::
 
 ### Adding A Recipe
+
 ```java
 mods.mysticalagriculture.SoulExtractorCrafting.addRecipe(name, <output>, <input>);
 ```
@@ -62,12 +60,14 @@ mods.mysticalagriculture.SoulExtractorCrafting.addRecipe(name, <output>, <input>
 | `souls` | ✓        | The amount of the resulting mob soul type.                                |
 
 #### Example
+
 ```java
 mods.mysticalagriculture.SoulExtractorCrafting.addRecipe("test", <tag:forge:ingots/iron>, "mysticalagriculture:spider", 0.5);
 ```
 
 ### Removing Recipes
 #### Remove By Item
+
 ```java
 mods.mysticalagriculture.SoulExtractorCrafting.remove(<output>);
 ```
@@ -77,6 +77,7 @@ mods.mysticalagriculture.SoulExtractorCrafting.remove(<output>);
 | `output` | ✓        | The item to remove all recipes for. |
 
 #### Remove By Mob Soul Type
+
 ```java
 mods.mysticalagriculture.SoulExtractorCrafting.remove("type");
 ```

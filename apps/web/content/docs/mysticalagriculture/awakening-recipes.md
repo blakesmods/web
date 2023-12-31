@@ -4,22 +4,17 @@ title: Awakening Recipes
 category: Mystical Agriculture
 ---
 
-Mystical Agriculture allows you easily add your own Awakening Crafting recipes. Here's how you do it.
+Mystical Agriculture allows you easily add your own Awakening Crafting recipes using both Datapacks and CraftTweaker.
 
 ## Datapacks
 
-<alert title="Prerequisites">
-  <ul>
-    <li>
-      You can learn more about using vanilla datapacks <a href="https://minecraft.gamepedia.com/Data_pack">here</a>.
-    </li>
-    <li>
-      You can learn more about creating recipe JSON files <a href="https://minecraft.gamepedia.com/Recipe">here</a>.
-    </li>
-  </ul>
-</alert>
+::callout{title="Prerequisites" icon="i-heroicons-information-circle-solid"}
+- You can learn more about using vanilla datapacks <a href="https://minecraft.gamepedia.com/Data_pack" target="_blank">here</a>.
+- You can learn more about creating recipe JSON files <a href="https://minecraft.gamepedia.com/Recipe" target="_blank">here</a>.
+::
 
 ### The Recipe File (v7.0.0+)
+
 This section will go over the values available to use in an Awakening Crafting recipe. Syntax can be inferred from the example json below.
 
 | Field         | Required | Description                                                           |
@@ -31,6 +26,7 @@ This section will go over the values available to use in an Awakening Crafting r
 | `result`      | ✓        | The item that this recipe will output once finished.                  |
 
 ### Example File (v7.0.0+)
+
 ```json
 {
   "type": "mysticalagriculture:awakening",
@@ -76,6 +72,7 @@ This section will go over the values available to use in an Awakening Crafting r
 ```
 
 ### Essence Vessel Colors (v7.0.0+)
+
 By default, the 4 elemental essences have colors assigned. To set the colors for any additional items you plan on using, you can create a resource pack containing an `essence_vessel_colors.json` file.
 
 This file is a single JSON object where the keys are the item IDs and the values are hex color codes. Below is the `essence_vessel_colors.json` included in the mod by default.
@@ -89,6 +86,7 @@ This file is a single JSON object where the keys are the item IDs and the values
 ```
 
 ### The Recipe File (v6.0.0+)
+
 This section will go over the values available to use in an Awakening Crafting recipe. Syntax can be inferred from the example json below.
 
 | Field         | Required | Description                                                                            |
@@ -100,6 +98,7 @@ This section will go over the values available to use in an Awakening Crafting r
 | `result`      | ✓        | The item that this recipe will output once finished.                                   |
 
 ### Example File (v6.0.0+)
+
 ```json
 {
   "type": "mysticalagriculture:awakening",
@@ -133,13 +132,15 @@ This section will go over the values available to use in an Awakening Crafting r
 ```
 
 ## CraftTweaker
+
 As of version 6.0.4, Mystical Agriculture allows you easily add your own Awakening Crafting recipes using CraftTweaker. Here's how you do it.
 
-::alert{title="Recipe Manager"}
-As of version **7.0.4**, CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers!</a> Access all applicable methods using **\<recipetype:mysticalagriculture:awakening\>**!
+::callout{title="Recipe Manager Support" icon="i-heroicons-information-circle-solid"}
+As of version **7.0.4**, CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:mysticalagriculture:awakening\>**!
 ::
 
 ### Adding A Recipe (v7.0.0+)
+
 ```java
 mods.mysticalagriculture.AwakeningCrafting.addRecipe(name, <output>, [inputs], [essences]);
 ```
@@ -152,6 +153,7 @@ mods.mysticalagriculture.AwakeningCrafting.addRecipe(name, <output>, [inputs], [
 | `essences` | ✓        | An array of 4 items. These are the items that go into the Essence Vessels. These items can have a max count of 40 and cannot be tags. |
 
 #### Example (7.0.0+)
+
 ```java
 mods.mysticalagriculture.AwakeningCrafting.addRecipe("test", <item:minecraft:stick> * 10,
   [<item:minecraft:diamond>, <tag:forge:ingots/iron>, <item:minecraft:stick>],
@@ -160,6 +162,7 @@ mods.mysticalagriculture.AwakeningCrafting.addRecipe("test", <item:minecraft:sti
 ```
 
 ### Adding A Recipe (v6.0.0+)
+
 ```java
 mods.mysticalagriculture.AwakeningCrafting.addRecipe(name, <output>, [inputs], [essences]);
 ```
@@ -172,11 +175,13 @@ mods.mysticalagriculture.AwakeningCrafting.addRecipe(name, <output>, [inputs], [
 | `essences` | ✓        | An array of 4 numbers representing the amount of each Elemental Essence is required. In order they are Earth, Air, Water, then Fire. |
 
 #### Example (v6.0.0+)
+
 ```java
 mods.mysticalagriculture.AwakeningCrafting.addRecipe("test", <item:minecraft:stick> * 10, [<item:minecraft:diamond>, <tag:forge:ingots/iron>, <item:minecraft:stick>], [10, 20, 30, 40]);
 ```
 
 ### Removing Recipes
+
 ```java
 mods.mysticalagriculture.AwakeningCrafting.remove(<output>);
 ```
