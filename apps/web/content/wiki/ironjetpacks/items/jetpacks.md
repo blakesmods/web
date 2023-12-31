@@ -7,7 +7,7 @@ sort: 1
 
 ## Overview
 
-::alert
+::callout{title="Note" icon="i-heroicons-information-circle-solid"}
 Jetpacks in this mod are completely configurable. Jetpack stats and materials may differ from modpack to modpack.
 ::
 

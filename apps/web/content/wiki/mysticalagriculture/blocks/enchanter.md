@@ -11,8 +11,8 @@ The Enchanter is a block that can apply enchantments to books, tools or armor us
 
 ## Usage
 
-::alert
-  Make sure you have <a href="https://www.curseforge.com/minecraft/mc-mods/jei">Just Enough Items</a> installed to easily view all available Enchanter recipes.
+::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+Make sure you have <a href="https://www.curseforge.com/minecraft/mc-mods/jei">Just Enough Items</a> installed to easily view all available Enchanter recipes.
 ::
 
 To enchant an item, place it in the 3rd slot. Then, place enough of the required items into the first or second slots. Each level of the enchantment will require additional items.

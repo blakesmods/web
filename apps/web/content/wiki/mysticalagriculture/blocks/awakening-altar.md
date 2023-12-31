@@ -11,8 +11,8 @@ The Awakening Altar is the core component of the multi-block Awakening crafting 
 
 ## Usage
 
-::alert
-  Make sure you have <a href="https://www.curseforge.com/minecraft/mc-mods/jei">Just Enough Items</a> installed to easily view all available Awakening recipes.
+::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+Make sure you have <a href="https://www.curseforge.com/minecraft/mc-mods/jei">Just Enough Items</a> installed to easily view all available Awakening recipes.
 ::
 
 To use the Awakening Altar, you must first place it down in the world. Make sure the surrounding area is clear of obstructions. Then, you must place [Awakening Pedestals](awakening-pedestal.md) and [Essence Vessels](essence-vessel.md) around the altar. The altar will show ghost pedestals/vessels in the world, indicating where you must place them.

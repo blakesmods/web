@@ -11,8 +11,8 @@ The Infusion Altar is the core component of the multi-block Infusion crafting st
 
 ## Usage
 
-::alert
-  Make sure you have <a href="https://www.curseforge.com/minecraft/mc-mods/jei">Just Enough Items</a> installed to easily view all available Infusion recipes.
+::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+Make sure you have <a href="https://www.curseforge.com/minecraft/mc-mods/jei">Just Enough Items</a> installed to easily view all available Infusion recipes.
 ::
 
 To use the Infusion Altar, you must first place it down in the world. Make sure the surrounding area is clear of obstructions. Then, you must place [Infusion Pedestals](infusion-pedestal.md) around the altar. The altar will show ghost pedestals in the world, indicating where you must place the pedestals.
