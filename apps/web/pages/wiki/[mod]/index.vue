@@ -119,8 +119,7 @@ const breadcrumbs = computed(() => [
   },
   {
     label: mod.value.name,
-    icon: "i-heroicons-squares-2x2",
-    to: `/wiki/${mod.value.mod_id}`
+    icon: "i-heroicons-squares-2x2"
   }
 ]);
 
