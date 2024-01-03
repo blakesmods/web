@@ -14,12 +14,34 @@
       <div class="flex gap-2">
         <Search />
         <ColorModeButton />
-        <UButton
-          to="https://github.com/blakesmods/web"
-          target="_blank"
-          color="gray"
-          icon="i-simple-icons-github"
-        />
+        <UTooltip text="CurseForge">
+          <UButton
+            to="https://www.curseforge.com/members/blakebr0/projects"
+            class="flex justify-center w-8 p-0 fill-gray-700 dark:fill-gray-200 hover:fill-gray-500 dark:hover:fill-gray-400"
+            target="_blank"
+            color="gray"
+          >
+            <CurseForgeLogo width="20px" />
+          </UButton>
+        </UTooltip>
+        <UTooltip text="Modrinth">
+          <UButton
+            to="https://modrinth.com/user/BlakeBr0"
+            class="flex justify-center w-8 p-0 fill-gray-700 dark:fill-gray-200 hover:fill-gray-500 dark:hover:fill-gray-400"
+            target="_blank"
+            color="gray"
+          >
+            <ModrinthLogo width="20px" />
+          </UButton>
+        </UTooltip>
+        <UTooltip text="GitHub">
+          <UButton
+            to="https://github.com/blakesmods"
+            target="_blank"
+            color="gray"
+            icon="i-simple-icons-github"
+          />
+        </UTooltip>
       </div>
     </div>
   </header>

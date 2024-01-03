@@ -1,8 +1,8 @@
 <template>
-  <div class="flex">
+  <div class="flex items-center">
     <svg
-      width="46"
-      height="46"
+      width="44"
+      height="44"
       viewBox="0 0 1600 1600"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -17,7 +17,7 @@
     <svg
       v-if="!small"
       width="100%"
-      viewBox="40 3 289 46"
+      viewBox="40 3 264 43"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
