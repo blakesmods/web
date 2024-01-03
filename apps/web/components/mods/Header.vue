@@ -10,7 +10,7 @@
     <div
       class="flex container h-16 m-auto mt-[1px] px-4 justify-between items-center"
     >
-      <div class="flex items-center leading-4 space-x-8">
+      <div class="flex items-center leading-4 space-x-4">
         <ReactiveLogo />
         <ModsDropdown />
 
@@ -23,8 +23,8 @@
       >
         <UButton
           :to="downloadLink"
-          color="gray"
           size="md"
+          variant="primary"
           trailing-icon="i-heroicons-arrow-down-tray-solid"
         >
           <span class="font-bold">Download</span>

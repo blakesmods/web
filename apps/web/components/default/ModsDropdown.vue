@@ -2,7 +2,8 @@
   <div ref="el" class="flex relative justify-center">
     <UButton
       color="gray"
-      variant="solid"
+      variant="ghost"
+      size="xl"
       icon="i-heroicons-chevron-down"
       trailing
       @click="active = !active"

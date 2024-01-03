@@ -23,6 +23,13 @@ export default defineAppConfig({
         variant: "subtle"
       }
     },
+    button: {
+      variant: {
+        primary: "bg-[var(--primary-color)] hover:bg-[var(--primary-color)]",
+        secondary:
+          "border-2 border-[var(--primary-color)] hover:bg-[var(--primary-color)]"
+      }
+    },
     card: {
       base: "border border-gray-300 dark:border-gray-700",
       background: "bg-gray-200 dark:bg-gray-800",

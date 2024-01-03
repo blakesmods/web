@@ -11,16 +11,25 @@
         >
           {{ mod.name }}
         </h1>
-        <h2 class="text-center text-2xl">{{ mod.tagline }}</h2>
-        <UButton
-          class="flex font-bold mt-4"
-          size="xl"
-          color="gray"
-          trailing-icon="i-heroicons-arrow-right-solid"
-          @click="$emit('learn-more')"
-        >
-          <strong>Learn More</strong>
-        </UButton>
+        <h2 class="text-center text-2xl font-montserrat">{{ mod.tagline }}</h2>
+        <div class="flex gap-4 mt-4 font-bold">
+          <UButton
+            size="xl"
+            variant="primary"
+            trailing-icon="i-heroicons-arrow-down"
+            @click="$emit('learn-more')"
+          >
+            <strong>Learn More</strong>
+          </UButton>
+          <UButton
+            :to="`${mod.url}/download`"
+            size="xl"
+            variant="secondary"
+            trailing-icon="i-heroicons-arrow-down-tray"
+          >
+            Download
+          </UButton>
+        </div>
       </div>
       <div class="flex xl:max-w-[40%] xl:h-[550px] xl:items-center">
         <img

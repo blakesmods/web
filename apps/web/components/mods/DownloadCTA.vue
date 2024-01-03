@@ -44,8 +44,8 @@
       <div class="flex flex-wrap justify-center gap-8">
         <UButton
           :to="mod.url + '/download'"
-          color="gray"
           size="xl"
+          variant="primary"
           leading-icon="i-heroicons-arrow-down-tray-solid"
         >
           Download
@@ -53,8 +53,8 @@
         <UButton
           :to="mod.curseforge_link"
           target="_blank"
-          color="gray"
           size="xl"
+          variant="secondary"
           leading-icon="i-heroicons-arrow-top-right-on-square-solid"
         >
           CurseForge
@@ -62,8 +62,8 @@
         <UButton
           :to="mod.modrinth_link"
           target="_blank"
-          color="gray"
           size="xl"
+          variant="secondary"
           leading-icon="i-heroicons-arrow-top-right-on-square-solid"
         >
           Modrinth
