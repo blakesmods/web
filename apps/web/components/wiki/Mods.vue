@@ -15,8 +15,13 @@
             >
               {{ mod.title }}
             </h2>
-            <span v-if="mod.disabled" class="opacity-80">Coming soon™</span>
-            <span v-else class="opacity-80">Click to view articles</span>
+            <span v-if="mod.disabled" class="opacity-80">
+              No articles available
+            </span>
+            <span v-else class="opacity-80">
+              Click to view {{ articles[mod.path] }}
+              {{ articles[mod.path] === 1 ? "article" : "articles" }}
+            </span>
           </div>
         </div>
       </UCard>
@@ -68,4 +73,20 @@ const mods = ref([
     icon: "/img/logo/cucumber_logo.png"
   }
 ]);
+
+const articles = ref({});
+
+const { data } = await useAsyncData("wiki-mod-directory", () =>
+  queryContent("wiki").find()
+);
+
+for (const article of data.value) {
+  const parts = article._path.split("/");
+
+  if (!articles.value[parts[2]]) {
+    articles.value[parts[2]] = 0;
+  }
+
+  articles.value[parts[2]]++;
+}
 </script>
