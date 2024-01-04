@@ -1,9 +1,7 @@
 <template>
   <div class="grid grid-cols-9 col-span-12 lg:col-span-9">
     <div class="col-span-12 lg:col-span-9 xl:col-span-7 w-full h-full px-4">
-      <div
-        class="flex py-8 lg:ml-4 xl:mr-4 z-10 justify-between items-center border-b border-gray-200 dark:border-gray-800"
-      >
+      <div class="flex py-8 lg:ml-4 xl:mr-4 z-10 justify-between items-center">
         <div class="flex items-center gap-4">
           <UButton
             class="!inline-flex lg:!hidden"

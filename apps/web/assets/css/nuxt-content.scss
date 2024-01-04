@@ -4,7 +4,7 @@
   line-height: 1.5;
 
   & > * {
-    margin-bottom: 16px;
+    @apply mb-5;
   }
 
   & > h2:first-child,
@@ -23,7 +23,7 @@
   h2,
   h3,
   h4 {
-    @apply mt-6 pb-1 scroll-mt-52;
+    @apply mt-8 scroll-mt-52;
 
     a {
       @apply text-gray-700 dark:text-gray-300;
