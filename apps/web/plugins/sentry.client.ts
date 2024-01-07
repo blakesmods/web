@@ -20,7 +20,7 @@ export default defineNuxtPlugin(nuxtApp => {
       } as any)
     ],
     logErrors: false,
-    tracesSampleRate: 0.2,
+    tracesSampleRate: 0.1,
     environment: config.public.ENVIRONMENT || "development",
     beforeSend: (event, hint) => {
       // Check if it is an exception, and if so, log it.
