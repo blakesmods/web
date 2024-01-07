@@ -1,7 +1,5 @@
 .nuxt-content {
-  margin-bottom: -16px;
-  padding: 16px 0;
-  line-height: 1.5;
+  @apply -mb-4 py-4;
 
   & > * {
     @apply mb-5;
@@ -9,7 +7,7 @@
 
   & > h2:first-child,
   & > h3:first-child {
-    margin-top: 0;
+    @apply mt-0;
   }
 
   a {
@@ -20,14 +18,21 @@
     }
   }
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    @apply font-montserrat tracking-tight;
+  }
+
   h2,
   h3,
   h4 {
-    @apply mt-8 scroll-mt-52;
+    @apply mt-8 mb-4 scroll-mt-52;
 
     a {
-      @apply text-gray-700 dark:text-gray-300;
-      scroll-margin-top: 144px;
+      @apply text-gray-700 dark:text-gray-300 scroll-mt-36;
 
       &:hover {
         @apply text-gray-700 dark:text-gray-300 no-underline;

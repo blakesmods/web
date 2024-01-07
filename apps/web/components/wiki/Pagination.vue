@@ -1,12 +1,12 @@
 <template>
   <div
     v-if="previous || next"
-    class="flex justify-between items-center py-4 lg:mx-4 border-t border-gray-200 dark:border-gray-800"
+    class="flex justify-between items-center py-6 lg:mx-4 border-t border-gray-200 dark:border-gray-800"
   >
     <UButton
       v-if="previous"
       :to="previous._path"
-      class="group"
+      class="group gap-4"
       color="gray"
       size="lg"
       icon="i-heroicons-arrow-left"
@@ -23,7 +23,7 @@
     <UButton
       v-if="next"
       :to="next._path"
-      class="ml-auto group"
+      class="ml-auto group gap-4"
       color="gray"
       size="lg"
       icon="i-heroicons-arrow-right"

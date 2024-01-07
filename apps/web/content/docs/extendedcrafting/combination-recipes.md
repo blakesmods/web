@@ -30,7 +30,7 @@ This section will go over the values available to use in a Combination Crafting 
 The amount of time (in ticks) a combination recipe takes to complete is powerCost / powerRate.
 ::
 
-### Example file
+### Example File
 
 ```json
 {
