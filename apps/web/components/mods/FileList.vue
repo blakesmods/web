@@ -63,6 +63,13 @@
             </div>
           </template>
         </Column>
+        <Column field="mod_loader" header="Mod Loader" header-class="right">
+          <template #body="{ data }">
+            <div class="flex justify-end items-center">
+              {{ data.mod_loader }}
+            </div>
+          </template>
+        </Column>
         <Column field="downloads" header="Downloads" header-class="right">
           <template #body="{ data }">
             <div class="flex justify-end items-center">
