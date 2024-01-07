@@ -1,3 +1,4 @@
+import { sentryVitePlugin } from "@sentry/vite-plugin";
 import { DefineNuxtConfig } from "nuxt/config";
 import { resolve } from "path";
 
@@ -123,6 +124,18 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
       crawlLinks: true,
       routes: ["/"]
     }
+  },
+  vite: {
+    build: {
+      sourcemaps: true
+    },
+    plugins: [
+      sentryVitePlugin({
+        org: process.env.SENTRY_ORG,
+        project: process.env.SENTRY_PROJECT,
+        authToken: process.env.SENTRY_AUTH_TOKEN
+      })
+    ]
   },
   content: {
     highlight: {

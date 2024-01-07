@@ -18,6 +18,7 @@
     "@nuxtjs/tailwindcss": "^6.10.1",
     "@nuxtjs/web-vitals": "^0.2.6",
     "@sentry/tracing": "^7.89.0",
+    "@sentry/vite-plugin": "^2.10.2",
     "@sentry/vue": "^7.89.0",
     "@types/numeral": "^2.0.5",
     "@vueuse/core": "^10.7.0",
