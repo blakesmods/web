@@ -44,6 +44,13 @@ export interface ModStats {
   downloads: Record<any, any>;
 }
 
+export interface PageViews {
+  _id?: ObjectId;
+  mod_id: string;
+  date: Date;
+  views: Record<any, any>;
+}
+
 interface VersionParts {
   major: number;
   minor: number;

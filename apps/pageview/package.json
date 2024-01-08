@@ -1,0 +1,18 @@
+{
+  "name": "@blakesmods/pageview",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "start": "wrangler dev"
+  },
+  "devDependencies": {
+    "@blakesmods/db": "*",
+    "@cloudflare/workers-types": "^4.20231218.0",
+    "dayjs": "^1.11.10",
+    "itty-router": "^3.0.12",
+    "realm-web": "^2.0.0",
+    "wrangler": "^3.0.0"
+  }
+}
