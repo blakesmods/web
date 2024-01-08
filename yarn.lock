@@ -916,12 +916,12 @@
   resolved "https://registry.yarnpkg.com/@fastify/busboy/-/busboy-2.1.0.tgz#0709e9f4cb252351c609c6e6d8d6779a8d25edff"
   integrity sha512-+KpH+QxZU7O4675t3mnkQKcZZg56u+K/Ct2K+N2AZYNVK8kyeo/bI18tI8aPm3tvNNRyTWfj6s5tnGNlcbQRsA==
 
-"@fastify/cookie@^9.1.0":
-  version "9.1.0"
-  resolved "https://registry.yarnpkg.com/@fastify/cookie/-/cookie-9.1.0.tgz#b9ca95fcb934a21915ab6f228a63dd73013738df"
-  integrity sha512-w/LlQjj7cmYlQNhEKNm4jQoLkFXCL73kFu1Jy3aL7IFbYEojEKur0f7ieCKUxBBaU65tpaWC83UM8xW7AzY6uw==
+"@fastify/cookie@^9.2.0":
+  version "9.2.0"
+  resolved "https://registry.yarnpkg.com/@fastify/cookie/-/cookie-9.2.0.tgz#663f6448939f5c899739ac34685898e8210e8ee4"
+  integrity sha512-fkg1yjjQRHPFAxSHeLC8CqYuNzvR6Lwlj/KjrzQcGjNBK+K82nW+UfCjfN71g1GkoVoc1GTOgIWkFJpcMfMkHQ==
   dependencies:
-    cookie "^0.5.0"
+    cookie-signature "^1.1.0"
     fastify-plugin "^4.0.0"
 
 "@fastify/cors@^8.4.0":
@@ -3892,6 +3892,11 @@ cookie-es@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/cookie-es/-/cookie-es-1.0.0.tgz#4759684af168dfc54365b2c2dda0a8d7ee1e4865"
   integrity sha512-mWYvfOLrfEc996hlKcdABeIiPHUPC6DM2QYZdGGOvhOTbA3tjm2eBwqlJpoFdjC89NI4Qt6h0Pu06Mp+1Pj5OQ==
+
+cookie-signature@^1.1.0:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/cookie-signature/-/cookie-signature-1.2.1.tgz#790dea2cce64638c7ae04d9fabed193bd7ccf3b4"
+  integrity sha512-78KWk9T26NhzXtuL26cIJ8/qNHANyJ/ZYrmEXFzUmhZdjpBv+DlWlOANRTGBt48YcyslsLrj0bMLFTmXvLRCOw==
 
 cookie@^0.5.0:
   version "0.5.0"
