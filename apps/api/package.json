@@ -11,7 +11,7 @@
     "@blakesmods/db": "*",
     "@fastify/autoload": "^5.8.0",
     "@fastify/cookie": "^9.2.0",
-    "@fastify/cors": "^8.4.0",
+    "@fastify/cors": "^8.5.0",
     "@fastify/mongodb": "^8.0.0",
     "@sentry/node": "^7.72.0",
     "@types/numeral": "^2.0.3",
