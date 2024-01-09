@@ -13,7 +13,7 @@
     "@fastify/cookie": "^9.2.0",
     "@fastify/cors": "^8.4.0",
     "@fastify/mongodb": "^8.0.0",
-    "@sentry/node": "^7.72.0",
+    "@sentry/node": "^7.92.0",
     "@types/numeral": "^2.0.3",
     "@types/semver": "^7.5.6",
     "dayjs": "^1.11.10",
