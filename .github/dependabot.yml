@@ -10,3 +10,10 @@ updates:
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 10
+    groups:
+      sentry:
+        patterns:
+        - "@sentry*"
+        update-types:
+        - "minor"
+        - "patch"
