@@ -47,7 +47,6 @@ export interface ModStats {
 export interface PageViews {
   _id?: ObjectId;
   mod_id: string;
-  date: Date;
   views: Record<any, any>;
 }
 
