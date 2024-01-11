@@ -44,3 +44,20 @@ The `tier` field is the jetpack tier, and it must be a number.
   "tier": 2
 }
 ```
+
+### Jetpacks as Recipe Output
+
+Since each Jetpack is differentiated using NBT, you will need to provide the NBT in the recipe result item.
+
+#### Example
+
+```json
+{
+  "result": {
+    "item": "ironjetpacks:jetpack",
+    "nbt": {
+      "Id": "ironjetpacks:diamond"
+    }
+  }
+}
+```
