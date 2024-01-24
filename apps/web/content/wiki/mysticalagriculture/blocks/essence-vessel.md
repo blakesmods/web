@@ -3,6 +3,7 @@ id: essence-vessel
 title: Essence Vessel
 icon: /assets/mysticalagriculture/blocks/essence_vessel.png
 sort: 52
+version: 6.0.0
 ---
 
 ## Overview

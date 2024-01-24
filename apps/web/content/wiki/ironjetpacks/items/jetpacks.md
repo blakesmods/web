@@ -3,6 +3,7 @@ id: jetpacks
 title: Jetpacks
 icon: /assets/ironjetpacks/items/diamond_jetpack.png
 sort: 1
+version: 1.0.0
 ---
 
 ## Overview

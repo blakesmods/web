@@ -3,6 +3,7 @@ id: paxels
 title: Paxels
 icon: /assets/pickletweaks/items/diamond_paxel.png
 sort: 15
+version: 2.0.0
 ---
 
 ## Overview

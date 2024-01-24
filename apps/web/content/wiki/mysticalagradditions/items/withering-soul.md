@@ -3,6 +3,7 @@ id: withering-soul
 title: Withering Soul
 icon: /assets/mysticalagradditions/items/withering_soul.png
 sort: 15
+version: 1.0.0
 ---
 
 ## Overview

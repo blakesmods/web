@@ -3,6 +3,7 @@ id: scythes
 title: Scythes
 icon: /assets/pickletweaks/items/diamond_scythe.png
 sort: 17
+version: 5.2.0
 ---
 
 ## Overview

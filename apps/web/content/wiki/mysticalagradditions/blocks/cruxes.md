@@ -3,6 +3,7 @@ id: cruxes
 title: Cruxes
 icon: /assets/mysticalagradditions/blocks/nether_star_crux.png
 sort: 6
+version: 1.0.0
 ---
 
 ## Overview

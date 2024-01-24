@@ -2,6 +2,7 @@
 id: tool-breaking-tweak
 title: Tool Breaking Tweak
 sort: 3
+version: 2.0.0
 ---
 
 ## Overview

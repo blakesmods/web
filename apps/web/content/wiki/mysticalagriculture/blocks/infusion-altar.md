@@ -3,6 +3,7 @@ id: infusion-altar
 title: Infusion Altar
 icon: /assets/mysticalagriculture/blocks/infusion_altar.png
 sort: 20
+version: 2.0.0
 ---
 
 ## Overview

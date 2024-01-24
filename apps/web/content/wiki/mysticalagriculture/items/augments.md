@@ -3,6 +3,7 @@ id: augments
 title: Augments
 icon: /assets/mysticalagriculture/items/unattuned_augment.png
 sort: 52
+version: 2.0.4
 ---
 
 ## Overview

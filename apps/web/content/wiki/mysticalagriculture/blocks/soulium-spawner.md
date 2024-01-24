@@ -3,6 +3,7 @@ id: soulium-spawner
 title: Soulium Spawner
 icon: /assets/mysticalagriculture/blocks/soulium_spawner.png
 sort: 63
+version: 7.0.5
 ---
 
 ## Overview

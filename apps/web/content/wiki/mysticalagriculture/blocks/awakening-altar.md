@@ -3,6 +3,7 @@ id: awakening-altar
 title: Awakening Altar
 icon: /assets/mysticalagriculture/blocks/awakening_altar.png
 sort: 50
+version: 6.0.0
 ---
 
 ## Overview

@@ -2,6 +2,7 @@
 id: tag-tooltips
 title: Tag Tooltips
 sort: 1
+version: 2.0.0
 ---
 
 ## Overview

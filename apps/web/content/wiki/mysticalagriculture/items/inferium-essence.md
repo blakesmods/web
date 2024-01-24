@@ -3,6 +3,7 @@ id: inferium-essence
 title: Inferium Essence
 icon: /assets/mysticalagriculture/items/inferium_essence.png
 sort: 1
+version: 1.0.0
 ---
 
 ## Overview

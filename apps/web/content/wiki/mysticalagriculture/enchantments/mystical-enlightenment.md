@@ -2,6 +2,7 @@
 id: mystical-enlightenment
 title: Mystical Enlightenment
 sort: 2
+version: 6.0.0
 ---
 
 ## Overview

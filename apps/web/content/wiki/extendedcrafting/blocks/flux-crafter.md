@@ -3,6 +3,7 @@ id: flux-crafter
 title: Flux Crafter
 icon: /assets/extendedcrafting/blocks/flux_crafter.png
 sort: 9
+version: 5.1.0
 ---
 
 ## Overview

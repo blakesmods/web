@@ -2,6 +2,7 @@
 id: nbt-tooltips
 title: NBT Tooltips
 sort: 2
+version: 4.1.6
 ---
 
 ## Overview

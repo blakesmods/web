@@ -3,6 +3,7 @@ id: wand
 title: Wand
 icon: /assets/mysticalagriculture/items/wand.png
 sort: 17
+version: 6.1.3
 ---
 
 ## Overview

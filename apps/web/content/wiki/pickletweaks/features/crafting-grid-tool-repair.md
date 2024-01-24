@@ -2,6 +2,7 @@
 id: crafting-grid-tool-repair
 title: Crafting Grid Tool Repair
 sort: 2
+version: 2.0.0
 ---
 
 ## Overview

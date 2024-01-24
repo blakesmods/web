@@ -3,6 +3,7 @@ id: soul-extractor
 title: Soul Extractor
 icon: /assets/mysticalagriculture/blocks/soul_extractor.png
 sort: 61
+version: 4.2.0
 ---
 
 ## Overview

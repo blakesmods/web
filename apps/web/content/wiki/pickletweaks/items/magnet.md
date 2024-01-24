@@ -3,6 +3,7 @@ id: magnet
 title: Magnet
 icon: /assets/pickletweaks/items/magnet.png
 sort: 5
+version: 2.0.0
 ---
 
 ## Overview

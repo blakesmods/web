@@ -20,6 +20,9 @@
               />
               {{ page.title }}
             </h1>
+            <span v-if="page.version" class="opacity-80">
+              <i>Added in version {{ page.version }}</i>
+            </span>
           </div>
         </div>
         <UButton

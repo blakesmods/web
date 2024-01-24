@@ -3,6 +3,7 @@ id: harvester
 title: Harvester
 icon: /assets/mysticalagriculture/blocks/harvester.png
 sort: 62
+version: 6.0.1
 ---
 
 ## Overview

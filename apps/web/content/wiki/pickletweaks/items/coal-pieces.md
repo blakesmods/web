@@ -3,6 +3,7 @@ id: coal-pieces
 title: Coal Pieces
 icon: /assets/pickletweaks/items/coal_piece.png
 sort: 1
+version: 2.0.0
 ---
 
 ## Overview

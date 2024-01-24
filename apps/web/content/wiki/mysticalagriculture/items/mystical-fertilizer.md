@@ -3,6 +3,7 @@ id: mystical-fertilizer
 title: Mystical Fertilizer
 icon: /assets/mysticalagriculture/items/mystical_fertilizer.png
 sort: 16
+version: 1.3.4
 ---
 
 ## Overview

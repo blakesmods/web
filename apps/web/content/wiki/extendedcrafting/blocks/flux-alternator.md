@@ -3,6 +3,7 @@ id: flux-alternator
 title: Flux Alternator
 icon: /assets/extendedcrafting/blocks/flux_alternator.png
 sort: 10
+version: 5.1.0
 ---
 
 ## Overview

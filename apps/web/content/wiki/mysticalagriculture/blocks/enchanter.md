@@ -3,6 +3,7 @@ id: enchanter
 title: Enchanter
 icon: /assets/mysticalagriculture/blocks/enchanter.png
 sort: 46
+version: 7.0.3
 ---
 
 ## Overview

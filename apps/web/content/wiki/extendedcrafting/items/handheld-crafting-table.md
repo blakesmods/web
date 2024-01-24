@@ -3,6 +3,7 @@ id: handheld-crafting-table
 title: Handheld Crafting Table
 icon: /assets/extendedcrafting/items/handheld_table.png
 sort: 1
+version: 1.0.0
 ---
 
 ## Overview

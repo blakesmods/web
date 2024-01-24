@@ -2,6 +2,7 @@
 id: tinkers-construct-integration
 title: Tinkers' Construct Integration
 sort: 1
+version: 1.0.1
 ---
 
 ## Overview

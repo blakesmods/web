@@ -3,6 +3,7 @@ id: ender-crafter
 title: Ender Crafter
 icon: /assets/extendedcrafting/blocks/ender_crafter.png
 sort: 6
+version: 1.2.0
 ---
 
 ## Overview

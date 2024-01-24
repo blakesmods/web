@@ -3,6 +3,7 @@ id: watering-cans
 title: Watering Cans
 icon: /assets/mysticalagriculture/items/watering_can.png
 sort: 18
+version: 1.5.2
 ---
 
 ## Overview

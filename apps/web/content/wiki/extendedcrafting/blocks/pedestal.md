@@ -3,6 +3,7 @@ id: pedestal
 title: Pedestal
 icon: /assets/extendedcrafting/blocks/pedestal.png
 sort: 2
+version: 1.0.0
 ---
 
 ## Overview

@@ -2,6 +2,7 @@
 id: soul-siphoning
 title: Soul Siphoning
 sort: 1
+version: 6.1.3
 ---
 
 ## Overview

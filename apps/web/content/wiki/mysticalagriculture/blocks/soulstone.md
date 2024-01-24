@@ -3,6 +3,7 @@ id: soulstone
 title: Soulstone
 icon: /assets/mysticalagriculture/blocks/soulstone.png
 sort: 40
+version: 1.1.5
 ---
 
 ## Overview

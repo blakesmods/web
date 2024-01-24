@@ -2,6 +2,7 @@
 id: right-click-harvest
 title: Right Click Harvest
 sort: 5
+version: 2.0.0
 ---
 
 ## Overview
