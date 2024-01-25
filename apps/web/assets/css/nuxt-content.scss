@@ -36,11 +36,6 @@
 
       &:hover {
         @apply text-gray-700 dark:text-gray-300 no-underline;
-
-        &::before {
-          content: "#";
-          padding-right: 8px;
-        }
       }
     }
   }
@@ -73,9 +68,7 @@
   }
 
   table {
-    @apply w-full table-auto;
-    font-size: 0.875rem;
-    line-height: 1.5rem;
+    @apply w-full table-auto text-sm;
 
     th {
       @apply font-bold text-left;
@@ -83,7 +76,7 @@
 
     th,
     td {
-      @apply pr-2 border-b border-gray-300 dark:border-gray-800;
+      @apply px-2 py-1 border-b border-gray-300 dark:border-gray-800;
     }
   }
 
