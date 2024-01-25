@@ -27,6 +27,7 @@ export interface ModFile {
   mc_version: string;
   mc_version_group: string;
   mc_version_parts: VersionParts;
+  mc_versions: string[];
   mod_version: string;
   mod_version_parts: VersionParts;
   mod_loader: string;
