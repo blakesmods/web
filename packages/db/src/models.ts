@@ -48,7 +48,8 @@ export interface ModStats {
 export interface PageViews {
   _id?: ObjectId;
   mod_id: string;
-  views: Record<any, any>;
+  curseforge: Record<any, any>;
+  modrinth: Record<any, any>;
 }
 
 interface VersionParts {
