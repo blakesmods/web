@@ -114,12 +114,10 @@ for (const article of data.value) {
 const breadcrumbs = computed(() => [
   {
     label: "Wiki",
-    icon: "i-heroicons-home",
     to: "/wiki"
   },
   {
-    label: mod.value.name,
-    icon: "i-heroicons-squares-2x2"
+    label: mod.value.name
   }
 ]);
 

@@ -140,21 +140,17 @@ const breadcrumbs = computed(() =>
   [
     {
       label: "Wiki",
-      icon: "i-heroicons-home",
       to: "/wiki"
     },
     pathParts.length > 2 && {
       label: mod.value.name,
-      icon: "i-heroicons-squares-2x2",
       to: pathParts.length > 3 ? pathParts.slice(0, 3).join("/") : undefined
     },
     pathParts.length > 3 && {
-      label: categories[pathParts[3]] ?? pathParts[3],
-      icon: "i-heroicons-square-3-stack-3d"
+      label: categories[pathParts[3]] ?? pathParts[3]
     },
     pathParts.length > 4 && {
-      label: page.value.title,
-      icon: "i-heroicons-book-open"
+      label: page.value.title
     }
   ].filter(Boolean)
 );

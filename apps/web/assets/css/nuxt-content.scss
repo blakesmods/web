@@ -11,19 +11,11 @@
   }
 
   a {
-    @apply text-primary-500 dark:text-primary-400 font-bold;
+    @apply text-primary-500 dark:text-primary-400;
 
     &:hover {
       @apply underline;
     }
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5 {
-    @apply font-montserrat tracking-tight;
   }
 
   h2,
@@ -55,7 +47,7 @@
   }
 
   pre {
-    @apply p-4 bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded overflow-hidden hover:overflow-auto;
+    @apply p-4 mt-5 mb-6 bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded overflow-hidden hover:overflow-auto;
   }
 
   p code,
@@ -68,7 +60,7 @@
   }
 
   table {
-    @apply w-full table-auto text-sm;
+    @apply w-full table-auto text-sm border border-gray-300 dark:border-gray-800;
 
     th {
       @apply font-bold text-left;

@@ -1,7 +1,7 @@
 <template>
   <h3 class="mb-4">Documentation</h3>
   <div v-for="category in categories" class="mb-4 last:mb-0">
-    <h4 class="font-bold">{{ category }}</h4>
+    <h4>{{ category }}</h4>
     <div class="flex flex-col text-gray-500 dark:text-gray-400">
       <NuxtLink
         v-for="document in documents[category]"

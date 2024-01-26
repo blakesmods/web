@@ -79,17 +79,14 @@ const breadcrumbs = computed(() =>
   [
     {
       label: "Docs",
-      icon: "i-heroicons-home",
       to: "/docs"
     },
     pathParts.length > 2 && {
       label: page.value.category,
-      icon: "i-heroicons-square-3-stack-3d",
       to: pathParts.length > 3 ? pathParts.slice(0, 3).join("/") : undefined
     },
     pathParts.length > 3 && {
-      label: page.value.title,
-      icon: "i-heroicons-book-open"
+      label: page.value.title
     }
   ].filter(Boolean)
 );
