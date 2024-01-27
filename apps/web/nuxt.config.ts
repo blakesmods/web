@@ -149,7 +149,7 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
   site: {
     url: "https://blakesmods.com"
   },
-  "google-adsense": {
+  googleAdsense: {
     id: "ca-pub-9433168950133481"
   },
   googleFonts: {

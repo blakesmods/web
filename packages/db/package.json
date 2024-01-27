@@ -8,7 +8,7 @@
     "seed": "ts-node ./src/seed/index.ts"
   },
   "dependencies": {
-    "@faker-js/faker": "^8.1.0",
+    "@faker-js/faker": "^8.4.0",
     "mongodb": "^6.3.0"
   }
 }
