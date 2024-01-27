@@ -97,6 +97,7 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
     "@nuxtjs/google-adsense",
     "@nuxtjs/google-fonts",
     "@vueuse/nuxt",
+    "nuxt-primevue",
     "nuxt-simple-sitemap" // sitemap module must be last
   ],
   runtimeConfig: {
@@ -107,7 +108,7 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
     }
   },
   build: {
-    transpile: ["sitemap", "primevue"]
+    transpile: ["sitemap"]
   },
   hooks: {
     "pages:extend": router => {
@@ -156,6 +157,20 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
     families: {
       Montserrat: true,
       Rowdies: true
+    }
+  },
+  primevue: {
+    components: {
+      include: ["Carousel", "Column", "DataTable", "Skeleton"]
+    },
+    composables: {
+      exclude: "*"
+    },
+    directives: {
+      exclude: "*"
+    },
+    options: {
+      ripple: false
     }
   },
   ui: {
