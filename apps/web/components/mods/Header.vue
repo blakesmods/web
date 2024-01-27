@@ -10,11 +10,11 @@
     <div
       class="flex container h-16 m-auto mt-[1px] px-4 justify-between items-center"
     >
-      <div class="flex items-center leading-4 space-x-4">
+      <div class="flex items-center leading-4 gap-4">
         <ReactiveLogo />
         <ModsDropdown />
 
-        <div class="hidden lg:block mr-6 space-x-4 xl:space-x-8">
+        <div class="hidden lg:flex mr-6 gap-x-4 xl:gap-x-8">
           <slot />
         </div>
       </div>
