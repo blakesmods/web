@@ -1,6 +1,8 @@
 <template>
   <div class="files w-full">
-    <UCard :ui="{ header: { background: 'bg-white dark:bg-gray-900' } }">
+    <UCard
+      :ui="{ header: { background: 'bg-white dark:bg-gray-900 rounded-t-lg' } }"
+    >
       <template #header>
         <div
           class="flex flex-col xl:flex-row justify-between items-center gap-8"
