@@ -72,6 +72,38 @@ if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
 }
 
+const title = `${page.value.title} · ${page.value.category} Documentation`;
+const description = page.value.description;
+
+useHead({
+  title,
+  meta: [
+    {
+      hid: "description",
+      name: "description",
+      content: description
+    },
+    // Open Graph
+    { hid: "og:title", property: "og:title", content: title },
+    {
+      hid: "og:description",
+      property: "og:description",
+      content: description
+    },
+    // Twitter Card
+    {
+      hid: "twitter:title",
+      name: "twitter:title",
+      content: title
+    },
+    {
+      hid: "twitter:description",
+      name: "twitter:description",
+      content: description
+    }
+  ]
+});
+
 const toc = ref(false);
 const pathParts = page.value._path.split("/");
 
