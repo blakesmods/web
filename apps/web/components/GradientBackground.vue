@@ -1,6 +1,6 @@
 <template>
   <div
-    class="absolute w-[100vw] max-w-[1440px] h-[1272px] left-0 right-0 top-[-550px] opacity-50"
+    class="absolute max-w-[1440px] h-[1272px] left-0 right-0 top-[-550px] opacity-50"
     :style="{
       background: `linear-gradient(270deg, var(--secondary-color) -12.17%, var(--primary-color) 114.78%)`,
       filter: 'blur(250px)',
