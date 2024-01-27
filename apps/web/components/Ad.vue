@@ -13,7 +13,10 @@
 <script setup>
 defineProps({
   adSlot: String,
-  adFormat: String,
+  adFormat: {
+    type: String,
+    default: "auto"
+  },
   adLayout: String
 });
 </script>
