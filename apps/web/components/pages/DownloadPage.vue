@@ -47,7 +47,7 @@
         <Ad ad-slot="2977397419" />
       </div>
       <div class="flex flex-col w-full gap-8">
-        <FileList :mod="mod.mod_id" :versions="mod.versions" />
+        <FileList :mod="mod.mod_id" />
         <BisectHostingBanner />
       </div>
     </div>

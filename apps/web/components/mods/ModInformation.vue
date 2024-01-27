@@ -17,7 +17,11 @@
             'ddd, MMM D, YYYY h:mm A'
           )}`"
         >
-          {{ mod.latest_release.mod_version }}
+          <NuxtLink
+            :to="{ query: { mc_version: mod.latest_release.mc_version } }"
+          >
+            {{ mod.latest_release.mod_version }}
+          </NuxtLink>
         </UTooltip>
       </div>
       <div class="flex justify-between gap-4">

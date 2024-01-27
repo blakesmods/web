@@ -1,15 +1,15 @@
 <template>
   <div class="files w-full">
-    <UCard>
+    <UCard :ui="{ header: { background: 'bg-white dark:bg-gray-900' } }">
       <template #header>
         <div
           class="flex flex-col xl:flex-row justify-between items-center gap-8"
         >
-          <div class="flex text-2xl font-bold">
+          <div class="flex items-center text-2xl font-bold">
             <span class="flex mr-4 items-center">
               <i
                 class="pi p-badge-info pi-info-circle"
-                style="font-size: 2rem"
+                style="font-size: 2.25rem"
               ></i>
             </span>
             Cucumber Library is required to use this mod.
@@ -18,7 +18,7 @@
             <UButton
               :to="cucumberURL"
               target="_blank"
-              color="green"
+              color="gray"
               trailing-icon="i-heroicons-arrow-top-right-on-square-solid"
             >
               Get Cucumber
@@ -28,10 +28,45 @@
       </template>
 
       <div
-        class="flex flex-col gap-4 pb-6 mb-6 border-b border-gray-300 dark:border-gray-700"
+        class="flex flex-col md:flex-row gap-4 pb-6 mb-6 border-b border-gray-300 dark:border-gray-700"
       >
         <UFormGroup class="w-full md:w-64" label="Minecraft Version">
-          <USelectMenu :options="versions" v-model="version" />
+          <div class="flex">
+            <USelectMenu
+              class="w-full"
+              placeholder="Select..."
+              searchable
+              :options="versions"
+              v-model="version"
+            />
+            <UTooltip v-if="version" text="Reset">
+              <UButton
+                color="gray"
+                icon="i-heroicons-x-circle"
+                variant="ghost"
+                @click="version = undefined"
+              />
+            </UTooltip>
+          </div>
+        </UFormGroup>
+        <UFormGroup class="w-full md:w-64" label="Mod Loader">
+          <div class="flex">
+            <USelectMenu
+              class="w-full"
+              placeholder="Select..."
+              searchable
+              :options="loaders"
+              v-model="loader"
+            />
+            <UTooltip v-if="loader" text="Reset">
+              <UButton
+                color="gray"
+                icon="i-heroicons-x-circle"
+                variant="ghost"
+                @click="loader = undefined"
+              />
+            </UTooltip>
+          </div>
         </UFormGroup>
       </div>
 
@@ -125,8 +160,7 @@
 
 <script setup>
 const props = defineProps({
-  mod: String,
-  versions: Array
+  mod: String
 });
 
 const route = useRoute();
@@ -134,21 +168,74 @@ const router = useRouter();
 
 const { formatDate, formatNumber } = useFormatters();
 
-const version = ref(route.query.mc_version || props.versions[0]);
 const files = ref([]);
 const count = ref(0);
-const page = ref(1);
+const versions = ref([]);
+const loaders = ref([]);
 const downloadPending = ref(false);
 const expandedRows = ref([]);
 
-const cucumberURL = computed(
-  () => "/cucumber/download?mc_version=" + version.value
-);
+const page = computed({
+  get: () => route.query.page ?? 1,
+  set: value =>
+    router.push({
+      query: {
+        ...route.query,
+        page: value
+      }
+    })
+});
 
-const url = computed(() => `/v2/mods/${props.mod}/${version.value}`);
-const params = computed(() => ({ page: page.value }));
+const version = computed({
+  get: () => route.query.mc_version,
+  set: value =>
+    router.push({
+      query: {
+        ...route.query,
+        page: route.query.page ? 1 : undefined,
+        mc_version: value
+      }
+    })
+});
 
-const { data, execute, pending } = await useAPI(url, {
+const loader = computed({
+  get: () => route.query.mod_loader,
+  set: value =>
+    router.push({
+      query: {
+        ...route.query,
+        page: route.query.page ? 1 : undefined,
+        mod_loader: value
+      }
+    })
+});
+
+const cucumberURL = computed(() => {
+  const url = "/cucumber/download";
+  const params = new URLSearchParams();
+
+  if (version.value) {
+    params.set("mc_version", version.value);
+  }
+
+  if (loader.value) {
+    params.set("mod_loader", loader.value);
+  }
+
+  if (params.size > 0) {
+    return url + "?" + params.toString();
+  }
+
+  return url;
+});
+
+const params = computed(() => ({
+  page: page.value,
+  mc_version: version.value,
+  mod_loader: loader.value
+}));
+
+const { data, execute, pending } = await useAPI(`/v2/mods/${props.mod}/files`, {
   params,
   server: false, // going to call this client side
   immediate: false // prevent from ever making the call on the server
@@ -184,24 +271,17 @@ function formatDownloadCount(file, format) {
 }
 
 watch(
-  () => version.value,
-  (value, oldValue) => {
-    if (oldValue !== null) {
-      router.push({
-        query: {
-          ...route.query,
-          mc_version: value
-        }
-      });
-    }
-
-    page.value = 1;
+  () => [version.value, loader.value],
+  () => {
+    expandedRows.value = [];
   }
 );
 
 watch(data, value => {
   files.value = value.data.files;
   count.value = value.data.count;
+  versions.value = value.data.mc_versions;
+  loaders.value = value.data.mod_loaders;
 });
 
 onMounted(async () => {

@@ -1,6 +1,6 @@
 import { Mod, ModFile } from "@blakesmods/db";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { rcompare } from "semver";
+import { coerce, rcompare } from "semver";
 
 export default async function (fastify: FastifyInstance) {
   const db = fastify.mongo.db!;
@@ -64,20 +64,29 @@ export default async function (fastify: FastifyInstance) {
   );
 
   fastify.get(
-    "/:mod_id/:mc_version_group",
+    "/:mod_id/files",
     async (request: FastifyRequest, reply: FastifyReply) => {
-      const { mod_id, mc_version_group } = request.params as any;
-      const { page = 1 } = request.query as any;
+      const { mod_id } = request.params as any;
+      const { page = 1, mc_version, mod_loader } = request.query as any;
 
       const skip = (Number(page) - 1) * 10;
       const limit = Number(page) * 10;
 
+      const filter = {
+        mod_id
+      } as any;
+
+      if (mc_version) {
+        filter.mc_versions = mc_version;
+      }
+
+      if (mod_loader) {
+        filter.mod_loader = mod_loader;
+      }
+
       const files = await db
         .collection<ModFile>("mod_files")
-        .find({
-          mod_id,
-          mc_version_group
-        })
+        .find(filter)
         .sort({
           "mod_version_parts.major": -1,
           "mod_version_parts.minor": -1,
@@ -89,15 +98,39 @@ export default async function (fastify: FastifyInstance) {
 
       const count = await db
         .collection<ModFile>("mod_files")
-        .countDocuments({ mod_id, mc_version_group });
+        .countDocuments(filter);
+
+      const mc_versions_list = await db
+        .collection<ModFile>("mod_files")
+        .distinct("mc_version", { mod_id });
+
+      const mod_loaders = await db
+        .collection<ModFile>("mod_files")
+        .distinct("mod_loader", { mod_id });
 
       return {
         success: true,
         data: {
           files,
-          count
+          count,
+          mc_versions: mc_versions_list.sort((a, b) =>
+            rcompare(coerce(a)!, coerce(b)!)
+          ),
+          mod_loaders: mod_loaders.sort()
         }
       };
+    }
+  );
+
+  fastify.get(
+    "/:mod_id/:mc_version_group",
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      const { mod_id, mc_version_group } = request.params as any;
+
+      reply.redirect(
+        301,
+        fastify.prefix + `/${mod_id}/files?mc_version=${mc_version_group}`
+      );
     }
   );
 }

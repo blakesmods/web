@@ -8,13 +8,14 @@ export async function createModFiles(db: Db) {
   const files = [];
 
   for (const mod of mods) {
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 16; i++) {
       const name = mod.mod_name.replace(/ /g, "");
       const version = faker.system.semver().split(".").map(Number);
-      const mcVersion = faker.helpers
-        .arrayElement(["1.18.2", "1.19", "1.19.2"])
-        .split(".")
-        .map(Number);
+      const mcVersions = faker.helpers.arrayElements(
+        ["1.18.2", "1.19", "1.19.2", "1.20", "1.20.1"],
+        { min: 1, max: 3 }
+      );
+      const mcVersion = mcVersions[0].split(".").map(Number);
 
       const file: ModFile = {
         changelog: faker.lorem.lines(5),
@@ -31,7 +32,7 @@ export async function createModFiles(db: Db) {
           minor: mcVersion[1],
           patch: mcVersion[2] || 0
         },
-        mc_versions: [mcVersion.join(".")],
+        mc_versions: mcVersions,
         md5_hash: faker.git.commitSha().slice(0, 32),
         mod_id: mod.mod_id,
         mod_version: version.join("."),
@@ -40,7 +41,7 @@ export async function createModFiles(db: Db) {
           minor: version[1],
           patch: version[2]
         },
-        mod_loader: "Forge",
+        mod_loader: faker.helpers.arrayElement(["Forge", "NeoForge"]),
         modrinth_downloads: faker.number.int(10000000),
         modrinth_id: faker.string.nanoid(12),
         site_downloads: faker.number.int(10000000),
