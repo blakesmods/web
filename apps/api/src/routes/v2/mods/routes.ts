@@ -102,7 +102,7 @@ export default async function (fastify: FastifyInstance) {
 
       const mc_versions_list = await db
         .collection<ModFile>("mod_files")
-        .distinct("mc_version", { mod_id });
+        .distinct("mc_versions", { mod_id });
 
       const mod_loaders = await db
         .collection<ModFile>("mod_files")
