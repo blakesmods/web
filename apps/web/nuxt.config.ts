@@ -28,10 +28,6 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
           content: description
         },
         {
-          property: "og:image",
-          content: "https://blakesmods.com/img/logo-circle-background.png"
-        },
-        {
           name: "twitter:title",
           content: "Blake's Mods"
         },
@@ -41,7 +37,7 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
         },
         {
           name: "msapplication-TileColor",
-          content: "#da532c"
+          content: "#ffffff"
         },
         {
           name: "theme-color",
@@ -98,6 +94,7 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
     "@nuxtjs/google-fonts",
     "@vueuse/nuxt",
     "nuxt-primevue",
+    "nuxt-og-image",
     "nuxt-simple-sitemap" // sitemap module must be last
   ],
   runtimeConfig: {
@@ -149,6 +146,10 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
   },
   site: {
     url: "https://blakesmods.com"
+  },
+  ogImage: {
+    componentDirs: ["ogimage"],
+    fonts: ["Montserrat:400"]
   },
   googleAdsense: {
     id: "ca-pub-9433168950133481"
