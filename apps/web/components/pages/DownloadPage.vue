@@ -69,6 +69,12 @@ const props = defineProps({
 
 const modInfo = useMod(props.modId);
 
+defineOgImageComponent("Mod", {
+  logo: modInfo.value.logo,
+  primaryColor: modInfo.value.primary_color,
+  secondaryColor: modInfo.value.secondary_color
+});
+
 const mod = ref({});
 
 const { data } = await useAPI(`/v2/mods/${props.modId}`);
