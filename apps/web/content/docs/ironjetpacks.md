@@ -1,6 +1,5 @@
 ---
 title: Iron Jetpacks
-description: 'Testing'
 category: Iron Jetpacks
 hidden: true
 ---

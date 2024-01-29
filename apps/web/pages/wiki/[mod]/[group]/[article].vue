@@ -107,7 +107,7 @@ const { data: page } = await useAsyncData(route.path, () =>
 );
 
 const title = `${page.value.title} · ${mod.value.name} Wiki`;
-const description = page.value.description;
+const description = parseDescription(page.value);
 const noindex = page.value._empty
   ? [{ hid: "noindex", name: "robots", content: "noindex" }]
   : [];
@@ -181,5 +181,23 @@ watch(
 
 function onToggleSidebar() {
   toggleSidebar.emit();
+}
+
+function parseDescription(page) {
+  if (page.description) {
+    return page.description;
+  }
+
+  const index = page.body.children.findIndex(
+    c => c.tag === "h2" && c.children[0]?.value === "Overview"
+  );
+
+  if (index > -1 && index + 1 < page.body.children.length) {
+    // the special case for the second nested children is for links
+    return page.body.children[index + 1].children?.reduce(
+      (a, b) => a + (b.children ? b.children[0].value : b.value),
+      ""
+    );
+  }
 }
 </script>
