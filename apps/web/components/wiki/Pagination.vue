@@ -11,7 +11,7 @@
       size="lg"
       icon="i-heroicons-arrow-left"
     >
-      <div class="flex flex-col text-right">
+      <div class="hidden md:flex flex-col text-right">
         {{ previous.title }}
         <small
           class="text-gray-600 dark:text-gray-300 group-hover:text-gray-500 dark:group-hover:text-gray-400"
@@ -29,7 +29,7 @@
       icon="i-heroicons-arrow-right"
       trailing
     >
-      <div class="flex flex-col">
+      <div class="hidden md:flex flex-col">
         {{ next.title }}
         <small
           class="text-gray-600 dark:text-gray-300 group-hover:text-gray-500 dark:group-hover:text-gray-400"

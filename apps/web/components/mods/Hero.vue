@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center w-full gap-8">
+  <div class="flex flex-col items-center w-full gap-16">
     <div
       class="flex flex-col xl:flex-row w-full items-center xl:justify-between gap-8"
     >
@@ -7,7 +7,7 @@
         class="flex flex-col justify-center items-center xl:items-start gap-4"
       >
         <h1
-          class="text-center xl:text-left xl:whitespace-nowrap text-[52px] uppercase"
+          class="text-center xl:text-left xl:whitespace-nowrap text-4xl md:text-[52px] uppercase"
         >
           {{ mod.name }}
         </h1>
@@ -41,32 +41,32 @@
     </div>
 
     <div
-      class="flex flex-col md:flex-row justify-between w-full p-[2px] rounded-lg gap-8 shadow"
+      class="flex flex-col md:flex-row justify-between w-full p-[2px] rounded-lg shadow"
       :style="{
         'background-image': `linear-gradient(270deg, ${mod.secondary_color} -12.17%, ${mod.primary_color} 114.78%)`
       }"
     >
       <div
-        class="flex flex-wrap justify-around w-full p-10 gap-2 md:gap-4 bg-gray-200 dark:bg-gray-800 rounded-lg"
+        class="flex flex-wrap justify-around w-full p-6 md:p-10 gap-4 bg-gray-200 dark:bg-gray-800 rounded-lg"
       >
-        <div class="flex flex-col items-center">
+        <div class="flex flex-col items-center w-full sm:w-2/5 md:w-auto">
           <Skeleton v-if="pending" width="100px" height="48px" />
           <h2 v-else :style="{ color: mod.primary_color }">{{ downloads }}+</h2>
           <span class="text-xl">Downloads</span>
         </div>
-        <div class="flex flex-col items-center">
+        <div class="flex flex-col items-center w-full sm:w-2/5 md:w-auto">
           <Skeleton v-if="pending" width="100px" height="48px" />
           <h2 v-else :style="{ color: mod.primary_color }">{{ relations }}+</h2>
           <span class="text-xl">Modpacks</span>
         </div>
-        <div class="flex flex-col items-center">
+        <div class="flex flex-col items-center w-full sm:w-2/5 md:w-auto">
           <Skeleton v-if="pending" width="100px" height="48px" />
           <h2 v-else :style="{ color: mod.primary_color }">
             {{ data.data.latest_release.mod_version }}
           </h2>
           <span class="text-xl">Latest Release</span>
         </div>
-        <div class="flex flex-col items-center">
+        <div class="flex flex-col items-center w-full sm:w-2/5 md:w-auto">
           <Skeleton v-if="pending" width="100px" height="48px" />
           <h2 v-else :style="{ color: mod.primary_color }">
             {{ data.data.latest_release.mc_version }}
@@ -80,7 +80,6 @@
 
 <script setup>
 import numeral from "numeral";
-import { isDevelopment } from "std-env";
 
 const props = defineProps({
   mod: Object

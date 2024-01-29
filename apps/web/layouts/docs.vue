@@ -5,7 +5,16 @@
       <div class="flex flex-nowrap flex-1 max-w-full justify-center">
         <div class="grid grid-cols-12 relative w-full min-h-[800px]">
           <USlideover side="left" v-model="sidebar">
-            <SidebarContent />
+            <div class="flex flex-nowrap gap-4">
+              <div class="flex flex-col w-full">
+                <SidebarContent />
+              </div>
+              <div class="relative -top-1">
+                <UButton icon="i-heroicons-x-mark" @click="sidebar = false">
+                  Close
+                </UButton>
+              </div>
+            </div>
           </USlideover>
           <div
             class="hidden lg:block sticky top-[65px] min-w-[244px] max-h-96 lg:max-h-[calc(100vh-65px)] col-span-3 pr-2 py-8 z-20 rounded overflow-y-auto"

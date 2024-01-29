@@ -39,35 +39,38 @@
         <rect x="57" y="81" width="20" height="20" :fill="mod.primary_color" />
         <rect x="116" y="18" width="20" height="20" :fill="mod.primary_color" />
       </svg>
-
-      <h1 class="text-[52px] text-center">Download {{ mod.name }}</h1>
-      <div class="flex flex-wrap justify-center gap-8">
-        <UButton
-          :to="mod.url + '/download'"
-          size="xl"
-          variant="primary"
-          leading-icon="i-heroicons-arrow-down-tray-solid"
-        >
-          Download
-        </UButton>
-        <UButton
-          :to="mod.curseforge_link"
-          target="_blank"
-          size="xl"
-          variant="secondary"
-          leading-icon="i-heroicons-arrow-top-right-on-square-solid"
-        >
-          CurseForge
-        </UButton>
-        <UButton
-          :to="mod.modrinth_link"
-          target="_blank"
-          size="xl"
-          variant="secondary"
-          leading-icon="i-heroicons-arrow-top-right-on-square-solid"
-        >
-          Modrinth
-        </UButton>
+      <div class="relative flex flex-col z-20 gap-8">
+        <h1 class="text-4xl md:text-5xl text-center">
+          Download {{ mod.name }}
+        </h1>
+        <div class="flex flex-wrap justify-center gap-8">
+          <UButton
+            :to="mod.url + '/download'"
+            size="xl"
+            variant="primary"
+            leading-icon="i-heroicons-arrow-down-tray-solid"
+          >
+            Download
+          </UButton>
+          <UButton
+            :to="mod.curseforge_link"
+            target="_blank"
+            size="xl"
+            variant="secondary"
+            leading-icon="i-heroicons-arrow-top-right-on-square-solid"
+          >
+            CurseForge
+          </UButton>
+          <UButton
+            :to="mod.modrinth_link"
+            target="_blank"
+            size="xl"
+            variant="secondary"
+            leading-icon="i-heroicons-arrow-top-right-on-square-solid"
+          >
+            Modrinth
+          </UButton>
+        </div>
       </div>
     </div>
   </div>

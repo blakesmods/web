@@ -6,7 +6,7 @@
     }"
   >
     <div class="container flex h-16 m-auto px-4 justify-between items-center">
-      <div class="flex items-center gap-4">
+      <div class="flex items-center gap-2 md:gap-4">
         <ReactiveLogo />
         <ModsDropdown />
       </div>

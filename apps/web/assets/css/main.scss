@@ -56,8 +56,12 @@ h5 {
 }
 
 h1 {
-  font-size: 56px;
+  font-size: 40px;
   line-height: 120%;
+
+  @screen sm {
+    font-size: 56px;
+  }
 }
 
 h2 {

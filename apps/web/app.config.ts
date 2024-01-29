@@ -23,6 +23,9 @@ export default defineAppConfig({
         variant: "subtle"
       }
     },
+    breadcrumb: {
+      ol: "flex-wrap"
+    },
     button: {
       variant: {
         primary: "bg-[var(--primary-color)] hover:bg-[var(--primary-color)]",

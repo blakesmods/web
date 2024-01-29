@@ -21,10 +21,12 @@
     ></div>
     <div class="absolute inset-0 min-h-screen z-10">
       <div
-        class="container flex flex-col justify-between h-full mx-auto py-4 gap-4 font-bold"
+        class="container flex flex-col justify-between h-full mx-auto py-8 gap-8 font-bold"
       >
-        <h1 class="flex w-1/3 max-w-[300px] h-1/4 mx-auto items-center">
-          <Logo style="transform: scale(2.34)" />
+        <h1
+          class="flex w-full max-w-[300px] md:max-w-[600px] h-1/4 mx-auto justify-center items-center"
+        >
+          <Logo class="md:scale-[2]" />
         </h1>
         <div
           class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:h-1/2 items-center"

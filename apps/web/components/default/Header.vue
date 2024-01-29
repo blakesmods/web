@@ -6,7 +6,7 @@
     }"
   >
     <div class="container flex h-16 m-auto px-4 justify-between items-center">
-      <div class="flex items-center gap-8">
+      <div class="flex items-center gap-2 md:gap-4">
         <ReactiveLogo />
         <ModsDropdown />
       </div>
@@ -39,37 +39,45 @@
       <UButton
         class="!inline-flex lg:!hidden leading-4"
         color="gray"
+        size="md"
         icon="i-heroicons-bars-3-solid"
-        @click="sidebar = !sidebar"
+        @click="menu = !menu"
       />
     </div>
 
-    <USlideover side="right" v-model="sidebar">
-      <div class="flex flex-col gap-4">
-        <NuxtLink to="/docs">Docs</NuxtLink>
-        <NuxtLink to="/wiki">Wiki</NuxtLink>
+    <USlideover side="right" v-model="menu">
+      <div class="flex flex-nowrap gap-4">
+        <div class="flex flex-col w-full gap-4">
+          <NuxtLink to="/docs">Docs</NuxtLink>
+          <NuxtLink to="/wiki">Wiki</NuxtLink>
 
-        <a
-          href="https://github.com/BlakeBr0"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub
-        </a>
-        <a
-          href="https://www.curseforge.com/members/blakebr0/projects"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          CurseForge
-        </a>
-        <a
-          href="https://modrinth.com/user/BlakeBr0"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Modrinth
-        </a>
+          <a
+            href="https://github.com/BlakeBr0"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://www.curseforge.com/members/blakebr0/projects"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            CurseForge
+          </a>
+          <a
+            href="https://modrinth.com/user/BlakeBr0"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Modrinth
+          </a>
+        </div>
+        <div class="relative -top-1">
+          <UButton icon="i-heroicons-x-mark" @click="menu = false">
+            Close
+          </UButton>
+        </div>
       </div>
     </USlideover>
   </header>
@@ -82,5 +90,5 @@ import Header from "~/components/docs/Header.vue";
 
 const dropdown = useModsDropdown();
 
-const sidebar = ref(false);
+const menu = ref(false);
 </script>

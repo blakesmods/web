@@ -1,26 +1,28 @@
 <template>
   <div class="grid grid-cols-9 col-span-12 lg:col-span-9">
-    <div class="col-span-12 lg:col-span-9 xl:col-span-7 w-full h-full px-4">
+    <div
+      class="col-span-12 lg:col-span-9 xl:col-span-7 w-full h-full lg:pl-4 xl:pr-4"
+    >
       <div class="flex py-8 lg:ml-4 xl:mr-4 z-10 justify-between items-center">
-        <div class="flex items-center gap-4">
-          <UButton
-            class="!inline-flex lg:!hidden"
-            ref="sidebarToggle"
-            icon="i-heroicons-bars-3-solid"
-            @click="onToggleSidebar"
-          />
-          <div class="flex flex-col gap-4">
+        <div class="flex flex-col w-full gap-4">
+          <div class="flex items-center gap-4">
+            <UButton
+              class="!inline-flex lg:!hidden"
+              ref="sidebarToggle"
+              icon="i-heroicons-bars-3-solid"
+              @click="onToggleSidebar"
+            />
             <UBreadcrumb :links="breadcrumbs" />
-            <h1>{{ page.title }}</h1>
+            <UButton
+              v-if="hasTOC"
+              ref="tocToggle"
+              class="!inline-flex xl:!hidden ml-auto"
+              icon="i-heroicons-bars-3-solid"
+              @click="toc = !toc"
+            />
           </div>
+          <h1>{{ page.title }}</h1>
         </div>
-        <UButton
-          v-if="hasTOC"
-          ref="tocToggle"
-          class="!inline-flex xl:!hidden"
-          icon="i-heroicons-bars-3-solid"
-          @click="toc = !toc"
-        />
       </div>
 
       <ContentRenderer :value="page">
@@ -43,10 +45,19 @@
       </div>
     </div>
     <USlideover v-if="hasTOC" class="xl:hidden" side="right" v-model="toc">
-      <TOC :page="page" />
-      <ContentLinks
-        :edit-url="`https://github.com/blakesmods/web/edit/main/apps/web/content${page._path}.${page._extension}`"
-      />
+      <div class="flex flex-nowrap gap-4">
+        <div class="flex flex-col w-full">
+          <TOC :page="page" />
+          <ContentLinks
+            :edit-url="`https://github.com/blakesmods/web/edit/main/apps/web/content${page._path}.${page._extension}`"
+          />
+        </div>
+        <div class="relative -top-1">
+          <UButton icon="i-heroicons-x-mark" @click="toc = false">
+            Close
+          </UButton>
+        </div>
+      </div>
     </USlideover>
   </div>
 </template>
@@ -129,6 +140,13 @@ const hasTOC = computed(
 
 const lastUpdated = computed(() =>
   formatDate(page.value.updatedAt, "YYYY/MM/DD")
+);
+
+watch(
+  () => route.fullPath,
+  () => {
+    toc.value = false;
+  }
 );
 
 function onToggleSidebar() {

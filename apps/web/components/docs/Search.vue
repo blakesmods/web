@@ -8,7 +8,7 @@
     />
 
     <div
-      class="absolute min-w-[300px] lg:min-w-0 lg:static lg:flex flex-1 top-12 right-0 p-4 lg:p-0 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 lg:border-none rounded"
+      class="absolute min-w-[300px] lg:min-w-0 lg:static lg:flex flex-1 top-10 -right-32 p-2 lg:p-0 bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 lg:border-none rounded"
       :class="{ hidden: !show }"
     >
       <UInput

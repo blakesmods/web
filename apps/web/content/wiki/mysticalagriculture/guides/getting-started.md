@@ -7,7 +7,7 @@ sort: 1
 ---
 
 ## Fundamental Materials
-The blocks and items added by Mystical Agriculture all require two base materials, [**Inferium Essence**](../items/inferium-essence.md) and [**Prosperity Shards**](../items/prosperity-shard.md).
+The blocks and items added by Mystical Agriculture all require two base materials, [Inferium Essence](../items/inferium-essence.md) and [Prosperity Shards](../items/prosperity-shard.md).
 
 ### Inferium Essence
 [Inferium Essence](../items/inferium-essence.md) can be obtained in multiple ways.

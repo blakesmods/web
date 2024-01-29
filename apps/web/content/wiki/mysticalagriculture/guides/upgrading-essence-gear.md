@@ -7,7 +7,7 @@ sort: 5
 ---
 
 ## Upgrading Essence Gear
-Tools and armor can be upgraded with [**Augments**](../items/augments.md)! Some Augments include Wither Resistance, Absorption, Speed, Jump Boost etc.
+Tools and armor can be upgraded with [Augments](../items/augments.md)! Some Augments include Wither Resistance, Absorption, Speed, Jump Boost etc.
 
 ## The Tinkering Table
 The [Tinkering Table](../blocks/tinkering-table.md) is used to add/remove Augments to your essence gear. The types of tool/armor that an Augment can be applied to are listed in the tooltip of the Augment.

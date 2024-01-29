@@ -55,4 +55,18 @@
     background: transparent !important;
     box-shadow: none !important;
   }
+
+  @media screen and (max-width: 600px) {
+    .dsb-dropdown-menu {
+      position: fixed !important;
+      left: 16px !important;
+      right: 16px !important;
+      top: 100px !important;
+      min-width: calc(100% - 32px) !important;
+
+      .docs-searchbar-suggestion--subcategory-column {
+        display: none !important;
+      }
+    }
+  }
 }

@@ -13,7 +13,7 @@
     <transition name="fade">
       <div
         v-if="active"
-        class="fixed left-0 top-16 p-8 w-full max-h-[calc(100vh-160px)] border-y border-gray-200 dark:border-gray-800 bg-white/90 dark:bg-gray-900/95 shadow-lg overflow-y-auto backdrop-blur"
+        class="fixed left-0 top-16 py-4 md:x-8 w-full max-h-[calc(100vh-64px)] border-y border-gray-200 dark:border-gray-800 bg-white/90 dark:bg-gray-900/95 shadow-lg overflow-y-auto backdrop-blur"
       >
         <div
           class="container grid grid-cols-[repeat(1,1fr)] lg:grid-cols-[repeat(2,1fr)] xl:grid-cols-[repeat(3,1fr)] gap-4"

@@ -10,7 +10,7 @@
     <div
       class="flex container h-16 m-auto mt-[1px] px-4 justify-between items-center"
     >
-      <div class="flex items-center leading-4 gap-4">
+      <div class="flex items-center leading-4 gap-2 md:gap-4">
         <ReactiveLogo />
         <ModsDropdown />
 
@@ -27,20 +27,28 @@
           variant="primary"
           trailing-icon="i-heroicons-arrow-down-tray-solid"
         >
-          <span class="font-bold">Download</span>
+          <span class="hidden sm:inline-flex font-bold">Download</span>
         </UButton>
         <UButton
           class="inline-flex lg:hidden leading-4"
           color="gray"
+          size="md"
           icon="i-heroicons-bars-3-solid"
           @click="menu = !menu"
         />
       </div>
 
       <USlideover side="right" v-model="menu">
-        <div class="flex flex-col gap-4">
-          <NuxtLink class="font-bold" :to="downloadLink">Download</NuxtLink>
-          <slot />
+        <div class="flex flex-nowrap gap-4">
+          <div class="flex flex-col w-full gap-4">
+            <NuxtLink class="font-bold" :to="downloadLink">Download</NuxtLink>
+            <slot />
+          </div>
+          <div class="relative -top-1">
+            <UButton icon="i-heroicons-x-mark" @click="menu = false">
+              Close
+            </UButton>
+          </div>
         </div>
       </USlideover>
     </div>
