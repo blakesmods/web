@@ -54,8 +54,36 @@ const props = defineProps({
   mod: Object
 });
 
+const title = props.mod.name;
+const description = `The official home of ${props.mod.name}! ${props.mod.tagline}`;
+
 useHead({
-  title: props.mod.name
+  title,
+  meta: [
+    {
+      hid: "description",
+      name: "description",
+      content: description
+    },
+    // Open Graph
+    { hid: "og:title", property: "og:title", content: title },
+    {
+      hid: "og:description",
+      property: "og:description",
+      content: description
+    },
+    // Twitter Card
+    {
+      hid: "twitter:title",
+      name: "twitter:title",
+      content: title
+    },
+    {
+      hid: "twitter:description",
+      name: "twitter:description",
+      content: description
+    }
+  ]
 });
 
 defineOgImageComponent("Mod", {
