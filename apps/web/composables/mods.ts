@@ -142,7 +142,7 @@ const mods: Mod[] = [
   },
   {
     name: "Cucumber Library",
-    tagline: "The backbone of BlakeBr0's mods!",
+    tagline: "The backbone of my mods!",
     mod_id: "cucumber",
     url: "/cucumber",
     logo: "/img/logo/cucumber_logo.png",

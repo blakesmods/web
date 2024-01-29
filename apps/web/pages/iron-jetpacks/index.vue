@@ -40,7 +40,7 @@ const features = ref([
   {
     title: "Throttle Controls",
     description: [
-      "You can change the flight speed of your jetpack on the fly! Use the Increase/Decrease Throttle keybindings to change your Jetpack's movement speed."
+      "Change the speed of your Jetpack on the fly! Use the Increase/Decrease Throttle keybindings to change your Jetpack's movement speed."
     ],
     images: ["/assets/ironjetpacks/items/strap.png"],
     link: "/wiki/ironjetpacks/items/jetpacks"
@@ -48,7 +48,7 @@ const features = ref([
   {
     title: "Intuitive Display",
     description: [
-      "View your Jetpacks energy, throttle, engine and hover status quickly using the in-game HUD."
+      "View your Jetpack's energy, throttle, engine and hover status quickly using the in-game HUD."
     ],
     images: ["/assets/ironjetpacks/features/hud.png"],
     link: "/wiki/ironjetpacks/features/hud"
@@ -64,7 +64,7 @@ const features = ref([
   {
     title: "Powered by Forge Energy",
     description: [
-      "Jetpacks are fueled using Forge Energy (FE). This means that Jetpacks can be charged using other mods chargers."
+      "Jetpacks are fueled using Forge Energy (FE). Charge your Jetpack using any FE compatible energy storage."
     ],
     images: ["/assets/ironjetpacks/forge_logo.png"],
     link: "/wiki/ironjetpacks/items/jetpacks"

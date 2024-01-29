@@ -7,38 +7,62 @@
         :features="features"
       />
 
-      <h2 class="text-center">Check out the actual mods!</h2>
+      <h2 class="text-center mt-8">The Mods</h2>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <UCard
-          v-for="mod in mods"
-          class="mod"
-          :class="mod.mod_id"
-          :key="mod.mod_id"
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+        <GradientUCard
+          v-for="(mod, index) in mods"
+          class="flex w-full h-36 items-center"
+          :style="{
+            '--primary-color': mod.primary_color,
+            '--secondary-color': mod.secondary_color
+          }"
+          :key="index"
         >
-          <div class="flex gap-4">
-            <img class="my-auto" :src="mod.logo" width="100" alt="" />
-            <div class="flex flex-col justify-center">
-              <h3>{{ mod.name }}</h3>
-              <p>{{ mod.tagline }}</p>
-
-              <div class="flex mt-2 gap-4">
+          <div class="flex h-[96px]">
+            <img
+              class="w-20 h-20 mr-4 my-auto object-contain"
+              :src="mod.logo"
+              :alt="mod.name + ' logo'"
+            />
+            <div class="flex flex-col justify-center gap-2">
+              <NuxtLink
+                class="whitespace-nowrap font-bold group-hover:underline underline-offset-4"
+                :to="mod.url"
+              >
+                {{ mod.name }}
+              </NuxtLink>
+              <span class="text-gray-700/80 dark:text-gray-200/80 leading-snug">
+                {{ mod.tagline }}
+              </span>
+              <div class="flex flex-1 items-end gap-4">
                 <NuxtLink
-                  :to="mod.url"
-                  class="text-primary hover:text-primary-accent"
-                >
-                  View
-                </NuxtLink>
-                <NuxtLink
+                  class="hover:opacity-75"
                   :to="mod.url + '/download'"
-                  class="text-primary hover:text-primary-accent"
+                  :style="{ color: mod.primary_color }"
                 >
                   Download
+                </NuxtLink>
+                <NuxtLink
+                  v-if="mod.has_docs"
+                  class="hover:opacity-75"
+                  :to="'/docs/' + mod.mod_id"
+                  :style="{ color: mod.primary_color }"
+                >
+                  Docs
+                </NuxtLink>
+                <NuxtLink
+                  v-if="mod.has_wiki"
+                  class="hover:opacity-75"
+                  :to="'/wiki/' + mod.mod_id"
+                  :style="{ color: mod.primary_color }"
+                >
+                  Wiki
                 </NuxtLink>
               </div>
             </div>
           </div>
-        </UCard>
+        </GradientUCard>
       </div>
     </div>
   </ModPage>

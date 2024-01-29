@@ -39,7 +39,7 @@ const features = ref([
   {
     title: "Grow Your Resources",
     description: [
-      "Mystical Agriculture adds more then 150+ resource unique crops to Minecraft; such as Coal, Iron, Diamond, Creeper and so many more!"
+      "Mystical Agriculture adds more then 130+ resource unique crops to Minecraft; such as Coal, Iron, Diamond, Skeleton and so many more!"
     ],
     images: [
       "/assets/mysticalagriculture/items/diamond_essence.png",
@@ -62,7 +62,7 @@ const features = ref([
     title: "Growth Speed",
     description: [
       "Water your crops manually with a Watering Can to substantially increase crop growth rates.",
-      "Stack Growth Accelerators underneath your crops to increase their growth rate."
+      "Stack Growth Accelerators underneath your crops to passively increase their growth rate."
     ],
     images: [
       "/assets/mysticalagriculture/items/watering_can.png",

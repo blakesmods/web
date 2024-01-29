@@ -32,7 +32,7 @@ const features = ref([
   {
     title: "Combination Crafting",
     description: [
-      "The Combination Crafting setup is a shapeless in-world crafting mechanism. Using a Crafting Core and up to 49 pedestals, you can make creating key-items more exciting."
+      "The Combination Crafting setup is a shapeless in-world crafting mechanism. Using a Crafting Core and up to 49 Pedestals, you can make creating important items more exciting."
     ],
     images: ["/assets/extendedcrafting/blocks/crafting_core.png"],
     link: "/wiki/extendedcrafting/blocks/crafting-core"
@@ -40,7 +40,7 @@ const features = ref([
   {
     title: "Ender Crafting",
     description: [
-      "The Ender Crafter is a 3x3 crafting table that takes time to craft. The amount of time required depends on the recipe and can be decreased by placing Ender Alternators."
+      "The Ender Crafter is a 3x3 crafting table that takes time to craft. Increase the crafting speed by placing Ender Alternators around it."
     ],
     images: ["/assets/extendedcrafting/blocks/ender_crafter.png"],
     link: "/wiki/extendedcrafting/blocks/ender-crafter"

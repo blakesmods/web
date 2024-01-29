@@ -34,7 +34,7 @@ const features = ref([
     title: "New Tools",
     description: [
       "Paxels are a 3-in-1 tool made from a Pickaxe, Axe and Shovel.",
-      "Sickles allow you to harvest plant-material blocks in an AOE. Scythes are an AOE weapon that can harvest crops in an area."
+      "Sickles allow you to harvest plant-material blocks in an AOE, and Scythes are an AOE weapon that can harvest crops in an area."
     ],
     images: [
       "/assets/pickletweaks/items/diamond_paxel.png",
@@ -47,7 +47,7 @@ const features = ref([
     title: "Watering Cans",
     description: [
       "Watering Cans increase crop growth speed.",
-      "Pickle Tweaks comes with a regular watering can (3x3) and a reinforced watering can (7x7)."
+      "Pickle Tweaks comes with a basic Watering Can (3x3) as well as a Reinforced Watering Can (7x7)."
     ],
     images: [
       "/assets/pickletweaks/items/watering_can.png",
