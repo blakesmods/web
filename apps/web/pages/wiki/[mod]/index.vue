@@ -21,7 +21,11 @@
               mode="hover"
               :popper="{ placement: 'top' }"
             >
-              <NuxtImg :src="article.icon" :alt="article.title" />
+              <NuxtImg
+                class="w-4 h-4"
+                :src="article.icon"
+                :alt="article.title"
+              />
 
               <template #panel>
                 <NuxtImg
