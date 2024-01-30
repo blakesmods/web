@@ -44,7 +44,7 @@
             <div
               class="flex flex-col w-full h-full p-4 justify-center items-center"
             >
-              <img
+              <NuxtImg
                 :src="mod.logo"
                 :alt="mod.name + ' logo'"
                 class="w-[50px] sm:w-[100px]"
