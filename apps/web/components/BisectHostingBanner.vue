@@ -5,7 +5,7 @@
     href="https://bisecthosting.com/blakesmods?r=web+vertical"
     target="_blank"
   >
-    <img
+    <NuxtImg
       src="/img/bisect-vertical.png"
       alt="Bisect Hosting banner code blakesmods"
     />
@@ -16,7 +16,7 @@
     href="https://bisecthosting.com/blakesmods?r=web+horizontal"
     target="_blank"
   >
-    <img
+    <NuxtImg
       src="/img/bisect-horizontal.png"
       alt="Bisect Hosting banner code blakesmods"
     />

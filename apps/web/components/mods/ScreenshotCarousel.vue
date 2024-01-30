@@ -9,7 +9,7 @@
     <Carousel :value="screenshots" :num-visible="1" :num-scroll="1">
       <template #item="{ data }">
         <div class="relative flex flex-col">
-          <img
+          <NuxtImg
             class="block aspect-[1920/1080]"
             :src="data.image"
             :alt="data.title"

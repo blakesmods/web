@@ -1,6 +1,6 @@
 <template>
   <UTooltip :text="tooltip" :popper="{ placement: 'top' }">
-    <img
+    <NuxtImg
       class="pixelated"
       :src="src"
       :alt="alt"

@@ -8,7 +8,7 @@
     >
       <UCard class="transition hover:scale-105 active:scale-100">
         <div class="flex gap-4 mr-4">
-          <img :src="mod.icon" class="w-16 h-16" alt="" />
+          <NuxtImg :src="mod.icon" class="w-16 h-16" alt="" />
           <div class="flex flex-col justify-center gap-2">
             <h2
               class="text-lg sm:text-2xl group-hover:underline underline-offset-4"

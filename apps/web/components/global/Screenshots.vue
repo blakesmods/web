@@ -19,7 +19,7 @@
         :ui="{ base: 'w-44 mx-auto cursor-pointer', body: { padding: '!p-2' } }"
         @click="onClickScreenshot(index)"
       >
-        <img
+        <NuxtImg
           :src="data.image"
           class="w-full aspect-[16/9] object-contain"
           :alt="data.name"
@@ -29,7 +29,7 @@
   </Carousel>
 
   <UModal v-model="isModalOpen" :ui="{ width: 'md:max-w-2xl lg:max-w-5xl' }">
-    <img :src="screenshot.image" alt="" />
+    <NuxtImg :src="screenshot.image" alt="" />
     <h4 class="mx-4 my-2">{{ screenshot.name }}</h4>
     <p class="mx-4 my-2">{{ screenshot.description }}</p>
   </UModal>
