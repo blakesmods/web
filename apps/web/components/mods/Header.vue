@@ -60,7 +60,6 @@ import ModsDropdown from "~/components/default/ModsDropdown.vue";
 import ReactiveLogo from "~/components/default/ReactiveLogo.vue";
 
 defineProps({
-  background: String,
   downloadLink: String,
   filled: Boolean
 });

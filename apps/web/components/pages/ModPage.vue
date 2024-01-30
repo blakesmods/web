@@ -8,10 +8,7 @@
   >
     <GradientBackground />
 
-    <Header
-      :background="`/img/svg/${mod.url.slice(1)}-gradient.svg`"
-      :download-link="mod.url + '/download'"
-    >
+    <Header :download-link="mod.url + '/download'">
       <NuxtLink v-if="mod.has_docs" :to="`/docs/${mod.mod_id}`">Docs</NuxtLink>
       <NuxtLink v-if="mod.has_wiki" :to="`/wiki/${mod.mod_id}`">Wiki</NuxtLink>
 
