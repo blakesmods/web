@@ -4,9 +4,9 @@
   >
     <div class="flex pt-20 pb-8">
       <div
-        class="container grid grid-cols-1 md:grid-cols-3 lg:flex justify-between w-full flex-wrap mx-auto px-4 gap-8 space-y-4 sm:space-y-0"
+        class="container grid grid-cols-1 md:grid-cols-3 lg:flex justify-between w-full flex-wrap mx-auto px-4 gap-8"
       >
-        <div class="flex flex-col col-span-full items-start space-y-2">
+        <div class="flex flex-col col-span-full items-start gap-y-2">
           <NuxtLink
             to="/"
             class="mb-4"
@@ -14,7 +14,7 @@
           >
             <Logo />
           </NuxtLink>
-          <div class="flex flex-col space-y-1">
+          <div class="flex flex-col gap-y-3 md:gap-y-1">
             <a
               class="flex items-center gap-2"
               href="https://github.com/blakebr0"
@@ -44,7 +44,7 @@
             </a>
           </div>
         </div>
-        <div class="flex flex-col space-y-1">
+        <div class="flex flex-col gap-y-3 md:gap-y-1">
           <div class="font-semibold text-2xl mb-1">{{ columns[0].title }}</div>
           <NuxtLink
             v-for="(link, index) in columns[0].links"
@@ -54,7 +54,7 @@
             {{ link.name }}
           </NuxtLink>
         </div>
-        <div class="flex flex-col space-y-1">
+        <div class="flex flex-col gap-y-3 md:gap-y-1">
           <div class="font-semibold text-2xl mb-1">{{ columns[1].title }}</div>
           <NuxtLink
             v-for="(link, index) in columns[1].links"
@@ -64,7 +64,7 @@
             {{ link.name }}
           </NuxtLink>
         </div>
-        <div class="flex flex-col space-y-1">
+        <div class="flex flex-col gap-y-3 md:gap-y-1">
           <div class="font-semibold text-2xl mb-1">{{ columns[2].title }}</div>
           <NuxtLink
             v-for="(link, index) in columns[2].links"
