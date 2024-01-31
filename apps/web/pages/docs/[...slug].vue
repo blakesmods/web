@@ -83,7 +83,9 @@ if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
 }
 
-const title = `${page.value.title} · ${page.value.category} Documentation`;
+const title = page.value.category
+  ? `${page.value.title} · ${page.value.category} Documentation`
+  : page.value.title;
 const description = page.value.description;
 
 useHead({
