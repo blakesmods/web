@@ -122,7 +122,7 @@ const pathParts = page.value._path.split("/");
 
 const breadcrumbs = computed(() =>
   [
-    {
+    pathParts.length > 2 && {
       label: "Docs",
       to: "/docs"
     },
