@@ -7,7 +7,11 @@
         class="container grid grid-cols-1 md:grid-cols-3 lg:flex justify-between w-full flex-wrap mx-auto px-4 gap-8 space-y-4 sm:space-y-0"
       >
         <div class="flex flex-col col-span-full items-start space-y-2">
-          <NuxtLink to="/" class="mb-4">
+          <NuxtLink
+            to="/"
+            class="mb-4"
+            aria-label="Blake's Mods logo home page link"
+          >
             <Logo />
           </NuxtLink>
           <div class="flex flex-col space-y-1">

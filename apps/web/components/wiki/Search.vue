@@ -4,6 +4,7 @@
       class="lg:hidden"
       color="gray"
       icon="i-heroicons-magnifying-glass"
+      aria-label="Search wiki button"
       @click="show = !show"
     />
 
