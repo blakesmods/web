@@ -10,6 +10,7 @@
       color="gray"
       size="lg"
       icon="i-heroicons-arrow-left"
+      aria-label="Previous page button"
     >
       <div class="hidden md:flex flex-col text-right">
         {{ previous.title }}
@@ -27,6 +28,7 @@
       color="gray"
       size="lg"
       icon="i-heroicons-arrow-right"
+      aria-label="Next page button"
       trailing
     >
       <div class="hidden md:flex flex-col">

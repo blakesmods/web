@@ -1,5 +1,5 @@
 <template>
-  <h3>In This Section</h3>
+  <h2>In This Section</h2>
   <div class="flex flex-col">
     <NuxtLink
       v-for="page in pages"

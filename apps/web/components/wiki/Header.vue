@@ -20,6 +20,7 @@
             class="flex justify-center w-8 p-0 fill-gray-700 dark:fill-gray-200 hover:fill-gray-500 dark:hover:fill-gray-400"
             target="_blank"
             color="gray"
+            aria-label="CurseForge"
           >
             <CurseForgeLogo width="20px" />
           </UButton>
@@ -30,6 +31,7 @@
             class="flex justify-center w-8 p-0 fill-gray-700 dark:fill-gray-200 hover:fill-gray-500 dark:hover:fill-gray-400"
             target="_blank"
             color="gray"
+            aria-label="Modrinth"
           >
             <ModrinthLogo width="20px" />
           </UButton>
@@ -40,6 +42,7 @@
             target="_blank"
             color="gray"
             icon="i-simple-icons-github"
+            aria-label="GitHub"
           />
         </UTooltip>
       </div>

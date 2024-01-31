@@ -34,6 +34,7 @@
           color="gray"
           size="md"
           icon="i-heroicons-bars-3-solid"
+          aria-label="Open navigation menu button"
           @click="menu = !menu"
         />
       </div>
