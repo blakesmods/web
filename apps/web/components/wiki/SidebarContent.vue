@@ -40,10 +40,10 @@
             mode="hover"
             :popper="{ placement: 'top' }"
           >
-            <img :src="article.icon" :alt="article.title" />
+            <NuxtImg class="w-4 h-4" :src="article.icon" :alt="article.title" />
 
             <template #panel>
-              <img
+              <NuxtImg
                 class="w-16 h-16 pixelated"
                 :alt="article.title"
                 :src="article.icon"

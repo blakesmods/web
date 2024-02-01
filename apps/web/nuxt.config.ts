@@ -89,6 +89,7 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
   ],
   modules: [
     "@nuxt/ui",
+    "@nuxt/image",
     "@nuxt/content",
     "@nuxtjs/google-adsense",
     "@nuxtjs/google-fonts",

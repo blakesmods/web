@@ -10,7 +10,7 @@
       <template #header>
         <div class="flex flex-col items-center gap-4">
           <div v-if="feature.images" class="flex gap-4">
-            <img
+            <NuxtImg
               v-for="image in feature.images"
               :src="image"
               alt=""

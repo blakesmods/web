@@ -20,7 +20,7 @@
           :key="index"
         >
           <div class="flex h-[96px]">
-            <img
+            <NuxtImg
               class="w-20 h-20 mr-4 my-auto object-contain"
               :src="mod.logo"
               :alt="mod.name + ' logo'"

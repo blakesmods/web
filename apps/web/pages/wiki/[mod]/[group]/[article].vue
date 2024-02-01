@@ -22,7 +22,7 @@
             />
           </div>
           <h1 class="flex items-center gap-4">
-            <img
+            <NuxtImg
               v-if="page.icon"
               class="w-12 h-12 pixelated object-contain"
               :src="page.icon"
