@@ -1,7 +1,7 @@
 <template>
   <UCard class="min-w-[300px]">
     <template #header>
-      <h3 class="text-center">Mod Information</h3>
+      <h2 class="text-center text-3xl">Mod Information</h2>
     </template>
 
     <div class="space-y-1">

@@ -46,6 +46,7 @@
                 color="gray"
                 icon="i-heroicons-x-circle"
                 variant="ghost"
+                aria-label="Clear Minecraft version filter"
                 @click="version = undefined"
               />
             </UTooltip>
@@ -65,6 +66,7 @@
                 color="gray"
                 icon="i-heroicons-x-circle"
                 variant="ghost"
+                aria-label="Clear mod loader filter"
                 @click="loader = undefined"
               />
             </UTooltip>
@@ -125,6 +127,7 @@
                 "
                 :disabled="downloadPending"
                 :loading="downloadPending && data._id === downloadPending"
+                :aria-label="`Download file ${data.file_name}`"
                 @click="onDownloadFile(data)"
               />
             </div>
