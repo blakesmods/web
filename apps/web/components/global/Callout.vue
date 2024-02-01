@@ -5,7 +5,7 @@
     <div>
       <UIcon v-if="icon" class="w-[24px] h-[24px]" :name="icon" />
     </div>
-    <div class="flex flex-col">
+    <div class="flex flex-col gap-1">
       <strong>{{ title }}</strong>
       <div class="text-sm">
         <slot></slot>

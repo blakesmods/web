@@ -3,7 +3,7 @@
   <div class="flex flex-col">
     <NuxtLink
       v-for="page in pages"
-      class="flex pl-2 py-0.5 border-l border-gray-300 dark:border-gray-700"
+      class="flex pl-2 py-1.5 md:py-0.5 border-l border-gray-300 dark:border-gray-700"
       :to="page._path"
     >
       {{ page.title }}
