@@ -8,6 +8,7 @@
               class="!inline-flex lg:!hidden"
               ref="sidebarToggle"
               icon="i-heroicons-bars-3-solid"
+              aria-label="View navigation button"
               @click="onToggleSidebar"
             />
             <UBreadcrumb :links="breadcrumbs" />
@@ -16,6 +17,7 @@
               ref="tocToggle"
               class="!inline-flex xl:!hidden ml-auto"
               icon="i-heroicons-bars-3-solid"
+              aria-label="View table of contents button"
               @click="toc = !toc"
             />
           </div>

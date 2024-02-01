@@ -5,7 +5,7 @@
     <div class="flex flex-col text-gray-500 dark:text-gray-400">
       <NuxtLink
         v-for="document in documents[category]"
-        class="relative pl-4 py-1 text-sm first:mt-2 hover:text-gray-700 dark:hover:text-gray-200 border-l border-gray-300 dark:border-gray-700"
+        class="relative pl-4 py-3 md:py-1 text-sm first:mt-2 hover:text-gray-700 dark:hover:text-gray-200 border-l border-gray-300 dark:border-gray-700"
         :class="{
           '!text-primary-500 dark:!text-primary-400 font-semibold':
             document._path === route.path

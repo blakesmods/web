@@ -26,6 +26,7 @@
           size="md"
           variant="primary"
           trailing-icon="i-heroicons-arrow-down-tray-solid"
+          aria-label="Download page button link"
         >
           <span class="hidden sm:inline-flex font-bold">Download</span>
         </UButton>

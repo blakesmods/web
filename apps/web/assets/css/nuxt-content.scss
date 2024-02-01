@@ -42,10 +42,6 @@
     padding: 0 0 0 24px;
   }
 
-  strong {
-    @apply font-bold;
-  }
-
   pre {
     @apply p-4 mt-5 mb-6 bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden hover:overflow-auto;
   }

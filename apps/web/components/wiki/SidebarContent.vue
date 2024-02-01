@@ -27,7 +27,7 @@
       >
         <NuxtLink
           v-for="article in articles[route.params.mod][category.slug]"
-          class="flex relative pl-2 py-1 text-sm first:mt-2 hover:text-gray-700 dark:hover:text-gray-200 border-l border-gray-300 dark:border-gray-700"
+          class="flex relative pl-2 py-1.5 md:py-1 text-sm first:mt-2 hover:text-gray-700 dark:hover:text-gray-200 border-l border-gray-300 dark:border-gray-700"
           :class="{
             '!text-primary-500 dark:!text-primary-400 font-semibold':
               article._path === route.path

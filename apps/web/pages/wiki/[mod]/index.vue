@@ -1,50 +1,75 @@
 <template>
   <div class="w-full py-4">
     <UBreadcrumb :links="breadcrumbs" />
-    <div class="py-4 text-center">
+    <div class="py-8 text-center">
       <h1>{{ mod.name }} Wiki</h1>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 pt-4 gap-4">
-      <UCard v-for="category in categories">
-        <template #header>
-          <h3 class="capitalize">{{ category }}</h3>
-        </template>
-        <div class="flex flex-col gap-1">
-          <NuxtLink
-            v-for="article in articles[category]"
-            class="flex relative py-0.5 pl-2 text-sm border-l border-gray-300 dark:border-gray-700"
-            :to="article._path"
-          >
-            <UPopover
-              v-if="article.icon"
-              class="my-auto pr-1 w-5 h-4"
-              mode="hover"
-              :popper="{ placement: 'top' }"
-            >
-              <NuxtImg
-                class="w-4 h-4"
-                :src="article.icon"
-                :alt="article.title"
-              />
 
-              <template #panel>
-                <NuxtImg
-                  class="w-16 h-16 pixelated"
-                  :alt="article.title"
-                  :src="article.icon"
-                />
-              </template>
-            </UPopover>
-            {{ article.title }}
-          </NuxtLink>
+    <div class="flex flex-wrap md:flex-nowrap gap-8">
+      <div class="flex flex-col w-full md:w-1/2 lg:w-1/3 gap-4">
+        <Callout
+          v-if="mod.has_docs"
+          title="Modpack Developers!"
+          icon="i-heroicons-information-circle-solid"
+        >
+          <span class="flex flex-col gap-4">
+            This wiki is for gameplay documentation. For advanced configuration,
+            check out the docs.
+            <UButton
+              class="inline-flex mr-auto"
+              color="gray"
+              :to="`/docs/${mod.mod_id}`"
+            >
+              View Docs
+            </UButton>
+          </span>
+        </Callout>
+        <UCard>
+          <template #header>
+            <h2 class="text-2xl text-center">Latest Articles</h2>
+          </template>
+          <div class="flex flex-col gap-3 md:gap-1">
+            <div v-for="article in recent" class="flex items-center gap-1">
+              <ArticleLink :article="article" />
+              <small class="capitalize opacity-80">- {{ article._dir }}</small>
+            </div>
+          </div>
+        </UCard>
+      </div>
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 pt-4 gap-8 w-full md:w-1/2 lg:w-2/3"
+      >
+        <div
+          v-for="category in categories"
+          class="flex flex-col gap-4"
+          :class="{
+            // this is a special case for desktop so that the enchantments section isn't off in no-mans land;
+            // hopefully I can remember to update this if I add new guides
+            'xl:relative xl:-top-[448px]':
+              mod.mod_id === 'mysticalagriculture' &&
+              category === 'enchantments'
+          }"
+        >
+          <h2 class="capitalize text-2xl">
+            {{ category }}
+          </h2>
+          <div class="flex flex-col gap-3 md:gap-1">
+            <ArticleLink
+              v-for="article in articles[category]"
+              :article="article"
+            />
+          </div>
         </div>
-      </UCard>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
 import categoriesJSON from "~/content/wiki/.categories.json";
+
+import ArticleLink from "~/components/wiki/ArticleLink.vue";
+import { coerce, rcompare } from "semver";
 
 definePageMeta({
   layout: "wiki"
@@ -114,6 +139,12 @@ for (const article of data.value) {
 
   articles.value[article._dir].push(article);
 }
+
+const recent = [...data.value]
+  .sort((a, b) =>
+    rcompare(coerce(a.version) ?? "1.0.0", coerce(b.version) ?? "1.0.0")
+  )
+  .slice(0, 8);
 
 const breadcrumbs = computed(() => [
   {
