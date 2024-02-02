@@ -575,3 +575,9 @@
     </ul>
   </div>
 </template>
+
+<script setup>
+useSeoMeta({
+  title: "Privacy Policy"
+});
+</script>

@@ -225,3 +225,9 @@
     </ul>
   </div>
 </template>
+
+<script setup>
+useSeoMeta({
+  title: "Cookie Policy"
+});
+</script>

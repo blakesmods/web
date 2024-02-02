@@ -312,3 +312,9 @@
     </ul>
   </div>
 </template>
+
+<script setup>
+useSeoMeta({
+  title: "Terms of Service"
+});
+</script>
