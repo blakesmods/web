@@ -110,6 +110,10 @@ const { data: page } = await useAsyncData(route.path, () =>
   queryContent(route.path).findOne()
 );
 
+if (!page.value) {
+  throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
+}
+
 const title = `${page.value.title} · ${mod.value.name} Wiki`;
 const description = parseDescription(page.value);
 const noindex = page.value._empty
