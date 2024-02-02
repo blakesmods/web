@@ -31,6 +31,8 @@
             <div class="flex h-[96px]">
               <NuxtImg
                 class="w-20 h-20 mr-4 my-auto object-contain"
+                width="80"
+                height="80"
                 :src="mod.logo"
                 :alt="mod.name + ' logo'"
               />

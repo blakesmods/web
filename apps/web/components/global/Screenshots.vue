@@ -20,8 +20,10 @@
         @click="onClickScreenshot(index)"
       >
         <NuxtImg
-          :src="data.image"
           class="w-full aspect-[16/9] object-contain"
+          width="160"
+          height="90"
+          :src="data.image"
           :alt="data.name"
         />
       </UCard>

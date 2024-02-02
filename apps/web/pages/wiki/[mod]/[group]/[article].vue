@@ -25,6 +25,8 @@
             <NuxtImg
               v-if="page.icon"
               class="w-12 h-12 pixelated object-contain"
+              width="48"
+              height="48"
               :src="page.icon"
               :alt="page.title"
             />

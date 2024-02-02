@@ -34,6 +34,8 @@
       <div class="flex w-full xl:max-w-[40%] xl:h-[550px] xl:items-center">
         <NuxtImg
           class="w-full border border-gray-300 dark:border-gray-700 rounded-xl shadow"
+          width="1920"
+          height="1080"
           :src="mod.hero_img"
           :alt="`${mod.name} hero image`"
         />

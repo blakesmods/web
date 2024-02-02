@@ -45,11 +45,11 @@
               class="flex flex-col w-full h-full p-4 justify-center items-center"
             >
               <NuxtImg
+                class="w-[50px] sm:w-[100px]"
+                width="100"
+                height="100"
                 :src="mod.logo"
                 :alt="mod.name + ' logo'"
-                class="w-[50px] sm:w-[100px]"
-                width="100%"
-                height="100%"
               />
 
               <div class="flex flex-col text-center">
