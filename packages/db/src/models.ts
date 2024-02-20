@@ -1,7 +1,7 @@
 import { ObjectId } from "mongodb";
 
 export interface Mod {
-  _id?: ObjectId;
+  _id: ObjectId;
   mod_id: string;
   mod_name: string;
   site_downloads: number;
@@ -16,7 +16,7 @@ export interface Mod {
 }
 
 export interface ModFile {
-  _id?: ObjectId;
+  _id: ObjectId;
   file_name: string;
   file_size: number;
   mod_id: string;
@@ -40,13 +40,13 @@ export interface ModFile {
 }
 
 export interface ModStats {
-  _id?: ObjectId;
+  _id: ObjectId;
   mod_id: string;
   downloads: Record<any, any>;
 }
 
 export interface PageViews {
-  _id?: ObjectId;
+  _id: ObjectId;
   mod_id: string;
   curseforge: Record<any, any>;
   modrinth: Record<any, any>;

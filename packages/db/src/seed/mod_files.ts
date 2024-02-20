@@ -17,7 +17,7 @@ export async function createModFiles(db: Db) {
       );
       const mcVersion = mcVersions[0].split(".").map(Number);
 
-      const file: ModFile = {
+      const file: Partial<ModFile> = {
         changelog: faker.lorem.lines(5),
         curseforge_downloads: faker.number.int(10000000),
         curseforge_id: faker.number.int(10000),
