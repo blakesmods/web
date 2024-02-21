@@ -1,6 +1,6 @@
 import { PageViews } from "@blakesmods/db";
 import dayjs from "dayjs";
-import { Router } from "itty-router";
+import { error, Router } from "itty-router";
 import { App as RealmApp, Credentials } from "realm-web";
 import { Env } from ".";
 
@@ -11,13 +11,11 @@ let Realm: RealmApp;
 router.get("/banners/:mod_id", async ({ params, query }, env: Env) => {
   const source = query.source;
   if (!source) {
-    return new Response("Missing `source` query parameter.", { status: 400 });
+    return error(400, "Missing `source` query parameter.");
   }
 
   if (source !== "curseforge" && source !== "modrinth") {
-    return new Response("`source` must be one of `curseforge` or `modrinth`", {
-      status: 400
-    });
+    return error(400, "`source` must be one of `curseforge` or `modrinth`");
   }
 
   const mod_id = params.mod_id;
@@ -50,7 +48,7 @@ router.get("/banners/:mod_id", async ({ params, query }, env: Env) => {
   );
 });
 
-router.all("*", () => new Response("Not Found.", { status: 404 }));
+router.all("*", () => error(404));
 
 async function getRealmUser(env: Env) {
   if (!Realm.currentUser?.isLoggedIn) {

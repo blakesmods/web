@@ -9,10 +9,10 @@
   },
   "devDependencies": {
     "@blakesmods/db": "*",
-    "@cloudflare/workers-types": "^4.20231218.0",
+    "@cloudflare/workers-types": "^4.20240208.0",
     "dayjs": "^1.11.10",
-    "itty-router": "^3.0.12",
+    "itty-router": "^4.0.27",
     "realm-web": "^2.0.0",
-    "wrangler": "^3.0.0"
+    "wrangler": "^3.28.4"
   }
 }
