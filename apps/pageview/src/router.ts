@@ -25,15 +25,14 @@ router.get("/banners/:mod_id", async ({ params, query }, env: Env) => {
   Realm = Realm || new RealmApp(env.REALM_APP_ID);
 
   try {
-    const credentials = Credentials.apiKey(env.REALM_API_KEY);
-    const user = await Realm.logIn(credentials);
+    const user = await getRealmUser(env);
     const client = user.mongoClient("mongodb-atlas");
 
     await client
       .db("blakesmods")
       .collection<PageViews>("page_views")
       .updateOne(
-        { mod_id: mod_id },
+        { mod_id },
         {
           $inc: {
             [`${source}.${dayjs().format("YYYY.M.D")}`]: 1
@@ -52,5 +51,14 @@ router.get("/banners/:mod_id", async ({ params, query }, env: Env) => {
 });
 
 router.all("*", () => new Response("Not Found.", { status: 404 }));
+
+async function getRealmUser(env: Env) {
+  if (!Realm.currentUser?.isLoggedIn) {
+    const credentials = Credentials.apiKey(env.REALM_API_KEY);
+    return await Realm.logIn(credentials);
+  }
+
+  return Realm.currentUser;
+}
 
 export default router;
