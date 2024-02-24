@@ -1,0 +1,7 @@
+name = "blakesmods-api"
+main = "src/index.ts"
+compatibility_date = "2023-12-18"
+
+[vars]
+BLAKESMODS_MAVEN_URL = "https://maven.blakesmods.com"
+REALM_APP_ID = "cloudflare-dtaby"

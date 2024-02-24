@@ -1,47 +1,22 @@
-import FastifyAutoload from "@fastify/autoload";
-import FastifyCookie from "@fastify/cookie";
-import FastifyCors from "@fastify/cors";
-import FastifyMongoDB from "@fastify/mongodb";
-import { fastify } from "fastify";
-import { join } from "path";
+import { createCors, error, json, Router, text } from "itty-router";
 
-const port = process.env.PORT || 5000;
-const server = fastify();
+import dayjs from "dayjs";
+import DayOfYear from "dayjs/plugin/dayOfYear";
 
-const start = async () => {
-  try {
-    server.register(require("fastify-blipp"));
-    server.register(FastifyCookie);
-    server.register(FastifyCors);
-    server.register(FastifyMongoDB, {
-      forceClose: true,
-      url:
-        process.env.MONGODB_URL ||
-        "mongodb://root:example@localhost:27017/blakesmods?authSource=admin"
-    });
-    server.register(FastifyAutoload, {
-      dir: join(__dirname, "plugins"),
-      encapsulate: false
-    });
-    server.register(FastifyAutoload, {
-      autoHooks: true,
-      dir: join(__dirname, "routes")
-    });
+dayjs.extend(DayOfYear);
 
-    server.get("/", async (request, reply) => {
-      return "Blake's Mods API server is running!";
-    });
+import V2Router from "./routes/v2";
 
-    await server.listen({ host: "0.0.0.0", port: +port });
+const router = Router({ base: "/" });
+const { preflight, corsify } = createCors();
 
-    // @ts-ignore
-    server.blipp();
-    console.log(`🚀 Server is running on port ${port}!`);
-  } catch (err) {
-    server.log.error(err);
-    console.log(err);
-    process.exit(1);
+router.all("*", preflight);
+router.get("/", () => text("The Blake's Mods API is running!"));
+router.all("/v2/*", V2Router);
+router.all("*", () => error(404));
+
+export default {
+  fetch(request: Request, env: Env): Promise<Response> {
+    return router.handle(request, env).then(json).catch(error).then(corsify);
   }
 };
-
-start();
