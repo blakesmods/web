@@ -29,7 +29,8 @@
             :key="index"
           >
             <div class="flex h-[96px]">
-              <NuxtImg
+              <!-- not using NuxtImg due to pre-rendering -->
+              <img
                 class="w-20 h-20 mr-4 my-auto object-contain"
                 width="80"
                 height="80"
