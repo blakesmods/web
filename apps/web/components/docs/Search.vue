@@ -44,7 +44,7 @@ onMounted(async () => {
 
   DocsSearchBar.default({
     hostUrl: "https://meilisearch.blakesmods.com",
-    apiKey: "69ae8bcf28aa770b8f3067179722f486cb5b1a73b6925ddcfd3883415dc61dee",
+    apiKey: "e4af2394f83a96959449936bf870e7ae8ae82475b6e2bf90877d5c94de33ce6a",
     indexUid: "docs",
     inputSelector: "#search",
     enableDarkMode: true,
