@@ -292,7 +292,7 @@ You can modify the base chance of a second seed/essence dropping from the crop w
 ::u-badge{label="5.0.1+" color="green"}
 ::
 
-You can disable the +10% additional secondary seed drop chance.
+You can disable the +10% additional secondary seed drop chance applied when planted on the `farmland` block set in the Crop Tier.
 ```json
 {
   "respectsEffectiveFarmland": false
