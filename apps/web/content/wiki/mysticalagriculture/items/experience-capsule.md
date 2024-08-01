@@ -14,4 +14,4 @@ The Experience Capsule is used to store experience points. It is mostly used to 
 
 While in a players inventory, any Experience Orbs picked up by the player will automatically go into the Experience Capsule. 
 
-Experience can be manually added from the players experience to the Capsule by right-clicking it. Experience can also be taken from the Capsule and added to the players experience by shift-right-clicking it.
+As of version 7.0.1, Experience can be manually added from the player's Experience to the Capsule by right-clicking it. Experience can also be taken from the Capsule and added to the player's Experience by shift-right-clicking it.
