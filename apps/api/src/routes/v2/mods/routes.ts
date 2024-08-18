@@ -123,6 +123,65 @@ export default async function (fastify: FastifyInstance) {
   );
 
   fastify.get(
+    "/:mod_id/:mc_version_group/updates",
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      const { mod_id, mc_version_group } = request.params as any;
+
+      const files = await db
+        .collection<ModFile>("mod_files")
+        .find({
+          mod_id,
+          mc_version_group
+        })
+        .sort({
+          "mod_version_parts.major": -1,
+          "mod_version_parts.minor": -1,
+          "mod_version_parts.patch": -1
+        })
+        .toArray();
+
+      const mod = await db.collection<Mod>("mods").findOne({
+        mod_id
+      });
+
+      const versions = {} as any;
+
+      for (const file of files) {
+        for (const version of file.mc_versions) {
+          if (!versions[version]) {
+            versions[version] = {
+              mc_version: version,
+              latest: file.mod_version,
+              recommended: file.mod_version,
+              files: []
+            };
+          }
+
+          versions[version].files.push(file);
+        }
+      }
+
+      return {
+        // NOTE: the website uses the same slug format (includes dashes)
+        homepage: `https://blakesmods.com/${mod!.curseforge_slug}`,
+        promos: Object.values(versions).reduce((a: any, b: any) => {
+          a[`${b.mc_version}-recommended`] = b.recommended;
+          a[`${b.mc_version}-latest`] = b.latest;
+          return a;
+        }, {}),
+        ...(Object.values(versions).reduce((a: any, b: any) => {
+          a[b.mc_version] = b.files.reduce((c: any, d: any) => {
+            c[d.mod_version] =
+              `https://blakesmods.com/${mod!.curseforge_slug}/download/${d.mod_version}`;
+            return c;
+          }, {});
+          return a;
+        }, {}) as any)
+      };
+    }
+  );
+
+  fastify.get(
     "/:mod_id/:mc_version_group",
     async (request: FastifyRequest, reply: FastifyReply) => {
       const { mod_id, mc_version_group } = request.params as any;
