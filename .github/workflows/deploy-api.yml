@@ -44,6 +44,6 @@ jobs:
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.INFRASTRUCTURE_PAT }}
-          repository: blakesmods/infrastructure
-          event-type: deploy-api
+          repository: somewareio/infrastructure
+          event-type: blakesmods-deploy-api
           client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
