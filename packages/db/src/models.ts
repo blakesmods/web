@@ -43,6 +43,7 @@ export interface ModStats {
   _id: ObjectId;
   mod_id: string;
   downloads: Record<any, any>;
+  launches: Record<any, any>;
 }
 
 export interface PageViews {

@@ -1,4 +1,5 @@
-import { Mod, ModFile } from "@blakesmods/db";
+import { Mod, ModFile, ModStats } from "@blakesmods/db";
+import dayjs from "dayjs";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { coerce, rcompare } from "semver";
 
@@ -160,6 +161,17 @@ export default async function (fastify: FastifyInstance) {
           versions[version].files.push(file);
         }
       }
+
+      await db.collection<ModStats>("mod_stats").updateOne(
+        {
+          mod_id
+        },
+        {
+          $inc: {
+            [`launches.${mc_version_group}.${dayjs().format("YYYY.M.D")}`]: 1
+          }
+        }
+      );
 
       return {
         // NOTE: the website uses the same slug format (includes dashes)
