@@ -1,5 +1,6 @@
 import { MongoClient } from "mongodb";
 import { createModFiles } from "./mod_files";
+import { createModStats } from "./mod_stats";
 import { createMods } from "./mods";
 
 async function main() {
@@ -11,6 +12,7 @@ async function main() {
 
   await createMods(db);
   await createModFiles(db);
+  await createModStats(db);
 
   await client.close();
 
