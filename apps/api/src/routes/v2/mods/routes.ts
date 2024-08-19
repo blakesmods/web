@@ -184,7 +184,7 @@ export default async function (fastify: FastifyInstance) {
         ...(Object.values(versions).reduce((a: any, b: any) => {
           a[b.mc_version] = b.files.reduce((c: any, d: any) => {
             c[d.mod_version] =
-              `https://blakesmods.com/${mod!.curseforge_slug}/download/${d.mod_version}`;
+              `https://blakesmods.com/${mod!.curseforge_slug}/download/${d._id}`;
             return c;
           }, {});
           return a;
