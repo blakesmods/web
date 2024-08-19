@@ -89,7 +89,11 @@
       >
         <Column name="expander" expander :header-style="{ width: '40px' }" />
         <Column field="file_name" header="File Name" expander>
-          <template #body="{ data }">{{ data.file_name }}</template>
+          <template #body="{ data }">
+            <NuxtLink :to="`./download/${data._id}`">
+              {{ data.file_name }}
+            </NuxtLink>
+          </template>
         </Column>
         <Column field="upload_date" header="Release Date" header-class="right">
           <template #body="{ data }">

@@ -78,4 +78,28 @@ export default async function (fastify: FastifyInstance) {
       }
     }
   );
+
+  fastify.get(
+    "/:file_id/info",
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      const { file_id } = request.params as any;
+
+      const file = await db
+        .collection<ModFile>("mod_files")
+        .findOne({ _id: new ObjectId(file_id) });
+
+      if (!file) {
+        reply.status(404);
+
+        return {
+          success: false
+        };
+      }
+
+      return {
+        success: true,
+        data: file
+      };
+    }
+  );
 }
