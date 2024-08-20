@@ -3,6 +3,7 @@ id: furnace
 title: Furnace
 icon: /assets/mysticalagriculture/blocks/furnace.png
 sort: 59
+version: 8.0.0
 ---
 
 ## Overview
