@@ -83,12 +83,15 @@ const features = ref([
     link: "/wiki/mysticalagriculture/blocks/harvester"
   },
   {
-    title: "Essence Furnaces",
+    title: "Improved Processing",
     description: [
-      "Use your extra essences to create furnaces with increased speed and fuel efficiency."
+      "Create upgradable Furnaces and Seed Reprocessors for increased speed and fuel efficiency."
     ],
-    images: ["/assets/mysticalagriculture/blocks/inferium_furnace.png"],
-    link: "/wiki/mysticalagriculture/blocks/essence-furnace"
+    images: [
+      "/assets/mysticalagriculture/blocks/furnace.png",
+      "/assets/mysticalagriculture/blocks/seed_reprocessor.png"
+    ],
+    link: "/wiki/mysticalagriculture/blocks/furnace"
   },
   {
     title: "Enchanter",
