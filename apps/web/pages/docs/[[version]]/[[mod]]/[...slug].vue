@@ -121,19 +121,28 @@ const toc = ref(false);
 const pathParts = page.value._path.split("/");
 
 const version = useDocsVersion();
+const isLatestVersion = useDocsIsLatestVersion();
 
 const breadcrumbs = computed(() =>
   [
     pathParts.length > 2 && {
       label: "Docs",
-      to: `/docs/${version.value}`
+      to: isLatestVersion ? "/docs" : `/docs/${version.value}`
     },
     pathParts.length > 3 && {
       label: version.value
     },
     pathParts.length > 3 && {
       label: page.value.category,
-      to: pathParts.length > 4 ? pathParts.slice(0, 4).join("/") : undefined
+      to:
+        pathParts.length > 4
+          ? isLatestVersion
+            ? pathParts
+                .slice(0, 4)
+                .filter(s => s !== version.value)
+                .join("/")
+            : pathParts.slice(0, 4).join("/")
+          : undefined
     },
     pathParts.length > 4 && {
       label: page.value.title
