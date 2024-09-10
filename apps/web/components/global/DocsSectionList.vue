@@ -16,10 +16,12 @@ const props = defineProps({
   mod: String
 });
 
+const version = useDocsVersion();
+
 const pages = ref([]);
 
 const { data } = await useAsyncData(props.mod + "-docs-listing", () =>
-  queryContent("docs", props.mod).only(["title", "_path"]).find()
+  queryContent("docs", version.value, props.mod).only(["title", "_path"]).find()
 );
 
 pages.value = data.value.slice(1);

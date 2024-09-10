@@ -49,6 +49,8 @@ const props = defineProps({
 });
 
 const mods = useMods();
+const version = useDocsVersion();
+const isLatestVersion = useDocsIsLatestVersion();
 
 const parts = props.current._path.split("/").slice(1);
 
@@ -58,8 +60,25 @@ const { data } = await useAsyncData(() =>
 
 const [previous, next] = data.value;
 
+// latest version doesn't have the version in the url
+if (isLatestVersion) {
+  if (previous) {
+    previous._path = previous._path
+      .split("/")
+      .filter(s => s !== version.value)
+      .join("/");
+  }
+
+  if (next) {
+    next._path = next._path
+      .split("/")
+      .filter(s => s !== version.value)
+      .join("/");
+  }
+}
+
 function formatModName(document) {
-  const name = document._path.split("/")[2];
+  const name = document._path.split("/")[isLatestVersion ? 2 : 3];
   const mod = mods.value.find(mod => mod.mod_id === name);
   return mod ? mod.name : name;
 }
