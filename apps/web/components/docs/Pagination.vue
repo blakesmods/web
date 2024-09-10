@@ -62,15 +62,19 @@ const [previous, next] = data.value;
 
 // latest version doesn't have the version in the url
 if (isLatestVersion) {
-  previous._path = previous._path
-    .split("/")
-    .filter(s => s !== version.value)
-    .join("/");
+  if (previous) {
+    previous._path = previous._path
+      .split("/")
+      .filter(s => s !== version.value)
+      .join("/");
+  }
 
-  next._path = next._path
-    .split("/")
-    .filter(s => s !== version.value)
-    .join("/");
+  if (next) {
+    next._path = next._path
+      .split("/")
+      .filter(s => s !== version.value)
+      .join("/");
+  }
 }
 
 function formatModName(document) {
