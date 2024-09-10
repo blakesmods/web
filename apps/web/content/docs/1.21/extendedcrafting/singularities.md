@@ -49,10 +49,10 @@ You need to use an NBT ingredient for singularities. In the NBT tag you need to 
 
 ```json
 {
-  "type": "forge:nbt",
-  "item": "extendedcrafting:singularity",
-  "nbt": {
-    "Id": "extendedcrafting:diamond"
+  "type": "neoforge:components",
+  "items": "extendedcrafting:singularity",
+  "components": {
+    "extendedcrafting:singularity_id": "extendedcrafting:diamond"
   }
 }
 ```
@@ -61,4 +61,4 @@ You need to use an NBT ingredient for singularities. In the NBT tag you need to 
 
 ## Removing Singularities
 
-Just delete the singularity's file from `/config/extendedcrafting/singularities`. As of version 4.1.0, you can also add `"enabled": false` to the singularity file to disable it.
+Just delete the singularity's file from `/config/extendedcrafting/singularities`. You can also add `"enabled": false` to the singularity file to disable it.

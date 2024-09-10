@@ -55,8 +55,8 @@ Since each Jetpack is differentiated using NBT, you will need to provide the NBT
 {
   "result": {
     "item": "ironjetpacks:jetpack",
-    "nbt": {
-      "Id": "ironjetpacks:diamond"
+    "components": {
+      "ironjetpacks:jetpack_id": "ironjetpacks:diamond"
     }
   }
 }

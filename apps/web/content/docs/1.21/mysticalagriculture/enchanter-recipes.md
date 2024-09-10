@@ -44,16 +44,16 @@ This section will go over the values available to use in a Seed Reprocessor reci
 
 ## CraftTweaker
 
-As of version 7.0.3, Mystical Agriculture allows you easily add your own Enchanter recipes using CraftTweaker. Here's how you do it.
+Mystical Agriculture allows you easily add your own Enchanter recipes using CraftTweaker. Here's how you do it.
 
 ::callout{title="Note" icon="i-heroicons-information-circle-solid"}
-As of version **7.0.4**, CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:mysticalagriculture:enchanter\>**!
+CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.21.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:mysticalagriculture:enchanter\>**!
 ::
 
 ### Adding a recipe
 
 ```java
-mods.mysticalagriculture.EnchanterCrafting.addRecipe(name, <enchantment>, [<inputs>]);
+<recipetype:mysticalagriculture:enchanter>.addRecipe(name, <enchantment>, [<inputs>]);
 ```
 
 | Field         | Required | Description                                                                                                                                                                                 |
@@ -65,7 +65,7 @@ mods.mysticalagriculture.EnchanterCrafting.addRecipe(name, <enchantment>, [<inpu
 #### Example
 
 ```java
-mods.mysticalagriculture.EnchanterCrafting.addRecipe("fancy_sharpness", "minecraft:protection", [
+<recipetype:mysticalagriculture:enchanter>.addRecipe("fancy_sharpness", "minecraft:protection", [
     <item:minecraft:carrot> * 24, <item:minecraft:cobblestone> * 128
 ]);
 ```
@@ -73,7 +73,7 @@ mods.mysticalagriculture.EnchanterCrafting.addRecipe("fancy_sharpness", "minecra
 ### Removing Recipes
 
 ```java
-mods.mysticalagriculture.EnchanterCrafting.remove(<enchantment>);
+<recipetype:mysticalagriculture:enchanter>.removeByEnchantment(<enchantment>);
 ```
 
 | Field         | Required | Description                                          |

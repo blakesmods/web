@@ -19,22 +19,22 @@ This section will go over the values available to use in an Ender Crafting recip
 
 #### Shaped
 
-| Field          | Required | Description                                                          |
-|----------------|----------|----------------------------------------------------------------------|
-| `type`         | ✓        | The recipe type must be `extendedcrafting:shaped_ender_crafter`.     |
-| `craftingTime` |          | The amount of time (in seconds) this recipe should take.             |
-| `pattern`      | ✓        | The recipe pattern.                                                  |
-| `key`          | ✓        | The recipe key, for specifying which item each character represents. |
-| `result`       | ✓        | The item that this recipe will output once finished                  |
+| Field           | Required | Description                                                          |
+|-----------------|----------|----------------------------------------------------------------------|
+| `type`          | ✓        | The recipe type must be `extendedcrafting:shaped_ender_crafter`.     |
+| `crafting_time` |          | The amount of time (in seconds) this recipe should take.             |
+| `pattern`       | ✓        | The recipe pattern.                                                  |
+| `key`           | ✓        | The recipe key, for specifying which item each character represents. |
+| `result`        | ✓        | The item that this recipe will output once finished                  |
 
 #### Shapeless
 
-| Field          | Required | Description                                                         |
-|----------------|----------|---------------------------------------------------------------------|
-| `type`         | ✓        | The recipe type must be `extendedcrafting:shapeless_ender_crafter`. |
-| `craftingTime` |          | The amount of time (in seconds) this recipe should take.            |
-| `ingredients`  | ✓        | An array of 1-9 input items.                                        |
-| `result`       | ✓        | The item that this recipe will output once finished.                |
+| Field           | Required | Description                                                         |
+|-----------------|----------|---------------------------------------------------------------------|
+| `type`          | ✓        | The recipe type must be `extendedcrafting:shapeless_ender_crafter`. |
+| `crafting_time` |          | The amount of time (in seconds) this recipe should take.            |
+| `ingredients`   | ✓        | An array of 1-9 input items.                                        |
+| `result`        | ✓        | The item that this recipe will output once finished.                |
 
 **Note**: `craftingTime` refers to the amount of time in seconds that the recipe should take with a single alternator. Adding more alternators will make the crafting operation faster.
 
@@ -51,11 +51,11 @@ This section will go over the values available to use in an Ender Crafting recip
   ],
   "key": {
     "X": {
-      "tag": "forge:ingots/gold"
+      "tag": "c:ingots/gold"
     }
   },
   "result": {
-    "item": "minecraft:apple"
+    "id": "minecraft:apple"
   }
 }
 ```
@@ -74,7 +74,7 @@ This section will go over the values available to use in an Ender Crafting recip
     }
   ],
   "result": {
-    "item": "minecraft:apple"
+    "id": "minecraft:apple"
   }
 }
 ```
@@ -84,13 +84,13 @@ This section will go over the values available to use in an Ender Crafting recip
 Extended Crafting comes with CraftTweaker support built-in. You can make use of CraftTweaker to easily manage Ender Crafting recipes.
 
 ::callout{title="Recipe Manager Support" icon="i-heroicons-information-circle-solid"}
-As of version **6.0.3**, CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:extendedcrafting:ender_crafter\>**!
+CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:extendedcrafting:ender_crafter\>**!
 ::
 
 ### Adding A Shaped Recipe
 
 ```java
-mods.extendedcrafting.EnderCrafting.addShaped(name, <output>, [[<>, <>, <>], [<>, <>, <>], [<>, <>, <>]], seconds);  
+<recipetype:extendedcrafting:ender_crafter>.addShaped(name, <output>, [[<>, <>, <>], [<>, <>, <>], [<>, <>, <>]], seconds);  
 ```
 
 | Field     | Required | Description                                                                                                                            |
@@ -105,17 +105,17 @@ The input arrays work in the same way as the normal crafting recipes, check out 
 #### Example
 
 ```java
-mods.extendedcrafting.EnderCrafting.addShaped("test_shaped", <item:minecraft:stick>, [
-  [<tag:items:forge:ingots/iron>, <item:minecraft:air>, <item:minecraft:air>], 
-  [<tag:items:forge:ingots/gold>, <tag:items:forge:ingots/gold>, <item:minecraft:air>], 
-  [<tag:items:forge:ingots/gold>, <item:minecraft:air>, <item:minecraft:air>]
+<recipetype:extendedcrafting:ender_crafter>.addShaped("test_shaped", <item:minecraft:stick>, [
+  [<tag:item:c:ingots/iron>, <item:minecraft:air>, <item:minecraft:air>], 
+  [<tag:item:c:ingots/gold>, <tag:item:c:ingots/gold>, <item:minecraft:air>], 
+  [<tag:item:c:ingots/gold>, <item:minecraft:air>, <item:minecraft:air>]
 ], 500);
 ```
 
 ### Adding A Shapeless Recipe
 
 ```java
-mods.extendedcrafting.EnderCrafting.addShapeless(name, <output>, [inputs], seconds); 
+<recipetype:extendedcrafting:ender_crafter>.addShapeless(name, <output>, [inputs], seconds); 
 ```
 
 | Field     | Required | Description                                                                                                                            |
@@ -128,15 +128,15 @@ mods.extendedcrafting.EnderCrafting.addShapeless(name, <output>, [inputs], secon
 #### Example
 
 ```java
-mods.extendedcrafting.EnderCrafting.addShapeless("test_shapeless", <item:minecraft:cobblestone>, [
-  <tag:items:forge:gems/diamond>, <tag:items:forge:gems/diamond>, <tag:items:forge:gems/diamond>, <tag:items:forge:gems/diamond>, <tag:items:forge:gems/diamond>, <tag:items:forge:gems/diamond>
+<recipetype:extendedcrafting:ender_crafter>.addShapeless("test_shapeless", <item:minecraft:cobblestone>, [
+  <tag:item:c:gems/diamond>, <tag:item:c:gems/diamond>, <tag:item:c:gems/diamond>, <tag:item:c:gems/diamond>, <tag:item:c:gems/diamond>, <tag:item:c:gems/diamond>
 ], 30);
 ```
 
 ### Removing Recipes
 
 ```java
-mods.extendedcrafting.EnderCrafting.remove(<output>);
+<recipetype:extendedcrafting:ender_crafter>.remove(<output>);
 ```
 
 | Field    | Required | Description                         |

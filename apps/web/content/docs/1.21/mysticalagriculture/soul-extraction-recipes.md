@@ -29,27 +29,27 @@ This section will go over the values available to use in a Soul Extraction recip
 {
   "type": "mysticalagriculture:soul_extraction",
   "input": {
-    "item": "minecraft:blaze_rod"
+    "item": "minecraft:blaze_powder"
   },
-  "output": {
+  "result": {
     "type": "mysticalagriculture:blaze",
-    "souls": 0.5
+    "souls": 0.25
   }
 }
 ```
 
 ## CraftTweaker
 
-As of version 4.2.0, Mystical Agriculture allows you easily add your own Soul Extraction recipes using CraftTweaker. Here's how you do it.
+Mystical Agriculture allows you easily add your own Soul Extraction recipes using CraftTweaker. Here's how you do it.
 
 ::callout{title="Recipe Manager Support" icon="i-heroicons-information-circle-solid"}
-As of version **7.0.4**, CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:mysticalagriculture:soul_extraction\>**!
+CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:mysticalagriculture:soul_extraction\>**!
 ::
 
 ### Adding A Recipe
 
 ```java
-mods.mysticalagriculture.SoulExtractorCrafting.addRecipe(name, <output>, <input>);
+<recipetype:mysticalagriculture:soul_extraction>.addRecipe(name, <input>, "type", souls);
 ```
 
 | Field   | Required | Description                                                               |
@@ -62,14 +62,14 @@ mods.mysticalagriculture.SoulExtractorCrafting.addRecipe(name, <output>, <input>
 #### Example
 
 ```java
-mods.mysticalagriculture.SoulExtractorCrafting.addRecipe("test", <tag:forge:ingots/iron>, "mysticalagriculture:spider", 0.5);
+<recipetype:mysticalagriculture:soul_extraction>.addRecipe("test", <tag:item:c:ingots/iron>, "mysticalagriculture:spider", 0.5);
 ```
 
 ### Removing Recipes
 #### Remove By Item
 
 ```java
-mods.mysticalagriculture.SoulExtractorCrafting.remove(<output>);
+<recipetype:mysticalagriculture:soul_extraction>.removeByInput(<output>);
 ```
 
 | Field    | Required | Description                         |
@@ -79,7 +79,7 @@ mods.mysticalagriculture.SoulExtractorCrafting.remove(<output>);
 #### Remove By Mob Soul Type
 
 ```java
-mods.mysticalagriculture.SoulExtractorCrafting.remove("type");
+<recipetype:mysticalagriculture:soul_extraction>.removeByMobSoulType("type");
 ```
 
 | Field  | Required | Description                                  |

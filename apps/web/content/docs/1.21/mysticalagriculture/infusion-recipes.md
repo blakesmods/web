@@ -50,41 +50,42 @@ This section will go over the values available to use in an Infusion Crafting re
     }
   ],
   "result": {
-    "item": "minecraft:potato"
+    "id": "minecraft:potato"
   }
 }
 ```
 
 ## CraftTweaker
 
-As of version 3.0.8, Mystical Agriculture allows you easily add your own Infusion Crafting recipes using CraftTweaker. Here's how you do it.
+Mystical Agriculture allows you easily add your own Infusion Crafting recipes using CraftTweaker. Here's how you do it.
 
 ::callout{title="Recipe Manager Support" icon="i-heroicons-information-circle-solid"}
-As of version **7.0.4**, CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:mysticalagriculture:infusion\>**!
+CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:mysticalagriculture:infusion\>**!
 ::
 
 ### Adding A Recipe
 
 ```java
-mods.mysticalagriculture.InfusionCrafting.addRecipe(name, <output>, [inputs]);
+mods.mysticalagriculture.InfusionCrafting.addRecipe(name, <output>, <input>, [<inputs>]);
 ```
 
 | Field    | Required | Description                                                                                                          |
 |----------|----------|----------------------------------------------------------------------------------------------------------------------|
 | `name`   | ✓        | A unique name for this recipe. Must be all lower case and have no spaces.                                            |
 | `output` | ✓        | The output item for this recipe.                                                                                     |
+| `input`  | ✓        | The item that will be placed on the Infusion Altar.                                                                  |
 | `inputs` | ✓        | An array of 1-9 items. The first item is the item that goes on the Infusion Altar, and the rest go on the pedestals. |
 
 #### Example
 
 ```java
-mods.mysticalagriculture.InfusionCrafting.addRecipe("test", <item:minecraft:stick> * 10, [<item:minecraft:diamond>, <tag:forge:ingots/iron>, <item:minecraft:stick>]);
+<recipetype:mysticalagriculture:infusion>.addRecipe("test", <item:minecraft:stick> * 10, <item:minecraft:diamond>, [<tag:forge:ingots/iron>, <item:minecraft:stick>]);
 ```
 
 ### Removing Recipes
 
 ```java
-mods.mysticalagriculture.InfusionCrafting.remove(<output>);
+<recipetype:mysticalagriculture:infusion>.remove(<output>);
 ```
 
 | Field    | Required | Description                         |

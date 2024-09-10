@@ -20,28 +20,31 @@ This section will go over the values available to use in a Compressor recipe. Sy
 | Field        | Required | Description                                                                         |
 |--------------|----------|-------------------------------------------------------------------------------------|
 | `type`       | ✓        | The recipe type must be `extendedcrafting:compressor`.                              |
-| `powerCost`  | ✓        | The amount of power required to craft this recipe.                                  |
-| `powerRate`  |          | The amount of power consumed per tick. If omitted will default to the config value. |
-| `ingredient` | ✓        | The input item.                                                                     |
-| `inputCount` | ✓        | The amount of the input item required.                                              |
+| `power_cost` | ✓        | The amount of power required to craft this recipe.                                  |
+| `power_rate` |          | The amount of power consumed per tick. If omitted will default to the config value. |
+| `ingredient` | ✓        | The input item and count.                                                           |
 | `catalyst`   | ✓        | The catalyst item. This item does not get consumed.                                 |
 | `result`     | ✓        | The item that this recipe will output once finished.                                |
+
+::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+power_cost / power_rate = the amount of ticks required in the crafting stage.
+::
 
 ### Example File
 
 ```json
 {
   "type": "extendedcrafting:compressor",
-  "powerCost": 500000,
-  "inputCount": 10000,
+  "power_cost": 500000,
   "ingredient": {
-    "item": "minecraft:carrot"
+    "item": "minecraft:carrot",
+    "count": 10000
   },
   "catalyst": {
     "item": "extendedcrafting:ender_catalyst"
   },
   "result": {
-    "item": "minecraft:cobblestone"
+    "id": "minecraft:cobblestone"
   }
 }
 ```
@@ -51,41 +54,41 @@ This section will go over the values available to use in a Compressor recipe. Sy
 Extended Crafting comes with CraftTweaker support built-in. You can make use of CraftTweaker to easily manage Compression Crafting recipes.
 
 ::callout{title="Recipe Manager Support" icon="i-heroicons-information-circle-solid"}
-As of version **6.0.3**, CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:extendedcrafting:compressor\>**!
+CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:extendedcrafting:compressor\>**!
 ::
 
 ### Adding a Recipe
 
 ```java
-mods.extendedcrafting.CompressionCrafting.addRecipe(name, <input>, <output>, inputCount, <catalyst>, powerCost);    
-mods.extendedcrafting.CompressionCrafting.addRecipe(name, <input>, <output>, inputCount, <catalyst>, powerCost, powerRate);
+<recipetype:extendedcrafting:compressor>.addRecipe(name, <input>, <output>, input_count, <catalyst>, power_cost);    
+<recipetype:extendedcrafting:compressor>.addRecipe(name, <input>, <output>, input_count, <catalyst>, power_cost, power_rate);
 ```
 
-| Field        | Required | Description                                                                                                                                               |
-|--------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `name`       | ✓        | A unique name for this recipe. Must be all lower case and have no spaces.                                                                                 |
-| `input`      | ✓        | The output item for this recipe.                                                                                                                          |
-| `inputCount` | ✓        | The amount of the input item that is required.                                                                                                            |
-| `catalyst`   | ✓        | The input item.                                                                                                                                           |
-| `inputCount` | ✓        | The amount of the input item required.                                                                                                                    |
-| `catalyst`   | ✓        | The item that is required as a catalyst. This does not get consumed and goes in the small slot to the left.                                               |
-| `powerCost`  | ✓        | The amount of FE required to complete the crafting stage of compression.                                                                                  |
-| `powerRate`  |          | The rate the recipe should consume FE during the crafting stage.  If this parameter isn't added, it will use the default rate defined in the config file. |
+| Field         | Required | Description                                                                                                                                               |
+|---------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `name`        | ✓        | A unique name for this recipe. Must be all lower case and have no spaces.                                                                                 |
+| `input`       | ✓        | The output item for this recipe.                                                                                                                          |
+| `input_count` | ✓        | The amount of the input item that is required.                                                                                                            |
+| `catalyst`    | ✓        | The input item.                                                                                                                                           |
+| `inputCount`  | ✓        | The amount of the input item required.                                                                                                                    |
+| `catalyst`    | ✓        | The item that is required as a catalyst. This does not get consumed and goes in the small slot to the left.                                               |
+| `power_cost`  | ✓        | The amount of FE required to complete the crafting stage of compression.                                                                                  |
+| `power_rate`  |          | The rate the recipe should consume FE during the crafting stage.  If this parameter isn't added, it will use the default rate defined in the config file. |
 
 ::callout{title="Note" icon="i-heroicons-information-circle-solid"}
-powerCost / powerRate = the amount of ticks required in the crafting stage.
+power_cost / power_rate = the amount of ticks required in the crafting stage.
 ::
 
 #### Example
 
 ```java
-mods.extendedcrafting.CompressionCrafting.addRecipe("test", <tag:forge:ingots/iron>, <item:minecraft:apple>, 50000, <tag:forge:ingots/gold>, 2000000, 200);
+<recipetype:extendedcrafting:compressor>.addRecipe("test", <tag:item:c:ingots/iron>, <item:minecraft:apple>, 50000, <tag:item:c:ingots/gold>, 2000000, 200);
 ```
 
 ### Removing Recipes
 
 ```java
-mods.extendedcrafting.CompressionCrafting.remove(<output>);
+<recipetype:extendedcrafting:compressor>.remove(<output>);
 ```
 
 | Field    | Required | Description                         |

@@ -49,11 +49,11 @@ This section will go over the values available to use in a Table Crafting recipe
   ],
   "key": {
     "X": {
-      "tag": "forge:ingots/gold"
+      "tag": "c:ingots/gold"
     }
   },
   "result": {
-    "item": "minecraft:apple"
+    "id": "minecraft:apple"
   }
 }
 ```
@@ -71,11 +71,11 @@ This section will go over the values available to use in a Table Crafting recipe
   ],
   "key": {
     "X": {
-      "tag": "forge:ingots/gold"
+      "tag": "c:ingots/gold"
     }
   },
   "result": {
-    "item": "minecraft:apple"
+    "id": "minecraft:apple"
   }
 }
 ```
@@ -95,11 +95,11 @@ This section will go over the values available to use in a Table Crafting recipe
   ],
   "key": {
     "X": {
-      "tag": "forge:ingots/gold"
+      "tag": "c:ingots/gold"
     }
   },
   "result": {
-    "item": "minecraft:apple"
+    "id": "minecraft:apple"
   }
 }
 ```
@@ -121,11 +121,11 @@ This section will go over the values available to use in a Table Crafting recipe
   ],
   "key": {
     "X": {
-      "tag": "forge:ingots/gold"
+      "tag": "c:ingots/gold"
     }
   },
   "result": {
-    "item": "minecraft:apple"
+    "id": "minecraft:apple"
   }
 }
 ```
@@ -144,7 +144,7 @@ This section will go over the values available to use in a Table Crafting recipe
     }
   ],
   "result": {
-    "item": "minecraft:apple"
+    "id": "minecraft:apple"
   }
 }
 ```
@@ -154,21 +154,21 @@ This section will go over the values available to use in a Table Crafting recipe
 Extended Crafting comes with CraftTweaker support built-in. You can make use of CraftTweaker to easily manage Table Crafting recipes.
 
 ::callout{title="Recipe Manager Support" icon="i-heroicons-information-circle-solid"}
-As of version **6.0.3**, CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:extendedcrafting:table\>**!
+CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:extendedcrafting:table\>**!
 ::
 
 ### Adding A Shaped Recipe
 
 ```java
-mods.extendedcrafting.TableCrafting.addShaped(name, <output>, [[<>, <>, <>], [<>, <>, <>], [<>, <>, <>]]);  
-mods.extendedcrafting.TableCrafting.addShaped(name, <output>, [[<>, <>, <>, <>, <>], [<>, <>, <>, <>, <>], [<>, <>, <>, <>, <>], [<>, <>, <>, <>, <>], [<>, <>, <>, <>, <>]]);  
-mods.extendedcrafting.TableCrafting.addShaped(name, <output>, [[<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>]]);  
-mods.extendedcrafting.TableCrafting.addShaped(name, <output>, [[<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>]]);  
+<recipetype:extendedcrafting:table>.addShaped(name, <output>, [[<>, <>, <>], [<>, <>, <>], [<>, <>, <>]]);  
+<recipetype:extendedcrafting:table>.addShaped(name, <output>, [[<>, <>, <>, <>, <>], [<>, <>, <>, <>, <>], [<>, <>, <>, <>, <>], [<>, <>, <>, <>, <>], [<>, <>, <>, <>, <>]]);  
+<recipetype:extendedcrafting:table>.addShaped(name, <output>, [[<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>]]);  
+<recipetype:extendedcrafting:table>.addShaped(name, <output>, [[<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>]]);  
 
-mods.extendedcrafting.TableCrafting.addShaped(name, tier, <output>, [[<>, <>, <>], [<>, <>, <>], [<>, <>, <>]]);  
-mods.extendedcrafting.TableCrafting.addShaped(name, tier, <output>, [[<>, <>, <>, <>, <>], [<>, <>, <>, <>, <>], [<>, <>, <>, <>, <>], [<>, <>, <>, <>, <>], [<>, <>, <>, <>, <>]]);  
-mods.extendedcrafting.TableCrafting.addShaped(name, tier, <output>, [[<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>]]);  
-mods.extendedcrafting.TableCrafting.addShaped(name, tier, <output>, [[<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>]]);
+<recipetype:extendedcrafting:table>.addShaped(name, tier, <output>, [[<>, <>, <>], [<>, <>, <>], [<>, <>, <>]]);  
+<recipetype:extendedcrafting:table>.addShaped(name, tier, <output>, [[<>, <>, <>, <>, <>], [<>, <>, <>, <>, <>], [<>, <>, <>, <>, <>], [<>, <>, <>, <>, <>], [<>, <>, <>, <>, <>]]);  
+<recipetype:extendedcrafting:table>.addShaped(name, tier, <output>, [[<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>]]);  
+<recipetype:extendedcrafting:table>.addShaped(name, tier, <output>, [[<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>]]);
 ```
 
 | Field    | Required | Description                                                                                                                            |
@@ -183,18 +183,18 @@ The input arrays work in the same way as the normal crafting recipes, check out 
 #### Example
 
 ```java
-mods.extendedcrafting.TableCrafting.addShaped("test_shaped", 2, <item:minecraft:stick>, [
-  [<tag:forge:ingots/iron>, <item:minecraft:air>, <item:minecraft:air>], 
-  [<tag:forge:ingots/gold>, <tag:forge:ingots/gold>, <item:minecraft:air>], 
-  [<tag:forge:ingots/gold>, <item:minecraft:air>, <item:minecraft:air>]
+<recipetype:extendedcrafting:table>.addShaped("test_shaped", 2, <item:minecraft:stick>, [
+  [<tag:item:c:ingots/iron>, <item:minecraft:air>, <item:minecraft:air>], 
+  [<tag:item:c:ingots/gold>, <tag:item:c:ingots/gold>, <item:minecraft:air>], 
+  [<tag:item:c:ingots/gold>, <item:minecraft:air>, <item:minecraft:air>]
 ]);
 ```
 
 ### Adding A Shapeless Recipe
 
 ```java
-mods.extendedcrafting.TableCrafting.addShapeless(name, <output>, [<input>, <input>]); 
-mods.extendedcrafting.TableCrafting.addShapeless(name, tier, <output>, [<input>, <input>]);  
+<recipetype:extendedcrafting:table>.addShapeless(name, <output>, [<input>, <input>]); 
+<recipetype:extendedcrafting:table>.addShapeless(name, tier, <output>, [<input>, <input>]);  
 ```
 
 | Field    | Required | Description                                                                                                                            |
@@ -207,15 +207,15 @@ mods.extendedcrafting.TableCrafting.addShapeless(name, tier, <output>, [<input>,
 #### Example
 
 ```java
-mods.extendedcrafting.TableCrafting.addShaped("test_shaped", 2, <item:minecraft:stick>, [
-  <tag:forge:ingots/iron>, <tag:forge:ingots/iron>, <tag:forge:ingots/iron>, <tag:forge:ingots/iron>
+<recipetype:extendedcrafting:table>.addShaped("test_shaped", 2, <item:minecraft:stick>, [
+  <tag:item:c:ingots/iron>, <tag:item:c:ingots/iron>, <tag:item:c:ingots/iron>, <tag:item:c:ingots/iron>
 ]);
 ```
 
 ### Removing Recipes
 
 ```java
-mods.extendedcrafting.TableCrafting.remove(<output>);
+<recipetype:extendedcrafting:table>.remove(<output>);
 ```
 
 | Field    | Required | Description                         |

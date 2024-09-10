@@ -47,37 +47,37 @@ This section will go over the values available to use in a Soul Extraction recip
 
 ## CraftTweaker
 
-As of version 7.0.5, Mystical Agriculture allows you easily add your own Soulium Spawner recipes using CraftTweaker. Here's how you do it.
+Mystical Agriculture allows you easily add your own Soulium Spawner recipes using CraftTweaker. Here's how you do it.
 
 ::callout{title="Recipe Manager Support" icon="i-heroicons-information-circle-solid"}
-As of version **7.0.4**, CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:mysticalagriculture:soulium_spawner\>**!
+CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:mysticalagriculture:soulium_spawner\>**!
 ::
 
 ### Adding A Recipe
 
 ```java
-mods.mysticalagriculture.SouliumSpawnerCrafting.addRecipe(name, <input>, <inputCount>, [<entities>]);
+<recipetype:mysticalagriculture:soulium_spawner>.addRecipe(name, <input>, input_count, [entities]);
 ```
 
-| Field        | Required | Description                                                                                                                                          |
-|--------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `name`       | ✓        | A unique name for this recipe. Must be all lower case and have no spaces.                                                                            |
-| `input`      | ✓        | The item that is required to make the output.                                                                                                        |
-| `inputCount` | ✓        | The amount of the `input` item required to spawn a mob. Max 512.                                                                                     |
-| `entities`   | ✓        | The IDs of the entities that will be spawned using the provided `input` items. Entity IDs can be appended with `@<weight>` to specify spawn weights. |
+| Field         | Required | Description                                                                                                                                          |
+|---------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `name`        | ✓        | A unique name for this recipe. Must be all lower case and have no spaces.                                                                            |
+| `input`       | ✓        | The item that is required to make the output.                                                                                                        |
+| `input_count` | ✓        | The amount of the `input` item required to spawn a mob. Max 512.                                                                                     |
+| `entities`    | ✓        | The IDs of the entities that will be spawned using the provided `input` items. Entity IDs can be appended with `@<weight>` to specify spawn weights. |
 
 #### Example
 
 ```java
-mods.mysticalagriculture.SouliumSpawnerCrafting.addRecipe("test_spawner", <item:minecraft:apple>, 20, ["minecraft:zombie"]);
-mods.mysticalagriculture.SouliumSpawnerCrafting.addRecipe("test_spawner_weights", <item:minecraft:carrot>, 16, ["minecraft:skeleton@5", "minecraft:wither_skeleton@1"]);
+<recipetype:mysticalagriculture:soulium_spawner>.addRecipe("test_spawner", <item:minecraft:apple>, 20, ["minecraft:zombie"]);
+<recipetype:mysticalagriculture:soulium_spawner>.addRecipe("test_spawner_weights", <item:minecraft:carrot>, 16, ["minecraft:skeleton@5", "minecraft:wither_skeleton@1"]);
 ```
 
 ### Removing Recipes
 #### Remove By Entity ID
 
 ```java
-mods.mysticalagriculture.SouliumSpawnerCrafting.remove("entity");
+<recipetype:mysticalagriculture:soulium_spawner>.removeByEntity("entity");
 ```
 
 | Field    | Required | Description                           |

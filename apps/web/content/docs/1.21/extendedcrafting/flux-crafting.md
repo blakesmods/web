@@ -19,24 +19,24 @@ This section will go over the values available to use in an Ender Crafting recip
 
 #### Shaped
 
-| Field           | Required | Description                                                                                                                   |
-|-----------------|----------|-------------------------------------------------------------------------------------------------------------------------------|
-| `type`          | ✓        | The recipe type must be `extendedcrafting:shaped_flux_crafter`.                                                               |
-| `powerRequired` | ✓        | The amount of FE this recipe needs per craft.                                                                                 |
-| `powerRate`     |          | The amount of FE/t this recipe should take from each Flux Alternator. If omitted will use the default set in the config file. |
-| `pattern`       | ✓        | The recipe pattern.                                                                                                           |
-| `key`           | ✓        | The recipe key, for specifying which item each character represents.                                                          |
-| `result`        | ✓        | The item that this recipe will output once finished                                                                           |
+| Field            | Required | Description                                                                                                                   |
+|------------------|----------|-------------------------------------------------------------------------------------------------------------------------------|
+| `type`           | ✓        | The recipe type must be `extendedcrafting:shaped_flux_crafter`.                                                               |
+| `power_required` | ✓        | The amount of FE this recipe needs per craft.                                                                                 |
+| `power_rate`     |          | The amount of FE/t this recipe should take from each Flux Alternator. If omitted will use the default set in the config file. |
+| `pattern`        | ✓        | The recipe pattern.                                                                                                           |
+| `key`            | ✓        | The recipe key, for specifying which item each character represents.                                                          |
+| `result`         | ✓        | The item that this recipe will output once finished                                                                           |
 
 #### Shapeless
 
-| Field           | Required | Description                                                                                                                   |
-|-----------------|----------|-------------------------------------------------------------------------------------------------------------------------------|
-| `type`          | ✓        | The recipe type must be `extendedcrafting:shapeless_flux_crafter`.                                                            |
-| `powerRequired` | ✓        | The amount of FE this recipe needs per craft.                                                                                 |
-| `powerRate`     |          | The amount of FE/t this recipe should take from each Flux Alternator. If omitted will use the default set in the config file. |
-| `ingredients`   | ✓        | An array of 1-9 input items.                                                                                                  |
-| `result`        | ✓        | The item that this recipe will output once finished                                                                           |
+| Field            | Required | Description                                                                                                                   |
+|------------------|----------|-------------------------------------------------------------------------------------------------------------------------------|
+| `type`           | ✓        | The recipe type must be `extendedcrafting:shapeless_flux_crafter`.                                                            |
+| `power_required` | ✓        | The amount of FE this recipe needs per craft.                                                                                 |
+| `power_rate`     |          | The amount of FE/t this recipe should take from each Flux Alternator. If omitted will use the default set in the config file. |
+| `ingredients`    | ✓        | An array of 1-9 input items.                                                                                                  |
+| `result`         | ✓        | The item that this recipe will output once finished                                                                           |
 
 ### Example Files
 #### Shaped
@@ -44,7 +44,7 @@ This section will go over the values available to use in an Ender Crafting recip
 ```json
 {
   "type": "extendedcrafting:shaped_flux_crafter",
-  "powerRequired": 1000000,
+  "power_required": 100000,
   "pattern": [
     "XXX",
     "X X",
@@ -52,11 +52,11 @@ This section will go over the values available to use in an Ender Crafting recip
   ],
   "key": {
     "X": {
-      "tag": "forge:ingots/gold"
+      "tag": "c:ingots/gold"
     }
   },
   "result": {
-    "item": "minecraft:apple"
+    "id": "minecraft:apple"
   }
 }
 ```
@@ -66,7 +66,7 @@ This section will go over the values available to use in an Ender Crafting recip
 ```json
 {
   "type": "extendedcrafting:shapeless_flux_crafter",
-  "powerRequired": 1000000,
+  "power_required": 2000000,
   "ingredients": [
     {
       "item": "minecraft:coal"
@@ -76,7 +76,7 @@ This section will go over the values available to use in an Ender Crafting recip
     }
   ],
   "result": {
-    "item": "minecraft:apple"
+    "id": "minecraft:string"
   }
 }
 ```
@@ -86,61 +86,61 @@ This section will go over the values available to use in an Ender Crafting recip
 Extended Crafting comes with CraftTweaker support built-in. You can make use of CraftTweaker to easily manage Flux Crafting recipes.
 
 ::callout{title="Recipe Manager Support" icon="i-heroicons-information-circle-solid"}
-As of version **6.0.3**, CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:extendedcrafting:flux_crafter\>**!
+CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:extendedcrafting:flux_crafter\>**!
 ::
 
 ### Adding A Shaped Recipe
 
 ```java
-mods.extendedcrafting.FluxCrafting.addShaped(name, <output>, [[<>, <>, <>], [<>, <>, <>], [<>, <>, <>]], powerRequired, powerRate);  
+<recipetype:extendedcrafting:flux_crafter>.addShaped(name, <output>, [[<>, <>, <>], [<>, <>, <>], [<>, <>, <>]], power_required, power_rate);  
 ```
 
-| Field           | Required | Description                                                                                                                   |
-|-----------------|----------|-------------------------------------------------------------------------------------------------------------------------------|
-| `name`          | ✓        | A unique name for this recipe. Must be all lower case and have no spaces.                                                     |
-| `output`        | ✓        | The output item for this recipe.                                                                                              |
-| `<>`            | ✓        | An input ingredient for the slot shown.                                                                                       |
-| `powerRequired` | ✓        | The amount of FE this recipe needs per craft.                                                                                 |
-| `powerRate`     |          | The amount of FE/t this recipe should take from each Flux Alternator. If omitted will use the default set in the config file. |
+| Field            | Required | Description                                                                                                                   |
+|------------------|----------|-------------------------------------------------------------------------------------------------------------------------------|
+| `name`           | ✓        | A unique name for this recipe. Must be all lower case and have no spaces.                                                     |
+| `output`         | ✓        | The output item for this recipe.                                                                                              |
+| `<>`             | ✓        | An input ingredient for the slot shown.                                                                                       |
+| `power_required` | ✓        | The amount of FE this recipe needs per craft.                                                                                 |
+| `power_rate`     |          | The amount of FE/t this recipe should take from each Flux Alternator. If omitted will use the default set in the config file. |
 
 The input arrays work in the same way as the normal crafting recipes, check out the CraftTweaker wiki for more information.
 
 #### Example
 
 ```java
-mods.extendedcrafting.FluxCrafting.addShaped("test_shaped", <item:minecraft:stick>, [
-  [<tag:items:forge:ingots/iron>, <item:minecraft:air>, <item:minecraft:air>], 
-  [<tag:items:forge:ingots/gold>, <tag:items:forge:ingots/gold>, <item:minecraft:air>], 
-  [<tag:items:forge:ingots/gold>, <item:minecraft:air>, <item:minecraft:air>]
+<recipetype:extendedcrafting:flux_crafter>.addShaped("test_shaped", <item:minecraft:stick>, [
+  [<tag:item:c:ingots/iron>, <item:minecraft:air>, <item:minecraft:air>], 
+  [<tag:item:c:ingots/gold>, <tag:item:c:ingots/gold>, <item:minecraft:air>], 
+  [<tag:item:c:ingots/gold>, <item:minecraft:air>, <item:minecraft:air>]
 ], 1000000);
 ```
 
 ### Adding A Shapeless Recipe
 
 ```java
-mods.extendedcrafting.FluxCrafting.addShapeless(name, <output>, [inputs], powerRequired, powerRate); 
+mods.extendedcrafting.FluxCrafting.addShapeless(name, <output>, [inputs], power_required, power_rate); 
 ```
 
-| Field           | Required | Description                                                                                                                   |
-|-----------------|----------|-------------------------------------------------------------------------------------------------------------------------------|
-| `name`          | ✓        | A unique name for this recipe. Must be all lower case and have no spaces.                                                     |
-| `output`        | ✓        | The output item for this recipe.                                                                                              |
-| `inputs`        | ✓        | An array of 1-9 items required to make the recipe.                                                                            |
-| `powerRequired` | ✓        | The amount of FE this recipe needs per craft.                                                                                 |
-| `powerRate`     |          | The amount of FE/t this recipe should take from each Flux Alternator. If omitted will use the default set in the config file. |
+| Field            | Required | Description                                                                                                                   |
+|------------------|----------|-------------------------------------------------------------------------------------------------------------------------------|
+| `name`           | ✓        | A unique name for this recipe. Must be all lower case and have no spaces.                                                     |
+| `output`         | ✓        | The output item for this recipe.                                                                                              |
+| `inputs`         | ✓        | An array of 1-9 items required to make the recipe.                                                                            |
+| `power_required` | ✓        | The amount of FE this recipe needs per craft.                                                                                 |
+| `power_rate`     |          | The amount of FE/t this recipe should take from each Flux Alternator. If omitted will use the default set in the config file. |
 
 #### Example
 
 ```java
-mods.extendedcrafting.FluxCrafting.addShapeless("test_shapeless", <item:minecraft:cobblestone>, [
-  <tag:items:forge:gems/diamond>, <tag:itemsforge:gems/diamond>, <tag:itemsforge:gems/diamond>, <tag:items:forge:gems/diamond>, <tag:itemsforge:gems/diamond>, <tag:itemsforge:gems/diamond>
+<recipetype:extendedcrafting:flux_crafter>.addShapeless("test_shapeless", <item:minecraft:cobblestone>, [
+  <tag:item:c:gems/diamond>, <tag:item:c:gems/diamond>, <tag:item:c:gems/diamond>, <tag:item:c:gems/diamond>, <tag:item:c:gems/diamond>, <tag:item:c:gems/diamond>
 ], 1000000);
 ```
 
 ### Removing Recipes
 
 ```java
-mods.extendedcrafting.FluxCrafting.remove(<output>);
+<recipetype:extendedcrafting:flux_crafter>.remove(<output>);
 ```
 
 | Field    | Required | Description                         |

@@ -32,23 +32,23 @@ This section will go over the values available to use in a Seed Reprocessor reci
     "item": "minecraft:apple"
   },
   "result": {
-    "item": "minecraft:potato"
+    "id": "minecraft:potato"
   }
 }
 ```
 
 ## CraftTweaker
 
-As of version 3.0.8, Mystical Agriculture allows you easily add your own Reprocessor Crafting recipes using CraftTweaker. Here's how you do it.
+Mystical Agriculture allows you easily add your own Reprocessor Crafting recipes using CraftTweaker. Here's how you do it.
 
 ::callout{title="Note" icon="i-heroicons-information-circle-solid"}
-As of version **7.0.4**, CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:mysticalagriculture:reprocessor\>**!
+CraftTweaker integration  supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:mysticalagriculture:reprocessor\>**!
 ::
 
 ### Adding a recipe
 
 ```java
-mods.mysticalagriculture.ReprocessorCrafting.addRecipe(name, <output>, <input>);
+<recipetype:mysticalagriculture:reprocessor>.addRecipe(name, <output>, <input>);
 ```
 
 | Field    | Required | Description                                                               |
@@ -60,13 +60,13 @@ mods.mysticalagriculture.ReprocessorCrafting.addRecipe(name, <output>, <input>);
 #### Example
 
 ```java
-mods.mysticalagriculture.ReprocessorCrafting.addRecipe("test_reprocessor", <item:minecraft:apple>, <tag:items:forge:ingots/iron>);
+<recipetype:mysticalagriculture:reprocessor>.addRecipe("test_reprocessor", <item:minecraft:apple>, <tag:item:c:ingots/iron>);
 ```
 
 ### Removing Recipes
 
 ```java
-mods.mysticalagriculture.ReprocessorCrafting.remove(<output>);
+<recipetype:mysticalagriculture:reprocessor>.remove(<output>);
 ```
 
 | Field    | Required | Description                         |
