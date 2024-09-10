@@ -112,7 +112,7 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
     prerender: {
       autoSubfolderIndex: false,
       crawlLinks: true,
-      routes: ["/"]
+      routes: ["/", docsVersionsJSON.slice(1).map(v => `/docs/${v}`)]
     }
   },
   vite: {
