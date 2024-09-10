@@ -132,3 +132,9 @@ export const useDocsVersions = () => {
     ])
   );
 };
+
+export const useDocsIsLatestVersion = () => {
+  const route = useRoute();
+  const params = parseParams(route.params);
+  return params.version === versionsJSON[0];
+};
