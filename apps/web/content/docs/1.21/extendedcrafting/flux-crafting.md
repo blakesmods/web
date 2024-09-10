@@ -118,7 +118,7 @@ The input arrays work in the same way as the normal crafting recipes, check out 
 ### Adding A Shapeless Recipe
 
 ```java
-mods.extendedcrafting.FluxCrafting.addShapeless(name, <output>, [inputs], power_required, power_rate); 
+<recipetype:extendedcrafting:flux_crafter>.addShapeless(name, <output>, [inputs], power_required, power_rate); 
 ```
 
 | Field            | Required | Description                                                                                                                   |
