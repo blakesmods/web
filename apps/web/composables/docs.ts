@@ -52,7 +52,11 @@ export const useDocs = async () => {
   );
 
   return computed(() => {
-    const documents = {};
+    const documents = {} as Record<string, any[]>;
+
+    if (!data.value) {
+      return documents;
+    }
 
     for (const doc of data.value.filter(d => d.category && !d.hidden)) {
       if (!documents[doc.category]) {
@@ -60,10 +64,10 @@ export const useDocs = async () => {
       }
 
       // latest version doesn't have the version in the url
-      if (version.value === versions.value[0].label) {
+      if (version.value === versions.value[0][0].label) {
         doc._path = doc._path
           .split("/")
-          .filter((_, i) => i !== 2)
+          .filter((s: string) => s !== version.value)
           .join("/");
       }
 
