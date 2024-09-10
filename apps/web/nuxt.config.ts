@@ -1,6 +1,7 @@
 import { sentryVitePlugin } from "@sentry/vite-plugin";
 import { DefineNuxtConfig } from "nuxt/config";
 import { resolve } from "path";
+import docsVersionsJSON from "./content/docs/.versions.json";
 
 const description =
   "Official home of Mystical Agriculture, Pickle Tweaks, Iron Jetpacks, Extended Crafting, Mystical Agradditions, Mystical Customization, More Buckets and Cucumber Library!";
@@ -113,8 +114,15 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
       // sends the base /docs page to the same page as all the others
       router.push({
         path: "/docs",
-        file: resolve(__dirname, "pages/docs/[...slug].vue")
+        file: resolve(__dirname, "pages/docs/[[version]]/[mod]/[...slug].vue")
       });
+
+      for (const version of docsVersionsJSON) {
+        router.push({
+          path: `/docs/${version}`,
+          file: resolve(__dirname, "pages/docs/[[version]]/[mod]/[...slug].vue")
+        });
+      }
     }
   },
   nitro: {

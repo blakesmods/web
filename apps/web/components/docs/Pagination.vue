@@ -59,7 +59,7 @@ const { data } = await useAsyncData(() =>
 const [previous, next] = data.value;
 
 function formatModName(document) {
-  const name = document._path.split("/")[2];
+  const name = document._path.split("/")[3];
   const mod = mods.value.find(mod => mod.mod_id === name);
   return mod ? mod.name : name;
 }
