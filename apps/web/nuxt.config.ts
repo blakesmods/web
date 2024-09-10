@@ -1,6 +1,5 @@
 import { sentryVitePlugin } from "@sentry/vite-plugin";
-import { DefineNuxtConfig } from "nuxt/config";
-import { resolve } from "path";
+import type { DefineNuxtConfig } from "nuxt/config";
 import docsVersionsJSON from "./content/docs/.versions.json";
 
 const description =
@@ -108,22 +107,6 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
   },
   build: {
     transpile: ["sitemap"]
-  },
-  hooks: {
-    "pages:extend": router => {
-      // sends the base /docs page to the same page as all the others
-      router.push({
-        path: "/docs",
-        file: resolve(__dirname, "pages/docs/[[version]]/[mod]/[...slug].vue")
-      });
-
-      for (const version of docsVersionsJSON) {
-        router.push({
-          path: `/docs/${version}`,
-          file: resolve(__dirname, "pages/docs/[[version]]/[mod]/[...slug].vue")
-        });
-      }
-    }
   },
   nitro: {
     prerender: {
