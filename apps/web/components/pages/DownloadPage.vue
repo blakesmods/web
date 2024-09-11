@@ -36,7 +36,6 @@
     </Header>
 
     <div class="container relative mx-auto px-4 z-20">
-      <Ad ad-slot="3524901792" />
       <h1 class="mt-8 mb-8 text-center">Download {{ mod.mod_name }}</h1>
     </div>
     <div
@@ -44,7 +43,6 @@
     >
       <div class="flex flex-col gap-8">
         <ModInformation :mod="mod" />
-        <Ad ad-slot="2977397419" />
       </div>
       <div class="flex flex-col w-full gap-8">
         <FileList :mod="mod.mod_id" />
@@ -56,7 +54,6 @@
 </template>
 
 <script setup>
-import Ad from "~/components/Ad.vue";
 import Footer from "~/components/default/Footer.vue";
 import Header from "~/components/mods/Header.vue";
 import FileList from "~/components/mods/FileList.vue";

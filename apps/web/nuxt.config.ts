@@ -91,7 +91,6 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
     "@nuxt/ui",
     "@nuxt/image",
     "@nuxt/content",
-    "@nuxtjs/google-adsense",
     "@nuxtjs/google-fonts",
     "@vueuse/nuxt",
     "nuxt-primevue",

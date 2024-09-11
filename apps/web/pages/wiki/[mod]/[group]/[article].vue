@@ -48,13 +48,6 @@
         </template>
       </ContentRenderer>
 
-      <Ad
-        class="m-4"
-        ad-slot="8657831016"
-        ad-layout="in-article"
-        ad-format="fluid"
-      />
-
       <div class="relative bottom-0">
         <div class="flex m-4 justify-between">
           <span v-if="false">Last Updated: {{ lastUpdated }}</span>

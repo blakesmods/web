@@ -24,7 +24,6 @@
     </Header>
 
     <div class="container relative mx-auto px-4 z-20">
-      <Ad ad-slot="3524901792" />
       <h1 class="mt-8 mb-8 text-center">Download {{ mod.name }}</h1>
     </div>
     <div
@@ -101,7 +100,6 @@
 </template>
 
 <script setup>
-import Ad from "~/components/Ad.vue";
 import GradientBackground from "~/components/GradientBackground.vue";
 import Header from "~/components/mods/Header.vue";
 
