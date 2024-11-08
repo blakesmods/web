@@ -1,4 +1,5 @@
 import { sentryVitePlugin } from "@sentry/vite-plugin";
+import Aura from "@primevue/themes/aura";
 import type { DefineNuxtConfig } from "nuxt/config";
 import docsVersionsJSON from "./content/docs/.versions.json";
 
@@ -81,21 +82,16 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
       ]
     }
   },
-  css: [
-    "primevue/resources/themes/arya-purple/theme.css",
-    "primevue/resources/primevue.css",
-    "primeicons/primeicons.css",
-    "~/assets/css/main.scss"
-  ],
+  css: ["primeicons/primeicons.css", "~/assets/css/main.scss"],
   modules: [
     "@nuxt/ui",
     "@nuxt/image",
     "@nuxt/content",
     "@nuxtjs/google-fonts",
+    "@primevue/nuxt-module",
     "@vueuse/nuxt",
-    "nuxt-primevue",
     "nuxt-og-image",
-    "nuxt-simple-sitemap" // sitemap module must be last
+    "@nuxtjs/sitemap" // sitemap module must be last
   ],
   runtimeConfig: {
     public: {
@@ -104,14 +100,11 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
       ENVIRONMENT: process.env.NODE_ENV
     }
   },
-  build: {
-    transpile: ["sitemap"]
-  },
   nitro: {
     prerender: {
       autoSubfolderIndex: false,
       crawlLinks: true,
-      routes: ["/", docsVersionsJSON.slice(1).map(v => `/docs/${v}`)]
+      routes: ["/", ...docsVersionsJSON.slice(1).map(v => `/docs/${v}`)]
     }
   },
   vite: {
@@ -128,7 +121,7 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
   },
   content: {
     highlight: {
-      preload: ["java"],
+      preload: ["java", "json5"],
       theme: {
         default: "github-light",
         dark: "github-dark"
@@ -142,9 +135,6 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
     componentDirs: ["ogimage"],
     fonts: ["Montserrat:400"]
   },
-  googleAdsense: {
-    id: "ca-pub-9433168950133481"
-  },
   googleFonts: {
     families: {
       Montserrat: true,
@@ -152,17 +142,11 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
     }
   },
   primevue: {
-    components: {
-      include: ["Carousel", "Column", "DataTable", "Skeleton"]
-    },
-    composables: {
-      exclude: "*"
-    },
-    directives: {
-      exclude: "*"
-    },
     options: {
-      ripple: false
+      ripple: false,
+      theme: {
+        preset: Aura
+      }
     }
   },
   ui: {

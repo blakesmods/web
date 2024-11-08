@@ -98,7 +98,7 @@ strong {
 }
 
 .p-carousel {
-  .p-carousel-indicators {
+  .p-carousel-content {
     button {
       @apply #{"!bg-gray-300 dark:!bg-gray-700"};
     }
@@ -133,6 +133,7 @@ strong {
 
     & > td {
       padding: 0.5rem 1rem !important;
+      @apply #{"!bg-white dark:!bg-gray-900 border-t border-gray-300 dark:border-gray-700 !text-gray-700 dark:!text-gray-300"};
 
       .p-row-toggler {
         @apply #{"!text-gray-700 dark:!text-gray-300"};
@@ -142,15 +143,10 @@ strong {
 
   .p-paginator {
     background: transparent;
-    @apply #{"!border-x-0 !border-t-0 !border-b !border-gray-300 dark:!border-gray-700"};
+    @apply #{"!bg-white dark:!bg-gray-900 border-t border-gray-300 dark:border-gray-700 !text-gray-700 dark:!text-gray-300"};
 
-    .p-paginator-element,
-    .p-paginator-current {
-      @apply #{"!text-gray-700 dark:!text-gray-300"};
-    }
-
-    .p-paginator-element {
-      &.p-highlight {
+    .p-paginator-page {
+      &.p-paginator-page-selected {
         @apply #{"!bg-gray-700/25 dark:!bg-gray-300/25"};
       }
 

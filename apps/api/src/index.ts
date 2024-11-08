@@ -3,6 +3,7 @@ import FastifyCookie from "@fastify/cookie";
 import FastifyCors from "@fastify/cors";
 import FastifyMongoDB from "@fastify/mongodb";
 import { fastify } from "fastify";
+import FastifyBlipp from "fastify-blipp";
 import { join } from "path";
 
 const port = process.env.PORT || 5000;
@@ -10,7 +11,7 @@ const server = fastify();
 
 const start = async () => {
   try {
-    server.register(require("fastify-blipp"));
+    server.register(FastifyBlipp);
     server.register(FastifyCookie);
     server.register(FastifyCors);
     server.register(FastifyMongoDB, {
@@ -34,7 +35,6 @@ const start = async () => {
 
     await server.listen({ host: "0.0.0.0", port: +port });
 
-    // @ts-ignore
     server.blipp();
     console.log(`🚀 Server is running on port ${port}!`);
   } catch (err) {

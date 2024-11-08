@@ -192,16 +192,4 @@ export default async function (fastify: FastifyInstance) {
       };
     }
   );
-
-  fastify.get(
-    "/:mod_id/:mc_version_group",
-    async (request: FastifyRequest, reply: FastifyReply) => {
-      const { mod_id, mc_version_group } = request.params as any;
-
-      reply.redirect(
-        301,
-        fastify.prefix + `/${mod_id}/files?mc_version=${mc_version_group}`
-      );
-    }
-  );
 }
