@@ -16,7 +16,7 @@ RUN yarn
 COPY . .
 
 # Build application
-RUN yarn build --filter api
+RUN yarn build --filter @blakesmods/api
 
 # Start application
 CMD yarn workspace @blakesmods/api start
