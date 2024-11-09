@@ -7,6 +7,6 @@ export interface Env {
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
-    return router.handle(request, env);
+    return router.fetch(request, env);
   }
 };

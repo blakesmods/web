@@ -26,7 +26,7 @@ export default async function (fastify: FastifyInstance) {
       return;
     }
 
-    console.error(request.routerPath, error);
+    console.error(request.routeOptions.url, error);
 
     Sentry.captureException(error);
   });
