@@ -52,10 +52,14 @@ const mods = useMods();
 
 const parts = props.current._path.split("/").slice(1);
 
-const { data } = await useAsyncData(() =>
-  queryContent(parts[0], parts[1], parts[2])
-    .sort({ sort: 1, $numeric: true })
-    .findSurround(props.current._path)
+const { data } = await useAsyncData(
+  () =>
+    queryContent(parts[0], parts[1], parts[2])
+      .sort({ sort: 1, $numeric: true })
+      .findSurround(props.current._path),
+  {
+    watch: [props.current]
+  }
 );
 
 const previous = computed(() => data.value[0]);
