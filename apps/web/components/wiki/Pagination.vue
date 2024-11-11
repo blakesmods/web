@@ -52,13 +52,16 @@ const mods = useMods();
 
 const parts = props.current._path.split("/").slice(1);
 
-const { data } = await useAsyncData(() =>
-  queryContent(parts[0], parts[1], parts[2])
-    .sort({ sort: 1, $numeric: true })
-    .findSurround(props.current._path)
+const { data } = await useAsyncData(
+  "wiki/" + props.current._path + "/pagination",
+  () =>
+    queryContent(parts[0], parts[1], parts[2])
+      .sort({ sort: 1, $numeric: true })
+      .findSurround(props.current._path)
 );
 
-const [previous, next] = data.value;
+const previous = computed(() => data.value[0]);
+const next = computed(() => data.value[1]);
 
 function formatModName(document) {
   const name = document._path.split("/")[2];
