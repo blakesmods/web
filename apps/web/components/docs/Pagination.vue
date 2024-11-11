@@ -55,10 +55,8 @@ const isLatestVersion = useDocsIsLatestVersion();
 const parts = props.current._path.split("/").slice(1);
 
 const { data } = await useAsyncData(
-  () => queryContent(parts[0], parts[1]).findSurround(props.current._path),
-  {
-    watch: [props.current]
-  }
+  "doc/" + props.current._path + "/pagination",
+  () => queryContent(parts[0], parts[1]).findSurround(props.current._path)
 );
 
 const previous = computed(() => data.value[0]);
