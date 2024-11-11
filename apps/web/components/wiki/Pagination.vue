@@ -58,7 +58,8 @@ const { data } = await useAsyncData(() =>
     .findSurround(props.current._path)
 );
 
-const [previous, next] = data.value;
+const previous = computed(() => data.value[0]);
+const next = computed(() => data.value[1]);
 
 function formatModName(document) {
   const name = document._path.split("/")[2];

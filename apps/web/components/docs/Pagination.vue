@@ -58,19 +58,20 @@ const { data } = await useAsyncData(() =>
   queryContent(parts[0], parts[1]).findSurround(props.current._path)
 );
 
-const [previous, next] = data.value;
+const previous = computed(() => data.value[0]);
+const next = computed(() => data.value[1]);
 
 // latest version doesn't have the version in the url
 if (isLatestVersion) {
-  if (previous) {
-    previous._path = previous._path
+  if (previous.value) {
+    previous.value._path = previous.value._path
       .split("/")
       .filter(s => s !== version.value)
       .join("/");
   }
 
-  if (next) {
-    next._path = next._path
+  if (next.value) {
+    next.value._path = next.value._path
       .split("/")
       .filter(s => s !== version.value)
       .join("/");
