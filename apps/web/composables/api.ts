@@ -1,5 +1,5 @@
-import { useFetch, UseFetchOptions } from "#app";
-import { Ref } from "@vue/reactivity";
+import { useFetch, type UseFetchOptions } from "#app";
+import { type Ref } from "@vue/reactivity";
 
 const baseURL =
   process.env.NODE_ENV === "development"
@@ -16,9 +16,8 @@ export const useAPI = async (
     const toast = useToast();
 
     toast.add({
-      title: "An Error has Occurred",
-      description: "Please try again later.",
-      icon: "i-heroicons-exclamation-circle"
+      severity: "error",
+      detail: "Please try again later."
     });
   }
 

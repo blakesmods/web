@@ -64,7 +64,7 @@ export const useDocs = async () => {
       }
 
       // latest version doesn't have the version in the url
-      if (version.value === versions.value[0][0].label) {
+      if (doc._path && version.value === versions.value[0][0].label) {
         doc._path = doc._path
           .split("/")
           .filter((s: string) => s !== version.value)
