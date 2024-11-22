@@ -33,7 +33,7 @@
         <div class="flex flex-col gap-4">
           <div class="flex justify-between">
             <ULink :to="`${mod.url}/download`" size="lg">
-              <UIcon icon="i-heroicons-arrow-left-solid" />
+              <i class="pi pi-arrow-left"></i>
               Back to List
             </ULink>
             <UButton
