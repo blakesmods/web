@@ -1,54 +1,61 @@
 <template>
-  <div ref="el" class="flex relative">
+  <UTooltip text="Search">
     <UButton
-      class="lg:hidden"
       color="gray"
       icon="i-heroicons-magnifying-glass"
       aria-label="Search docs button"
-      @click="show = !show"
+      @click="open = !open"
     />
+  </UTooltip>
 
-    <div
-      class="absolute min-w-[300px] lg:min-w-0 lg:static lg:flex flex-1 top-10 -right-32 p-2 lg:p-0 bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 lg:border-none rounded"
-      :class="{ hidden: !show }"
-    >
-      <UInput
-        id="search"
-        icon="i-heroicons-magnifying-glass"
-        placeholder="Search..."
-        v-model="search"
-      >
-        <template #trailing>
-          <UKbd>/</UKbd>
-        </template>
-      </UInput>
-    </div>
-  </div>
+  <UModal v-model="open">
+    <UCommandPalette
+      command-attribute="title"
+      :autoselect="false"
+      :groups="groups"
+      :fuse="{
+        fuseOptions: {
+          ignoreLocation: true,
+          includeMatches: true,
+          threshold: 0,
+          keys: ['title', 'content', 'category']
+        },
+        matchAllWhenSearchEmpty: false,
+        resultLimit: 10
+      }"
+      @update:model-value="onSelect"
+    />
+  </UModal>
 </template>
 
 <script setup>
-import "docs-searchbar.js/dist/cdn/docs-searchbar.css";
-import "~/assets/css/docs-searchbar.scss";
+const open = ref(false);
 
-const el = ref(null);
-const show = ref(false);
-const search = ref("");
+const router = useRouter();
+const search = await useDocsSearch();
 
-onClickOutside(el, () => {
-  show.value = false;
-});
+const groups = computed(() =>
+  Object.entries(search.value).map(([key, value]) => ({
+    key: key,
+    label: key,
+    commands: value.map(doc => ({
+      id: doc.id,
+      icon: "i-heroicons-document",
+      title: [...doc.titles, doc.title].join(" > "),
+      content: doc.content,
+      to: doc.id
+    }))
+  }))
+);
 
-onMounted(async () => {
-  window.global = window;
-  const DocsSearchBar = await import("docs-searchbar.js");
-
-  DocsSearchBar.default({
-    hostUrl: "https://meilisearch.blakesmods.com",
-    apiKey: "a1f6fbac3da1cb45072fa17f124322b445b25a59f7d33f0a4f56eb97a754c96c",
-    indexUid: "docs",
-    inputSelector: "#search",
-    enableDarkMode: true,
-    debug: process.env.NODE_ENV === "development"
-  });
-});
+function onSelect(option) {
+  if (option.click) {
+    option.click();
+  } else if (option.to) {
+    router.push(option.to);
+    open.value = false;
+  } else if (option.href) {
+    window.open(option.href, "_blank");
+  }
+}
 </script>

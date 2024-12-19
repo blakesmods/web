@@ -78,7 +78,7 @@ export const useDocs = async () => {
   });
 };
 
-export const useDocsVersion = () => {
+export const useDocsVersion = (): Ref<string> => {
   const route = useRoute();
   const params = parseParams(route.params);
   const version = ref(params.version);
@@ -137,4 +137,45 @@ export const useDocsIsLatestVersion = () => {
   const route = useRoute();
   const params = parseParams(route.params);
   return params.version === versionsJSON[0];
+};
+
+export const useDocsSearch = async () => {
+  const version = useDocsVersion();
+  const query = computed(() => ({
+    search: `docs/${version.value}`
+  }));
+
+  const { data } = await useFetch("/api/search", {
+    query,
+    lazy: true,
+    server: false
+  });
+
+  return computed(() => {
+    const documents = {} as Record<string, any[]>;
+
+    if (data.value) {
+      for (const doc of data.value) {
+        if (!doc.category) {
+          continue;
+        }
+
+        if (!documents[doc.category]) {
+          documents[doc.category] = [];
+        }
+
+        // latest version doesn't have the version in the url
+        if (doc.id && version.value === versionsJSON[0]) {
+          doc.id = doc.id
+            .split("/")
+            .filter((s: string) => s !== version.value)
+            .join("/");
+        }
+
+        documents[doc.category].push(doc);
+      }
+    }
+
+    return documents;
+  });
 };
