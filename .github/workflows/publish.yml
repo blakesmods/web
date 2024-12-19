@@ -47,5 +47,5 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: 2124ec156e58759bf8fdbb5e02d7bdbe
           projectName: blakesmods
-          directory: apps/web/.output/public
+          directory: apps/web/dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
