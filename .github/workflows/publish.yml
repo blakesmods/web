@@ -35,6 +35,7 @@ jobs:
 
       - name: Build
         env:
+          NITRO_PRESET: cloudflare_pages
           SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
           SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
