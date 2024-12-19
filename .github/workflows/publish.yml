@@ -35,10 +35,11 @@ jobs:
 
       - name: Build
         env:
+          NITRO_PRESET: cloudflare_pages
           SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
           SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-        run: yarn workspace @blakesmods/web generate
+        run: yarn workspace @blakesmods/web build
 
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
@@ -46,5 +47,5 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: 2124ec156e58759bf8fdbb5e02d7bdbe
           projectName: blakesmods
-          directory: apps/web/.output/public
+          directory: apps/web/dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
