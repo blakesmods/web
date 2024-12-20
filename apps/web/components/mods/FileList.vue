@@ -74,95 +74,89 @@
         </UFormGroup>
       </div>
 
-      <DataTable
-        data-key="_id"
-        paginator-template="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
-        current-page-report-template="Showing {first} to {last} of {totalRecords} files"
-        lazy
-        paginator
-        :value="files"
+      <UTable
+        :columns="columns"
+        :rows="files"
         :loading="pending"
-        :rows="10"
-        :total-records="count"
-        v-model:expanded-rows="expandedRows"
-        @page="onPaginate"
+        v-model:expand="expand"
       >
-        <Column name="expander" expander :header-style="{ width: '40px' }" />
-        <Column field="file_name" header="File Name" expander>
-          <template #body="{ data }">
-            <NuxtLink :to="`./download/${data._id}`">
-              {{ data.file_name }}
-            </NuxtLink>
-          </template>
-        </Column>
-        <Column field="upload_date" header="Release Date" header-class="right">
-          <template #body="{ data }">
-            <div class="flex justify-end items-center">
-              <UTooltip
-                :text="formatDate(data.upload_date, 'ddd, MMM D, YYYY h:mm A')"
-              >
-                {{ formatDate(data.upload_date, "MM/DD/YYYY") }}
-              </UTooltip>
-            </div>
-          </template>
-        </Column>
-        <Column field="mod_loader" header="Mod Loader" header-class="right">
-          <template #body="{ data }">
-            <div class="flex justify-end items-center">
-              {{ data.mod_loader }}
-            </div>
-          </template>
-        </Column>
-        <Column field="downloads" header="Downloads" header-class="right">
-          <template #body="{ data }">
-            <div class="flex justify-end items-center">
-              <UTooltip
-                class="mr-4 font-bold"
-                :text="`${formatDownloadCount(data, '0,0')} downloads`"
-              >
-                {{ formatDownloadCount(data, "0[.]0a") }}
-              </UTooltip>
-              <UButton
-                color="gray"
-                :trailing-icon="
-                  downloadPending && data._id === downloadPending
-                    ? null
-                    : 'i-heroicons-arrow-down-tray-solid'
-                "
-                :disabled="downloadPending"
-                :loading="downloadPending && data._id === downloadPending"
-                :aria-label="`Download file ${data.file_name}`"
-                @click="onDownloadFile(data)"
-              />
-            </div>
-          </template>
-        </Column>
+        <template #file_name-data="{ row }">
+          <NuxtLink :to="`./download/${row._id}`">
+            {{ row.file_name }}
+          </NuxtLink>
+        </template>
+        <template #upload_date-data="{ row }">
+          <div class="flex justify-end items-center">
+            <UTooltip
+              :text="formatDate(row.upload_date, 'ddd, MMM D, YYYY h:mm A')"
+            >
+              {{ formatDate(row.upload_date, "MM/DD/YYYY") }}
+            </UTooltip>
+          </div>
+        </template>
+        <template #mod_loader-data="{ row }">
+          <div class="flex justify-end items-center">
+            {{ row.mod_loader }}
+          </div>
+        </template>
+        <template #downloads-data="{ row }">
+          <div class="flex justify-end items-center">
+            <UTooltip
+              class="mr-4 font-bold"
+              :text="`${formatDownloadCount(row, '0,0')} downloads`"
+            >
+              {{ formatDownloadCount(row, "0[.]0a") }}
+            </UTooltip>
+            <UButton
+              color="gray"
+              :trailing-icon="
+                downloadPending && row._id === downloadPending
+                  ? null
+                  : 'i-heroicons-arrow-down-tray-solid'
+              "
+              :disabled="downloadPending"
+              :loading="downloadPending && row._id === downloadPending"
+              :aria-label="`Download file ${row.file_name}`"
+              @click="onDownloadFile(row)"
+            />
+          </div>
+        </template>
 
-        <template #expansion="{ data }">
-          <div class="flex flex-wrap gap-4 py-2 justify-between">
+        <template #expand="{ row }">
+          <div class="flex flex-wrap gap-4 p-4 justify-between">
             <div class="col-span-1">
               <h5>Java Version</h5>
-              <span>{{ data.java_version }}</span>
+              <span>{{ row.java_version }}</span>
             </div>
             <div class="col-span-1">
               <h5>Minecraft Version</h5>
-              <span>{{ data.mc_version }}</span>
+              <span>{{ row.mc_version }}</span>
             </div>
             <div class="col-span-1">
               <h5>File Size</h5>
-              <span>{{ formatNumber(data.file_size, "0.00 b") }}</span>
+              <span>{{ formatNumber(row.file_size, "0.00 b") }}</span>
             </div>
             <div class="col-span-2 lg:col-span-5 xl:col-span-2">
               <h5>MD5 Hash</h5>
-              <span>{{ data.md5_hash }}</span>
+              <span>{{ row.md5_hash }}</span>
             </div>
             <div class="w-full">
               <h4>Changelog</h4>
-              <span v-html="data.changelog"></span>
+              <span v-html="row.changelog"></span>
             </div>
           </div>
         </template>
-      </DataTable>
+      </UTable>
+
+      <div class="flex p-4 justify-center">
+        <UPagination
+          show-last
+          show-first
+          :page-count="10"
+          :total="count"
+          v-model="page"
+        />
+      </div>
     </UCard>
   </div>
 </template>
@@ -182,10 +176,36 @@ const count = ref(0);
 const versions = ref([]);
 const loaders = ref([]);
 const downloadPending = ref(false);
-const expandedRows = ref([]);
+
+const columns = [
+  {
+    key: "file_name",
+    label: "File Name"
+  },
+  {
+    key: "upload_date",
+    label: "Release Date",
+    class: "text-right"
+  },
+  {
+    key: "mod_loader",
+    label: "Mod Loader",
+    class: "text-right"
+  },
+  {
+    key: "downloads",
+    label: "Downloads",
+    class: "text-right"
+  }
+];
+
+const expand = ref({
+  openedRows: [],
+  row: {}
+});
 
 const page = computed({
-  get: () => route.query.page ?? 1,
+  get: () => Number(route.query.page ?? 1),
   set: value =>
     router.push({
       query: {
@@ -250,10 +270,6 @@ const { data, execute, pending } = await useAPI(`/v2/mods/${props.mod}/files`, {
   immediate: false // prevent from ever making the call on the server
 });
 
-function onPaginate(event) {
-  page.value = event.page + 1;
-}
-
 async function onDownloadFile(file) {
   if (downloadPending.value) {
     return;
@@ -279,12 +295,12 @@ function formatDownloadCount(file, format) {
   return formatNumber(count, format);
 }
 
-watch(
-  () => [version.value, loader.value],
-  () => {
-    expandedRows.value = [];
-  }
-);
+watch(files, () => {
+  expand.value = {
+    openedRows: [],
+    row: {}
+  };
+});
 
 watch(data, value => {
   files.value = value.data.files;

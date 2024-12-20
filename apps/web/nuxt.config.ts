@@ -1,5 +1,4 @@
 import { sentryVitePlugin } from "@sentry/vite-plugin";
-import Aura from "@primevue/themes/aura";
 import type { DefineNuxtConfig } from "nuxt/config";
 import docsVersionsJSON from "./content/docs/.versions.json";
 
@@ -82,13 +81,12 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
       ]
     }
   },
-  css: ["primeicons/primeicons.css", "~/assets/css/main.scss"],
+  css: ["~/assets/css/main.scss"],
   modules: [
     "@nuxt/ui",
     "@nuxt/image",
     "@nuxt/content",
     "@nuxtjs/google-fonts",
-    "@primevue/nuxt-module",
     "@vueuse/nuxt",
     "nuxt-og-image",
     "@nuxtjs/sitemap" // sitemap module must be last
@@ -139,14 +137,6 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
     families: {
       Montserrat: true,
       Rowdies: true
-    }
-  },
-  primevue: {
-    options: {
-      ripple: false,
-      theme: {
-        preset: Aura
-      }
     }
   },
   ui: {
