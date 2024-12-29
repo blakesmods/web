@@ -69,7 +69,8 @@ import TOC from "~/components/TOC.vue";
 import Pagination from "~/components/docs/Pagination.vue";
 
 definePageMeta({
-  layout: "docs"
+  layout: "docs",
+  middleware: "ignore-js-map"
 });
 
 const route = useRoute();

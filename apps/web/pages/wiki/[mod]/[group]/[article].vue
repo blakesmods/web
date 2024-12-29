@@ -90,7 +90,8 @@ import TOC from "~/components/TOC.vue";
 import Pagination from "~/components/wiki/Pagination.vue";
 
 definePageMeta({
-  layout: "article"
+  layout: "article",
+  middleware: "ignore-js-map"
 });
 
 const route = useRoute();
