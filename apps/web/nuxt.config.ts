@@ -109,6 +109,13 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
     build: {
       sourcemaps: true
     },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: "modern-compiler"
+        }
+      }
+    },
     plugins: [
       sentryVitePlugin({
         org: process.env.SENTRY_ORG,
