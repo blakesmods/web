@@ -10,26 +10,26 @@
     "prepare": "nuxt prepare"
   },
   "devDependencies": {
-    "@iconify-json/simple-icons": "^1.2.11",
+    "@iconify-json/simple-icons": "^1.2.17",
     "@nuxt/content": "^2.13.4",
     "@nuxt/image": "^1.8.1",
-    "@nuxt/ui": "^2.19.2",
+    "@nuxt/ui": "^2.20.0",
     "@nuxtjs/google-fonts": "^3.2.0",
-    "@nuxtjs/tailwindcss": "^6.12.2",
     "@nuxtjs/sitemap": "^6.1.5",
+    "@nuxtjs/tailwindcss": "^6.12.2",
     "@nuxtjs/web-vitals": "^0.2.7",
     "@sentry/tracing": "^7.114.0",
-    "@sentry/vite-plugin": "^2.22.6",
-    "@sentry/vue": "^7.119.2",
+    "@sentry/vite-plugin": "^2.22.7",
+    "@sentry/vue": "^7.120.2",
     "@types/numeral": "^2.0.5",
-    "@vueuse/core": "^11.2.0",
-    "@vueuse/nuxt": "^11.2.0",
+    "@vueuse/core": "^12.2.0",
+    "@vueuse/nuxt": "^12.2.0",
     "dayjs": "^1.11.13",
     "numeral": "^2.0.6",
     "nuxt": "^3.14.159",
-    "nuxt-og-image": "^3.0.8",
-    "sass": "^1.80.6",
+    "nuxt-og-image": "^3.1.1",
+    "sass": "^1.83.0",
     "semver": "^7.6.3",
-    "tailwindcss": "^3.4.14"
+    "tailwindcss": "^3.4.17"
   }
 }
