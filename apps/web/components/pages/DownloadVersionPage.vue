@@ -110,7 +110,6 @@ const props = defineProps({
 const { params } = useRoute();
 
 const mod = useMod(props.modId);
-const { formatDate, formatNumber } = useFormatters();
 
 defineOgImageComponent("Mod", {
   logo: mod.value.logo,

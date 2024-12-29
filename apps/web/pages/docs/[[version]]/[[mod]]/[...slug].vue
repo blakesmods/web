@@ -75,8 +75,6 @@ definePageMeta({
 const route = useRoute();
 const toggleSidebar = useEventBus("docs:toggleSidebar");
 
-const { formatDate } = useFormatters();
-
 const page = await useDoc();
 
 if (!page.value) {

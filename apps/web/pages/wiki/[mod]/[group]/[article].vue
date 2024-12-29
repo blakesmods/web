@@ -96,7 +96,6 @@ definePageMeta({
 const route = useRoute();
 const toggleSidebar = useEventBus("wiki:toggleSidebar");
 
-const { formatDate } = useFormatters();
 const mod = useMod(route.params.mod);
 
 const { data: page } = await useAsyncData(route.path, () =>

@@ -169,8 +169,6 @@ const props = defineProps({
 const route = useRoute();
 const router = useRouter();
 
-const { formatDate, formatNumber } = useFormatters();
-
 const files = ref([]);
 const count = ref(0);
 const versions = ref([]);
