@@ -9,7 +9,7 @@
       />
 
       <template #fallback>
-        <div class="w-8 h-8" />
+        <UButton key="fallback" class="w-8 h-8" color="gray" loading />
       </template>
     </ClientOnly>
   </UTooltip>
