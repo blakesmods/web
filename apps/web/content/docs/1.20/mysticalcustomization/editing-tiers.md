@@ -25,7 +25,7 @@ This file will contain an empty JSON object on first launch. You will use this a
 
 ## The configure-tiers File
 
-This section will go over the values available to use to edit crop tiers. Syntax can be inferred from the example json below.
+This section will go over the values available to use to edit crop tiers. Syntax can be inferred from the example JSON below.
 
 ### Name
 
@@ -73,8 +73,6 @@ You can disable the ability for crops of a tier to have a chance of dropping a s
 ```
 
 ### Base Secondary Drop Chance
-::u-badge{label="3.0.1+" color="green"}
-::
 
 You can modify the base chance of a second seed/essence dropping from this crop tier's crops when planted on a valid farmland. Can be any value from 0.0 to 1.0.
 

@@ -15,28 +15,30 @@ Extended Crafting allows you easily add your own Ender Crafting recipes using bo
 
 ### The Recipe File
 
-This section will go over the values available to use in an Ender Crafting recipe. Syntax can be inferred from the example jsons below.
+This section will go over the values available to use in an Ender Crafting recipe. Syntax can be inferred from the example JSONs below.
 
 #### Shaped
 
-| Field          | Required | Description                                                          |
-|----------------|----------|----------------------------------------------------------------------|
-| `type`         | ✓        | The recipe type must be `extendedcrafting:shaped_ender_crafter`.     |
-| `craftingTime` |          | The amount of time (in seconds) this recipe should take.             |
-| `pattern`      | ✓        | The recipe pattern.                                                  |
-| `key`          | ✓        | The recipe key, for specifying which item each character represents. |
-| `result`       | ✓        | The item that this recipe will output once finished                  |
+| Field          | Required | Description                                                                       |
+|----------------|----------|-----------------------------------------------------------------------------------|
+| `type`         | ✓        | The recipe type must be `extendedcrafting:shaped_ender_crafter`.                  |
+| `craftingTime` |          | The amount of time (in seconds) this recipe should take with a single Alternator. |
+| `pattern`      | ✓        | The recipe pattern.                                                               |
+| `key`          | ✓        | The recipe key, for specifying which item each character represents.              |
+| `result`       | ✓        | The item that this recipe will output once finished                               |
 
 #### Shapeless
 
-| Field          | Required | Description                                                         |
-|----------------|----------|---------------------------------------------------------------------|
-| `type`         | ✓        | The recipe type must be `extendedcrafting:shapeless_ender_crafter`. |
-| `craftingTime` |          | The amount of time (in seconds) this recipe should take.            |
-| `ingredients`  | ✓        | An array of 1-9 input items.                                        |
-| `result`       | ✓        | The item that this recipe will output once finished.                |
+| Field          | Required | Description                                                                       |
+|----------------|----------|-----------------------------------------------------------------------------------|
+| `type`         | ✓        | The recipe type must be `extendedcrafting:shapeless_ender_crafter`.               |
+| `craftingTime` |          | The amount of time (in seconds) this recipe should take with a single Alternator. |
+| `ingredients`  | ✓        | An array of 1-9 input items.                                                      |
+| `result`       | ✓        | The item that this recipe will output once finished.                              |
 
-**Note**: `craftingTime` refers to the amount of time in seconds that the recipe should take with a single alternator. Adding more alternators will make the crafting operation faster.
+::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+Crafting Time will decrease depending on how many Alternators are in range. See the config settings for more information.
+::
 
 ### Example Files
 #### Shaped
@@ -84,7 +86,7 @@ This section will go over the values available to use in an Ender Crafting recip
 Extended Crafting comes with CraftTweaker support built-in. You can make use of CraftTweaker to easily manage Ender Crafting recipes.
 
 ::callout{title="Recipe Manager Support" icon="i-heroicons-information-circle-solid"}
-As of version **6.0.3**, CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:extendedcrafting:ender_crafter\>**!
+CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:extendedcrafting:ender_crafter\>**!
 ::
 
 ### Adding A Shaped Recipe
@@ -93,14 +95,16 @@ As of version **6.0.3**, CraftTweaker integration now supports <a href="https://
 mods.extendedcrafting.EnderCrafting.addShaped(name, <output>, [[<>, <>, <>], [<>, <>, <>], [<>, <>, <>]], seconds);  
 ```
 
-| Field     | Required | Description                                                                                                                            |
-|-----------|----------|----------------------------------------------------------------------------------------------------------------------------------------|
-| `name`    | ✓        | A unique name for this recipe. Must be all lower case and have no spaces.                                                              |
-| `output`  | ✓        | The output item for this recipe.                                                                                                       |
-| `<>`      | ✓        | An input ingredient for the slot shown.                                                                                                |
-| `seconds` |          | The amount of seconds this recipe should take. If this parameter isn't added, it will use the default rate defined in the config file. |
+| Field     | Required | Description                                                                                                                                                           |
+|-----------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `name`    | ✓        | A unique name for this recipe. Must be all lower case and have no spaces.                                                                                             |
+| `output`  | ✓        | The output item for this recipe.                                                                                                                                      |
+| `<>`      | ✓        | An input ingredient for the slot shown. These input arrays work in the same way as the normal crafting recipes, check out the CraftTweaker wiki for more information. |
+| `seconds` |          | The amount of seconds this recipe should take with a single Alternator. If this parameter isn't added, it will use the default rate defined in the config file.       |
 
-The input arrays work in the same way as the normal crafting recipes, check out the CraftTweaker wiki for more information.
+::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+Crafting Time will decrease depending on how many Alternators are in range. See the config settings for more information.
+::
 
 #### Example
 
@@ -118,12 +122,16 @@ mods.extendedcrafting.EnderCrafting.addShaped("test_shaped", <item:minecraft:sti
 mods.extendedcrafting.EnderCrafting.addShapeless(name, <output>, [inputs], seconds); 
 ```
 
-| Field     | Required | Description                                                                                                                            |
-|-----------|----------|----------------------------------------------------------------------------------------------------------------------------------------|
-| `name`    | ✓        | A unique name for this recipe. Must be all lower case and have no spaces.                                                              |
-| `output`  | ✓        | The output item for this recipe.                                                                                                       |
-| `inputs`  | ✓        | An array of 1-9 items required to make the recipe.                                                                                     |
-| `seconds` |          | The amount of seconds this recipe should take. If this parameter isn't added, it will use the default rate defined in the config file. |
+| Field     | Required | Description                                                                                                                                                     |
+|-----------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `name`    | ✓        | A unique name for this recipe. Must be all lower case and have no spaces.                                                                                       |
+| `output`  | ✓        | The output item for this recipe.                                                                                                                                |
+| `inputs`  | ✓        | An array of 1-9 items required to make the recipe.                                                                                                              |
+| `seconds` |          | The amount of seconds this recipe should take with a single Alternator. If this parameter isn't added, it will use the default rate defined in the config file. |
+
+::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+Crafting Time will decrease depending on how many Alternators are in range. See the config settings for more information.
+::
 
 #### Example
 
@@ -141,4 +149,4 @@ mods.extendedcrafting.EnderCrafting.remove(<output>);
 
 | Field    | Required | Description                         |
 |----------|----------|-------------------------------------|
-| `output` | ✓        | The item to all remove recipes for. |
+| `output` | ✓        | The item to remove all recipes for. |

@@ -15,7 +15,7 @@ Mystical Agriculture allows you easily add your own Infusion Crafting recipes us
 
 ### The Recipe File
 
-This section will go over the values available to use in an Infusion Crafting recipe. Syntax can be inferred from the example json below.
+This section will go over the values available to use in an Infusion Crafting recipe. Syntax can be inferred from the example JSON below.
 
 | Field         | Required | Description                                                          |
 |---------------|----------|----------------------------------------------------------------------|
@@ -57,7 +57,7 @@ This section will go over the values available to use in an Infusion Crafting re
 
 ## CraftTweaker
 
-Mystical Agriculture allows you easily add your own Infusion Crafting recipes using CraftTweaker. Here's how you do it.
+Mystical Agriculture allows you easily add your own Infusion Crafting recipes using CraftTweaker.
 
 ::callout{title="Recipe Manager Support" icon="i-heroicons-information-circle-solid"}
 CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:mysticalagriculture:infusion\>**!
@@ -66,7 +66,7 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
 ### Adding A Recipe
 
 ```java
-mods.mysticalagriculture.InfusionCrafting.addRecipe(name, <output>, <input>, [<inputs>]);
+<recipetype:mysticalagriculture:infusion>.addRecipe(name, <output>, <input>, [<inputs>]);
 ```
 
 | Field    | Required | Description                                                                                                          |

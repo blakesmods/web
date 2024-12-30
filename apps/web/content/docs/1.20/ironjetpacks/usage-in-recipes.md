@@ -14,11 +14,17 @@ The different jetpack types are defined using NBT data. This means there is an e
 
 ### Jetpack Components
 
-You need to use a Jetpack Component ingredient for jetpacks and their crafting components. The two notable fields here are `component` and `jetpack`.
+You need to use a Jetpack Component ingredient for Jetpacks and their crafting components.
 
-The `component` field is the type of Jetpack crafting component you want. The possible values are `jetpack`, `cell`, `thruster` and `capacitor`.
+| Field       | Required | Description                                                                     |
+|-------------|----------|---------------------------------------------------------------------------------|
+| `type`      | ✓        | The custom Ingredient type must be `ironjetpacks:jetpack_component`.            |
+| `component` | ✓        | The item you want. Must be one of `jetpack`, `cell`, `thruster` or `capacitor`. |
+| `jetpack`   | ✓        | The Jetpack ID.                                                                 |
 
-The `jetpack` field is the Jetpack ID. You can find this ID by enabling advanced tooltips (F3 + h), and checking the ID by hovering over a Jetpack.
+::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+You can find the Jetpack ID by enabling advanced tooltips (F3 + h), and checking the ID by hovering over a Jetpack.
+::
 
 #### Example
 
@@ -32,9 +38,12 @@ The `jetpack` field is the Jetpack ID. You can find this ID by enabling advanced
 
 ### Jetpack Tiers
 
-If you want to create recipes that can accept any jetpack of a tier, similarly to the default jetpack upgrade recipes, then you can use the Jetpack Tier ingredient.
+If you want to create recipes that can accept any Jetpack of a tier, similarly to the default Jetpack upgrade recipes, then you can use the Jetpack Tier ingredient.
 
-The `tier` field is the jetpack tier, and it must be a number.
+| Field  | Required | Description                                                     |
+|--------|----------|-----------------------------------------------------------------|
+| `type` | ✓        | The custom Ingredient type must be `ironjetpacks:jetpack_tier`. |
+| `tier` | ✓        | The numerical Jetpack tier.                                     |
 
 #### Example
 
@@ -47,7 +56,7 @@ The `tier` field is the jetpack tier, and it must be a number.
 
 ### Jetpacks as Recipe Output
 
-Since each Jetpack is differentiated using NBT, you will need to provide the NBT in the recipe result item.
+Since each jetpack is differentiated using NBT, you will need to provide the NBT in the recipe result item.
 
 #### Example
 

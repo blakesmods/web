@@ -4,7 +4,7 @@ title: Compression Recipes
 category: Extended Crafting
 ---
 
-Mystical Agriculture allows you easily add your own Compressor recipes using both Datapacks and CraftTweaker.
+Extended Crafting allows you easily add your own Compressor recipes using both Datapacks and CraftTweaker.
 
 ## Datapacks
 
@@ -15,7 +15,7 @@ Mystical Agriculture allows you easily add your own Compressor recipes using bot
 
 ### The Recipe File
 
-This section will go over the values available to use in a Compressor recipe. Syntax can be inferred from the example json below.
+This section will go over the values available to use in a Compressor recipe. Syntax can be inferred from the example JSON below.
 
 | Field        | Required | Description                                                                         |
 |--------------|----------|-------------------------------------------------------------------------------------|
@@ -26,6 +26,10 @@ This section will go over the values available to use in a Compressor recipe. Sy
 | `inputCount` | ✓        | The amount of the input item required.                                              |
 | `catalyst`   | ✓        | The catalyst item. This item does not get consumed.                                 |
 | `result`     | ✓        | The item that this recipe will output once finished.                                |
+
+::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+The amount of time (in ticks) a Compression recipe takes to complete is powerCost / powerRate.
+::
 
 ### Example File
 
@@ -51,10 +55,10 @@ This section will go over the values available to use in a Compressor recipe. Sy
 Extended Crafting comes with CraftTweaker support built-in. You can make use of CraftTweaker to easily manage Compression Crafting recipes.
 
 ::callout{title="Recipe Manager Support" icon="i-heroicons-information-circle-solid"}
-As of version **6.0.3**, CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:extendedcrafting:compressor\>**!
+CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:extendedcrafting:compressor\>**!
 ::
 
-### Adding a Recipe
+### Adding A Recipe
 
 ```java
 mods.extendedcrafting.CompressionCrafting.addRecipe(name, <input>, <output>, inputCount, <catalyst>, powerCost);    
@@ -73,7 +77,7 @@ mods.extendedcrafting.CompressionCrafting.addRecipe(name, <input>, <output>, inp
 | `powerRate`  |          | The rate the recipe should consume FE during the crafting stage.  If this parameter isn't added, it will use the default rate defined in the config file. |
 
 ::callout{title="Note" icon="i-heroicons-information-circle-solid"}
-powerCost / powerRate = the amount of ticks required in the crafting stage.
+The amount of time (in ticks) a Compression recipe takes to complete is powerCost / powerRate.
 ::
 
 #### Example

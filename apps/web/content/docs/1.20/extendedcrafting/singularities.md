@@ -4,15 +4,15 @@ title: Singularities
 category: Extended Crafting
 ---
 
-Extended Crafting allows you easily add your own Singularities.
+Extended Crafting allows you easily add your own singularities.
 
 ## Adding Singularities
 
-To add a singularity, you just need to add a singularity json file to the /config/extendedcrafting/singularities directory.
+To add a singularity, you just need to add a singularity JSON file to the /config/extendedcrafting/singularities directory.
 
 ### The Singularity File
 
-This section will go over the values available to use in a Singularity json. Syntax can be inferred from the example json below.
+This section will go over the values available to use in a Singularity JSON. Syntax can be inferred from the example JSON below.
 
 | Field                   | Required | Description                                                                                                      |
 |-------------------------|----------|------------------------------------------------------------------------------------------------------------------|
@@ -41,11 +41,11 @@ This section will go over the values available to use in a Singularity json. Syn
 
 ## Using In Recipes
 
-The different singularity types are defined using NBT data. This means there is an extra step involved in using a singularity in a crafting recipe.
+The different Singularity types are defined using NBT data. This means there is an extra step involved in using a Singularity in a crafting recipe.
 
 ### What To Do
 
-You need to use an NBT ingredient for singularities. In the NBT tag you need to specify the singularity id.
+You need to use an NBT ingredient for Singularities. In the NBT tag you need to specify the Singularity ID.
 
 ```json
 {
@@ -57,8 +57,10 @@ You need to use an NBT ingredient for singularities. In the NBT tag you need to 
 }
 ```
 
-**Note**: You can find the singularity id by enabling advanced tooltips (f3 + h), and seeing what it says.
+::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+You can find the Singularity ID by enabling advanced tooltips (f3 + h), and seeing what it says.
+::
 
 ## Removing Singularities
 
-Just delete the singularity's file from `/config/extendedcrafting/singularities`. As of version 4.1.0, you can also add `"enabled": false` to the singularity file to disable it.
+You can either delete the Singularity's file from `/config/extendedcrafting/singularities` or add `"enabled": false` to the Singularity file to disable it.

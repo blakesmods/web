@@ -24,7 +24,7 @@ This file will contain an empty JSON object on first launch. You will use this a
 
 ## The configure-crops File
 
-This section will go over the values available to use to edit crops. Syntax can be inferred from the example json below.
+This section will go over the values available to use to edit crops. Syntax can be inferred from the example JSON below.
 
 ### Name
 
@@ -37,7 +37,7 @@ You can change the display name of a crop like so.
 
 ### Type
 
-You can change the crop type of a crop using that type's ID. Learn more about types and how to add your own [here](adding-types.md).
+You can change the crop type of a crop using that crop type's ID. Learn more about types and how to add your own [here](adding-types.md).
 
 ```json
 {
@@ -45,17 +45,13 @@ You can change the crop type of a crop using that type's ID. Learn more about ty
 }
 ```
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
-In versions prior to 3.0.0, the crop type IDs did not contain mod IDs. So the above example would use `resource` instead.
-::
-
 ::callout{title="Tip" icon="i-heroicons-light-bulb-solid"}
 You can see all the registered types in-game with the `/mysticalcustomization types` command.
 ::
 
 ### Tier
 
-You can change the tier of a crop using the tier's ID. Learn more about tiers and how to add your own [here](adding-tiers.md).
+You can change the crop tier of a crop using the crop tier's ID. Learn more about tiers and how to add your own [here](adding-tiers.md).
 ```json
 {
   "tier": "mysticalagriculture:1"
@@ -79,9 +75,8 @@ You can change the crafting ingredient used to craft a crop's seed. This can be 
 
 ### Crux
 
-You can change the required crux block to this crop. A crux is a block that must be placed underneath the farmland for this crop to grow.
+You can change the required crux block to this crop. A crux is a block that must be placed underneath the farmland for this crop to grow. You can remove the crux from a crop by setting the value to `null`.
 
-**2.1.7 or later:** you can remove the crux from a crop by setting the value to `null`.
 ```json
 {
   "crux": "minecraft:cobblestone"
@@ -98,8 +93,6 @@ You can disable a crop if you want to hide it.
 ```
 
 ### Glint
-::u-badge{label="2.0.0+" color="green"}
-::
 
 You can enable the enchantment glint effect for this crop's items.
 ```json
@@ -109,8 +102,6 @@ You can enable the enchantment glint effect for this crop's items.
 ```
 
 ### Required Biomes
-::u-badge{label="2.1.2+" color="green"}
-::
 
 You can specify required biomes for this crop to be able to grow in.
 ```json
@@ -123,8 +114,6 @@ You can specify required biomes for this crop to be able to grow in.
 ```
 
 ### Base Secondary Drop Chance
-::u-badge{label="3.0.1+" color="green"}
-::
 
 You can modify the base chance of a second seed/essence dropping from the crop when planted on a valid farmland. Can be any value from 0.0 to 1.0.
 ```json
@@ -134,8 +123,6 @@ You can modify the base chance of a second seed/essence dropping from the crop w
 ```
 
 ### Respects Effective Farmland
-::u-badge{label="5.0.1+" color="green"}
-::
 
 You can disable the +10% additional secondary seed drop chance applied when planted on the `farmland` block set in the Crop Tier.
 ```json
@@ -145,8 +132,6 @@ You can disable the +10% additional secondary seed drop chance applied when plan
 ```
 
 ### Essence Item
-::u-badge{label="3.1.1+" color="green"}
-::
 
 You can specify your own essence item. This is the item that will drop from the crop when harvested. 
 
@@ -161,8 +146,6 @@ Setting this value will **not** prevent the crop's current essence item from bei
 ::
 
 ### Recipe Config
-::u-badge{label="3.1.2+" color="green"}
-::
 
 You can disable the auto-generated recipes for a crop.
 ```json5

@@ -4,7 +4,7 @@ title: Compression Recipes
 category: Extended Crafting
 ---
 
-Mystical Agriculture allows you easily add your own Compressor recipes using both Datapacks and CraftTweaker.
+Extended Crafting allows you easily add your own Compressor recipes using both Datapacks and CraftTweaker.
 
 ## Datapacks
 
@@ -15,7 +15,7 @@ Mystical Agriculture allows you easily add your own Compressor recipes using bot
 
 ### The Recipe File
 
-This section will go over the values available to use in a Compressor recipe. Syntax can be inferred from the example json below.
+This section will go over the values available to use in a Compressor recipe. Syntax can be inferred from the example JSON below.
 
 | Field        | Required | Description                                                                         |
 |--------------|----------|-------------------------------------------------------------------------------------|
@@ -27,7 +27,7 @@ This section will go over the values available to use in a Compressor recipe. Sy
 | `result`     | ✓        | The item that this recipe will output once finished.                                |
 
 ::callout{title="Note" icon="i-heroicons-information-circle-solid"}
-power_cost / power_rate = the amount of ticks required in the crafting stage.
+The amount of time (in ticks) a Compression recipe takes to complete is power_cost / power_rate.
 ::
 
 ### Example File
@@ -57,7 +57,7 @@ Extended Crafting comes with CraftTweaker support built-in. You can make use of 
 CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:extendedcrafting:compressor\>**!
 ::
 
-### Adding a Recipe
+### Adding A Recipe
 
 ```java
 <recipetype:extendedcrafting:compressor>.addRecipe(name, <input>, <output>, input_count, <catalyst>, power_cost);    
@@ -70,13 +70,13 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
 | `input`       | ✓        | The output item for this recipe.                                                                                                                          |
 | `input_count` | ✓        | The amount of the input item that is required.                                                                                                            |
 | `catalyst`    | ✓        | The input item.                                                                                                                                           |
-| `inputCount`  | ✓        | The amount of the input item required.                                                                                                                    |
+| `input_count` | ✓        | The amount of the input item required.                                                                                                                    |
 | `catalyst`    | ✓        | The item that is required as a catalyst. This does not get consumed and goes in the small slot to the left.                                               |
 | `power_cost`  | ✓        | The amount of FE required to complete the crafting stage of compression.                                                                                  |
 | `power_rate`  |          | The rate the recipe should consume FE during the crafting stage.  If this parameter isn't added, it will use the default rate defined in the config file. |
 
 ::callout{title="Note" icon="i-heroicons-information-circle-solid"}
-power_cost / power_rate = the amount of ticks required in the crafting stage.
+The amount of time (in ticks) a Compression recipe takes to complete is power_cost / power_rate.
 ::
 
 #### Example

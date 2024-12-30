@@ -28,6 +28,7 @@ This section will go over the values available to use in a Table Crafting recipe
 | `result`  | ✓        | The item that this recipe will output when crafted.                                                                |
 
 #### Shapeless
+
 | Field         | Required | Description                                                                                                        |
 |---------------|----------|--------------------------------------------------------------------------------------------------------------------|
 | `type`        | ✓        | The recipe type must be `extendedcrafting:shapeless_table`.                                                        |
@@ -57,6 +58,7 @@ This section will go over the values available to use in a Table Crafting recipe
   }
 }
 ```
+
 #### Tier 2 (5x5)
 
 ```json
@@ -79,6 +81,7 @@ This section will go over the values available to use in a Table Crafting recipe
   }
 }
 ```
+
 #### Tier 3 (7x7)
 
 ```json
@@ -103,6 +106,7 @@ This section will go over the values available to use in a Table Crafting recipe
   }
 }
 ```
+
 #### Tier 4 (9x9)
 
 ```json
@@ -154,7 +158,7 @@ This section will go over the values available to use in a Table Crafting recipe
 Extended Crafting comes with CraftTweaker support built-in. You can make use of CraftTweaker to easily manage Table Crafting recipes.
 
 ::callout{title="Recipe Manager Support" icon="i-heroicons-information-circle-solid"}
-As of version **6.0.3**, CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:extendedcrafting:table\>**!
+CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:extendedcrafting:table\>**!
 ::
 
 ### Adding A Shaped Recipe
@@ -171,14 +175,12 @@ mods.extendedcrafting.TableCrafting.addShaped(name, tier, <output>, [[<>, <>, <>
 mods.extendedcrafting.TableCrafting.addShaped(name, tier, <output>, [[<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>, <>, <>]]);
 ```
 
-| Field    | Required | Description                                                                                                                            |
-|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------|
-| `name`   | ✓        | A unique name for this recipe. Must be all lower case and have no spaces.                                                              |
-| `tier`   |          | The required crafting table tier. The tiers are 1-4, or 0 for any that are big enough. Not adding this parameter will make the tier 0. |
-| `output` | ✓        | The output item of this recipe.                                                                                                        |
-| `<>`     | ✓        | An input ingredient for the slot shown.                                                                                                |
-
-The input arrays work in the same way as the normal crafting recipes, check out the CraftTweaker wiki for more information.
+| Field    | Required | Description                                                                                                                                                           |
+|----------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `name`   | ✓        | A unique name for this recipe. Must be all lower case and have no spaces.                                                                                             |
+| `tier`   |          | The required crafting table tier. The tiers are 1-4, or 0 for any that are big enough. Not adding this parameter will make the tier 0.                                |
+| `output` | ✓        | The output item of this recipe.                                                                                                                                       |
+| `<>`     | ✓        | An input ingredient for the slot shown. These input arrays work in the same way as the normal crafting recipes, check out the CraftTweaker wiki for more information. |
 
 #### Example
 

@@ -15,7 +15,7 @@ Extended Crafting allows you easily add your own Flux Crafting recipes using bot
 
 ### The Recipe File
 
-This section will go over the values available to use in an Ender Crafting recipe. Syntax can be inferred from the example jsons below.
+This section will go over the values available to use in an Ender Crafting recipe. Syntax can be inferred from the example JSONs below.
 
 #### Shaped
 
@@ -37,6 +37,10 @@ This section will go over the values available to use in an Ender Crafting recip
 | `power_rate`     |          | The amount of FE/t this recipe should take from each Flux Alternator. If omitted will use the default set in the config file. |
 | `ingredients`    | ✓        | An array of 1-9 input items.                                                                                                  |
 | `result`         | ✓        | The item that this recipe will output once finished                                                                           |
+
+::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+Crafting Time will decrease depending on how many Alternators are in range. See the config settings for more information.
+::
 
 ### Example Files
 #### Shaped
@@ -95,15 +99,17 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
 <recipetype:extendedcrafting:flux_crafter>.addShaped(name, <output>, [[<>, <>, <>], [<>, <>, <>], [<>, <>, <>]], power_required, power_rate);  
 ```
 
-| Field            | Required | Description                                                                                                                   |
-|------------------|----------|-------------------------------------------------------------------------------------------------------------------------------|
-| `name`           | ✓        | A unique name for this recipe. Must be all lower case and have no spaces.                                                     |
-| `output`         | ✓        | The output item for this recipe.                                                                                              |
-| `<>`             | ✓        | An input ingredient for the slot shown.                                                                                       |
-| `power_required` | ✓        | The amount of FE this recipe needs per craft.                                                                                 |
-| `power_rate`     |          | The amount of FE/t this recipe should take from each Flux Alternator. If omitted will use the default set in the config file. |
+| Field            | Required | Description                                                                                                                                                           |
+|------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `name`           | ✓        | A unique name for this recipe. Must be all lower case and have no spaces.                                                                                             |
+| `output`         | ✓        | The output item for this recipe.                                                                                                                                      |
+| `<>`             | ✓        | An input ingredient for the slot shown. These input arrays work in the same way as the normal crafting recipes, check out the CraftTweaker wiki for more information. |
+| `power_required` | ✓        | The amount of FE this recipe needs per craft.                                                                                                                         |
+| `power_rate`     |          | The amount of FE/t this recipe should take from each Flux Alternator. If omitted will use the default set in the config file.                                         |
 
-The input arrays work in the same way as the normal crafting recipes, check out the CraftTweaker wiki for more information.
+::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+Crafting Time will decrease depending on how many Alternators are in range. See the config settings for more information.
+::
 
 #### Example
 
@@ -129,6 +135,10 @@ The input arrays work in the same way as the normal crafting recipes, check out 
 | `power_required` | ✓        | The amount of FE this recipe needs per craft.                                                                                 |
 | `power_rate`     |          | The amount of FE/t this recipe should take from each Flux Alternator. If omitted will use the default set in the config file. |
 
+::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+Crafting Time will decrease depending on how many Alternators are in range. See the config settings for more information.
+::
+
 #### Example
 
 ```java
@@ -145,4 +155,4 @@ The input arrays work in the same way as the normal crafting recipes, check out 
 
 | Field    | Required | Description                         |
 |----------|----------|-------------------------------------|
-| `output` | ✓        | The item to all remove recipes for. |
+| `output` | ✓        | The item to remove all recipes for. |

@@ -11,26 +11,21 @@ Mystical Customization allows you easily add your own crops.
 Crops are added via JSON files placed in `/config/mysticalcustomization/crops/`. Each file represents a new crop to be added.
 
 ::callout{title="Important" icon="i-heroicons-information-circle-solid"}
-The name of the file is used as the crops ID. The ID **must** be all lowercase with underscores '_' in place of spaces. 
+The name of the file is used as the crop's ID. The ID **must** be all lowercase with underscores '_' in place of spaces. 
 ::
 
 ## The Crop File
 
-This section will go over the values available to use in crop file. Syntax can be inferred from the example json below.
-
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
-Any field below marked with a <span class="text-primary-500">purple</span> badge is required. Any field marked with a <span class="text-green-500">green</span> badge requires at least the version specified.
-::
+This section will go over the values available to use in crop file. Syntax can be inferred from the example JSON below.
 
 ### Name
 
-You can manually define the display name for this crop.
+You can manually define the display name for this crop. Omitting this field will auto generate a translation key with the format `crop.mysticalcustomization.{id}`.
 ```json
 {
   "name": "Test"
 }
 ```
-Omitting this field will auto generate a translation key with the format `crop.mysticalcustomization.{id}`.
 
 ### Type
 
@@ -44,10 +39,6 @@ You must assign this crop to a type, using that type's ID. Learn more about type
   "type": "mysticalagriculture:resource"
 }
 ```
-
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
-In versions prior to 3.0.0, the crop type IDs did not contain mod IDs. So the above example would use `resource` instead.
-::
 
 ::callout{title="Tip" icon="i-heroicons-light-bulb-solid"}
 You can see all the registered types in-game with the `/mysticalcustomization types` command.
@@ -71,12 +62,7 @@ You can see all the registered tiers in-game with the `/mysticalcustomization ti
 
 ### Ingredient
 
-::u-badge{label="Required"}
-::
-
-You must assign the crafting ingredient used to craft this crop's seed. This can be either an item or a tag, and uses the same syntax as a crafting recipe.
-
-**Note:** As of version 2.1.3, this field is no longer required.
+You can assign the crafting ingredient used to craft this crop's seed. This can be either an item or a tag, and uses the same syntax as a crafting recipe.
 ```json
 {
   "ingredient": {
@@ -98,7 +84,7 @@ You should set a color for the crop, essence and seeds. Colors are set using HEX
 }
 ```
 
-If you want to use the same color for all 3 (which you probably should), you can use this syntax instead.
+If you want to use the same color for all 3, you can use this syntax instead.
 ```json
 {
   "color": "aaaaaa"
@@ -119,7 +105,7 @@ You should set the textures you want to use for your crop, essence and seeds.
 ```
 
 ::callout{title="Note" icon="i-heroicons-information-circle-solid"}
-In versions **4.1.0** and later, due to changes in Minecraft, this option now uses **Model Locations** instead of textures. Mystical Agriculture comes with models for each of the default textures listed below. If you would like to use your own, see [Custom Models](#custom-models).
+Due to changes in Minecraft, this option now uses **Model Locations** instead of textures. Mystical Agriculture comes with models for each of the default textures listed below. If you would like to use your own, see [Custom Models](#custom-models).
 ::
 
 #### Built In Flower Textures
@@ -253,8 +239,6 @@ You can disable this crop during the creation process if you really want to I gu
 ```
 
 ### Glint
-::u-badge{label="2.0.0+" color="green"}
-::
 
 You can enable the enchantment glint effect for this crop's items.
 ```json
@@ -264,8 +248,6 @@ You can enable the enchantment glint effect for this crop's items.
 ```
 
 ### Required Biomes
-::u-badge{label="2.1.2+" color="green"}
-::
 
 You can specify required biomes for this crop to be able to grow in.
 ```json
@@ -278,8 +260,6 @@ You can specify required biomes for this crop to be able to grow in.
 ```
 
 ### Base Secondary Drop Chance
-::u-badge{label="3.0.1+" color="green"}
-::
 
 You can modify the base chance of a second seed/essence dropping from the crop when planted on a valid farmland. Can be any value from 0.0 to 1.0.
 ```json
@@ -289,8 +269,6 @@ You can modify the base chance of a second seed/essence dropping from the crop w
 ```
 
 ### Respects Effective Farmland
-::u-badge{label="5.0.1+" color="green"}
-::
 
 You can disable the +10% additional secondary seed drop chance applied when planted on the `farmland` block set in the Crop Tier.
 ```json
@@ -300,8 +278,6 @@ You can disable the +10% additional secondary seed drop chance applied when plan
 ```
 
 ### Essence Item
-::u-badge{label="3.1.1+" color="green"}
-::
 
 You can specify your own essence item. This is the item that will drop from the crop when harvested.
 
@@ -316,8 +292,6 @@ Setting this value will prevent the default essence item from being registered. 
 ::
 
 ### Recipe Config
-::u-badge{label="3.1.2+" color="green"}
-::
 
 You can optionally disable the auto-generated recipes for your crops if you plan on adding your own instead.
 ```json5
