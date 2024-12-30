@@ -64,12 +64,12 @@ const props = defineProps({
   modId: String
 });
 
-const modInfo = useMod(props.modId);
+const modInfo = getMod(props.modId);
 
 defineOgImageComponent("Mod", {
-  logo: modInfo.value.logo,
-  primaryColor: modInfo.value.primary_color,
-  secondaryColor: modInfo.value.secondary_color
+  logo: modInfo.logo,
+  primaryColor: modInfo.primary_color,
+  secondaryColor: modInfo.secondary_color
 });
 
 const mod = ref({});

@@ -48,7 +48,6 @@ const props = defineProps({
   current: Object
 });
 
-const mods = useMods();
 const version = useDocsVersion();
 const isLatestVersion = useDocsIsLatestVersion();
 
@@ -81,7 +80,7 @@ if (isLatestVersion) {
 
 function formatModName(document) {
   const name = document._path.split("/")[isLatestVersion ? 2 : 3];
-  const mod = mods.value.find(mod => mod.mod_id === name);
+  const mod = getMod(name);
   return mod ? mod.name : name;
 }
 </script>

@@ -109,16 +109,16 @@ const props = defineProps({
 
 const { params } = useRoute();
 
-const mod = useMod(props.modId);
+const mod = getMod(props.modId);
 
 defineOgImageComponent("Mod", {
-  logo: mod.value.logo,
-  primaryColor: mod.value.primary_color,
-  secondaryColor: mod.value.secondary_color
+  logo: mod.logo,
+  primaryColor: mod.primary_color,
+  secondaryColor: mod.secondary_color
 });
 
-const title = `Download ${mod.value.name}`;
-const description = `The official download source of ${mod.value.name} for Minecraft`;
+const title = `Download ${mod.name}`;
+const description = `The official download source of ${mod.name} for Minecraft`;
 
 const file = ref({});
 const downloadPending = ref(false);

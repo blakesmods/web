@@ -84,10 +84,11 @@
 </template>
 
 <script setup>
-const mods = useMods();
 const active = useModsDropdown();
 
 const el = ref(null);
+
+const mods = getMods();
 
 onClickOutside(el, () => {
   active.value = false;

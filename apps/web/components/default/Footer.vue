@@ -102,12 +102,12 @@ import CurseForgeLogo from "~/components/CurseForgeLogo.vue";
 import ModrinthLogo from "~/components/ModrinthLogo.vue";
 import ThemeToggle from "~/components/ThemeToggle.vue";
 
-const mods = useMods();
+const mods = getMods();
 
 const columns = ref([
   {
     title: "Mods",
-    links: mods.value.map(m => ({ name: m.name, url: m.url }))
+    links: mods.map(m => ({ name: m.name, url: m.url }))
   },
   {
     title: "Navigation",

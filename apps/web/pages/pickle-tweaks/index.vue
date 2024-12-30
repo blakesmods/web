@@ -18,7 +18,7 @@ definePageMeta({
   layout: "mods"
 });
 
-const mod = useMod("pickletweaks");
+const mod = getMod("pickletweaks");
 
 const features = ref([
   {

@@ -78,8 +78,8 @@ definePageMeta({
   layout: "mods"
 });
 
-const mod = useMod("cucumber");
-const mods = useModsExcept(["cucumber"]);
+const mod = getMod("cucumber");
+const mods = getModsExcept(["cucumber"]);
 
 const features = ref([
   {

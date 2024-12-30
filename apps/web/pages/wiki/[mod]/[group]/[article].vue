@@ -97,7 +97,7 @@ definePageMeta({
 const route = useRoute();
 const toggleSidebar = useEventBus("wiki:toggleSidebar");
 
-const mod = useMod(route.params.mod);
+const mod = getMod(route.params.mod);
 
 const { data: page } = await useAsyncData(route.path, () =>
   queryContent(route.path).findOne()
@@ -107,7 +107,7 @@ if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
 }
 
-const title = `${page.value.title} · ${mod.value.name} Wiki`;
+const title = `${page.value.title} · ${mod.name} Wiki`;
 const description = parseDescription(page.value);
 const noindex = page.value._empty
   ? [{ hid: "noindex", name: "robots", content: "noindex" }]
@@ -153,7 +153,7 @@ const breadcrumbs = computed(() =>
       to: "/wiki"
     },
     pathParts.length > 2 && {
-      label: mod.value.name,
+      label: mod.name,
       to: pathParts.length > 3 ? pathParts.slice(0, 3).join("/") : undefined
     },
     pathParts.length > 3 && {

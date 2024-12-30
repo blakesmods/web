@@ -33,7 +33,7 @@ definePageMeta({
   layout: "mods"
 });
 
-const mod = useMod("mysticalagriculture");
+const mod = getMod("mysticalagriculture");
 
 const features = ref([
   {

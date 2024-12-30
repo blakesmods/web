@@ -18,7 +18,7 @@ definePageMeta({
   layout: "mods"
 });
 
-const mod = useMod("ironjetpacks");
+const mod = getMod("ironjetpacks");
 
 const features = ref([
   {

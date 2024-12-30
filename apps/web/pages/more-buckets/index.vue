@@ -18,7 +18,7 @@ definePageMeta({
   layout: "mods"
 });
 
-const mod = useMod("morebuckets");
+const mod = getMod("morebuckets");
 
 const features = ref([
   {

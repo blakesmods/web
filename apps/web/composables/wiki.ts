@@ -10,19 +10,18 @@ export const useWikiSearch = async () => {
     if (data.value) {
       for (const doc of data.value) {
         const parts = doc.id.split("/").slice(1);
-        const mod = useMod(parts[1] as any);
-
-        if (!mod.value) {
+        const mod = getMod(parts[1] as any);
+        if (!mod) {
           continue;
         }
 
-        doc.category = mod.value.name;
+        doc.category = mod.name;
 
-        if (!documents[mod.value.name]) {
-          documents[mod.value.name] = [];
+        if (!documents[mod.name]) {
+          documents[mod.name] = [];
         }
 
-        documents[mod.value.name].push(doc);
+        documents[mod.name].push(doc);
       }
     }
 

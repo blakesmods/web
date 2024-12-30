@@ -18,7 +18,7 @@ definePageMeta({
   layout: "mods"
 });
 
-const mod = useMod("extendedcrafting");
+const mod = getMod("extendedcrafting");
 
 const features = ref([
   {

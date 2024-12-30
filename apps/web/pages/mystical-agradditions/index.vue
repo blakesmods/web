@@ -18,7 +18,7 @@ definePageMeta({
   layout: "mods"
 });
 
-const mod = useMod("mysticalagradditions");
+const mod = getMod("mysticalagradditions");
 
 const features = ref([
   {

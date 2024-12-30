@@ -12,10 +12,10 @@ definePageMeta({
   layout: "wiki"
 });
 
-const mods = useMods();
+const mods = getMods();
 
 const title = "Wiki";
-const description = `The official wiki for ${mods.value
+const description = `The official wiki for ${mods
   .filter(m => m.has_wiki)
   .join(", ")}!`;
 

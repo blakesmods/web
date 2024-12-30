@@ -77,14 +77,13 @@ definePageMeta({
 
 const route = useRoute();
 
-const mod = useMod(route.params.mod);
-
-if (!mod.value) {
+const mod = getMod(route.params.mod);
+if (!mod) {
   throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
 }
 
-const title = mod.value.name + " Wiki";
-const description = `View wiki articles about ${mod.value.name}.`;
+const title = mod.name + " Wiki";
+const description = `View wiki articles about ${mod.name}.`;
 
 useHead({
   title: title,
@@ -152,7 +151,7 @@ const breadcrumbs = computed(() => [
     to: "/wiki"
   },
   {
-    label: mod.value.name
+    label: mod.name
   }
 ]);
 

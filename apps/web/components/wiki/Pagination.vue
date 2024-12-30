@@ -48,8 +48,6 @@ const props = defineProps({
   current: Object
 });
 
-const mods = useMods();
-
 const parts = props.current._path.split("/").slice(1);
 
 const { data } = await useAsyncData(
@@ -65,7 +63,7 @@ const next = computed(() => data.value[1]);
 
 function formatModName(document) {
   const name = document._path.split("/")[2];
-  const mod = mods.value.find(mod => mod.mod_id === name);
+  const mod = getMod(name);
   return mod ? mod.name : name;
 }
 </script>

@@ -97,7 +97,7 @@ const grays = [
   "bg-gray-400 dark:bg-gray-600"
 ];
 
-const mods = useMods();
+const mods = getMods();
 
 const el = ref(null);
 const rows = ref(0);

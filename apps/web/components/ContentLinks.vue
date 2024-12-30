@@ -46,5 +46,5 @@ defineProps({
 
 const route = useRoute();
 const isLatestVersion = useDocsIsLatestVersion();
-const mod = useMod(route.path.split("/")[isLatestVersion ? 2 : 3]);
+const mod = getMod(route.path.split("/")[isLatestVersion ? 2 : 3]);
 </script>
