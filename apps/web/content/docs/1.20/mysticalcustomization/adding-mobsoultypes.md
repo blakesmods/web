@@ -11,16 +11,12 @@ Mystical Customization allows you easily add your own mob soul types.
 Mob soul types are added via JSON files placed in `/config/mysticalcustomization/mobsoultypes/`. Each file represents a new mob soul type to be added.
 
 ::callout{title="Important" icon="i-heroicons-information-circle-solid"}
-The name of the file is used as the crops ID. The ID **must** be all lowercase with underscores '_' in place of spaces. 
+The name of the file is used as the mob soul type's ID. The ID **must** be all lowercase with underscores '_' in place of spaces. 
 ::
 
 ## The Mob Soul Type File
 
-This section will go over the values available to use in mob soul type file. Syntax can be inferred from the example json below.
-
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
-Any field below marked with a <span class="text-primary-500">purple</span> badge is required. Any field marked with a <span class="text-green-500">green</span> badge requires at least the version specified.
-::
+This section will go over the values available to use in mob soul type file. Syntax can be inferred from the example JSON below.
 
 ### Name
 
@@ -74,8 +70,6 @@ You should set the color of the Soul Jar for this mob soul type. Colors are set 
 ```
 
 ### Enabled
-::u-badge{label="2.1.2+" color="green"}
-::
 
 You can disable this mob soul type during the creation process if you really want to I guess.
 ```json

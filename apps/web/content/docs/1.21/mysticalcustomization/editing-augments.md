@@ -24,7 +24,7 @@ This file will contain an empty JSON object on first launch. You will use this a
 
 ## The configure-augments File
 
-This section will go over the values available to use to edit Augments. Syntax can be inferred from the example json below.
+This section will go over the values available to use to edit Augments. Syntax can be inferred from the example JSON below.
 
 ### Enabled
 

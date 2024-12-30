@@ -20,10 +20,6 @@ This section will go over the values available to use in jetpack file. Syntax ca
 Use the stats of the default jetpacks to decide what the values should be for your custom jetpacks, since the values themselves are quite cryptic.
 ::
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
-Any field below marked with a <span class="text-primary-500">purple</span> badge is required. Any field marked with a <span class="text-green-500">green</span> badge requires at least the version specified.
-::
-
 ### Name
 ::u-badge{label="Required"}
 ::
@@ -35,7 +31,9 @@ The name of the jetpack. **This name must be all lower case and have underscores
 }
 ```
 
-**Version 6.0.1+:** Translation keys will be automatically created for the provided jetpack name. For example, a jetpack with the name `emerald` will have the translation key `jetpack.emerald.name`. You can use this key in your Resource Pack translation files to translate the name into different languages.
+::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+Translation keys will be automatically created for the provided jetpack name. For example, a jetpack with the name "emerald" will have the translation key "jetpack.emerald.name". You can use this key in your Resource Pack translation files to translate the name into different languages.
+::
 
 ### Disable
 ::u-badge{label="Required"}
@@ -63,7 +61,7 @@ The crafting tier of the jetpack. Make sure there is at least 1 jetpack per tier
 ::u-badge{label="Required"}
 ::
 
-The color of the jetpack and related items as an integer. This color should be a HEX value.
+The color of the jetpack and related items as a HEX value.
 ```json
 {
   "color": "41f384"
@@ -85,7 +83,7 @@ The amount of armor the jetpack should give when worn.
 ::u-badge{label="Required"}
 ::
 
-How enchantable the armor should be.
+How enchantable the jetpack should be.
 ```json
 {
   "enchantability": 15
@@ -96,43 +94,32 @@ How enchantable the armor should be.
 ::u-badge{label="Required"}
 ::
 
-The material used to craft the jetpack and its components. Syntax is `modid:itemid` for items and `tag:modid:tagid` for tag entries.
+The material used to craft the jetpack and its components. Syntax is `modid:itemid` for items and `tag:modid:tagid` for tag entries. You can also set the value to `"null"` to disable the recipes.
 ```json
 {
-  "craftingMaterial": "tag:forge:gems/emerald"
-}
-```
-
-If you don't want any of the default crafting recipes to be generated you can set the `craftingMaterial` field to `"null"`.
-```json
-{
-  "craftingMaterial": "null"
+  "craftingMaterial": "tag:c:gems/emerald"
 }
 ```
 
 ### Creative
 
-Is the jetpack a creative tier jetpack?
+Is the jetpack a creative tier jetpack? Omitting this field will default to `false`.
 ```json
 {
   "creative": false
 }
 ```
-Omitting this field will default to `false`.
 
 ### Rarity
 
-The item rarity of this jetpack. This is basically just used to change the color of the tooltip. Valid values are 0-3.
+The item rarity of this jetpack. This is basically just used to change the color of the tooltip. Valid values are 0-3. Omitting this field will default to `0`.
 ```json
 {
   "rarity": 0
 }
 ```
-Omitting this field will default to `0`.
 
 ### Toughness
-::u-badge{label="4.2.1+" color="green"}
-::
 
 The amount of armor toughness this jetpack should give when worn.
 ```json
@@ -142,8 +129,6 @@ The amount of armor toughness this jetpack should give when worn.
 ```
 
 ### Knockback Resistance
-::u-badge{label="4.2.1+" color="green"}
-::
 
 The amount of knockback resistance this jetpack should give when worn.
 ```json
@@ -175,8 +160,6 @@ How much FE this jetpack should use when flying/hovering.
 ```
 
 ### Curios
-::u-badge{label="5.1.1+" color="green"}
-::
 
 Whether this jetpack should be wearable as a Curio. They work as a Curio by default.
 ```json
@@ -186,8 +169,6 @@ Whether this jetpack should be wearable as a Curio. They work as a Curio by defa
 ```
 
 ### Vertical Speed
-::u-badge{label="4.2.1+" color="green"}
-::
 
 How fast the jetpack should fly upwards.
 ```json
@@ -197,8 +178,6 @@ How fast the jetpack should fly upwards.
 ```
 
 ### Vertical Acceleration
-::u-badge{label="4.2.1+" color="green"}
-::
 
 How fast the initial takeoff is.
 ```json
@@ -208,8 +187,6 @@ How fast the initial takeoff is.
 ```
 
 ### Sideways Speed
-::u-badge{label="4.2.1+" color="green"}
-::
 
 How fast the jetpack should make you move forwards (when holding forwards).
 ```json
@@ -220,8 +197,6 @@ How fast the jetpack should make you move forwards (when holding forwards).
 
 ### Ascending Hover Speed
 ::u-badge{label="Required"}
-::
-::u-badge{label="5.0.0+" color="green"}
 ::
 
 How fast the jetpack should ascend when hover mode is on, and you're flying.
@@ -265,16 +240,13 @@ How much faster the player should fly when sprinting while flying forwards.
 ```
 
 ### Sprint Speed Vertical Multiplier 
-::u-badge{label="4.2.0+" color="green"}
-::
 
-How much faster the player should fly when sprinting while flying upwards.
+How much faster the player should fly when sprinting while flying upwards. Omitting this field will default to `1.0`.
 ```json
 {
   "sprintSpeedMultiVertical": 2.0
 }
 ```
-Omitting this field will default to `1.0`.
 
 ### Sprint Fuel Multiplier
 ::u-badge{label="Required"}
@@ -297,7 +269,7 @@ How much more fuel should the jetpack use while sprinting.
   "color": "41f384",
   "armorPoints": 4,
   "enchantability": 15,
-  "craftingMaterial": "tag:forge:gems/emerald",
+  "craftingMaterial": "tag:c:gems/emerald",
   "rarity": 0,
   "toughness": 0,
   "knockbackResistance": 0,

@@ -8,19 +8,15 @@ Mystical Customization allows you easily add your own crop types.
 
 ## Adding A Crop Type
 
-Crop types are added via JSON files placed in `/config/mysticalcustomization/types/`. Each file represents a new crop to be added.
+Crop types are added via JSON files placed in `/config/mysticalcustomization/types/`. Each file represents a new crop type to be added.
 
 ::callout{title="Important" icon="i-heroicons-information-circle-solid"}
-The name of the file is used as the crops ID. The ID **must** be all lowercase with underscores '_' in place of spaces. 
+The name of the file is used as the crop type's ID. The ID **must** be all lowercase with underscores '_' in place of spaces. 
 ::
 
 ## The Crop Type File
 
-This section will go over the values available to use in crop type file. Syntax can be inferred from the example json below.
-
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
-Any field below marked with a <span class="text-primary-500">purple</span> badge is required. Any field marked with a <span class="text-green-500">green</span> badge requires at least the version specified.
-::
+This section will go over the values available to use in crop type file. Syntax can be inferred from the example JSON below.
 
 ### Textures
 ::u-badge{label="Required"}

@@ -22,13 +22,9 @@ This file will contain an empty JSON object on first launch. You will use this a
 }
 ```
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
-In versions prior to 3.0.0, the crop type IDs did not contain mod IDs. So the above example would use `resource` instead.
-::
-
 ## The configure-crops File
 
-This section will go over the values available to use to edit crops. Syntax can be inferred from the example json below.
+This section will go over the values available to use to edit crops. Syntax can be inferred from the example JSON below.
 
 ### Crafting Seed
 

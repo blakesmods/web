@@ -15,7 +15,7 @@ Extended Crafting allows you easily add your own Combination Crafting recipes us
 
 ### The Recipe File
 
-This section will go over the values available to use in a Combination Crafting recipe. Syntax can be inferred from the example json below.
+This section will go over the values available to use in a Combination Crafting recipe. Syntax can be inferred from the example JSON below.
 
 | Field         | Required | Description                                                                         |
 |---------------|----------|-------------------------------------------------------------------------------------|
@@ -27,7 +27,7 @@ This section will go over the values available to use in a Combination Crafting 
 | `result`      | ✓        | The item that this recipe will output once finished.                                |
 
 ::callout{title="Note" icon="i-heroicons-information-circle-solid"}
-The amount of time (in ticks) a combination recipe takes to complete is power_cost / power_rate.
+The amount of time (in ticks) a Combination recipe takes to complete is power_cost / power_rate.
 ::
 
 ### Example File

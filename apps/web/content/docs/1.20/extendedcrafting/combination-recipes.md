@@ -15,7 +15,7 @@ Extended Crafting allows you easily add your own Combination Crafting recipes us
 
 ### The Recipe File
 
-This section will go over the values available to use in a Combination Crafting recipe. Syntax can be inferred from the example json below.
+This section will go over the values available to use in a Combination Crafting recipe. Syntax can be inferred from the example JSON below.
 
 | Field         | Required | Description                                                                         |
 |---------------|----------|-------------------------------------------------------------------------------------|
@@ -27,7 +27,7 @@ This section will go over the values available to use in a Combination Crafting 
 | `result`      | ✓        | The item that this recipe will output once finished.                                |
 
 ::callout{title="Note" icon="i-heroicons-information-circle-solid"}
-The amount of time (in ticks) a combination recipe takes to complete is powerCost / powerRate.
+The amount of time (in ticks) a Combination recipe takes to complete is powerCost / powerRate.
 ::
 
 ### Example File
@@ -76,7 +76,7 @@ The amount of time (in ticks) a combination recipe takes to complete is powerCos
 Extended Crafting comes with CraftTweaker support built-in. You can make use of CraftTweaker to easily manage Combination Crafting recipes.
 
 ::callout{title="Recipe Manager Support" icon="i-heroicons-information-circle-solid"}
-As of version **6.0.3**, CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:extendedcrafting:combination\>**!
+CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:extendedcrafting:combination\>**!
 ::
 
 ### Adding A Recipe

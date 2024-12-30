@@ -6,9 +6,7 @@ category: Cucumber
 
 ## What It's For
 
-The `cucumber-tags.json` file added in Cucumber Library version 3.0.3 is used to configure the output item of recipes that use a tag as an output. This system was added to allow for recipes that don't depend on a specific mod being present, as well as to allow pack devs to ensure these recipes give the correct item output.
-
-This system is currently used by Mystical Agriculture versions 3.0.1 and newer.
+The `cucumber-tags.json` file is used to configure the output item of recipes that use a tag as an output. This system was added to allow for recipes that don't depend on a specific mod being present, as well as to allow pack devs to ensure these recipes give the correct item output.
 
 ## How To Use It
 

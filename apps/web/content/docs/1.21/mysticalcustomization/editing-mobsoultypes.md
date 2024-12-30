@@ -25,7 +25,7 @@ This file will contain an empty JSON object on first launch. You will use this a
 
 ## The configure-mobsoultypes File
 
-This section will go over the values available to use to edit mob soul types. Syntax can be inferred from the example json below.
+This section will go over the values available to use to edit mob soul types. Syntax can be inferred from the example JSON below.
 
 ### Name
 
@@ -46,8 +46,6 @@ You can change the amount of souls required for a mob soul type.
 ```
 
 ### Entities
-::u-badge{label="2.1.5+" color="green"}
-::
 
 You can add or remove entities from a mob soul type. These use an array of entity ids to define which entities should be added or removed. Do note that an entity can only be added to a single mob soul type at a time, so make sure to remove the entities from their current mob soul types if applicable.
 ```json
@@ -73,8 +71,6 @@ You can change the color of the Soul Jar for a mob soul type. Colors are set usi
 ```
 
 ### Enabled
-::u-badge{label="2.1.2+" color="green"}
-::
 
 You can disable a mob soul type if you want to hide it and make it unobtainable.
 ```json
