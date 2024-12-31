@@ -17,9 +17,7 @@
             'ddd, MMM D, YYYY h:mm A'
           )}`"
         >
-          <NuxtLink
-            :to="{ query: { mc_version: mod.latest_release.mc_version } }"
-          >
+          <NuxtLink :to="`./download/${mod.latest_release._id}`">
             {{ mod.latest_release.mod_version }}
           </NuxtLink>
         </UTooltip>
