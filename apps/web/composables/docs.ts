@@ -1,5 +1,4 @@
 import semver from "semver";
-import versionsJSON from "~/content/docs/.versions.json";
 
 function parseParams(params: any) {
   let version = params.version;
@@ -9,7 +8,7 @@ function parseParams(params: any) {
   // index page doesn't have a slug or version so we don't want to move the mod
   // id to the slug in this case
   if (version === "") {
-    version = versionsJSON[0];
+    version = getDocsLatestVersion();
   }
 
   // the latest version won't have the version in the url, which means it will
@@ -17,7 +16,7 @@ function parseParams(params: any) {
   if (!semver.valid(semver.coerce(version), true)) {
     slug = mod;
     mod = version;
-    version = versionsJSON[0];
+    version = getDocsLatestVersion();
   }
 
   return {
@@ -98,7 +97,7 @@ export const useDocsVersions = () => {
   const router = useRouter();
 
   return ref(
-    versionsJSON.map((v, i) => [
+    getDocsVersions().map((v, i) => [
       {
         id: v,
         label: v,
@@ -136,7 +135,7 @@ export const useDocsVersions = () => {
 export const useDocsIsLatestVersion = () => {
   const route = useRoute();
   const params = parseParams(route.params);
-  return params.version === versionsJSON[0];
+  return params.version === getDocsLatestVersion();
 };
 
 export const useDocsSearch = async () => {
@@ -165,7 +164,7 @@ export const useDocsSearch = async () => {
         }
 
         // latest version doesn't have the version in the url
-        if (doc.id && version.value === versionsJSON[0]) {
+        if (doc.id && version.value === getDocsLatestVersion()) {
           doc.id = doc.id
             .split("/")
             .filter((s: string) => s !== version.value)
