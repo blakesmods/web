@@ -71,7 +71,7 @@ export default async function (fastify: FastifyInstance) {
       const { page = 1, mc_version, mod_loader } = request.query as any;
 
       const skip = (Number(page) - 1) * 10;
-      const limit = Number(page) * 10;
+      const limit = 10;
 
       const filter = {
         mod_id
