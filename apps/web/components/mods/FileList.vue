@@ -16,16 +16,14 @@
             </span>
             Cucumber Library is required to use this mod.
           </div>
-          <a class="flex">
-            <UButton
-              :to="cucumberURL"
-              target="_blank"
-              color="gray"
-              trailing-icon="i-heroicons-arrow-top-right-on-square-solid"
-            >
-              Get Cucumber
-            </UButton>
-          </a>
+          <UButton
+            :to="cucumberURL"
+            target="_blank"
+            color="gray"
+            trailing-icon="i-heroicons-arrow-top-right-on-square-solid"
+          >
+            Get Cucumber
+          </UButton>
         </div>
       </template>
 
