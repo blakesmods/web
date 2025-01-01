@@ -169,6 +169,8 @@ Whether this jetpack should be wearable as a Curio. They work as a Curio by defa
 ```
 
 ### Vertical Speed
+::u-badge{label="Required"}
+::
 
 How fast the jetpack should fly upwards.
 ```json
@@ -178,6 +180,8 @@ How fast the jetpack should fly upwards.
 ```
 
 ### Vertical Acceleration
+::u-badge{label="Required"}
+::
 
 How fast the initial takeoff is.
 ```json
@@ -187,6 +191,8 @@ How fast the initial takeoff is.
 ```
 
 ### Sideways Speed
+::u-badge{label="Required"}
+::
 
 How fast the jetpack should make you move forwards (when holding forwards).
 ```json
