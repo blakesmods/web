@@ -124,6 +124,7 @@ export const useDocsVersions = () => {
               .findOne()
               .catch(() => null);
 
+            // if there is no page for this mod we'll just redirect to the top level page
             if (doc) {
               // the first is the latest and doesn't need the version in the URL
               const link =
@@ -131,8 +132,10 @@ export const useDocsVersions = () => {
 
               await router.push(link);
             } else {
-              // there is no page for this mod so we'll just redirect to the top level page
-              await router.push("/docs");
+              // the first is the latest and doesn't need the version in the URL
+              const link = i === 0 ? `/docs` : `/docs/${v}`;
+
+              await router.push(link);
             }
           }
         }
