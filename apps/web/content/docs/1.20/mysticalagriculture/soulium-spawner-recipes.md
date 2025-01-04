@@ -47,7 +47,7 @@ This section will go over the values available to use in a Soul Extraction recip
 
 ## CraftTweaker
 
-Mystical Agriculture allows you easily add your own Soulium Spawner recipes using CraftTweaker. Here's how you do it.
+Mystical Agriculture allows you easily add your own Soulium Spawner recipes using CraftTweaker.
 
 ::callout{title="Recipe Manager Support" icon="i-heroicons-information-circle-solid"}
 CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:mysticalagriculture:soulium_spawner\>**!

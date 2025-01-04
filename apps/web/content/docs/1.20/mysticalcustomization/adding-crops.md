@@ -62,7 +62,7 @@ You can see all the registered tiers in-game with the `/mysticalcustomization ti
 
 ### Ingredient
 
-You must assign the crafting ingredient used to craft this crop's seed. This can be either an item or a tag, and uses the same syntax as a crafting recipe.
+You can assign the crafting ingredient used to craft this crop's seed. This can be either an item or a tag, and uses the same syntax as a crafting recipe.
 ```json
 {
   "ingredient": {

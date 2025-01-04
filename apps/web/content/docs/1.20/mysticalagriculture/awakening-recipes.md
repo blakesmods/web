@@ -17,13 +17,14 @@ Mystical Agriculture allows you easily add your own Awakening recipes using both
 
 This section will go over the values available to use in an Awakening recipe. Syntax can be inferred from the example json below.
 
-| Field         | Required | Description                                                           |
-|---------------|----------|-----------------------------------------------------------------------|
-| `type`        | ✓        | The recipe type must be `mysticalagriculture:awakening`.              |
-| `input`       | ✓        | The item that will be placed on the Awakening Altar.                  |
-| `essences`    | ✓        | An array of 1-4 items that will be placed in the Essence Vessels.     |
-| `ingredients` | ✓        | An array of 1-4 items that will be placed on the Awakening Pedestals. |
-| `result`      | ✓        | The item that this recipe will output once finished.                  |
+| Field          | Required | Description                                                                                                           |
+|----------------|----------|-----------------------------------------------------------------------------------------------------------------------|
+| `type`         | ✓        | The recipe type must be `mysticalagriculture:awakening`.                                                              |
+| `input`        | ✓        | The item that will be placed on the Awakening Altar.                                                                  |
+| `essences`     | ✓        | An array of 1-4 items that will be placed in the Essence Vessels.                                                     |
+| `ingredients`  | ✓        | An array of 1-4 items that will be placed on the Awakening Pedestals.                                                 |
+| `result`       | ✓        | The item that this recipe will output once finished.                                                                  |
+| `transfer_nbt` |          | If the NBT data of the altar input item should be transferred to the result item. If omitted will default to `false`. |
 
 ### Example File
 
@@ -96,15 +97,16 @@ CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.
 ### Adding A Recipe
 
 ```java
-mods.mysticalagriculture.AwakeningCrafting.addRecipe(name, <output>, [inputs], [essences]);
+mods.mysticalagriculture.AwakeningCrafting.addRecipe(name, <output>, [inputs], [essences], transferNBT);
 ```
 
-| Field      | Required | Description                                                                                                                           |
-|------------|----------|---------------------------------------------------------------------------------------------------------------------------------------|
-| `name`     | ✓        | A unique name for this recipe. Must be all lower case and have no spaces.                                                             |
-| `output`   | ✓        | The output item for this recipe.                                                                                                      |
-| `inputs`   | ✓        | An array of 1-5 items. The first item is the item that goes on the Awakening Altar, and the rest go on the pedestals.                 |
-| `essences` | ✓        | An array of 4 items. These are the items that go into the Essence Vessels. These items can have a max count of 40 and cannot be tags. |
+| Field         | Required | Description                                                                                                                           |
+|---------------|----------|---------------------------------------------------------------------------------------------------------------------------------------|
+| `name`        | ✓        | A unique name for this recipe. Must be all lower case and have no spaces.                                                             |
+| `output`      | ✓        | The output item for this recipe.                                                                                                      |
+| `inputs`      | ✓        | An array of 1-5 items. The first item is the item that goes on the Awakening Altar, and the rest go on the pedestals.                 |
+| `essences`    | ✓        | An array of 4 items. These are the items that go into the Essence Vessels. These items can have a max count of 40 and cannot be tags. |
+| `transferNBT` |          | If the NBT data of the altar input item should be transferred to the result item. If omitted will default to `false`.                 |
 
 #### Example
 

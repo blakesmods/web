@@ -118,13 +118,25 @@ export const useDocsVersions = () => {
                 ? `/docs/${params.mod}/${params.slug}`
                 : `/docs/${v}/${params.mod}/${params.slug}`;
 
-            router.push(link);
+            await router.push(link);
           } else {
-            // the first is the latest and doesn't need the version in the URL
-            const link =
-              i === 0 ? `/docs/${params.mod}` : `/docs/${v}/${params.mod}`;
+            const doc = await queryContent(`/docs/${v}/${params.mod}`)
+              .findOne()
+              .catch(() => null);
 
-            router.push(link);
+            // if there is no page for this mod we'll just redirect to the top level page
+            if (doc) {
+              // the first is the latest and doesn't need the version in the URL
+              const link =
+                i === 0 ? `/docs/${params.mod}` : `/docs/${v}/${params.mod}`;
+
+              await router.push(link);
+            } else {
+              // the first is the latest and doesn't need the version in the URL
+              const link = i === 0 ? `/docs` : `/docs/${v}`;
+
+              await router.push(link);
+            }
           }
         }
       }
