@@ -1,4 +1,3 @@
-import { faker } from "@faker-js/faker";
 import { Db } from "mongodb";
 import { Mod, ModStats } from "../models";
 
@@ -20,5 +19,5 @@ export async function createModStats(db: Db) {
   await db.collection("mod_stats").deleteMany({});
   await db.collection("mod_stats").insertMany(stats);
 
-  console.log(`Created ${files.length} mod stats`);
+  console.log(`Created ${mods.length} mod stats`);
 }
