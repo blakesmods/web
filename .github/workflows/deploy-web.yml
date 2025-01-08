@@ -1,4 +1,4 @@
-name: Publish to Cloudflare Pages
+name: Deploy Web
 
 on:
   push:
@@ -7,27 +7,21 @@ on:
   workflow_dispatch:
 
 jobs:
-  publish:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ ubuntu-latest ]
-        node: [ 18 ]
-
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
     permissions:
       contents: read
       deployments: write
 
-    name: Publish to Cloudflare Pages
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 22.x
           cache: yarn
 
       - name: Install Dependencies
@@ -41,11 +35,11 @@ jobs:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
         run: yarn workspace @blakesmods/web build
 
-      - name: Publish to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: 2124ec156e58759bf8fdbb5e02d7bdbe
-          projectName: blakesmods
-          directory: apps/web/dist
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=blakesmods
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          workingDirectory: apps/web
