@@ -1,7 +1,7 @@
 export default defineAppConfig({
   ui: {
     primary: "fuchsia",
-    gray: "cool",
+    gray: "neutral",
 
     accordion: {
       item: {
