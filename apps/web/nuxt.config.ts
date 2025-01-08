@@ -87,16 +87,13 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
     "@nuxt/image",
     "@nuxt/content",
     "@nuxtjs/google-fonts",
+    "@sentry/nuxt/module",
     "@vueuse/nuxt",
     "nuxt-og-image",
     "@nuxtjs/sitemap" // sitemap module must be last
   ],
-  runtimeConfig: {
-    public: {
-      SENTRY_DSN:
-        "https://472cc4db584747768a1cb08281f678c4@o1148345.ingest.sentry.io/6219844",
-      ENVIRONMENT: process.env.NODE_ENV
-    }
+  build: {
+    sourcemaps: true
   },
   nitro: {
     prerender: {
@@ -106,23 +103,13 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
     }
   },
   vite: {
-    build: {
-      sourcemaps: true
-    },
     css: {
       preprocessorOptions: {
         scss: {
           api: "modern-compiler"
         }
       }
-    },
-    plugins: [
-      sentryVitePlugin({
-        org: process.env.SENTRY_ORG,
-        project: process.env.SENTRY_PROJECT,
-        authToken: process.env.SENTRY_AUTH_TOKEN
-      })
-    ]
+    }
   },
   content: {
     highlight: {
@@ -144,6 +131,13 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
     families: {
       Montserrat: true,
       Rowdies: true
+    }
+  },
+  sentry: {
+    sourceMapsUploadOptions: {
+      org: process.env.SENTRY_ORG,
+      project: process.env.SENTRY_PROJECT,
+      authToken: process.env.SENTRY_AUTH_TOKEN
     }
   },
   ui: {
