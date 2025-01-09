@@ -1,4 +1,4 @@
-const colors = require("tailwindcss/colors");
+import colors from "tailwindcss/colors";
 
 const fontFallback = [
   "Source Sans Pro",
