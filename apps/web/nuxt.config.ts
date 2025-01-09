@@ -93,7 +93,7 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
     "@nuxtjs/sitemap" // sitemap module must be last
   ],
   build: {
-    sourcemaps: true
+    sourcemaps: "hidden"
   },
   nitro: {
     prerender: {
