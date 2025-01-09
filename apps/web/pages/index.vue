@@ -7,7 +7,6 @@
       'grid-template-rows': `repeat(${rows}, 1fr)`
     }"
   >
-    <UButton @click="testSentry">Test Sentry</UButton>
     <div
       v-for="tile in tiles"
       class="relative block before:absolute before:inset-[0.5px] before:bg-white before:dark:bg-gray-900"
@@ -90,10 +89,6 @@
 definePageMeta({
   layout: "blank"
 });
-
-function testSentry() {
-  throw new Error("Testing the sentry nuxt module");
-}
 
 const grays = [
   "bg-white dark:bg-gray-900",
