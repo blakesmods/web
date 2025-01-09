@@ -111,12 +111,6 @@ const { params } = useRoute();
 
 const mod = getMod(props.modId);
 
-defineOgImageComponent("Mod", {
-  logo: mod.logo,
-  primaryColor: mod.primary_color,
-  secondaryColor: mod.secondary_color
-});
-
 const title = `Download ${mod.name}`;
 const description = `The official download source of ${mod.name} for Minecraft`;
 

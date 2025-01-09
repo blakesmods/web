@@ -83,12 +83,6 @@ useHead({
   ]
 });
 
-defineOgImageComponent("Mod", {
-  logo: props.mod.logo,
-  primaryColor: props.mod.primary_color,
-  secondaryColor: props.mod.secondary_color
-});
-
 function onClickLearnMore() {
   const featuresEl = document.querySelector("#features");
 

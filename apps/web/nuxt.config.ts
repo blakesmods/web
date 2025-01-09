@@ -89,7 +89,6 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
     "@nuxtjs/google-fonts",
     "@sentry/nuxt/module",
     "@vueuse/nuxt",
-    "nuxt-og-image",
     "@nuxtjs/sitemap" // sitemap module must be last
   ],
   build: {
@@ -122,10 +121,6 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
   },
   site: {
     url: "https://blakesmods.com"
-  },
-  ogImage: {
-    componentDirs: ["ogimage"],
-    fonts: ["Montserrat:400"]
   },
   googleFonts: {
     families: {

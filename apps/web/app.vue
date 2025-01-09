@@ -13,8 +13,6 @@ useHead({
   titleTemplate: title => (title ? `${title} · Blake's Mods` : "Blake's Mods")
 });
 
-defineOgImageComponent("Default");
-
 const route = useRoute();
 
 const dropdown = useModsDropdown();
