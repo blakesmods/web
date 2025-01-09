@@ -52,24 +52,40 @@
         class="flex flex-wrap justify-around w-full p-6 md:p-10 gap-4 bg-gray-200 dark:bg-gray-800 rounded-lg"
       >
         <div class="flex flex-col items-center w-full sm:w-2/5 md:w-auto">
-          <Skeleton v-if="pending" width="100px" height="48px" />
+          <USkeleton
+            v-if="pending"
+            class="w-[100px] h-[48px]"
+            :ui="{ background: 'dark:bg-gray-700' }"
+          />
           <h2 v-else :style="{ color: mod.primary_color }">{{ downloads }}+</h2>
           <span class="text-xl">Downloads</span>
         </div>
         <div class="flex flex-col items-center w-full sm:w-2/5 md:w-auto">
-          <Skeleton v-if="pending" width="100px" height="48px" />
+          <USkeleton
+            v-if="pending"
+            class="w-[100px] h-[48px]"
+            :ui="{ background: 'dark:bg-gray-700' }"
+          />
           <h2 v-else :style="{ color: mod.primary_color }">{{ relations }}+</h2>
           <span class="text-xl">Modpacks</span>
         </div>
         <div class="flex flex-col items-center w-full sm:w-2/5 md:w-auto">
-          <Skeleton v-if="pending" width="100px" height="48px" />
+          <USkeleton
+            v-if="pending"
+            class="w-[100px] h-[48px]"
+            :ui="{ background: 'dark:bg-gray-700' }"
+          />
           <h2 v-else :style="{ color: mod.primary_color }">
             {{ data.data.latest_release.mod_version }}
           </h2>
           <span class="text-xl">Latest Release</span>
         </div>
         <div class="flex flex-col items-center w-full sm:w-2/5 md:w-auto">
-          <Skeleton v-if="pending" width="100px" height="48px" />
+          <USkeleton
+            v-if="pending"
+            class="w-[100px] h-[48px]"
+            :ui="{ background: 'dark:bg-gray-700' }"
+          />
           <h2 v-else :style="{ color: mod.primary_color }">
             {{ data.data.latest_release.mc_version }}
           </h2>
