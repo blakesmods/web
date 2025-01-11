@@ -19,7 +19,7 @@
         body: {
           base: '!border-0'
         },
-        background: 'bg-gray-200/90 dark:bg-gray-800/90'
+        background: 'bg-gray-200 dark:bg-gray-800/90'
       }"
     >
       <template v-if="$slots.header" #header>
