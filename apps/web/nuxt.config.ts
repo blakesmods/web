@@ -1,4 +1,3 @@
-import { sentryVitePlugin } from "@sentry/vite-plugin";
 import type { DefineNuxtConfig } from "nuxt/config";
 import docsVersionsJSON from "./content/docs/.versions.json";
 
