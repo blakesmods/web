@@ -7,13 +7,8 @@
         <div
           class="flex flex-col xl:flex-row justify-between items-center gap-8"
         >
-          <div class="flex items-center text-2xl font-bold">
-            <span class="flex mr-4 items-center">
-              <i
-                class="pi p-badge-info pi-info-circle"
-                style="font-size: 2.25rem"
-              ></i>
-            </span>
+          <div class="flex items-center gap-4 text-2xl font-bold">
+            <UIcon class="w-8 h-8" name="i-heroicons-information-circle" />
             Cucumber Library is required to use this mod.
           </div>
           <UButton
