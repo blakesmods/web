@@ -1,5 +1,10 @@
 FROM node:22
 
+# PNPM setup
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
+
 # Set working directory
 WORKDIR /srv/app
 
@@ -7,16 +12,19 @@ WORKDIR /srv/app
 COPY apps/api/package.json ./apps/api/
 COPY packages/db/package.json ./packages/db/
 COPY package.json ./
-COPY yarn.lock ./
+COPY pnpm-*.yaml ./
 
 # Install dependencies
-RUN yarn
+RUN pnpm install
 
 # Copy all files into container
 COPY . .
 
+# Set the working directory to the API app
+WORKDIR ./apps/api
+
 # Build application
-RUN yarn build --filter @blakesmods/api
+RUN pnpm build
 
 # Start application
-CMD yarn workspace @blakesmods/api start
+CMD pnpm start

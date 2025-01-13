@@ -16,11 +16,12 @@ Notes relating to writing content:
 
 To get a local development environment set up, you can do the following:
 
-1. run `yarn` to install all required dependencies
-2. run `yarn dev` to start the dev servers
-   1. if you are contributing content, you can run `yarn dev --filter web` to run just the website
-   2. to run a local database, run `docker compose up`
-   3. to seed your local database with data, run `yarn workspace @blakesmods/db seed`
+1. run `pnpm install` to install all required dependencies
+2. run `docker compose up` to start the local database
+3. run `pnpm --filter db seed` to seed the database with test data
+4. run `pnpm dev` to start the dev servers
+
+If you just want to test docs/wiki content changes you can skip steps 2 and 3 and instead run `pnpm --filter web dev` to launch just the website.
 
 ## License
 

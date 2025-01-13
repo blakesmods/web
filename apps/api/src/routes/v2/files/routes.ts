@@ -1,7 +1,7 @@
 import { Mod, ModFile, ModStats } from "@blakesmods/db";
+import { ObjectId } from "bson";
 import dayjs from "dayjs";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { ObjectId } from "mongodb";
 
 export default async function (fastify: FastifyInstance) {
   const db = fastify.mongo.db!;
@@ -14,7 +14,7 @@ export default async function (fastify: FastifyInstance) {
 
       const file = await db
         .collection<ModFile>("mod_files")
-        .findOne({ _id: new ObjectId(file_id) });
+        .findOne({ _id: new ObjectId(file_id as string) });
 
       if (!file) {
         reply.status(404);
@@ -86,7 +86,7 @@ export default async function (fastify: FastifyInstance) {
 
       const file = await db
         .collection<ModFile>("mod_files")
-        .findOne({ _id: new ObjectId(file_id) });
+        .findOne({ _id: new ObjectId(file_id as string) });
 
       if (!file) {
         reply.status(404);
