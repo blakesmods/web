@@ -107,6 +107,9 @@ importers:
       '@types/numeral':
         specifier: ^2.0.5
         version: 2.0.5
+      '@unhead/vue':
+        specifier: ^1.11.15
+        version: 1.11.15(vue@3.5.13(typescript@5.7.3))
       '@vueuse/core':
         specifier: ^12.2.0
         version: 12.4.0(typescript@5.7.3)

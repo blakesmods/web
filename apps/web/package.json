@@ -20,6 +20,7 @@
     "@nuxtjs/web-vitals": "^0.2.7",
     "@sentry/nuxt": "^8.48.0",
     "@types/numeral": "^2.0.5",
+    "@unhead/vue": "^1.11.15",
     "@vueuse/core": "^12.2.0",
     "@vueuse/nuxt": "^12.2.0",
     "dayjs": "^1.11.13",
