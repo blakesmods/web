@@ -1,4 +1,4 @@
-import { PageViews } from "@blakesmods/db";
+import { Mod, PageViews } from "@blakesmods/db";
 import dayjs from "dayjs";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 
@@ -16,10 +16,19 @@ export default async function (fastify: FastifyInstance) {
 
       if (source !== "curseforge" && source !== "modrinth") {
         reply.status(400);
-        return "`source` must be one of `curseforge` or `modrinth`";
+        return "The `source` query parameter must be one of `curseforge` or `modrinth`.";
       }
 
       const { mod_id } = request.params as any;
+
+      const mod = db.collection<Mod>("mods").findOne({
+        mod_id
+      });
+
+      if (!mod) {
+        reply.status(404);
+        return `Banner ${mod_id} not found.`;
+      }
 
       await db.collection<PageViews>("page_views").updateOne(
         { mod_id },
