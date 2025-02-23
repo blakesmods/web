@@ -12,9 +12,20 @@
       </div>
 
       <div class="flex gap-2">
+        <UDropdown :items="versions">
+          <UTooltip text="Version">
+            <UButton
+              class="w-full"
+              color="gray"
+              trailing-icon="i-heroicons-chevron-down-20-solid"
+            >
+              <span class="w-full text-left">{{ version }}</span>
+            </UButton>
+          </UTooltip>
+        </UDropdown>
         <Search />
         <ColorModeButton />
-        <UTooltip text="CurseForge">
+        <UTooltip class="hidden sm:flex" text="CurseForge">
           <UButton
             to="https://www.curseforge.com/members/blakebr0/projects"
             class="flex justify-center w-8 p-0 fill-gray-700 dark:fill-gray-200 hover:fill-gray-500 dark:hover:fill-gray-400"
@@ -25,7 +36,7 @@
             <CurseForgeLogo width="20px" />
           </UButton>
         </UTooltip>
-        <UTooltip text="Modrinth">
+        <UTooltip class="hidden sm:flex" text="Modrinth">
           <UButton
             to="https://modrinth.com/user/BlakeBr0"
             class="flex justify-center w-8 p-0 fill-gray-700 dark:fill-gray-200 hover:fill-gray-500 dark:hover:fill-gray-400"
@@ -36,7 +47,7 @@
             <ModrinthLogo width="20px" />
           </UButton>
         </UTooltip>
-        <UTooltip text="GitHub">
+        <UTooltip class="hidden sm:flex" text="GitHub">
           <UButton
             to="https://github.com/blakesmods"
             target="_blank"
@@ -57,4 +68,7 @@ import Search from "~/components/docs/Search.vue";
 import ColorModeButton from "~/components/ColorModeButton.vue";
 
 const dropdown = useModsDropdown();
+
+const { version } = useDocsMetadata();
+const versions = useDocsVersions();
 </script>
