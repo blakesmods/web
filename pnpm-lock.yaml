@@ -108,6 +108,9 @@ importers:
       '@types/numeral':
         specifier: ^2.0.5
         version: 2.0.5
+      '@types/semver':
+        specifier: ^7.5.8
+        version: 7.5.8
       '@unhead/vue':
         specifier: ^1.11.19
         version: 1.11.19(vue@3.5.13(typescript@5.7.3))

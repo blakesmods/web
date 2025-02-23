@@ -8,5 +8,5 @@ Welcome to the Iron Jetpacks documentation. Here you will find information usefu
 
 For players, check out the [wiki](../../wiki/ironjetpacks) to learn more about the content added by Iron Jetpacks.
 
-::docs-section-list{mod="ironjetpacks"}
+::docs-section-list{}
 ::

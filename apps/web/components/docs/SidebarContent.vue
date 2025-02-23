@@ -37,7 +37,7 @@
 
 <script setup>
 const route = useRoute();
-const version = useDocsVersion();
+const { version } = useDocsMetadata();
 const versions = useDocsVersions();
 const documents = await useDocs();
 const categories = computed(() => Object.keys(documents.value));

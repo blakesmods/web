@@ -48,8 +48,7 @@ const props = defineProps({
   current: Object
 });
 
-const version = useDocsVersion();
-const isLatestVersion = useDocsIsLatestVersion();
+const { version, isLatestVersion } = useDocsMetadata();
 
 const parts = props.current._path.split("/").slice(1);
 
@@ -62,7 +61,7 @@ const previous = computed(() => data.value[0]);
 const next = computed(() => data.value[1]);
 
 // latest version doesn't have the version in the url
-if (isLatestVersion) {
+if (isLatestVersion.value) {
   if (previous.value) {
     previous.value._path = previous.value._path
       .split("/")
@@ -79,8 +78,8 @@ if (isLatestVersion) {
 }
 
 function formatModName(document) {
-  const name = document._path.split("/")[isLatestVersion ? 2 : 3];
-  const mod = getMod(name);
-  return mod ? mod.name : name;
+  const modID = document._path.split("/")[isLatestVersion.value ? 2 : 3];
+  const mod = getMod(modID);
+  return mod ? mod.name : modID;
 }
 </script>

@@ -44,7 +44,6 @@ defineProps({
   editUrl: String
 });
 
-const route = useRoute();
-const isLatestVersion = useDocsIsLatestVersion();
-const mod = getMod(route.path.split("/")[isLatestVersion ? 2 : 3]);
+const { mod: modID } = useDocsMetadata();
+const mod = getMod(modID.value);
 </script>

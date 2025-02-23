@@ -119,14 +119,13 @@ useHead({
 const toc = ref(false);
 const pathParts = page.value._path.split("/");
 
-const version = useDocsVersion();
-const isLatestVersion = useDocsIsLatestVersion();
+const { version, isLatestVersion } = useDocsMetadata();
 
 const breadcrumbs = computed(() =>
   [
     pathParts.length > 2 && {
       label: "Docs",
-      to: isLatestVersion ? "/docs" : `/docs/${version.value}`
+      to: isLatestVersion.value ? "/docs" : `/docs/${version.value}`
     },
     pathParts.length > 3 && {
       label: version.value

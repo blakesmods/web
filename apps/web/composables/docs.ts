@@ -1,44 +1,42 @@
-import semver from "semver";
+export const useDocsMetadata = () => {
+  const route = useRoute();
 
-function parseParams(params: any) {
-  let version = params.version;
-  let mod = params.mod;
-  let slug = Array.isArray(params.slug) ? params.slug.join("/") : params.slug;
+  const version = ref("");
+  const mod = ref("");
+  const slug = ref("");
 
-  // index page doesn't have a slug or version so we don't want to move the mod
-  // id to the slug in this case
-  if (version === "") {
-    version = getDocsLatestVersion();
-  }
+  watch(
+    () => route.path,
+    () => {
+      const params = parseDocsRouteParams(route.params);
 
-  // the latest version won't have the version in the url, which means it will
-  // be the mod id
-  if (!semver.valid(semver.coerce(version), true)) {
-    slug = mod;
-    mod = version;
-    version = getDocsLatestVersion();
-  }
+      version.value = params.version;
+      mod.value = params.mod;
+      slug.value = params.slug;
+    },
+    { immediate: true }
+  );
 
   return {
     version,
     mod,
-    slug
+    slug,
+    isLatestVersion: computed(() => version.value === getDocsLatestVersion())
   };
-}
+};
 
 export const useDoc = async () => {
   const route = useRoute();
-  const params = parseParams(route.params);
-
+  const { version, mod, slug } = useDocsMetadata();
   const { data: page } = await useAsyncData("doc/" + route.path, () =>
-    queryContent("docs", params.version, params.mod, params.slug).findOne()
+    queryContent("docs", version.value, mod.value, slug.value).findOne()
   );
 
   return page;
 };
 
 export const useDocs = async () => {
-  const version = useDocsVersion();
+  const { version } = useDocsMetadata();
   const versions = useDocsVersions();
 
   const { data } = await useAsyncData(
@@ -77,22 +75,6 @@ export const useDocs = async () => {
   });
 };
 
-export const useDocsVersion = (): Ref<string> => {
-  const route = useRoute();
-  const params = parseParams(route.params);
-  const version = ref(params.version);
-
-  watch(
-    () => route.path,
-    () => {
-      const params = parseParams(route.params);
-      version.value = params.version;
-    }
-  );
-
-  return version;
-};
-
 export const useDocsVersions = () => {
   const router = useRouter();
 
@@ -102,11 +84,10 @@ export const useDocsVersions = () => {
         id: v,
         label: v,
         click: async () => {
-          const route = useRoute();
-          const params = parseParams(route.params);
+          const { mod, slug } = useDocsMetadata();
 
           const doc = await queryContent(
-            `/docs/${v}/${params.mod}/${params.slug}`
+            `/docs/${v}/${mod.value}/${slug.value}`
           )
             .findOne()
             .catch(() => null);
@@ -115,12 +96,12 @@ export const useDocsVersions = () => {
             // the first is the latest and doesn't need the version in the URL
             const link =
               i === 0
-                ? `/docs/${params.mod}/${params.slug}`
-                : `/docs/${v}/${params.mod}/${params.slug}`;
+                ? `/docs/${mod.value}/${slug.value}`
+                : `/docs/${v}/${mod.value}/${slug.value}`;
 
             await router.push(link);
           } else {
-            const doc = await queryContent(`/docs/${v}/${params.mod}`)
+            const doc = await queryContent(`/docs/${v}/${mod.value}`)
               .findOne()
               .catch(() => null);
 
@@ -128,7 +109,7 @@ export const useDocsVersions = () => {
             if (doc) {
               // the first is the latest and doesn't need the version in the URL
               const link =
-                i === 0 ? `/docs/${params.mod}` : `/docs/${v}/${params.mod}`;
+                i === 0 ? `/docs/${mod.value}` : `/docs/${v}/${mod.value}`;
 
               await router.push(link);
             } else {
@@ -144,14 +125,8 @@ export const useDocsVersions = () => {
   );
 };
 
-export const useDocsIsLatestVersion = () => {
-  const route = useRoute();
-  const params = parseParams(route.params);
-  return params.version === getDocsLatestVersion();
-};
-
 export const useDocsSearch = async () => {
-  const version = useDocsVersion();
+  const { version } = useDocsMetadata();
   const query = computed(() => ({
     search: `docs/${version.value}`
   }));

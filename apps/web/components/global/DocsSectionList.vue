@@ -12,16 +12,12 @@
 </template>
 
 <script setup>
-const props = defineProps({
-  mod: String
-});
-
-const version = useDocsVersion();
+const { version, mod } = useDocsMetadata();
 
 const pages = ref([]);
 
-const { data } = await useAsyncData(props.mod + "-docs-listing", () =>
-  queryContent("docs", version.value, props.mod).only(["title", "_path"]).find()
+const { data } = await useAsyncData(mod.value + "-docs-listing", () =>
+  queryContent("docs", version.value, mod.value).only(["title", "_path"]).find()
 );
 
 pages.value = data.value.slice(1);
