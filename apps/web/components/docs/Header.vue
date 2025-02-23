@@ -13,7 +13,7 @@
 
       <div class="flex gap-2">
         <UDropdown :items="versions">
-          <UTooltip text="Version">
+          <UTooltip text="Select Version">
             <UButton
               class="w-full"
               color="gray"
