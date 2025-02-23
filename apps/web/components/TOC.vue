@@ -1,6 +1,6 @@
 <template>
   <div class="mb-8">
-    <h3 class="mb-4">On This Page</h3>
+    <h4 class="mb-2">Table of Contents</h4>
     <a
       v-for="item in links"
       class="flex w-full mb-1 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"

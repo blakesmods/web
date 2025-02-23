@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col">
-    <h3 class="mb-4">Useful Links</h3>
+    <h4 class="mb-2">Useful Links</h4>
     <div class="flex flex-col gap-1 text-gray-500 dark:text-gray-400">
       <a
         :href="editUrl"
