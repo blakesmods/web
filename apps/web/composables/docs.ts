@@ -126,7 +126,7 @@ export const useDocsVersions = () => {
 };
 
 export const useDocsSearch = async () => {
-  const { version } = useDocsMetadata();
+  const { version, isLatestVersion } = useDocsMetadata();
   const query = computed(() => ({
     search: `docs/${version.value}`
   }));
@@ -151,7 +151,7 @@ export const useDocsSearch = async () => {
         }
 
         // latest version doesn't have the version in the url
-        if (doc.id && version.value === getDocsLatestVersion()) {
+        if (isLatestVersion.value) {
           doc.id = doc.id
             .split("/")
             .filter((s: string) => s !== version.value)

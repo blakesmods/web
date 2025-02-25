@@ -146,7 +146,7 @@ export const useWikiVersions = () => {
 };
 
 export const useWikiSearch = async () => {
-  const { version } = useWikiMetadata();
+  const { version, isLatestVersion } = useWikiMetadata();
   const query = computed(() => ({
     search: `wiki/${version.value}`
   }));
@@ -161,9 +161,25 @@ export const useWikiSearch = async () => {
     const documents = {} as Record<string, any[]>;
 
     if (data.value) {
+      let mod: any;
+
       for (const doc of data.value) {
-        const parts = doc.id.split("/").slice(1);
-        const mod = getMod(parts[2] as any);
+        // latest version doesn't have the version in the url
+        if (isLatestVersion.value) {
+          doc.id = doc.id
+            .split("/")
+            .filter((s: string) => s !== version.value)
+            .join("/");
+
+          const parts = doc.id.split("/").slice(1);
+
+          mod = getMod(parts[1] as any);
+        } else {
+          const parts = doc.id.split("/").slice(1);
+
+          mod = getMod(parts[2] as any);
+        }
+
         if (!mod) {
           continue;
         }
@@ -172,14 +188,6 @@ export const useWikiSearch = async () => {
 
         if (!documents[mod.name]) {
           documents[mod.name] = [];
-        }
-
-        // latest version doesn't have the version in the url
-        if (doc.id && version.value === getWikiLatestVersion()) {
-          doc.id = doc.id
-            .split("/")
-            .filter((s: string) => s !== version.value)
-            .join("/");
         }
 
         documents[mod.name].push(doc);
