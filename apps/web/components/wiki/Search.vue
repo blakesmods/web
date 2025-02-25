@@ -1,5 +1,12 @@
 <template>
   <UTooltip text="Search">
+    <template #text>
+      <div class="flex gap-1">
+        Search &bullet;
+        <UKbd size="sm">{{ metaSymbol }}</UKbd>
+        <UKbd size="sm">K</UKbd>
+      </div>
+    </template>
     <UButton
       color="gray"
       icon="i-heroicons-magnifying-glass"
@@ -31,6 +38,8 @@
 <script setup>
 const open = ref(false);
 
+const { metaSymbol } = useShortcuts();
+
 const router = useRouter();
 const search = await useWikiSearch();
 
@@ -47,6 +56,15 @@ const groups = computed(() =>
     }))
   }))
 );
+
+defineShortcuts({
+  meta_k: {
+    usingInput: true,
+    handler: () => {
+      open.value = !open.value;
+    }
+  }
+});
 
 function onSelect(option) {
   if (option.click) {
