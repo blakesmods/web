@@ -84,8 +84,6 @@
 </template>
 
 <script setup>
-import categories from "~/content/wiki/.categories.json";
-
 import TOC from "~/components/TOC.vue";
 import Pagination from "~/components/wiki/Pagination.vue";
 
@@ -97,11 +95,10 @@ definePageMeta({
 const route = useRoute();
 const toggleSidebar = useEventBus("wiki:toggleSidebar");
 
-const mod = getMod(route.params.mod);
+const { version, mod: modID } = useWikiMetadata();
+const mod = getMod(modID.value);
 
-const { data: page } = await useAsyncData(route.path, () =>
-  queryContent(route.path).findOne()
-);
+const page = await useWiki();
 
 if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
@@ -153,13 +150,16 @@ const breadcrumbs = computed(() =>
       to: "/wiki"
     },
     pathParts.length > 2 && {
-      label: mod.name,
-      to: pathParts.length > 3 ? pathParts.slice(0, 3).join("/") : undefined
+      label: version.value
     },
     pathParts.length > 3 && {
-      label: categories[pathParts[3]] ?? pathParts[3]
+      label: mod.name,
+      to: pathParts.length > 4 ? pathParts.slice(0, 4).join("/") : undefined
     },
     pathParts.length > 4 && {
+      label: getWikiCategoryName(pathParts[4])
+    },
+    pathParts.length > 5 && {
       label: page.value.title
     }
   ].filter(Boolean)

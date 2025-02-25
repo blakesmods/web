@@ -54,7 +54,7 @@
 const route = useRoute();
 const { version } = useDocsMetadata();
 const versions = useDocsVersions();
-const documents = await useDocs();
+const documents = await useDocsSidebarLinks();
 const categories = computed(() => Object.keys(documents.value));
 
 const opened = ref(Object.keys(documents.value));

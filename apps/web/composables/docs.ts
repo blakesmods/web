@@ -35,7 +35,7 @@ export const useDoc = async () => {
   return page;
 };
 
-export const useDocs = async () => {
+export const useDocsSidebarLinks = async () => {
   const { version } = useDocsMetadata();
   const versions = useDocsVersions();
 

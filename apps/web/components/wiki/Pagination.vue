@@ -48,6 +48,8 @@ const props = defineProps({
   current: Object
 });
 
+const { version, isLatestVersion } = useWikiMetadata();
+
 const parts = props.current._path.split("/").slice(1);
 
 const { data } = await useAsyncData(
@@ -61,9 +63,26 @@ const { data } = await useAsyncData(
 const previous = computed(() => data.value[0]);
 const next = computed(() => data.value[1]);
 
+// latest version doesn't have the version in the url
+if (isLatestVersion.value) {
+  if (previous.value) {
+    previous.value._path = previous.value._path
+      .split("/")
+      .filter(s => s !== version.value)
+      .join("/");
+  }
+
+  if (next.value) {
+    next.value._path = next.value._path
+      .split("/")
+      .filter(s => s !== version.value)
+      .join("/");
+  }
+}
+
 function formatModName(document) {
-  const name = document._path.split("/")[2];
-  const mod = getMod(name);
-  return mod ? mod.name : name;
+  const modID = document._path.split("/")[isLatestVersion.value ? 2 : 3];
+  const mod = getMod(modID);
+  return mod ? mod.name : modID;
 }
 </script>

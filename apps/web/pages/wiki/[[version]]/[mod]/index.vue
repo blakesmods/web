@@ -66,8 +66,6 @@
 </template>
 
 <script setup>
-import categoriesJSON from "~/content/wiki/.categories.json";
-
 import ArticleLink from "~/components/wiki/ArticleLink.vue";
 import { coerce, rcompare } from "semver";
 
@@ -75,9 +73,9 @@ definePageMeta({
   layout: "wiki"
 });
 
-const route = useRoute();
+const { version, mod: modID, isLatestVersion } = useWikiMetadata();
 
-const mod = getMod(route.params.mod);
+const mod = getMod(modID.value);
 if (!mod) {
   throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
 }
@@ -114,10 +112,12 @@ useHead({
   ]
 });
 
-const { data } = await useAsyncData("wiki-" + route.params.mod, () =>
-  queryContent("wiki", route.params.mod)
-    .sort({ sort: 1, $numeric: true })
-    .find()
+const { data } = await useAsyncData(
+  `wiki/${version.value}/${modID.value}`,
+  () =>
+    queryContent("wiki", version.value, modID.value)
+      .sort({ sort: 1, $numeric: true })
+      .find()
 );
 
 if (data.value.length === 0) {
@@ -125,7 +125,7 @@ if (data.value.length === 0) {
 }
 
 const articles = ref(
-  Object.keys(categoriesJSON).reduce((a, b) => {
+  Object.keys(getWikiCategories()).reduce((a, b) => {
     a[b] = [];
     return a;
   }, {})
@@ -134,6 +134,14 @@ const articles = ref(
 for (const article of data.value) {
   if (!articles.value[article._dir]) {
     articles.value[article._dir] = [];
+  }
+
+  // latest version doesn't have the version in the url
+  if (article._path && isLatestVersion.value) {
+    article._path = article._path
+      .split("/")
+      .filter(s => s !== version.value)
+      .join("/");
   }
 
   articles.value[article._dir].push(article);
@@ -149,6 +157,9 @@ const breadcrumbs = computed(() => [
   {
     label: "Wiki",
     to: "/wiki"
+  },
+  {
+    label: version.value
   },
   {
     label: mod.name

@@ -1,21 +1,30 @@
 <template>
-  <div>
-    <h3 class="mb-4">Wiki</h3>
-    <div
-      v-for="category in categories"
-      class="mb-4 last:mb-0"
-      :key="category.slug"
-    >
-      <div
-        class="flex justify-between items-center -mx-2 px-2 py-1 cursor-pointer"
-        :class="{ lvl1: category.isCurrentCategory }"
-        @click="onClickCategory(category.slug)"
+  <div class="flex flex-col gap-4 mr-2">
+    <UFormGroup label="Select Version">
+      <UDropdown
+        class="w-full"
+        :items="versions"
+        :popper="{ placement: 'bottom-start' }"
       >
-        <h4 class="capitalize">{{ category.name }}</h4>
+        <UButton
+          class="w-full"
+          color="gray"
+          trailing-icon="i-heroicons-chevron-down-20-solid"
+        >
+          <span class="w-full text-left">{{ version }}</span>
+        </UButton>
+      </UDropdown>
+    </UFormGroup>
+
+    <div v-for="category in categories">
+      <div
+        class="flex justify-between items-center -mx-2 px-2 cursor-pointer"
+        @click="onClickCategory(category)"
+      >
+        <h4>{{ getWikiCategoryName(category) }}</h4>
         <UIcon
-          class="text-2xl"
           :name="
-            category.active
+            opened.includes(category)
               ? 'i-heroicons-chevron-down'
               : 'i-heroicons-chevron-right'
           "
@@ -23,10 +32,10 @@
       </div>
       <div
         class="flex flex-col overflow-hidden text-gray-500 dark:text-gray-400"
-        :class="[category.active ? 'h-full' : 'h-0']"
+        :class="[opened.includes(category) ? 'h-full' : 'h-0']"
       >
         <NuxtLink
-          v-for="article in articles[route.params.mod][category.slug]"
+          v-for="article in articles[category]"
           class="flex relative pl-2 py-1.5 md:py-1 text-sm first:mt-2 hover:text-gray-700 dark:hover:text-gray-200 border-l border-gray-300 dark:border-gray-700"
           :class="{
             '!text-primary-500 dark:!text-primary-400 font-semibold':
@@ -66,60 +75,14 @@
 </template>
 
 <script setup>
-import categoriesJSON from "~/content/wiki/.categories.json";
-
 const route = useRoute();
 
-const articles = ref({});
+const { version, category } = useWikiMetadata();
+const versions = useWikiVersions();
+const articles = await useWikiSidebarLinks();
+const categories = computed(() => Object.keys(articles.value));
 
-const { data } = await useAsyncData("wiki-sidebar-content", () =>
-  queryContent("wiki")
-    .only(["title", "category", "icon", "_path", "_dir"])
-    .sort({ sort: 1, $numeric: true })
-    .find()
-);
-
-for (const doc of data.value) {
-  const parts = doc._path.split("/").slice(1);
-
-  if (parts.length > 2) {
-    if (!articles.value[parts[1]]) {
-      articles.value[parts[1]] = Object.keys(categoriesJSON).reduce((a, b) => {
-        a[b] = [];
-        return a;
-      }, {});
-    }
-
-    if (!articles.value[parts[1]][parts[2]]) {
-      articles.value[parts[1]][parts[2]] = [];
-    }
-
-    articles.value[parts[1]][parts[2]].push(doc);
-  }
-}
-
-const opened = ref([]);
-const categories = computed(() =>
-  // route.params is updated asynchronously and can be undefined
-  Object.keys(articles.value[route.params.mod] ?? {})
-    .filter(
-      c =>
-        articles.value[route.params.mod][c] &&
-        articles.value[route.params.mod][c].length > 0
-    )
-    .map(c => ({
-      slug: c,
-      name: categoriesJSON[c] || c,
-      active: opened.value.includes(c) || isCurrentCategory(c),
-      isCurrentCategory: isCurrentCategory(c)
-    }))
-);
-
-function isCurrentCategory(category) {
-  return articles.value[route.params.mod][category]?.some(
-    d => d._path === route.path
-  );
-}
+const opened = ref([category.value]);
 
 function onClickCategory(category) {
   const index = opened.value.indexOf(category);
@@ -130,4 +93,11 @@ function onClickCategory(category) {
     opened.value.push(category);
   }
 }
+
+// when opening a page with a new category we want to open said category
+watch(category, value => {
+  if (!opened.value.includes(value)) {
+    opened.value.push(value);
+  }
+});
 </script>

@@ -12,6 +12,17 @@
       </div>
 
       <div class="flex gap-2">
+        <UDropdown :items="versions">
+          <UTooltip text="Select Version">
+            <UButton
+              class="w-full"
+              color="gray"
+              trailing-icon="i-heroicons-chevron-down-20-solid"
+            >
+              <span class="w-full text-left">{{ version }}</span>
+            </UButton>
+          </UTooltip>
+        </UDropdown>
         <Search />
         <ColorModeButton />
         <UTooltip text="CurseForge">
@@ -55,6 +66,9 @@ import ModsDropdown from "~/components/default/ModsDropdown.vue";
 import ReactiveLogo from "~/components/default/ReactiveLogo.vue";
 import Search from "~/components/wiki/Search.vue";
 import ColorModeButton from "~/components/ColorModeButton.vue";
+
+const { version } = useWikiMetadata();
+const versions = useWikiVersions();
 
 const dropdown = useModsDropdown();
 </script>
