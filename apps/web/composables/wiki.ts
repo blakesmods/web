@@ -49,11 +49,14 @@ export const useWikiSidebarLinks = async () => {
   const { version, mod } = useWikiMetadata();
   const versions = useWikiVersions();
 
-  const { data } = await useAsyncData("wiki-sidebar-content", () =>
-    queryContent("wiki", version.value, mod.value)
-      .only(["title", "category", "icon", "_path", "_dir"])
-      .sort({ sort: 1, $numeric: true })
-      .find()
+  const { data } = await useAsyncData(
+    "wiki-sidebar-content",
+    () =>
+      queryContent("wiki", version.value, mod.value)
+        .only(["title", "category", "icon", "_path", "_dir"])
+        .sort({ sort: 1, $numeric: true })
+        .find(),
+    { watch: [version, mod] }
   );
 
   return computed(() => {
