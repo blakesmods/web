@@ -1,7 +1,7 @@
 ---
 id: ender-crafter
 title: Ender Crafter
-icon: /assets/extendedcrafting/blocks/ender_crafter.png
+icon: /assets/extendedcrafting/v2/blocks/ender_crafter.png
 sort: 6
 version: 1.2.0
 ---
@@ -22,7 +22,7 @@ To increase crafting speed, place Ender Alternators around the Ender Crafter. An
 
 ## Screen Overview
 
-![](/assets/extendedcrafting/screens/ender_crafter_screen.png)
+![](/assets/extendedcrafting/v2/screens/ender_crafter_screen.png)
 
 1. **Crafting Grid Slots:** Place the input ingredients here.
 2. **Output Slot:** The recipe output will appear here.

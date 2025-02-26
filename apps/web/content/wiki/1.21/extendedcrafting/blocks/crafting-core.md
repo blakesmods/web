@@ -1,7 +1,7 @@
 ---
 id: crafting-core
 title: Crafting Core
-icon: /assets/extendedcrafting/blocks/crafting_core.png
+icon: /assets/extendedcrafting/v2/blocks/crafting_core.png
 sort: 1
 version: 1.0.0
 ---
@@ -24,7 +24,7 @@ The Crafting Core must be supplied with power to craft. Once a valid recipe is p
 
 ## Screen Overview
 
-![](/assets/extendedcrafting/screens/crafting_core_screen.png)
+![](/assets/extendedcrafting/v2/screens/crafting_core_screen.png)
 
 1. **Energy Bar:** Displays the amount of energy this block contains.
 2. **Status Display:** Information about your current crafting setup will be displayed here.

@@ -1,7 +1,7 @@
 ---
 id: essence-farmland
 title: Essence Farmland
-icon: /assets/mysticalagriculture/blocks/inferium_farmland.png
+icon: /assets/mysticalagriculture/v2/blocks/inferium_farmland.png
 sort: 10
 version: 2.0.0
 ---

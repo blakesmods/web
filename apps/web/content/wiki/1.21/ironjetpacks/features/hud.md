@@ -1,7 +1,7 @@
 ---
 id: hud
 title: HUD
-icon: /assets/ironjetpacks/features/hud.png
+icon: /assets/ironjetpacks/v2/features/hud.png
 sort: 1
 version: 1.0.0
 ---

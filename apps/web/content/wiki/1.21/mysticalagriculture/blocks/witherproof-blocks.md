@@ -1,7 +1,7 @@
 ---
 id: witherproof-blocks
 title: Witherproof Blocks
-icon: /assets/mysticalagriculture/blocks/witherproof_block.png
+icon: /assets/mysticalagriculture/v2/blocks/witherproof_block.png
 sort: 80
 version: 1.2.4
 ---
@@ -17,6 +17,6 @@ Witherproof Block, Bricks and Glass have a very high blast resistance and cannot
 screenshots:
   - name: Witherproof Blocks
     description: A Wither being contained using Witherproof Blocks, Bricks and Glass.
-    image: /assets/mysticalagriculture/screenshots/witherproof_blocks_1.png
+    image: /assets/mysticalagriculture/v2/screenshots/witherproof_blocks_1.png
 ---
 ::

@@ -1,9 +1,9 @@
 ---
 id: flint-gear
 title: Flint Gear
-icon: /assets/pickletweaks/items/flint_pickaxe.png
+icon: /assets/pickletweaks/v3/items/flint_pickaxe.png
 sort: 10
-version: 1.0.0
+version: 2.0.0
 ---
 
 ## Overview

@@ -20,6 +20,6 @@ Cucumber comes with a useful debug feature for viewing the NBT of an item. With 
 screenshots:
   - name: NBT Tooltips
     description: Viewing the nbt of a Soul Jar filled with Pig Souls.
-    image: /assets/cucumber/screenshots/nbt_tooltips_1.png
+    image: /assets/cucumber/v4/screenshots/nbt_tooltips_1.png
 ---
 ::

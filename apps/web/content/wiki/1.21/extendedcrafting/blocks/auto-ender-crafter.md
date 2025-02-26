@@ -1,7 +1,7 @@
 ---
 id: auto-ender-crafter
 title: Auto Ender Crafter
-icon: /assets/extendedcrafting/blocks/auto_ender_crafter.png
+icon: /assets/extendedcrafting/v5/blocks/auto_ender_crafter.png
 sort: 8
 version: 5.1.2
 ---
@@ -18,7 +18,7 @@ Placing a Chest on top of the Ender Crafter with a recipe selected will enable t
 
 ## Screen Overview
 
-![](/assets/extendedcrafting/screens/auto_ender_crafter_screen.png)
+![](/assets/extendedcrafting/v5/screens/auto_ender_crafter_screen.png)
 
 1. **Energy Bar:** Displays the amount of energy this block contains.
 2. **Crafting Grid Slots:** Place the input ingredients here.

@@ -1,7 +1,7 @@
 ---
 id: essence-coal
 title: Essence Coal
-icon: /assets/mysticalagradditions/items/inferium_coal.png
+icon: /assets/mysticalagradditions/v2/items/inferium_coal.png
 sort: 5
 version: 1.0.0
 ---

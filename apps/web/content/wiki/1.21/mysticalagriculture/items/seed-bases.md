@@ -1,7 +1,7 @@
 ---
 id: seed-bases
 title: Seed Bases
-icon: /assets/mysticalagriculture/items/prosperity_seed_base.png
+icon: /assets/mysticalagriculture/v2/items/prosperity_seed_base.png
 sort: 10
 version: 1.0.0
 ---

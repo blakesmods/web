@@ -1,7 +1,7 @@
 ---
 id: recipe-maker
 title: Recipe Maker
-icon: /assets/extendedcrafting/items/recipe_maker.png
+icon: /assets/extendedcrafting/v2/items/recipe_maker.png
 sort: 11
 version: 1.2.1
 ---

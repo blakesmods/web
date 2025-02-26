@@ -1,7 +1,7 @@
 ---
 id: prosperity-ore
 title: Prosperity Ore
-icon: /assets/mysticalagriculture/blocks/prosperity_ore.png
+icon: /assets/mysticalagriculture/v2/blocks/prosperity_ore.png
 sort: 1
 version: 1.0.0
 ---
@@ -17,9 +17,9 @@ Prosperity Ore is an Overworld ore usually found between Y levels **24** and **-
 screenshots:
   - name: Prosperity Ore
     description: A vein of Prosperity Ore generated in Stone.
-    image: /assets/mysticalagriculture/screenshots/prosperity_ore_1.png
+    image: /assets/mysticalagriculture/v2/screenshots/prosperity_ore_1.png
   - name: Deepslate Prosperity Ore
     description: A vein of Deepslate Prosperity Ore generated in Deepslate.
-    image: /assets/mysticalagriculture/screenshots/prosperity_ore_2.png
+    image: /assets/mysticalagriculture/v2/screenshots/prosperity_ore_2.png
 ---
 ::

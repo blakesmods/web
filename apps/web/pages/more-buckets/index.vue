@@ -27,7 +27,7 @@ const features = ref([
       "More Buckets adds more Buckets to Minecraft made of different materials with different capacities.",
       "While a regular Bucket can hold 1 bucket worth of fluid, the Diamond Bucket can hold 8!"
     ],
-    images: ["/assets/morebuckets/items/diamond_bucket.png"],
+    images: ["/assets/morebuckets/v2/items/diamond_bucket.png"],
     link: "/wiki/morebuckets/items/buckets"
   },
   {
@@ -43,7 +43,7 @@ const features = ref([
     description: [
       "The buckets in this mod can be used as a fluid tank and are compatible with any Forge fluid handlers."
     ],
-    images: ["/assets/morebuckets/items/diamond_bucket_filled.png"],
+    images: ["/assets/morebuckets/v2/items/diamond_bucket_filled.png"],
     link: "/wiki/morebuckets/items/buckets"
   }
 ]);

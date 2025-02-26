@@ -1,7 +1,7 @@
 ---
 id: singularity
 title: Singularity
-icon: /assets/extendedcrafting/items/emerald_singularity.png
+icon: /assets/extendedcrafting/v2/items/emerald_singularity.png
 sort: 10
 version: 1.0.0
 ---

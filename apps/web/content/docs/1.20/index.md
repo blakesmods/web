@@ -12,15 +12,15 @@ Use the sidebar, or the links below to navigate to your desired mod's documentat
 ## Mods
 
 ::mod-group
-  ::mod{name="Mystical Agriculture" icon="/assets/logo/mysticalagriculture_logo.png" link="/docs/1.20/mysticalagriculture"}
+  ::mod{name="Mystical Agriculture" icon="/assets/mysticalagriculture/logo.png" link="/docs/1.20/mysticalagriculture"}
   ::
-  ::mod{name="Mystical Customization" icon="/assets/logo/mysticalcustomization_logo.png" link="/docs/1.20/mysticalcustomization"}
+  ::mod{name="Mystical Customization" icon="/assets/mysticalcustomization/logo.png" link="/docs/1.20/mysticalcustomization"}
   ::
-  ::mod{name="Iron Jetpacks" icon="/assets/logo/ironjetpacks_logo.png" link="/docs/1.20/ironjetpacks"}
+  ::mod{name="Iron Jetpacks" icon="/assets/ironjetpacks/logo.png" link="/docs/1.20/ironjetpacks"}
   ::
-  ::mod{name="Extended Crafting" icon="/assets/logo/extendedcrafting_logo.png" link="/docs/1.20/extendedcrafting"}
+  ::mod{name="Extended Crafting" icon="/assets/extendedcrafting/logo.png" link="/docs/1.20/extendedcrafting"}
   ::
-  ::mod{name="Cucumber Library" icon="/assets/logo/cucumber_logo.png" link="/docs/1.20/cucumber"}
+  ::mod{name="Cucumber Library" icon="/assets/cucumber/logo.png" link="/docs/1.20/cucumber"}
   ::
 ::
 

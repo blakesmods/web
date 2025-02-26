@@ -27,7 +27,7 @@ const features = ref([
       "Repair your tools directly in your crafting grid.",
       "Your tools will become ineffective right before breaking, allowing for quick repairs."
     ],
-    images: ["/assets/pickletweaks/items/emerald_pickaxe.png"],
+    images: ["/assets/pickletweaks/v3/items/emerald_pickaxe.png"],
     link: "/wiki/pickletweaks/features/crafting-grid-tool-repair"
   },
   {
@@ -37,9 +37,9 @@ const features = ref([
       "Sickles allow you to harvest plant-material blocks in an AOE, and Scythes are an AOE weapon that can harvest crops in an area."
     ],
     images: [
-      "/assets/pickletweaks/items/diamond_paxel.png",
-      "/assets/pickletweaks/items/diamond_sickle.png",
-      "/assets/pickletweaks/items/diamond_scythe.png"
+      "/assets/pickletweaks/v3/items/diamond_paxel.png",
+      "/assets/pickletweaks/v5/items/diamond_sickle.png",
+      "/assets/pickletweaks/v5/items/diamond_scythe.png"
     ],
     link: "/wiki/pickletweaks/items/paxels"
   },
@@ -50,8 +50,8 @@ const features = ref([
       "Pickle Tweaks comes with a basic Watering Can (3x3) as well as a Reinforced Watering Can (7x7)."
     ],
     images: [
-      "/assets/pickletweaks/items/watering_can.png",
-      "/assets/pickletweaks/items/reinforced_watering_can.png"
+      "/assets/pickletweaks/v3/items/watering_can.png",
+      "/assets/pickletweaks/v3/items/reinforced_watering_can.png"
     ],
     link: "/wiki/pickletweaks/items/watering-cans"
   },
@@ -62,15 +62,15 @@ const features = ref([
       "Equip Night Vision Goggles to gain night vision."
     ],
     images: [
-      "/assets/pickletweaks/items/magnet.png",
-      "/assets/pickletweaks/items/night_vision_goggles.png"
+      "/assets/pickletweaks/v3/items/magnet.png",
+      "/assets/pickletweaks/v3/items/night_vision_goggles.png"
     ],
     link: "/wiki/pickletweaks/items/magnet"
   },
   {
     title: "Right Click Harvest",
     description: ["Right click crops to harvest them."],
-    images: ["/assets/pickletweaks/items/emerald_hoe.png"],
+    images: ["/assets/pickletweaks/v3/items/emerald_hoe.png"],
     link: "/wiki/pickletweaks/features/right-click-harvest"
   },
   {
@@ -80,8 +80,8 @@ const features = ref([
       "Split your Coal and Charcoal into pieces for increased efficiency."
     ],
     images: [
-      "/assets/pickletweaks/items/diamond_apple.png",
-      "/assets/pickletweaks/items/coal_piece.png"
+      "/assets/pickletweaks/v3/items/diamond_apple.png",
+      "/assets/pickletweaks/v3/items/coal_piece.png"
     ],
     link: "/wiki/pickletweaks"
   }

@@ -1,7 +1,7 @@
 ---
 id: smooth-glowstone
 title: Smooth Glowstone
-icon: /assets/pickletweaks/blocks/smooth_glowstone.png
+icon: /assets/pickletweaks/v4/blocks/smooth_glowstone.png
 sort: 2
 version: 4.0.2
 ---

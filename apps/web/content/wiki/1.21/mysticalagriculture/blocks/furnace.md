@@ -1,7 +1,7 @@
 ---
 id: furnace
 title: Furnace
-icon: /assets/mysticalagriculture/blocks/furnace.png
+icon: /assets/mysticalagriculture/v8/blocks/furnace.png
 sort: 59
 version: 8.0.0
 ---
@@ -16,7 +16,7 @@ Furnaces require energy to function. You can either provide energy via any Forge
 
 ## Screen Overview
 
-![](/assets/mysticalagriculture/screens/furnace_screen.png)
+![](/assets/mysticalagriculture/v8/screens/furnace_screen.png)
 
 1. **Energy Bar:** Displays the amount of energy this block contains.
 2. **Fuel Slot:** Burnable items can be placed here to generate energy.

@@ -1,7 +1,7 @@
 ---
 id: quantum-compressor
 title: Quantum Compressor
-icon: /assets/extendedcrafting/blocks/compressor.png
+icon: /assets/extendedcrafting/v2/blocks/compressor.png
 sort: 5
 version: 1.0.0
 ---
@@ -26,7 +26,7 @@ To eject the ingredients from the Compressor, you can press the Eject button, an
 
 ## Screen Overview
 
-![](/assets/extendedcrafting/screens/quantum_compressor_screen.png)
+![](/assets/extendedcrafting/v2/screens/quantum_compressor_screen.png)
 
 1. **Energy Bar:** Displays the amount of energy this block contains.
 2. **Catalyst Slot:** Place the catalyst ingredient here.

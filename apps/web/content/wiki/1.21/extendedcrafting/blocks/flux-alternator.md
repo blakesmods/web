@@ -1,7 +1,7 @@
 ---
 id: flux-alternator
 title: Flux Alternator
-icon: /assets/extendedcrafting/blocks/flux_alternator.png
+icon: /assets/extendedcrafting/v5/blocks/flux_alternator.png
 sort: 10
 version: 5.1.0
 ---
@@ -16,6 +16,6 @@ See [Flux Crafter](flux-crafter.md).
 
 ## Screen Overview
 
-![](/assets/extendedcrafting/screens/flux_alternator_screen.png)
+![](/assets/extendedcrafting/v5/screens/flux_alternator_screen.png)
 
 1. **Energy Bar:** Displays the amount of energy this block contains.

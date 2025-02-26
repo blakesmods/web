@@ -1,7 +1,7 @@
 ---
 id: jetpacks
 title: Jetpacks
-icon: /assets/ironjetpacks/items/diamond_jetpack.png
+icon: /assets/ironjetpacks/v2/items/diamond_jetpack.png
 sort: 1
 version: 1.0.0
 ---

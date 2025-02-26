@@ -1,7 +1,7 @@
 ---
 id: buckets
 title: Buckets
-icon: /assets/morebuckets/items/diamond_bucket.png
+icon: /assets/morebuckets/v2/items/diamond_bucket.png
 sort: 1
 version: 1.0.0
 ---

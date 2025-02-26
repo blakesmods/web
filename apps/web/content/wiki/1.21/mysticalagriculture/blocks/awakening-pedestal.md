@@ -1,7 +1,7 @@
 ---
 id: awakening-pedestal
 title: Awakening Pedestal
-icon: /assets/mysticalagriculture/blocks/awakening_pedestal.png
+icon: /assets/mysticalagriculture/v6/blocks/awakening_pedestal.png
 sort: 51
 version: 6.0.0
 ---

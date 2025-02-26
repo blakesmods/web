@@ -1,7 +1,7 @@
 ---
 id: sickles
 title: Sickles
-icon: /assets/pickletweaks/items/diamond_sickle.png
+icon: /assets/pickletweaks/v5/items/diamond_sickle.png
 sort: 16
 version: 5.2.0
 ---

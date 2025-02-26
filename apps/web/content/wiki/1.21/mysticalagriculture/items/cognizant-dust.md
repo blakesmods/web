@@ -1,7 +1,7 @@
 ---
 id: cognizant-dust
 title: Cognizant Dust
-icon: /assets/mysticalagriculture/items/cognizant_dust.png
+icon: /assets/mysticalagriculture/v6/items/cognizant_dust.png
 sort: 60
 version: 6.0.0
 ---

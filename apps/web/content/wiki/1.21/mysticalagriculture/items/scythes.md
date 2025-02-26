@@ -1,7 +1,7 @@
 ---
 id: scythes
 title: Scythes
-icon: /assets/mysticalagriculture/items/diamond_scythe.png
+icon: /assets/mysticalagriculture/v6/items/diamond_scythe.png
 sort: 31
 version: 6.0.1
 ---

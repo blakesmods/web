@@ -1,7 +1,7 @@
 ---
 id: harvester
 title: Harvester
-icon: /assets/mysticalagriculture/blocks/harvester.png
+icon: /assets/mysticalagriculture/v6/blocks/harvester.png
 sort: 62
 version: 6.0.1
 ---
@@ -20,7 +20,7 @@ The harvester can be disabled at any time with a Redstone signal.
 
 ## Screen Overview
 
-![](/assets/mysticalagriculture/screens/harvester_screen.png)
+![](/assets/mysticalagriculture/v6/screens/harvester_screen.png)
 
 1. **Energy Bar:** Displays the amount of energy this block contains.
 2. **Fuel Slot:** Burnable items can be placed here to generate energy.
@@ -34,6 +34,6 @@ The harvester can be disabled at any time with a Redstone signal.
 screenshots:
   - name: Harvester (No Upgrades)
     description: A Harvester placed in-world with no Machine Upgrades added.
-    image: /assets/mysticalagriculture/screenshots/harvester_1.png
+    image: /assets/mysticalagriculture/v6/screenshots/harvester_1.png
 ---
 ::

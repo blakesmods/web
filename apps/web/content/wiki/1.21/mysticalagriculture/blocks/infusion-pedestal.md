@@ -1,7 +1,7 @@
 ---
 id: infusion-pedestal
 title: Infusion Pedestal
-icon: /assets/mysticalagriculture/blocks/infusion_pedestal.png
+icon: /assets/mysticalagriculture/v2/blocks/infusion_pedestal.png
 sort: 21
 version: 2.0.0
 ---

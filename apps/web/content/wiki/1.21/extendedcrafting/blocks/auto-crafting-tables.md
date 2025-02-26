@@ -1,7 +1,7 @@
 ---
 id: auto-crafting-tables
 title: Auto Crafting Tables
-icon: /assets/extendedcrafting/blocks/ultimate_auto_table.png
+icon: /assets/extendedcrafting/v2/blocks/ultimate_auto_table.png
 sort: 4
 version: 2.0.1
 ---
@@ -20,7 +20,7 @@ Placing a Chest on top of the Table with a recipe selected will enable the auto-
 
 ## Screen Overview
 
-![](/assets/extendedcrafting/screens/auto_table_screen.png)
+![](/assets/extendedcrafting/v2/screens/auto_table_screen.png)
 
 1. **Energy Bar:** Displays the amount of energy this block contains.
 2. **Crafting Grid Slots:** Place the input ingredients here.

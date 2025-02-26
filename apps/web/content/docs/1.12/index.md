@@ -12,9 +12,9 @@ Use the sidebar, or the links below to navigate to your desired mod's documentat
 ## Mods
 
 ::mod-group
-  ::mod{name="Iron Jetpacks" icon="/assets/logo/ironjetpacks_logo.png" link="/docs/ironjetpacks"}
+  ::mod{name="Iron Jetpacks" icon="/assets/ironjetpacks/logo.png" link="/docs/ironjetpacks"}
   ::
-  ::mod{name="Extended Crafting" icon="/assets/logo/extendedcrafting_logo.png" link="/docs/extendedcrafting"}
+  ::mod{name="Extended Crafting" icon="/assets/extendedcrafting/logo.png" link="/docs/extendedcrafting"}
   ::
 ::
 

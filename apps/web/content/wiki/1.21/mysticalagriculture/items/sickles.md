@@ -1,7 +1,7 @@
 ---
 id: sickles
 title: Sickles
-icon: /assets/mysticalagriculture/items/diamond_sickle.png
+icon: /assets/mysticalagriculture/v6/items/diamond_sickle.png
 sort: 30
 version: 6.0.1
 ---

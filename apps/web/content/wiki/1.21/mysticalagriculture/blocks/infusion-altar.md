@@ -1,7 +1,7 @@
 ---
 id: infusion-altar
 title: Infusion Altar
-icon: /assets/mysticalagriculture/blocks/infusion_altar.png
+icon: /assets/mysticalagriculture/v2/blocks/infusion_altar.png
 sort: 20
 version: 2.0.0
 ---
@@ -31,12 +31,12 @@ To activate the altar you can do one of the following:
 screenshots:
   - name: Infusion Altar
     description: An Infusion Altar with no pedestals placed, showing ghost pedestals.
-    image: /assets/mysticalagriculture/screenshots/infusion_altar_1.png
+    image: /assets/mysticalagriculture/v2/screenshots/infusion_altar_1.png
   - name: Infusion Altar
     description: An Infusion Altar with all pedestals placed in-world and with the items required placed to create Diamond Seeds.
-    image: /assets/mysticalagriculture/screenshots/infusion_altar_2.png
+    image: /assets/mysticalagriculture/v2/screenshots/infusion_altar_2.png
   - name: Infusion Altar
     description: An Infusion Altar crafting Diamond Seeds after receiving a Redstone signal.
-    image: /assets/mysticalagriculture/screenshots/infusion_altar_3.png
+    image: /assets/mysticalagriculture/v2/screenshots/infusion_altar_3.png
 ---
 ::

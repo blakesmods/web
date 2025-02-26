@@ -26,7 +26,7 @@ const features = ref([
     description: [
       "Insanium Essence is an additional tier above Supremium that can be used to craft higher tier items such as Nether Star seeds."
     ],
-    images: ["/assets/mysticalagradditions/items/insanium_essence.png"],
+    images: ["/assets/mysticalagradditions/v2/items/insanium_essence.png"],
     link: "/wiki/mysticalagradditions/items/insanium-essence"
   },
   {
@@ -35,7 +35,7 @@ const features = ref([
       "Paxels are a 3-in-1 tool made from a Pickaxe, Axe and Shovel.",
       "Pickaxe, Axe, and Shovel Augments can be applied to Paxels."
     ],
-    images: ["/assets/mysticalagradditions/items/inferium_paxel.png"],
+    images: ["/assets/mysticalagradditions/v2/items/inferium_paxel.png"],
     link: "/wiki/mysticalagradditions/items/essence-paxels"
   },
   {
@@ -44,7 +44,7 @@ const features = ref([
       "Mystical Agradditions adds support to Tinkers' Construct for Mystical Agriculture materials. Melt down Supremium Ingots in a Smeltery and pour out your new Pickaxe head!"
     ],
     images: [
-      "/assets/mysticalagradditions/items/supremium_tinkers_pickaxe.png"
+      "/assets/mysticalagradditions/v2/items/supremium_tinkers_pickaxe.png"
     ],
     link: "/wiki/mysticalagradditions/features/tinkers-construct-integration"
   }

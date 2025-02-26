@@ -1,7 +1,7 @@
 ---
 id: dragon-scale
 title: Dragon Scale
-icon: /assets/mysticalagradditions/items/dragon_scale.png
+icon: /assets/mysticalagradditions/v2/items/dragon_scale.png
 sort: 16
 version: 1.2.6
 ---

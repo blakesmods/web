@@ -1,7 +1,7 @@
 ---
 id: machine-upgrades
 title: Machine Upgrades
-icon: /assets/mysticalagriculture/items/inferium_upgrade.png
+icon: /assets/mysticalagriculture/v6/items/inferium_upgrade.png
 sort: 40
 version: 6.0.1
 ---

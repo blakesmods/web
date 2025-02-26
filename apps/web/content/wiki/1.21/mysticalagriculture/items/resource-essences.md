@@ -1,7 +1,7 @@
 ---
 id: resource-essences
 title: Resource Essences
-icon: /assets/mysticalagriculture/items/diamond_essence.png
+icon: /assets/mysticalagriculture/v2/items/diamond_essence.png
 sort: 12
 version: 1.0.0
 ---

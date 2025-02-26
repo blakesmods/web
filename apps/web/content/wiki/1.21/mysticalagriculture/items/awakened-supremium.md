@@ -1,7 +1,7 @@
 ---
 id: awakened-supremium
 title: Awakened Supremium
-icon: /assets/mysticalagriculture/items/awakened_supremium_essence.png
+icon: /assets/mysticalagriculture/v6/items/awakened_supremium_essence.png
 sort: 61
 version: 6.0.0
 ---

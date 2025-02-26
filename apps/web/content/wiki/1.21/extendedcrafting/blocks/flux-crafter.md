@@ -1,7 +1,7 @@
 ---
 id: flux-crafter
 title: Flux Crafter
-icon: /assets/extendedcrafting/blocks/flux_crafter.png
+icon: /assets/extendedcrafting/v5/blocks/flux_crafter.png
 sort: 9
 version: 5.1.0
 ---
@@ -22,7 +22,7 @@ If the recipe is correct, the Flux Crafter should start to take energy from all 
 
 ## Screen Overview
 
-![](/assets/extendedcrafting/screens/flux_crafter_screen.png)
+![](/assets/extendedcrafting/v5/screens/flux_crafter_screen.png)
 
 1. **Crafting Grid Slots:** Place the input ingredients here.
 2. **Output Slot:** The recipe output will appear here.

@@ -1,7 +1,7 @@
 ---
 id: inferium-ore
 title: Inferium Ore
-icon: /assets/mysticalagriculture/blocks/inferium_ore.png
+icon: /assets/mysticalagriculture/v2/blocks/inferium_ore.png
 sort: 2
 version: 1.0.0
 ---
@@ -17,9 +17,9 @@ Inferium Ore is an Overworld ore usually found between Y levels **64** and **-32
 screenshots:
   - name: Inferium Ore
     description: A vein of Inferium Ore generated in Stone.
-    image: /assets/mysticalagriculture/screenshots/inferium_ore_1.png
+    image: /assets/mysticalagriculture/v2/screenshots/inferium_ore_1.png
   - name: Deepslate Inferium Ore
     description: A vein of Deepslate Inferium Ore generated in Deepslate.
-    image: /assets/mysticalagriculture/screenshots/inferium_ore_2.png
+    image: /assets/mysticalagriculture/v2/screenshots/inferium_ore_2.png
 ---
 ::

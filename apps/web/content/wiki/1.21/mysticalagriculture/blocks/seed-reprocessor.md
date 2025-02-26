@@ -1,7 +1,7 @@
 ---
 id: seed-reprocessor
 title: Seed Reprocessor
-icon: /assets/mysticalagriculture/blocks/seed_reprocessor.png
+icon: /assets/mysticalagriculture/v7/blocks/seed_reprocessor.png
 sort: 60
 version: 1.4.0
 ---
@@ -22,7 +22,7 @@ The machine can be upgraded using [Machine Upgrades](../items/machine-upgrades.m
 
 ## Screen Overview
 
-![](/assets/mysticalagriculture/screens/seed_reprocessor_screen.png)
+![](/assets/mysticalagriculture/v7/screens/seed_reprocessor_screen.png)
 
 1. **Energy Bar:** Displays the amount of energy this block contains.
 2. **Fuel Slot:** Burnable items can be placed here to generate energy.

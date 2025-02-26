@@ -1,7 +1,7 @@
 ---
 id: soulium-spawner
 title: Soulium Spawner
-icon: /assets/mysticalagriculture/blocks/soulium_spawner.png
+icon: /assets/mysticalagriculture/v7/blocks/soulium_spawner.png
 sort: 63
 version: 7.0.5
 ---
@@ -20,7 +20,7 @@ The spawner will not be able to spawn mobs if there are 32 or more entities of t
 
 ## Screen Overview
 
-![](/assets/mysticalagriculture/screens/soulium_spawner_screen.png)
+![](/assets/mysticalagriculture/v7/screens/soulium_spawner_screen.png)
 
 1. **Energy Bar:** Displays the amount of energy this block contains.
 2. **Fuel Slot:** Burnable items can be placed here to generate energy.
@@ -35,6 +35,6 @@ The spawner will not be able to spawn mobs if there are 32 or more entities of t
 screenshots:
   - name: Soulium Spawner
     description: A Soulium Spawner with Zombie Essence in the process of spawning a Zombie.
-    image: /assets/mysticalagriculture/screenshots/soulium_spawner_1.png
+    image: /assets/mysticalagriculture/v7/screenshots/soulium_spawner_1.png
 ---
 ::

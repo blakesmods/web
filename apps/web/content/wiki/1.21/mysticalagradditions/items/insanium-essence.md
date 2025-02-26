@@ -1,7 +1,7 @@
 ---
 id: insanium-essence
 title: Insanium Essence
-icon: /assets/mysticalagradditions/items/insanium_essence.png
+icon: /assets/mysticalagradditions/v2/items/insanium_essence.png
 sort: 1
 version: 1.0.0
 ---

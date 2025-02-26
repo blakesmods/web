@@ -42,8 +42,8 @@ const features = ref([
       "Mystical Agriculture adds more then 130+ resource unique crops to Minecraft; such as Coal, Iron, Diamond, Skeleton and so many more!"
     ],
     images: [
-      "/assets/mysticalagriculture/items/diamond_essence.png",
-      "/assets/mysticalagriculture/items/diamond_seeds.png"
+      "/assets/mysticalagriculture/v2/items/diamond_essence.png",
+      "/assets/mysticalagriculture/v2/items/diamond_seeds.png"
     ],
     link: "/wiki/mysticalagriculture/items/resource-seeds"
   },
@@ -53,8 +53,8 @@ const features = ref([
       "Create more powerful tools and armor using Essences. Upgrade your gear with greater abilities using Augments."
     ],
     images: [
-      "/assets/mysticalagriculture/items/inferium_pickaxe.png",
-      "/assets/mysticalagriculture/items/inferium_helmet.png"
+      "/assets/mysticalagriculture/v2/items/inferium_pickaxe.png",
+      "/assets/mysticalagriculture/v2/items/inferium_helmet.png"
     ],
     link: "/wiki/mysticalagriculture/items/essence-armor"
   },
@@ -65,8 +65,8 @@ const features = ref([
       "Stack Growth Accelerators underneath your crops to passively increase their growth rate."
     ],
     images: [
-      "/assets/mysticalagriculture/items/watering_can.png",
-      "/assets/mysticalagriculture/blocks/inferium_growth_accelerator.png"
+      "/assets/mysticalagriculture/v2/items/watering_can.png",
+      "/assets/mysticalagriculture/v2/blocks/inferium_growth_accelerator.png"
     ],
     link: "/wiki/mysticalagriculture/blocks/growth-accelerators"
   },
@@ -77,8 +77,8 @@ const features = ref([
       "Automatically harvest a field of crops using a Harvester."
     ],
     images: [
-      "/assets/mysticalagriculture/items/diamond_scythe.png",
-      "/assets/mysticalagriculture/blocks/harvester.png"
+      "/assets/mysticalagriculture/v6/items/diamond_scythe.png",
+      "/assets/mysticalagriculture/v6/blocks/harvester.png"
     ],
     link: "/wiki/mysticalagriculture/blocks/harvester"
   },
@@ -88,8 +88,8 @@ const features = ref([
       "Create upgradable Furnaces and Seed Reprocessors for increased speed and fuel efficiency."
     ],
     images: [
-      "/assets/mysticalagriculture/blocks/furnace.png",
-      "/assets/mysticalagriculture/blocks/seed_reprocessor.png"
+      "/assets/mysticalagriculture/v8/blocks/furnace.png",
+      "/assets/mysticalagriculture/v7/blocks/seed_reprocessor.png"
     ],
     link: "/wiki/mysticalagriculture/blocks/furnace"
   },
@@ -98,7 +98,7 @@ const features = ref([
     description: [
       "Enchant your tools, armor or books with crafting materials and Experience Essence."
     ],
-    images: ["/assets/mysticalagriculture/blocks/enchanter.png"],
+    images: ["/assets/mysticalagriculture/v7/blocks/enchanter.png"],
     link: "/wiki/mysticalagriculture/blocks/enchanter"
   }
 ]);

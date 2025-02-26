@@ -26,14 +26,14 @@ const features = ref([
     description: [
       "Use Mystical Customization to add new Crops, Crop Tiers, Crop Types or Mob Soul Types to the game!"
     ],
-    images: ["/assets/mysticalagriculture/items/mystical_seeds.png"]
+    images: ["/assets/mysticalagriculture/v2/items/mystical_seeds.png"]
   },
   {
     title: "Make It Your Own",
     description: [
       "Mystical Customization can also be used to edit Crops, Crop Tiers, Crop Types or Mob Soul Types."
     ],
-    images: ["/assets/mysticalagriculture/items/essence_dust.png"]
+    images: ["/assets/mysticalagriculture/v2/items/essence_dust.png"]
   }
 ]);
 </script>

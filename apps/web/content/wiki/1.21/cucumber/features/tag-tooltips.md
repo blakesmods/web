@@ -16,6 +16,6 @@ Cucumber comes with a helpful debug feature called Tag Tooltips. With advanced t
 screenshots:
   - name: Tag Tooltips
     description: Viewing all the tags assigned to Oak Logs.
-    image: /assets/cucumber/screenshots/tag_tooltips_1.png
+    image: /assets/cucumber/v2/screenshots/tag_tooltips_1.png
 ---
 ::

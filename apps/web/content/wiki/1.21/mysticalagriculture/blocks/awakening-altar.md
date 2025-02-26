@@ -1,7 +1,7 @@
 ---
 id: awakening-altar
 title: Awakening Altar
-icon: /assets/mysticalagriculture/blocks/awakening_altar.png
+icon: /assets/mysticalagriculture/v6/blocks/awakening_altar.png
 sort: 50
 version: 6.0.0
 ---
@@ -31,15 +31,15 @@ To activate the altar you can do one of the following:
 screenshots:
   - name: Awakening Altar
     description: An Awakening Altar with no pedestals or vessels placed, showing ghost pedestals and vessels.
-    image: /assets/mysticalagriculture/screenshots/awakening_altar_1.png
+    image: /assets/mysticalagriculture/v6/screenshots/awakening_altar_1.png
   - name: Awakening Altar
     description: An Awakening Altar with all pedestals placed in-world and with the items required placed to create an Awakened Supremium Block.
-    image: /assets/mysticalagriculture/screenshots/awakening_altar_2.png
+    image: /assets/mysticalagriculture/v6/screenshots/awakening_altar_2.png
   - name: Awakening Altar
     description: An Awakening Altar crafting an Awakened Supremium Block after receiving a Redstone signal.
-    image: /assets/mysticalagriculture/screenshots/awakening_altar_3.png
+    image: /assets/mysticalagriculture/v6/screenshots/awakening_altar_3.png
   - name: Awakening Altar
     description: Looking at an Awakening altar with a valid recipe that is missing some Elemental Essences.
-    image: /assets/mysticalagriculture/screenshots/awakening_altar_4.png
+    image: /assets/mysticalagriculture/v6/screenshots/awakening_altar_4.png
 ---
 ::

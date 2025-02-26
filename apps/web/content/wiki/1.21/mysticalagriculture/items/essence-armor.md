@@ -1,7 +1,7 @@
 ---
 id: essence-armor
 title: Essence Armor
-icon: /assets/mysticalagriculture/items/inferium_helmet.png
+icon: /assets/mysticalagriculture/v2/items/inferium_helmet.png
 sort: 51
 version: 1.0.0
 ---

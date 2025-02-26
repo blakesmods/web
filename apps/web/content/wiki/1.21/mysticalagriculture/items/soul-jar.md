@@ -1,7 +1,7 @@
 ---
 id: soul-jar
 title: Soul Jar
-icon: /assets/mysticalagriculture/items/soul_jar.png
+icon: /assets/mysticalagriculture/v2/items/soul_jar.png
 sort: 25
 version: 2.0.0
 ---

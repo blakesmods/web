@@ -1,7 +1,7 @@
 ---
 id: ender-alternator
 title: Ender Alternator
-icon: /assets/extendedcrafting/blocks/ender_alternator.png
+icon: /assets/extendedcrafting/v2/blocks/ender_alternator.png
 sort: 7
 version: 1.2.0
 ---

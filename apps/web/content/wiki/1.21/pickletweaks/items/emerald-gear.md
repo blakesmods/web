@@ -1,7 +1,7 @@
 ---
 id: emerald-gear
 title: Emerald Gear
-icon: /assets/pickletweaks/items/emerald_pickaxe.png
+icon: /assets/pickletweaks/v3/items/emerald_pickaxe.png
 sort: 11
 version: 3.0.0
 ---

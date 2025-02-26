@@ -26,7 +26,7 @@ const features = ref([
     description: [
       "Iron Jetpacks is a Minecraft mod focused entirely on adding simple and easy to use Jetpacks."
     ],
-    images: ["/assets/ironjetpacks/items/diamond_jetpack.png"],
+    images: ["/assets/ironjetpacks/v2/items/diamond_jetpack.png"],
     link: "/wiki/ironjetpacks/items/jetpacks"
   },
   {
@@ -34,7 +34,7 @@ const features = ref([
     description: [
       "All Jetpack values can be tweaked to your liking using the Jetpack JSON files. You can even add entirely new jetpacks, or remove the ones you don't need."
     ],
-    images: ["/assets/ironjetpacks/items/elite_coil.png"],
+    images: ["/assets/ironjetpacks/v2/items/elite_coil.png"],
     link: "/docs/ironjetpacks"
   },
   {
@@ -42,7 +42,7 @@ const features = ref([
     description: [
       "Change the speed of your Jetpack on the fly! Use the Increase/Decrease Throttle keybindings to change your Jetpack's movement speed."
     ],
-    images: ["/assets/ironjetpacks/items/strap.png"],
+    images: ["/assets/ironjetpacks/v2/items/strap.png"],
     link: "/wiki/ironjetpacks/items/jetpacks"
   },
   {
@@ -50,7 +50,7 @@ const features = ref([
     description: [
       "View your Jetpack's energy, throttle, engine and hover status quickly using the in-game HUD."
     ],
-    images: ["/assets/ironjetpacks/features/hud.png"],
+    images: ["/assets/ironjetpacks/v2/features/hud.png"],
     link: "/wiki/ironjetpacks/features/hud"
   },
   {
@@ -58,7 +58,7 @@ const features = ref([
     description: [
       "With Curios installed, your Jetpack can be equipped as a Curio."
     ],
-    images: ["/assets/ironjetpacks/features/curios_logo.png"],
+    images: ["/assets/ironjetpacks/curios_logo.png"],
     link: "/wiki/ironjetpacks/items/jetpacks#curios-integration"
   },
   {

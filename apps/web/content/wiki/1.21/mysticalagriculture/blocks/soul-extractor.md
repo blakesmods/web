@@ -1,7 +1,7 @@
 ---
 id: soul-extractor
 title: Soul Extractor
-icon: /assets/mysticalagriculture/blocks/soul_extractor.png
+icon: /assets/mysticalagriculture/v4/blocks/soul_extractor.png
 sort: 61
 version: 4.2.0
 ---
@@ -24,7 +24,7 @@ The machine can be upgraded using [Machine Upgrades](../items/machine-upgrades.m
 
 ## Screen Overview
 
-![](/assets/mysticalagriculture/screens/soul_extractor_screen.png)
+![](/assets/mysticalagriculture/v6/screens/soul_extractor_screen.png)
 
 1. **Energy Bar:** Displays the amount of energy this block contains.
 2. **Fuel Slot:** Burnable items can be placed here to generate energy.

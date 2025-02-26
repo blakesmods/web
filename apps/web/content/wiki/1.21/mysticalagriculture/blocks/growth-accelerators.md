@@ -1,7 +1,7 @@
 ---
 id: growth-accelerators
 title: Growth Accelerators
-icon: /assets/mysticalagriculture/blocks/inferium_growth_accelerator.png
+icon: /assets/mysticalagriculture/v2/blocks/inferium_growth_accelerator.png
 sort: 15
 version: 1.2.2
 ---
@@ -23,6 +23,6 @@ Place them underneath the block your plant is planted on. In the case of crops t
 screenshots:
   - name: Growth Accelerators
     description: Growth Accelerators stacked on top of each other for maximum efficiency and taking advantage of each tier's full range.
-    image: /assets/mysticalagriculture/screenshots/growth_accelerators_1.png
+    image: /assets/mysticalagriculture/v2/screenshots/growth_accelerators_1.png
 ---
 ::

@@ -1,7 +1,7 @@
 ---
 id: enchanter
 title: Enchanter
-icon: /assets/mysticalagriculture/blocks/enchanter.png
+icon: /assets/mysticalagriculture/v7/blocks/enchanter.png
 sort: 46
 version: 7.0.3
 ---
@@ -20,7 +20,7 @@ To enchant an item, place it in the 3rd slot. Then, place enough of the required
 
 ## Screen Overview
 
-![](/assets/mysticalagriculture/screens/enchanter_screen.png)
+![](/assets/mysticalagriculture/v7/screens/enchanter_screen.png)
 
 1. **Input Slots:** Place the input ingredients here. 
 2. **Enchantable Slot:** Place the item you would like to enchant here.

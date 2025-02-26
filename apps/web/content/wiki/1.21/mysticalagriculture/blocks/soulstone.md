@@ -1,7 +1,7 @@
 ---
 id: soulstone
 title: Soulstone
-icon: /assets/mysticalagriculture/blocks/soulstone.png
+icon: /assets/mysticalagriculture/v2/blocks/soulstone.png
 sort: 40
 version: 1.1.5
 ---
@@ -21,6 +21,6 @@ Soulstone can be used to create Soul Dust or to create different decorative bloc
 screenshots:
   - name: Soulstone
     description: Multiple Soulstone veins generated inside Netherrack in the Nether.
-    image: /assets/mysticalagriculture/screenshots/soulstone_1.png
+    image: /assets/mysticalagriculture/v2/screenshots/soulstone_1.png
 ---
 ::

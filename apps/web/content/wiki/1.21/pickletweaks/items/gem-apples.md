@@ -1,7 +1,7 @@
 ---
 id: gem-apples
 title: Gem Apples
-icon: /assets/pickletweaks/items/diamond_apple.png
+icon: /assets/pickletweaks/v3/items/diamond_apple.png
 sort: 2
 version: 2.0.0
 ---

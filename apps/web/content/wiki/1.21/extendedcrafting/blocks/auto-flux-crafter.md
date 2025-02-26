@@ -1,7 +1,7 @@
 ---
 id: auto-flux-crafter
 title: Auto Flux Crafter
-icon: /assets/extendedcrafting/blocks/flux_crafter.png
+icon: /assets/extendedcrafting/v5/blocks/flux_crafter.png
 sort: 11
 version: 5.1.2
 ---
@@ -18,7 +18,7 @@ Placing a Chest on top of the Flux Crafter with a recipe selected will enable th
 
 ## Screen Overview
 
-![](/assets/extendedcrafting/screens/auto_flux_crafter_screen.png)
+![](/assets/extendedcrafting/v5/screens/auto_flux_crafter_screen.png)
 
 1. **Energy Bar:** Displays the amount of energy this block contains.
 2. **Crafting Grid Slots:** Place the input ingredients here.

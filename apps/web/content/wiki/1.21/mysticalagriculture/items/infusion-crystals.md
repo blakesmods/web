@@ -1,7 +1,7 @@
 ---
 id: infusion-crystals
 title: Infusion Crystals
-icon: /assets/mysticalagriculture/items/infusion_crystal.png
+icon: /assets/mysticalagriculture/v2/items/infusion_crystal.png
 sort: 5
 version: 1.0.0
 ---

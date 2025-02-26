@@ -1,7 +1,7 @@
 ---
 id: tinkering-table
 title: Tinkering Table
-icon: /assets/mysticalagriculture/blocks/tinkering_table.png
+icon: /assets/mysticalagriculture/v2/blocks/tinkering_table.png
 sort: 45
 version: 1.5.0
 ---
@@ -16,7 +16,7 @@ Place a compatible tool or armor piece into the center slot of the GUI. On the r
 
 ## Screen Overview
 
-![](/assets/mysticalagriculture/screens/tinkering_table_screen.png)
+![](/assets/mysticalagriculture/v2/screens/tinkering_table_screen.png)
 
 1. **Elemental Essence Slots:** (currently unused)
 2. **Tinkerable Slot:** Place the gear piece to modify here.
@@ -29,6 +29,6 @@ Place a compatible tool or armor piece into the center slot of the GUI. On the r
 screenshots:
   - name: Tinkering Table
     description: A Tinkering Table placed in-world with an Imperium Sword in its inventory, showing it rendered on top. 
-    image: /assets/mysticalagriculture/screenshots/tinkering_table_1.png
+    image: /assets/mysticalagriculture/v2/screenshots/tinkering_table_1.png
 ---
 ::

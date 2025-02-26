@@ -1,7 +1,7 @@
 ---
 id: inferium-seeds
 title: Inferium Seeds
-icon: /assets/mysticalagriculture/items/inferium_seeds.png
+icon: /assets/mysticalagriculture/v2/items/inferium_seeds.png
 sort: 9
 version: 1.0.0
 ---
