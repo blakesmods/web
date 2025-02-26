@@ -50,7 +50,7 @@ export const useWikiSidebarLinks = async () => {
   const versions = useWikiVersions();
 
   const { data } = await useAsyncData(
-    "wiki-sidebar-content",
+    "wiki-sidebar-content/" + mod.value,
     () =>
       queryContent("wiki", version.value, mod.value)
         .only(["title", "category", "icon", "_path", "_dir"])
