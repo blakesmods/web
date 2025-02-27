@@ -3,7 +3,7 @@
     <NuxtLink
       v-for="mod in mods"
       class="group"
-      :to="mod.disabled ? '/wiki' : `/wiki/${mod.path}`"
+      :to="mod.disabled ? '/wiki' : mod.link"
       :key="mod.path"
     >
       <UCard class="transition hover:scale-105 active:scale-100">
@@ -36,63 +36,80 @@
 </template>
 
 <script setup>
-const mods = ref([
+const { version, isLatestVersion } = useWikiMetadata();
+const articles = ref({});
+
+const { data } = await useAsyncData("wiki-mod-directory", () =>
+  queryContent("wiki", version.value).only(["_path"]).find()
+);
+
+for (const article of data.value) {
+  const parts = article._path.split("/");
+
+  if (!articles.value[parts[3]]) {
+    articles.value[parts[3]] = 0;
+  }
+
+  articles.value[parts[3]]++;
+}
+
+const mods = computed(() => [
   {
     title: "Mystical Agriculture",
     path: "mysticalagriculture",
+    link: createLink("mysticalagriculture"),
     icon: "/img/logo/mysticalagriculture_logo.png"
   },
   {
     title: "Iron Jetpacks",
     path: "ironjetpacks",
+    link: createLink("ironjetpacks"),
     icon: "/img/logo/ironjetpacks_logo.png"
   },
   {
     title: "Pickle Tweaks",
     path: "pickletweaks",
+    link: createLink("pickletweaks"),
     icon: "/img/logo/pickletweaks_logo.png"
   },
   {
     title: "Mystical Agradditions",
     path: "mysticalagradditions",
+    link: createLink("mysticalagradditions"),
     icon: "/img/logo/mysticalagradditions_logo.png"
   },
   {
     title: "Extended Crafting",
     path: "extendedcrafting",
+    link: createLink("extendedcrafting"),
     icon: "/img/logo/extendedcrafting_logo.png"
   },
   {
     title: "More Buckets",
     path: "morebuckets",
+    link: createLink("morebuckets"),
     icon: "/img/logo/morebuckets_logo.png"
   },
   {
     title: "Mystical Customization",
     path: "mysticalcustomization",
+    link: createLink("mysticalcustomization"),
     icon: "/img/logo/mysticalcustomization_logo.png",
     disabled: true
   },
   {
     title: "Cucumber Library",
     path: "cucumber",
+    link: createLink("cucumber"),
     icon: "/img/logo/cucumber_logo.png"
   }
 ]);
 
-const articles = ref({});
-
-const { data } = await useAsyncData("wiki-mod-directory", () =>
-  queryContent("wiki").find()
-);
-
-for (const article of data.value) {
-  const parts = article._path.split("/");
-
-  if (!articles.value[parts[2]]) {
-    articles.value[parts[2]] = 0;
+function createLink(path) {
+  if (isLatestVersion.value) {
+    return `/wiki/${path}`;
   }
 
-  articles.value[parts[2]]++;
+  return `/wiki/${version.value}/${path}`;
 }
 </script>

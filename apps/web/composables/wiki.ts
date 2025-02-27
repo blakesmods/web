@@ -138,9 +138,16 @@ export const useWikiVersions = () => {
               await router.push(link);
             } else {
               // the first is the latest and doesn't need the version in the URL
-              const link = i === 0 ? `/wiki` : `/wiki/${v}`;
-
-              await router.push(link);
+              if (i === 0) {
+                await router.push("/wiki");
+              } else {
+                await router.push({
+                  name: `wiki-version`,
+                  params: {
+                    version: v
+                  }
+                });
+              }
             }
           }
         }
