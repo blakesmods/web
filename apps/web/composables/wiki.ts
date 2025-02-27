@@ -110,7 +110,7 @@ export const useWikiVersions = () => {
           const { mod, category, slug } = useWikiMetadata();
 
           const doc = await queryContent(
-            `/wiki${v}/${mod.value}/${category.value}/${slug.value}`
+            `/wiki/${v}/${mod.value}/${category.value}/${slug.value}`
           )
             .findOne()
             .catch(() => null);
@@ -125,11 +125,12 @@ export const useWikiVersions = () => {
             await router.push(link);
           } else {
             const doc = await queryContent(`/wiki/${v}/${mod.value}`)
-              .findOne()
+              .limit(1)
+              .find()
               .catch(() => null);
 
             // if there is no page for this mod we'll just redirect to the top level page
-            if (doc) {
+            if (doc && doc.length > 0) {
               // the first is the latest and doesn't need the version in the URL
               const link =
                 i === 0 ? `/wiki/${mod.value}` : `/wiki/${v}/${mod.value}`;
