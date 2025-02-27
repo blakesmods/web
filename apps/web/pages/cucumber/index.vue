@@ -97,11 +97,11 @@ const features = ref([
     link: "/wiki/cucumber/features/tag-tooltips"
   },
   {
-    title: "NBT Tooltips",
+    title: "Data Component Tooltips",
     description: [
-      "Cucumber adds advanced tooltips to all items that shows the items NBT."
+      "Cucumber adds advanced tooltips to all items that shows the items Data Components."
     ],
-    link: "/wiki/cucumber/features/nbt-tooltips"
+    link: "/wiki/cucumber/features/data-component-tooltips"
   }
 ]);
 </script>
