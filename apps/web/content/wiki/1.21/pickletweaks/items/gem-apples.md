@@ -13,14 +13,14 @@ Gem Apples grant Potion effects when consumed. Each Apple gives certain buffs. M
 The Diamond Apple grants the following potion effects:
 
 - Regeneration II (0:20) 
-- Absorption III (4:10)
-- Fire Resistance I (4:10)
-- Resistance I (4:10)
+- Absorption III (4:00)
+- Fire Resistance I (4:00)
+- Resistance I (4:00)
 
 The Emerald Apple grants the following potion effects:
 
-- Strength I (4:10)
+- Strength I (4:00)
 - Regeneration III (0:20) 
-- Absorption IV (4:10)
-- Fire Resistance I (4:10)
-- Resistance II (4:10)
+- Absorption IV (4:00)
+- Fire Resistance I (4:00)
+- Resistance II (4:00)

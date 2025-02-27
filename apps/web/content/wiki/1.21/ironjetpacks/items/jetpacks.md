@@ -26,6 +26,6 @@ You can change the speed of your Jetpack using Throttle Controls. This is done u
 
 ## Curios Integration
 
-Jetpacks can be equipped as a Curio in the `Body` slot.
+Jetpacks can be equipped as a Curio in the `Back` slot.
 
 Note: If the player wears a Jetpack in both the Curio slot and the Chestplate slot, the Jetpack in the Chestplate slot will take priority.

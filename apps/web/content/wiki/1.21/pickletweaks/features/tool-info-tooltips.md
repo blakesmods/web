@@ -9,5 +9,5 @@ version: 2.0.0
 
 This simple tweak adds some tooltips to all tools that provide additional information.
 
-- Tools: Mining Level, Mining Speed
+- Tools: Mining Speed
 - Bows: Ammo remaining
