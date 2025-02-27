@@ -1,7 +1,7 @@
 ---
 id: soulium-ore
 title: Soulium Ore
-icon: /assets/mysticalagriculture/v2/blocks/soulium_ore.png
+icon: /assets/mysticalagriculture/v7/blocks/soulium_ore.png
 sort: 41
 version: 2.0.0
 ---

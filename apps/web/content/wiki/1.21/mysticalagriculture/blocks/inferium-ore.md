@@ -1,7 +1,7 @@
 ---
 id: inferium-ore
 title: Inferium Ore
-icon: /assets/mysticalagriculture/v2/blocks/inferium_ore.png
+icon: /assets/mysticalagriculture/v5/blocks/inferium_ore.png
 sort: 2
 version: 1.0.0
 ---

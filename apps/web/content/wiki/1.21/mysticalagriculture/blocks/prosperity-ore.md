@@ -1,7 +1,7 @@
 ---
 id: prosperity-ore
 title: Prosperity Ore
-icon: /assets/mysticalagriculture/v2/blocks/prosperity_ore.png
+icon: /assets/mysticalagriculture/v5/blocks/prosperity_ore.png
 sort: 1
 version: 1.0.0
 ---
