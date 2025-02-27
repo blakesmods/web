@@ -1,5 +1,6 @@
 import type { DefineNuxtConfig } from "nuxt/config";
 import docsVersionsJSON from "./content/docs/.versions.json";
+import wikiVersionsJSON from "./content/wiki/.versions.json";
 
 const description =
   "Official home of Mystical Agriculture, Pickle Tweaks, Iron Jetpacks, Extended Crafting, Mystical Agradditions, Mystical Customization, More Buckets and Cucumber Library!";
@@ -97,7 +98,11 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
     prerender: {
       autoSubfolderIndex: false,
       crawlLinks: true,
-      routes: ["/", ...docsVersionsJSON.slice(1).map(v => `/docs/${v}`)]
+      routes: [
+        "/",
+        ...docsVersionsJSON.slice(1).map(v => `/docs/${v}`),
+        ...wikiVersionsJSON.slice(1).map(v => `/wiki/${v}`)
+      ]
     }
   },
   vite: {
