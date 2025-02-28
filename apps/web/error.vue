@@ -1,5 +1,4 @@
 <template>
-  <ErrorBackground />
   <div class="relative min-h-screen z-10">
     <Header />
     <div class="container relative flex h-[80vh] pt-16 items-center z-10">
@@ -34,7 +33,6 @@
 <script setup>
 import Header from "~/components/default/Header.vue";
 import Footer from "~/components/default/Footer.vue";
-import ErrorBackground from "~/components/ErrorBackground.vue";
 
 const props = defineProps({
   error: Object
