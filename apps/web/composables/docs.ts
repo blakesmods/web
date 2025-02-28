@@ -89,10 +89,10 @@ export const useDocsVersions = () => {
           const doc = await queryContent(
             `/docs/${v}/${mod.value}/${slug.value}`
           )
-            .findOne()
-            .catch(() => null);
+            .limit(1)
+            .count();
 
-          if (doc) {
+          if (doc > 0) {
             // the first is the latest and doesn't need the version in the URL
             const link =
               i === 0
@@ -102,11 +102,11 @@ export const useDocsVersions = () => {
             await router.push(link);
           } else {
             const doc = await queryContent(`/docs/${v}/${mod.value}`)
-              .findOne()
-              .catch(() => null);
+              .limit(1)
+              .count();
 
             // if there is no page for this mod we'll just redirect to the top level page
-            if (doc) {
+            if (doc > 0) {
               // the first is the latest and doesn't need the version in the URL
               const link =
                 i === 0 ? `/docs/${mod.value}` : `/docs/${v}/${mod.value}`;

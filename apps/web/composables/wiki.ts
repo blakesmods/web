@@ -112,10 +112,10 @@ export const useWikiVersions = () => {
           const doc = await queryContent(
             `/wiki/${v}/${mod.value}/${category.value}/${slug.value}`
           )
-            .findOne()
-            .catch(() => null);
+            .limit(1)
+            .count();
 
-          if (doc) {
+          if (doc > 0) {
             // the first is the latest and doesn't need the version in the URL
             const link =
               i === 0
@@ -126,11 +126,10 @@ export const useWikiVersions = () => {
           } else {
             const doc = await queryContent(`/wiki/${v}/${mod.value}`)
               .limit(1)
-              .find()
-              .catch(() => null);
+              .count();
 
             // if there is no page for this mod we'll just redirect to the top level page
-            if (doc && doc.length > 0) {
+            if (doc > 0) {
               // the first is the latest and doesn't need the version in the URL
               const link =
                 i === 0 ? `/wiki/${mod.value}` : `/wiki/${v}/${mod.value}`;
