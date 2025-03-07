@@ -8,4 +8,5 @@ version: 1.0.0
 
 ## Overview
 
-Essence Tools are higher tier tools that can be upgraded using [Charms](charms.md).
+Essence Tools are higher tier tools with greater strength, efficiency and durability. Supremium tier tools can be upgraded using [Charms](charms.md) for additional effects.
+

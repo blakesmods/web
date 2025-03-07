@@ -16,7 +16,7 @@ The Seed Reprocessor is a machine built for converting extra seeds into essences
 Make sure you have <a href="https://www.curseforge.com/minecraft/mc-mods/jei">Just Enough Items</a> installed to easily view all available Seed Reprocessor recipes.
 ::
 
-Essence Seed Reprocessors requires fuel to function. It contains an internal buffer for more efficient fuel usage. The basic Seed Reprocessor however, does not require fuel.
+Essence Seed Reprocessors require fuel to function. It contains an internal buffer for more efficient fuel usage. The basic Seed Reprocessor however, does not require fuel.
 
 ## Screen Overview
 

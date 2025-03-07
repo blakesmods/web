@@ -8,8 +8,8 @@ version: 1.3.0
 
 ## Overview
 
-Charms are used to add new capabilities to [Essence Tools](essence-tools.md) and [Essence Armor](essence-armor.md).
+Charms are used to add new capabilities to [Supremium Tools](essence-tools.md) and [Supremium Armor](essence-armor.md).
 
 ## Usage
 
-Charms can be added to tools and armor using a [Tinkering Table](../blocks/tinkering-table.md).
+Charms can be added to Supremium tools and armor using a [Tinkering Table](../blocks/tinkering-table.md).

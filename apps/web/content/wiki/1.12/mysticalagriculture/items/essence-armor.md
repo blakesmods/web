@@ -8,4 +8,4 @@ version: 1.0.0
 
 ## Overview
 
-Essence Armor pieces are higher tier armor that can be upgraded using [Charms](charms.md).
+Essence Armor pieces are higher tier armor with greater defense and durability. Supremium tier armor can be upgraded using [Charms](charms.md) for additional effects.

@@ -8,7 +8,7 @@ version: 1.5.0
 
 ## Overview
 
-The Tinkering Table is a block used to add [Charms](../items/charms.md) to [Essence Tools](../items/essence-tools.md) and [Essence Armor](../items/essence-armor.md).
+The Tinkering Table is a block used to add [Charms](../items/charms.md) to [Supremium Tools](../items/essence-tools.md) and [Supremium Armor](../items/essence-armor.md).
 
 ## Usage
 
@@ -16,7 +16,7 @@ The Tinkering Table is a block used to add [Charms](../items/charms.md) to [Esse
 Make sure you have <a href="https://www.curseforge.com/minecraft/mc-mods/jei">Just Enough Items</a> installed to easily view all available Tinkering Table recipes.
 ::
 
-Place the required items in the input slots to apply a [Charm](../items/charms.md) to an [Essence Tool](../items/essence-tools.md) or [Essence Armor](../items/essence-armor.md).
+Place the required items in the input slots to apply a [Charm](../items/charms.md) to an [Supremium Tool](../items/essence-tools.md) or [Supremium Armor](../items/essence-armor.md).
 
 ## Screen Overview
 
