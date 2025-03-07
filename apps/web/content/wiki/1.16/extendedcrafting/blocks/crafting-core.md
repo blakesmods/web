@@ -24,7 +24,7 @@ The Crafting Core must be supplied with power to craft. Once a valid recipe is p
 
 ## Screen Overview
 
-![](/assets/extendedcrafting/v2/screens/crafting_core_screen.png)
+![](/assets/extendedcrafting/v1/screens/crafting_core_screen.png)
 
 1. **Energy Bar:** Displays the amount of energy this block contains.
 2. **Status Display:** Information about your current crafting setup will be displayed here.

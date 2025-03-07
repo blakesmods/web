@@ -3,7 +3,7 @@ id: essence-furnace
 title: Essence Furnace
 icon: /assets/mysticalagriculture/v2/blocks/inferium_furnace.png
 sort: 59
-version: 2.0.0
+version: 1.3.1
 ---
 
 ## Overview
