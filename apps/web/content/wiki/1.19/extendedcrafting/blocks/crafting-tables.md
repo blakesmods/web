@@ -22,7 +22,7 @@ These Tables can be upgraded to [Auto Crafting Tables](auto-crafting-tables.md) 
 
 ## Screen Overview
 
-![](/assets/extendedcrafting/v2/screens/table_screen.png)
+![](/assets/extendedcrafting/v1/screens/table_screen.png)
 
 1. **Crafting Grid Slots:** Place the input ingredients here.
 2. **Output Slot:** The recipe output will appear here.
