@@ -156,7 +156,7 @@ const recent = [...data.value]
 const breadcrumbs = computed(() => [
   {
     label: "Wiki",
-    to: "/wiki"
+    to: isLatestVersion.value ? "/wiki" : `/wiki/${version.value}`
   },
   {
     label: version.value

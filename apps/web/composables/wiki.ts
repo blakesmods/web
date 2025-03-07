@@ -9,7 +9,7 @@ export const useWikiMetadata = () => {
   watch(
     () => route.path,
     () => {
-      const params = parseWikiRouteParams(route.params);
+      const params = parseWikiRouteParams(route.path);
 
       version.value = params.version;
       mod.value = params.mod;

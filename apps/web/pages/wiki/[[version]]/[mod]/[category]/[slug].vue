@@ -95,7 +95,7 @@ definePageMeta({
 const route = useRoute();
 const toggleSidebar = useEventBus("wiki:toggleSidebar");
 
-const { version, mod: modID } = useWikiMetadata();
+const { version, mod: modID, isLatestVersion } = useWikiMetadata();
 const mod = getMod(modID.value);
 
 const page = await useWiki();
@@ -147,7 +147,7 @@ const breadcrumbs = computed(() =>
   [
     {
       label: "Wiki",
-      to: "/wiki"
+      to: isLatestVersion.value ? "/wiki" : `/wiki/${version.value}`
     },
     pathParts.length > 2 && {
       label: version.value

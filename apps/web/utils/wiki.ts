@@ -9,25 +9,23 @@ export const getWikiCategories = () => categories;
 export const getWikiCategoryName = (category: keyof typeof categories) =>
   categories[category];
 
-export function parseWikiRouteParams(params: any) {
-  let version = params.version;
-  let mod = params.mod;
-  let category = params.category;
-  let slug = Array.isArray(params.slug) ? params.slug.join("/") : params.slug;
+export function parseWikiRouteParams(path: string) {
+  const parts = path.split("/").slice(1);
 
-  // index page doesn't have a slug or version so we don't want to move the mod
-  // id to the slug in this case
-  if (version === "") {
-    version = getWikiLatestVersion();
-  }
+  let version: string, mod: string, category: string, slug: string;
 
   // the latest version won't have the version in the url, which means it will
   // be the mod id
-  if (!semver.valid(semver.coerce(version), true)) {
-    slug = category;
-    category = mod;
-    mod = version;
+  if (!semver.valid(semver.coerce(parts[1]), true)) {
+    slug = parts[3];
+    category = parts[2];
+    mod = parts[1];
     version = getWikiLatestVersion();
+  } else {
+    slug = parts[4];
+    category = parts[3];
+    mod = parts[2];
+    version = parts[1];
   }
 
   return {
