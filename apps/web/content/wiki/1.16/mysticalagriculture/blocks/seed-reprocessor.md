@@ -20,7 +20,7 @@ The Seed Reprocessor requires energy to function. You can either provide energy 
 
 ## Screen Overview
 
-![](/assets/mysticalagriculture/v7/screens/seed_reprocessor_screen.png)
+![](/assets/mysticalagriculture/v4/screens/seed_reprocessor_screen.png)
 
 1. **Energy Bar:** Displays the amount of energy this block contains.
 2. **Fuel Slot:** Burnable items can be placed here to generate energy.

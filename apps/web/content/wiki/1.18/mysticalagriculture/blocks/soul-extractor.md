@@ -22,7 +22,7 @@ Place a valid Soul Extractor input item in the left slot, and a [Soul Jar](../it
 
 ## Screen Overview
 
-![](/assets/mysticalagriculture/v6/screens/soul_extractor_screen.png)
+![](/assets/mysticalagriculture/v4/screens/soul_extractor_screen.png)
 
 1. **Energy Bar:** Displays the amount of energy this block contains.
 2. **Fuel Slot:** Burnable items can be placed here to generate energy.
