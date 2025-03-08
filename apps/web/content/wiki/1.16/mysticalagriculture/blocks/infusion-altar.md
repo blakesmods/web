@@ -20,9 +20,7 @@ To use the Infusion Altar, you must first place it down in the world. Make sure 
 
 Once your altar is set up, you can place items on the altar and pedestals by right-clicking on them with an item in hand.
 
-To activate the altar you can do one of the following:
-- Provide the altar with a Redstone signal (ex. button, lever)
-- Right-click on the altar with a [Wand](../items/wand.md)
+To activate the altar, give it a Redstone signal (ex. button, lever).
 
 ## Screenshots
 

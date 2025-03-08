@@ -19,4 +19,4 @@ Items are placed onto the altar by right-clicking on the altar and pedestals wit
 **Note:** You may place the pedestal items in any order you wish.
 
 ### Activating The Altar
-Once you have all of your items placed, you can start crafting a recipe. To activate the Infusion Altar, you can either give it a Redstone signal or right-click on it with a [Wand](../items/wand.md).
+Once you have all of your items placed, you can start crafting a recipe. To activate the Infusion Altar, just give it a Redstone signal.

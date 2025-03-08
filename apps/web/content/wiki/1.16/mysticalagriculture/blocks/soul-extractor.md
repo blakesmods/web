@@ -20,8 +20,6 @@ The Soul Extractor requires energy to function. You can either provide energy vi
 
 Place a valid Soul Extractor input item in the left slot, and a [Soul Jar](../items/soul-jar.md) in the right slot. The machine will convert those items into Mob Souls and insert them into the Soul Jar until it is full. 
 
-The machine can be upgraded using [Machine Upgrades](../items/machine-upgrades.md) for faster operation and increased internal energy storage.
-
 ## Screen Overview
 
 ![](/assets/mysticalagriculture/v6/screens/soul_extractor_screen.png)
@@ -30,4 +28,3 @@ The machine can be upgraded using [Machine Upgrades](../items/machine-upgrades.m
 2. **Fuel Slot:** Burnable items can be placed here to generate energy.
 3. **Input Slot:** Place your input ingredients here.
 4. **Output Slot:** Place the output item (usually a [Soul Jar](../items/soul-jar.md)) here.
-5. **Upgrade Slot:** Place a [Machine Upgrade](../items/machine-upgrades.md) here to upgrade the machine.

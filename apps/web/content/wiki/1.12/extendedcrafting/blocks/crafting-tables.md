@@ -18,8 +18,6 @@ Extended Crafting Tables are a set of tiered Crafting Tables that can be used to
 
 Simply place the Table in the world and open the GUI. Items placed inside an Extended Crafting Table will remain when closing the GUI.
 
-These Tables can be upgraded to [Auto Crafting Tables](auto-crafting-tables.md) to allow for auto-crafting and automation.
-
 ## Screen Overview
 
 ![](/assets/extendedcrafting/v1/screens/table_screen.png)

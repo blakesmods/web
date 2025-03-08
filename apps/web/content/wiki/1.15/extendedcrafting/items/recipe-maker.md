@@ -8,7 +8,7 @@ version: 1.2.1
 
 ## Overview
 
-The Recipe Maker is a modpack developer tool used to easily create CraftTweaker scripts or Datapack entries for [Extended Crafting Table](../blocks/crafting-tables.md), [Crafting Core](../blocks/crafting-core.md), [Ender Crafter](../blocks/ender-crafter.md) or [Flux Crafter](../blocks/flux-crafter.md) recipes.
+The Recipe Maker is a modpack developer tool used to easily create CraftTweaker scripts or Datapack entries for [Extended Crafting Table](../blocks/crafting-tables.md), [Crafting Core](../blocks/crafting-core.md) or [Ender Crafter](../blocks/ender-crafter.md) recipes.
 
 ## Usage
 

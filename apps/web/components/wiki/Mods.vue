@@ -1,11 +1,6 @@
 <template>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <NuxtLink
-      v-for="mod in mods"
-      class="group"
-      :to="mod.disabled ? '/wiki' : mod.link"
-      :key="mod.path"
-    >
+    <NuxtLink v-for="mod in mods" class="group" :to="mod.link" :key="mod.path">
       <UCard class="transition hover:scale-105 active:scale-100">
         <div class="flex gap-4 mr-4">
           <NuxtImg
@@ -21,7 +16,7 @@
             >
               {{ mod.title }}
             </h2>
-            <span v-if="mod.disabled" class="opacity-80">
+            <span v-if="!articles[mod.path]" class="opacity-80">
               No articles available
             </span>
             <span v-else class="opacity-80">
@@ -94,8 +89,7 @@ const mods = computed(() => [
     title: "Mystical Customization",
     path: "mysticalcustomization",
     link: createLink("mysticalcustomization"),
-    icon: "/img/logo/mysticalcustomization_logo.png",
-    disabled: true
+    icon: "/img/logo/mysticalcustomization_logo.png"
   },
   {
     title: "Cucumber Library",
@@ -106,10 +100,12 @@ const mods = computed(() => [
 ]);
 
 function createLink(path) {
-  if (isLatestVersion.value) {
-    return `/wiki/${path}`;
+  if (articles.value[path] > 0) {
+    return isLatestVersion.value
+      ? `/wiki/${path}`
+      : `/wiki/${version.value}/${path}`;
   }
 
-  return `/wiki/${version.value}/${path}`;
+  return isLatestVersion.value ? "/wiki" : `/wiki/${version.value}`;
 }
 </script>
