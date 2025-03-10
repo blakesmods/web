@@ -5,7 +5,6 @@ import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 
 export default async function (fastify: FastifyInstance) {
   const db = fastify.mongo.db!;
-  const sentry = fastify.sentry;
 
   fastify.get(
     "/:file_id",
@@ -24,58 +23,29 @@ export default async function (fastify: FastifyInstance) {
         };
       }
 
-      const session = fastify.mongo.client.startSession();
-      let succeeded = true;
+      await db
+        .collection<Mod>("mods")
+        .updateOne({ mod_id: file.mod_id }, { $inc: { site_downloads: 1 } });
 
-      try {
-        await session.withTransaction(async () => {
-          await db
-            .collection<Mod>("mods")
-            .updateOne(
-              { mod_id: file.mod_id },
-              { $inc: { site_downloads: 1 } },
-              { session }
-            );
+      await db
+        .collection<ModFile>("mod_files")
+        .updateOne({ _id: file._id! }, { $inc: { site_downloads: 1 } });
 
-          await db
-            .collection<ModFile>("mod_files")
-            .updateOne(
-              { _id: file._id! },
-              { $inc: { site_downloads: 1 } },
-              { session }
-            );
+      await db
+        .collection<ModStats>("mod_stats")
+        .updateOne(
+          { mod_id: file.mod_id },
+          { $inc: { [`downloads.${dayjs().format("YYYY.M.D")}`]: 1 } }
+        );
 
-          await db
-            .collection<ModStats>("mod_stats")
-            .updateOne(
-              { mod_id: file.mod_id },
-              { $inc: { [`downloads.${dayjs().format("YYYY.M.D")}`]: 1 } },
-              { session }
-            );
-        });
-      } catch (e) {
-        sentry.captureException(e);
-        succeeded = false;
-      } finally {
-        await session.endSession();
-      }
+      const fileURL = "https://maven.blakesmods.com" + file.maven_path;
 
-      if (succeeded) {
-        const fileURL = "https://maven.blakesmods.com" + file.maven_path;
-
-        return {
-          success: true,
-          data: {
-            url: fileURL
-          }
-        };
-      } else {
-        reply.status(500);
-
-        return {
-          success: false
-        };
-      }
+      return {
+        success: true,
+        data: {
+          url: fileURL
+        }
+      };
     }
   );
 
