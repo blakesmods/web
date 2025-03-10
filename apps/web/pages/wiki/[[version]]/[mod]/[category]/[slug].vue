@@ -106,38 +106,15 @@ if (!page.value) {
 
 const title = `${page.value.title} · ${mod.name} Wiki`;
 const description = parseDescription(page.value);
-const noindex = page.value._empty
-  ? [{ hid: "noindex", name: "robots", content: "noindex" }]
-  : [];
 
-useHead({
-  title: title,
-  meta: [
-    {
-      hid: "description",
-      name: "description",
-      content: description
-    },
-    // Open Graph
-    { hid: "og:title", property: "og:title", content: title },
-    {
-      hid: "og:description",
-      property: "og:description",
-      content: description
-    },
-    // Twitter Card
-    {
-      hid: "twitter:title",
-      name: "twitter:title",
-      content: title
-    },
-    {
-      hid: "twitter:description",
-      name: "twitter:description",
-      content: description
-    },
-    ...noindex
-  ]
+useSeoMeta({
+  title,
+  ogTitle: title,
+  description,
+  ogDescription: description,
+  robots: {
+    noindex: page.value._empty
+  }
 });
 
 const toc = ref(false);

@@ -114,42 +114,19 @@ const mod = getMod(props.modId);
 const title = `Download ${mod.name}`;
 const description = `The official download source of ${mod.name} for Minecraft`;
 
+useSeoMeta({
+  title,
+  ogTitle: title,
+  description,
+  ogDescription: description
+});
+
 const file = ref({});
 const downloadPending = ref(false);
 
 const { data } = await useAPI(`/v2/files/${params.version}/info`);
 
 file.value = data.value.data;
-
-useHead({
-  title,
-  meta: [
-    { hid: "noindex", name: "robots", content: "noindex" },
-    {
-      hid: "description",
-      name: "description",
-      content: description
-    },
-    // Open Graph
-    { hid: "og:title", property: "og:title", content: title },
-    {
-      hid: "og:description",
-      property: "og:description",
-      content: description
-    },
-    // Twitter Card
-    {
-      hid: "twitter:title",
-      name: "twitter:title",
-      content: title
-    },
-    {
-      hid: "twitter:description",
-      name: "twitter:description",
-      content: description
-    }
-  ]
-});
 
 function formatDownloadCount(file, format) {
   const count =
