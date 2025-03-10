@@ -9,10 +9,8 @@
           :src="mod.icon"
           alt=""
         />
-        <div class="flex flex-col justify-center gap-1">
-          <h2
-            class="text-lg sm:text-2xl group-hover:underline underline-offset-4"
-          >
+        <div class="flex flex-col justify-center gap-1 mx-2">
+          <h2 class="text-lg">
             {{ mod.title }}
           </h2>
           <span v-if="!articles[mod.path]" class="opacity-80">
