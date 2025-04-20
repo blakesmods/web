@@ -9,12 +9,12 @@
     "dev": "turbo run dev"
   },
   "devDependencies": {
-    "@types/node": "^22.13.10",
+    "@types/node": "^22.14.1",
     "nodemon": "^3.1.9",
     "prettier": "^3.5.3",
     "ts-node": "^10.9.2",
-    "turbo": "^2.4.4",
-    "typescript": "^5.8.2"
+    "turbo": "^2.5.0",
+    "typescript": "^5.8.3"
   },
   "packageManager": "pnpm@9.15.3",
   "volta": {
