@@ -31,15 +31,23 @@
           </UButton>
         </div>
       </div>
-      <div class="flex w-full xl:max-w-[40%] xl:h-[550px] xl:items-center">
+      <UCarousel
+        ref="carouselRef"
+        class="flex w-full xl:max-w-[40%] xl:h-[550px] xl:items-center"
+        :items="mod.hero_images"
+        :ui="{
+          item: 'basis-full border border-gray-300 dark:border-gray-700 rounded-xl overflow-hidden'
+        }"
+        v-slot="{ item }"
+      >
         <NuxtImg
-          class="w-full border border-gray-300 dark:border-gray-700 rounded-xl shadow"
+          class="w-full"
           width="1920"
           height="1080"
-          :src="mod.hero_img"
+          :src="item"
           :alt="`${mod.name} hero image`"
         />
-      </div>
+      </UCarousel>
     </div>
 
     <div
@@ -103,6 +111,8 @@ const props = defineProps({
   mod: Object
 });
 
+const carouselRef = ref();
+
 const { data, pending } = await useAPI(`/v2/mods/${props.mod.mod_id}`);
 
 const downloads = computed(() =>
@@ -123,4 +133,16 @@ const relations = computed(() =>
         .format("0a", Math.floor)
     : 0
 );
+
+onMounted(() => {
+  setInterval(() => {
+    if (!carouselRef.value) return;
+
+    if (carouselRef.value.page === carouselRef.value.pages) {
+      return carouselRef.value.select(0);
+    }
+
+    carouselRef.value.next();
+  }, 5000);
+});
 </script>
