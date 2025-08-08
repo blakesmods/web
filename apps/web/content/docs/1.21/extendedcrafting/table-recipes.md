@@ -4,7 +4,7 @@ title: Table Recipes
 category: Extended Crafting
 ---
 
-Extended Crafting allows you easily add your own Extended Crafting Table recipes using both Datapacks and CraftTweaker.
+Extended Crafting allows you to easily add your own Extended Crafting Table recipes using both Datapacks and CraftTweaker.
 
 ## Datapacks
 
