@@ -19,6 +19,7 @@ type ModID =
   | "ironjetpacks"
   | "pickletweaks"
   | "mysticalagradditions"
+  | "mysticalautomation"
   | "extendedcrafting"
   | "morebuckets"
   | "mysticalcustomization"
@@ -104,6 +105,25 @@ const mods: Mod[] = [
     primary_color: "#fccd00",
     secondary_color: "#40b600",
     has_docs: false,
+    has_wiki: true
+  },
+  {
+    name: "Mystical Automation",
+    tagline: "Additional automation for Mystical Agriculture!",
+    mod_id: "mysticalautomation",
+    url: "/mystical-automation",
+    logo: "/img/logo/mysticalautomation_logo.png",
+    hero_images: [
+      "/img/hero/mysticalagradditions/crops.png",
+      "/img/hero/mysticalagradditions/paxels.png"
+    ],
+    curseforge_link:
+      "https://www.curseforge.com/minecraft/mc-mods/mystical-automation",
+    modrinth_link: "https://modrinth.com/mod/mystical-automation",
+    github_link: "https://github.com/BlakeBr0/MysticalAutomation",
+    primary_color: "#2f9ccf",
+    secondary_color: "#3f1f75",
+    has_docs: true,
     has_wiki: true
   },
   {

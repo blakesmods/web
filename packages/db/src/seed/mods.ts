@@ -32,6 +32,20 @@ export async function createMods(db: Db) {
       site_downloads: 50
     },
     {
+      _id: new ObjectId("687149874adf4309dc8bf570"),
+      curseforge_downloads: 0,
+      curseforge_id: 1265613,
+      curseforge_relations: 0,
+      curseforge_slug: "mystical-automation",
+      mod_id: "mysticalautomation",
+      mod_name: "Mystical Automation",
+      modrinth_downloads: 0,
+      modrinth_id: "wtZsRhqk",
+      modrinth_relations: 0,
+      modrinth_slug: "mystical-automation",
+      site_downloads: 0
+    },
+    {
       _id: new ObjectId("61d8ca30f6e987795c513b41"),
       curseforge_downloads: 11232451,
       curseforge_id: 280441,

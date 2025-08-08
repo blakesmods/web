@@ -4,7 +4,7 @@ title: Soul Extraction Recipes
 category: Mystical Agriculture
 ---
 
-Mystical Agriculture allows you easily add your own Soul Extraction recipes using both Datapacks and CraftTweaker.
+Mystical Agriculture allows you to easily add your own Soul Extraction recipes using both Datapacks and CraftTweaker.
 
 ## Datapacks
 
@@ -40,7 +40,7 @@ This section will go over the values available to use in a Soul Extraction recip
 
 ## CraftTweaker
 
-Mystical Agriculture allows you easily add your own Soul Extraction recipes using CraftTweaker.
+Mystical Agriculture allows you to easily add your own Soul Extraction recipes using CraftTweaker.
 
 ::callout{title="Recipe Manager Support" icon="i-heroicons-information-circle-solid"}
 CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:mysticalagriculture:soul_extraction\>**!
