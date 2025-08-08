@@ -84,7 +84,7 @@
             :ui="{ background: 'dark:bg-gray-700' }"
           />
           <h2 v-else :style="{ color: mod.primary_color }">
-            {{ data.data.latest_release.mod_version }}
+            {{ modVersion }}
           </h2>
           <span class="text-xl">Latest Release</span>
         </div>
@@ -95,7 +95,7 @@
             :ui="{ background: 'dark:bg-gray-700' }"
           />
           <h2 v-else :style="{ color: mod.primary_color }">
-            {{ data.data.latest_release.mc_version }}
+            {{ mcVersion }}
           </h2>
           <span class="text-xl">Minecraft Version</span>
         </div>
@@ -132,6 +132,18 @@ const relations = computed(() =>
         .add(data.value.data.modrinth_relations)
         .format("0a", Math.floor)
     : 0
+);
+
+const modVersion = computed(() =>
+  data.value.data && data.value.data.latest_release
+    ? data.value.data.latest_release.mod_version
+    : "N/A"
+);
+
+const mcVersion = computed(() =>
+  data.value.data && data.value.data.latest_release
+    ? data.value.data.latest_release.mc_version
+    : "N/A"
 );
 
 onMounted(() => {
