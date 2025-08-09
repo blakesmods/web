@@ -114,8 +114,13 @@ const mods: Mod[] = [
     url: "/mystical-automation",
     logo: "/img/logo/mysticalautomation_logo.png",
     hero_images: [
-      "/img/hero/mysticalagradditions/crops.png",
-      "/img/hero/mysticalagradditions/paxels.png"
+      "/img/hero/mysticalautomation/infuser.png",
+      "/img/hero/mysticalautomation/crafter.png",
+      "/img/hero/mysticalautomation/farmer.png",
+      "/img/hero/mysticalautomation/fertilizer.png",
+      "/img/hero/mysticalautomation/infusion_altarnator.png",
+      "/img/hero/mysticalautomation/awakening_altarnator.png",
+      "/img/hero/mysticalautomation/enchanternator.png"
     ],
     curseforge_link:
       "https://www.curseforge.com/minecraft/mc-mods/mystical-automation",
