@@ -44,6 +44,7 @@ export async function createModFiles(db: Db) {
         mod_loader: faker.helpers.arrayElement(["Forge", "NeoForge"]),
         modrinth_downloads: faker.number.int(10000000),
         modrinth_id: faker.string.nanoid(12),
+        released: faker.helpers.arrayElement([true, true, true, false]),
         site_downloads: faker.number.int(10000000),
         upload_date: faker.date.past()
       };

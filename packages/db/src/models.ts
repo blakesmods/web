@@ -21,6 +21,7 @@ export interface ModFile {
   file_size: number;
   mod_id: string;
   upload_date: Date;
+  released: boolean;
   maven_path: string;
   md5_hash: string;
   site_downloads: number;
