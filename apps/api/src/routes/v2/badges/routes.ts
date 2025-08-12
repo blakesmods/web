@@ -43,8 +43,7 @@ export default async function (fastify: FastifyInstance) {
       const latest_release = await db.collection<ModFile>("mod_files").findOne(
         {
           mod_id: params.mod_id,
-          modrinth_id: { $ne: null },
-          curseforge_id: { $ne: null }
+          released: true
         },
         {
           sort: {
@@ -81,8 +80,7 @@ export default async function (fastify: FastifyInstance) {
       const latest_release = await db.collection<ModFile>("mod_files").findOne(
         {
           mod_id: params.mod_id,
-          modrinth_id: { $ne: null },
-          curseforge_id: { $ne: null }
+          released: true
         },
         {
           sort: {

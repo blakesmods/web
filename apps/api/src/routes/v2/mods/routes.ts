@@ -41,8 +41,7 @@ export default async function (fastify: FastifyInstance) {
       const latest_release = await db.collection<ModFile>("mod_files").findOne(
         {
           mod_id,
-          modrinth_id: { $ne: null },
-          curseforge_id: { $ne: null }
+          released: true
         },
         {
           sort: {
@@ -73,9 +72,10 @@ export default async function (fastify: FastifyInstance) {
       const skip = (Number(page) - 1) * 10;
       const limit = 10;
 
-      const filter = {
-        mod_id
-      } as any;
+      const filter: any = {
+        mod_id,
+        released: true
+      };
 
       if (mc_version) {
         filter.mc_versions = mc_version;
@@ -132,7 +132,8 @@ export default async function (fastify: FastifyInstance) {
         .collection<ModFile>("mod_files")
         .find({
           mod_id,
-          mc_version_group
+          mc_version_group,
+          released: true
         })
         .sort({
           "mod_version_parts.major": -1,

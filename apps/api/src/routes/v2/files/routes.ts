@@ -15,7 +15,7 @@ export default async function (fastify: FastifyInstance) {
         .collection<ModFile>("mod_files")
         .findOne({ _id: new ObjectId(file_id as string) });
 
-      if (!file) {
+      if (!file || !file.released) {
         reply.status(404);
 
         return {
@@ -58,7 +58,7 @@ export default async function (fastify: FastifyInstance) {
         .collection<ModFile>("mod_files")
         .findOne({ _id: new ObjectId(file_id as string) });
 
-      if (!file) {
+      if (!file || !file.released) {
         reply.status(404);
 
         return {
