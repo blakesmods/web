@@ -21,7 +21,7 @@ export default async function (fastify: FastifyInstance) {
 
       const { mod_id } = request.params as any;
 
-      const mod = db.collection<Mod>("mods").findOne({
+      const mod = await db.collection<Mod>("mods").findOne({
         mod_id
       });
 
