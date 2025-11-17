@@ -1,17 +1,25 @@
-import { Mod, ModFile } from "@blakesmods/db";
-import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import { Collections, Mod, ModFile } from "@blakesmods/db";
+import { FastifyPluginAsyncZod } from "fastify-type-provider-zod";
 import numeral from "numeral";
+import { z } from "zod";
 
-export default async function (fastify: FastifyInstance) {
+export const plugin: FastifyPluginAsyncZod = async fastify => {
   const db = fastify.mongo.db!;
 
   fastify.get(
     "/:mod_id/downloads",
-    async (request: FastifyRequest, reply: FastifyReply) => {
-      const params = request.params as any;
+    {
+      schema: {
+        params: z.object({
+          mod_id: z.string()
+        })
+      }
+    },
+    async (request, reply) => {
+      const params = request.params;
 
       const mod = await db
-        .collection<Mod>("mods")
+        .collection<Mod>(Collections.Mods)
         .findOne({ mod_id: params.mod_id });
 
       if (!mod) {
@@ -37,22 +45,31 @@ export default async function (fastify: FastifyInstance) {
 
   fastify.get(
     "/:mod_id/version",
-    async (request: FastifyRequest, reply: FastifyReply) => {
-      const params = request.params as any;
+    {
+      schema: {
+        params: z.object({
+          mod_id: z.string()
+        })
+      }
+    },
+    async (request, reply) => {
+      const params = request.params;
 
-      const latest_release = await db.collection<ModFile>("mod_files").findOne(
-        {
-          mod_id: params.mod_id,
-          released: true
-        },
-        {
-          sort: {
-            "mod_version_parts.major": -1,
-            "mod_version_parts.minor": -1,
-            "mod_version_parts.patch": -1
+      const latest_release = await db
+        .collection<ModFile>(Collections.ModFiles)
+        .findOne(
+          {
+            mod_id: params.mod_id,
+            released: true
+          },
+          {
+            sort: {
+              "mod_version_parts.major": -1,
+              "mod_version_parts.minor": -1,
+              "mod_version_parts.patch": -1
+            }
           }
-        }
-      );
+        );
 
       if (!latest_release) {
         return {
@@ -74,22 +91,31 @@ export default async function (fastify: FastifyInstance) {
 
   fastify.get(
     "/:mod_id/mc_version",
-    async (request: FastifyRequest, reply: FastifyReply) => {
-      const params = request.params as any;
+    {
+      schema: {
+        params: z.object({
+          mod_id: z.string()
+        })
+      }
+    },
+    async (request, reply) => {
+      const params = request.params;
 
-      const latest_release = await db.collection<ModFile>("mod_files").findOne(
-        {
-          mod_id: params.mod_id,
-          released: true
-        },
-        {
-          sort: {
-            "mod_version_parts.major": -1,
-            "mod_version_parts.minor": -1,
-            "mod_version_parts.patch": -1
+      const latest_release = await db
+        .collection<ModFile>(Collections.ModFiles)
+        .findOne(
+          {
+            mod_id: params.mod_id,
+            released: true
+          },
+          {
+            sort: {
+              "mod_version_parts.major": -1,
+              "mod_version_parts.minor": -1,
+              "mod_version_parts.patch": -1
+            }
           }
-        }
-      );
+        );
 
       if (!latest_release) {
         return {
@@ -108,4 +134,6 @@ export default async function (fastify: FastifyInstance) {
       };
     }
   );
-}
+};
+
+export default plugin;

@@ -1,14 +1,25 @@
-import { Mod, PageViews } from "@blakesmods/db";
+import { Collections, Mod, PageViews } from "@blakesmods/db";
 import dayjs from "dayjs";
-import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import { FastifyPluginAsyncZod } from "fastify-type-provider-zod";
+import { z } from "zod";
 
-export default async function (fastify: FastifyInstance) {
+export const plugin: FastifyPluginAsyncZod = async fastify => {
   const db = fastify.mongo.db!;
 
   fastify.get(
     "/:mod_id",
-    async (request: FastifyRequest, reply: FastifyReply) => {
-      const { source } = request.query as any;
+    {
+      schema: {
+        params: z.object({
+          mod_id: z.string()
+        }),
+        querystring: z.object({
+          source: z.string().optional()
+        })
+      }
+    },
+    async (request, reply) => {
+      const { source } = request.query;
       if (!source) {
         reply.status(400);
         return "Missing `source` query parameter.";
@@ -19,9 +30,9 @@ export default async function (fastify: FastifyInstance) {
         return "The `source` query parameter must be one of `curseforge` or `modrinth`.";
       }
 
-      const { mod_id } = request.params as any;
+      const { mod_id } = request.params;
 
-      const mod = await db.collection<Mod>("mods").findOne({
+      const mod = await db.collection<Mod>(Collections.Mods).findOne({
         mod_id
       });
 
@@ -30,7 +41,7 @@ export default async function (fastify: FastifyInstance) {
         return `Banner ${mod_id} not found.`;
       }
 
-      await db.collection<PageViews>("page_views").updateOne(
+      await db.collection<PageViews>(Collections.PageViews).updateOne(
         { mod_id },
         {
           $inc: {
@@ -46,4 +57,6 @@ export default async function (fastify: FastifyInstance) {
       );
     }
   );
-}
+};
+
+export default plugin;

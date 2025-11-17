@@ -1,19 +1,35 @@
-import { Mod, ModFile, ModStats } from "@blakesmods/db";
+import { Collections, Mod, ModFile, ModStats } from "@blakesmods/db";
 import { ObjectId } from "bson";
 import dayjs from "dayjs";
-import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import { FastifyPluginAsyncZod } from "fastify-type-provider-zod";
+import { z } from "zod";
 
-export default async function (fastify: FastifyInstance) {
+export const plugin: FastifyPluginAsyncZod = async fastify => {
   const db = fastify.mongo.db!;
 
   fastify.get(
     "/:file_id",
-    async (request: FastifyRequest, reply: FastifyReply) => {
-      const { file_id } = request.params as any;
+    {
+      schema: {
+        params: z.object({
+          file_id: z.string()
+        })
+      }
+    },
+    async (request, reply) => {
+      const { file_id } = request.params;
+
+      if (!ObjectId.isValid(file_id)) {
+        reply.status(404);
+
+        return {
+          success: false
+        };
+      }
 
       const file = await db
-        .collection<ModFile>("mod_files")
-        .findOne({ _id: new ObjectId(file_id as string) });
+        .collection<ModFile>(Collections.ModFiles)
+        .findOne({ _id: new ObjectId(file_id) });
 
       if (!file || !file.released) {
         reply.status(404);
@@ -24,15 +40,15 @@ export default async function (fastify: FastifyInstance) {
       }
 
       await db
-        .collection<Mod>("mods")
+        .collection<Mod>(Collections.Mods)
         .updateOne({ mod_id: file.mod_id }, { $inc: { site_downloads: 1 } });
 
       await db
-        .collection<ModFile>("mod_files")
+        .collection<ModFile>(Collections.ModFiles)
         .updateOne({ _id: file._id! }, { $inc: { site_downloads: 1 } });
 
       await db
-        .collection<ModStats>("mod_stats")
+        .collection<ModStats>(Collections.ModStats)
         .updateOne(
           { mod_id: file.mod_id },
           { $inc: { [`downloads.${dayjs().format("YYYY.M.D")}`]: 1 } }
@@ -51,12 +67,27 @@ export default async function (fastify: FastifyInstance) {
 
   fastify.get(
     "/:file_id/info",
-    async (request: FastifyRequest, reply: FastifyReply) => {
-      const { file_id } = request.params as any;
+    {
+      schema: {
+        params: z.object({
+          file_id: z.string()
+        })
+      }
+    },
+    async (request, reply) => {
+      const { file_id } = request.params;
+
+      if (!ObjectId.isValid(file_id)) {
+        reply.status(404);
+
+        return {
+          success: false
+        };
+      }
 
       const file = await db
-        .collection<ModFile>("mod_files")
-        .findOne({ _id: new ObjectId(file_id as string) });
+        .collection<ModFile>(Collections.ModFiles)
+        .findOne({ _id: new ObjectId(file_id) });
 
       if (!file || !file.released) {
         reply.status(404);
@@ -72,4 +103,6 @@ export default async function (fastify: FastifyInstance) {
       };
     }
   );
-}
+};
+
+export default plugin;

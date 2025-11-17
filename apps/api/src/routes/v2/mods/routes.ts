@@ -1,13 +1,14 @@
-import { Mod, ModFile, ModStats } from "@blakesmods/db";
+import { Collections, Mod, ModFile, ModStats } from "@blakesmods/db";
 import dayjs from "dayjs";
-import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import { FastifyPluginAsyncZod } from "fastify-type-provider-zod";
 import { coerce, rcompare } from "semver";
+import { z } from "zod";
 
-export default async function (fastify: FastifyInstance) {
+export const plugin: FastifyPluginAsyncZod = async fastify => {
   const db = fastify.mongo.db!;
 
-  fastify.get("/", async (request: FastifyRequest, reply: FastifyReply) => {
-    const mods = await db.collection<Mod>("mods").find().toArray();
+  fastify.get("/", async (request, reply) => {
+    const mods = await db.collection<Mod>(Collections.Mods).find().toArray();
 
     return {
       success: true,
@@ -19,10 +20,19 @@ export default async function (fastify: FastifyInstance) {
 
   fastify.get(
     "/:mod_id",
-    async (request: FastifyRequest, reply: FastifyReply) => {
-      const { mod_id } = request.params as any;
+    {
+      schema: {
+        params: z.object({
+          mod_id: z.string()
+        })
+      }
+    },
+    async (request, reply) => {
+      const { mod_id } = request.params;
 
-      const mod = await db.collection<Mod>("mods").findOne({ mod_id });
+      const mod = await db
+        .collection<Mod>(Collections.Mods)
+        .findOne({ mod_id });
 
       if (!mod) {
         reply.status(404);
@@ -33,24 +43,26 @@ export default async function (fastify: FastifyInstance) {
       }
 
       const versions = await db
-        .collection<ModFile>("mod_files")
+        .collection<ModFile>(Collections.ModFiles)
         .distinct("mc_version_group", { mod_id });
 
       versions.sort((a, b) => rcompare(a + ".0", b + ".0"));
 
-      const latest_release = await db.collection<ModFile>("mod_files").findOne(
-        {
-          mod_id,
-          released: true
-        },
-        {
-          sort: {
-            "mod_version_parts.major": -1,
-            "mod_version_parts.minor": -1,
-            "mod_version_parts.patch": -1
+      const latest_release = await db
+        .collection<ModFile>(Collections.ModFiles)
+        .findOne(
+          {
+            mod_id,
+            released: true
+          },
+          {
+            sort: {
+              "mod_version_parts.major": -1,
+              "mod_version_parts.minor": -1,
+              "mod_version_parts.patch": -1
+            }
           }
-        }
-      );
+        );
 
       return {
         success: true,
@@ -65,9 +77,33 @@ export default async function (fastify: FastifyInstance) {
 
   fastify.get(
     "/:mod_id/files",
-    async (request: FastifyRequest, reply: FastifyReply) => {
-      const { mod_id } = request.params as any;
-      const { page = 1, mc_version, mod_loader } = request.query as any;
+    {
+      schema: {
+        params: z.object({
+          mod_id: z.string()
+        }),
+        querystring: z.object({
+          page: z.number().optional(),
+          mc_version: z.string().optional(),
+          mod_loader: z.string().optional()
+        })
+      }
+    },
+    async (request, reply) => {
+      const { mod_id } = request.params;
+      const { page = 1, mc_version, mod_loader } = request.query;
+
+      const mod = await db.collection<Mod>(Collections.Mods).findOne({
+        mod_id
+      });
+
+      if (!mod) {
+        reply.status(404);
+
+        return {
+          success: false
+        };
+      }
 
       const skip = (Number(page) - 1) * 10;
       const limit = 10;
@@ -86,7 +122,7 @@ export default async function (fastify: FastifyInstance) {
       }
 
       const files = await db
-        .collection<ModFile>("mod_files")
+        .collection<ModFile>(Collections.ModFiles)
         .find(filter)
         .sort({
           "mod_version_parts.major": -1,
@@ -98,15 +134,15 @@ export default async function (fastify: FastifyInstance) {
         .toArray();
 
       const count = await db
-        .collection<ModFile>("mod_files")
+        .collection<ModFile>(Collections.ModFiles)
         .countDocuments(filter);
 
       const mc_versions_list = await db
-        .collection<ModFile>("mod_files")
+        .collection<ModFile>(Collections.ModFiles)
         .distinct("mc_versions", { mod_id });
 
       const mod_loaders = await db
-        .collection<ModFile>("mod_files")
+        .collection<ModFile>(Collections.ModFiles)
         .distinct("mod_loader", { mod_id });
 
       return {
@@ -125,11 +161,31 @@ export default async function (fastify: FastifyInstance) {
 
   fastify.get(
     "/:mod_id/:mc_version_group/updates",
-    async (request: FastifyRequest, reply: FastifyReply) => {
-      const { mod_id, mc_version_group } = request.params as any;
+    {
+      schema: {
+        params: z.object({
+          mod_id: z.string(),
+          mc_version_group: z.string()
+        })
+      }
+    },
+    async (request, reply) => {
+      const { mod_id, mc_version_group } = request.params;
+
+      const mod = await db.collection<Mod>(Collections.Mods).findOne({
+        mod_id
+      });
+
+      if (!mod) {
+        reply.status(404);
+
+        return {
+          success: false
+        };
+      }
 
       const files = await db
-        .collection<ModFile>("mod_files")
+        .collection<ModFile>(Collections.ModFiles)
         .find({
           mod_id,
           mc_version_group,
@@ -141,10 +197,6 @@ export default async function (fastify: FastifyInstance) {
           "mod_version_parts.patch": -1
         })
         .toArray();
-
-      const mod = await db.collection<Mod>("mods").findOne({
-        mod_id
-      });
 
       const versions = {} as any;
 
@@ -163,7 +215,7 @@ export default async function (fastify: FastifyInstance) {
         }
       }
 
-      await db.collection<ModStats>("mod_stats").updateOne(
+      await db.collection<ModStats>(Collections.ModStats).updateOne(
         {
           mod_id
         },
@@ -193,4 +245,6 @@ export default async function (fastify: FastifyInstance) {
       };
     }
   );
-}
+};
+
+export default plugin;
