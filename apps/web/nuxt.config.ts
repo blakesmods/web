@@ -1,10 +1,9 @@
-import type { DefineNuxtConfig } from "nuxt/config";
 import docsVersionsJSON from "./content/docs/.versions.json";
 
 const description =
   "Official home of Mystical Agriculture, Pickle Tweaks, Iron Jetpacks, Extended Crafting, Mystical Agradditions, Mystical Customization, More Buckets and Cucumber Library!";
 
-export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
+export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: {
@@ -90,8 +89,8 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
     "@vueuse/nuxt",
     "@nuxtjs/sitemap" // sitemap module must be last
   ],
-  build: {
-    sourcemaps: "hidden"
+  sourcemap: {
+    client: "hidden"
   },
   nitro: {
     prerender: {
@@ -128,11 +127,9 @@ export default defineNuxtConfig(<Partial<DefineNuxtConfig>>{
     }
   },
   sentry: {
-    sourceMapsUploadOptions: {
-      org: process.env.SENTRY_ORG,
-      project: process.env.SENTRY_PROJECT,
-      authToken: process.env.SENTRY_AUTH_TOKEN
-    }
+    org: process.env.SENTRY_ORG,
+    project: process.env.SENTRY_PROJECT,
+    authToken: process.env.SENTRY_AUTH_TOKEN
   },
   ui: {
     global: true,
