@@ -1,7 +1,7 @@
 import docsVersionsJSON from "./content/docs/.versions.json";
 
 const description =
-  "Official home of Mystical Agriculture, Pickle Tweaks, Iron Jetpacks, Extended Crafting, Mystical Agradditions, Mystical Customization, More Buckets and Cucumber Library!";
+  "Official home of Mystical Agriculture, Pickle Tweaks, Iron Jetpacks, Extended Crafting, Mystical Agradditions, Mystical Automation, Mystical Customization, More Buckets and Cucumber Library!";
 
 export default defineNuxtConfig({
   app: {
