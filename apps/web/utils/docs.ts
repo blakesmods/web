@@ -9,8 +9,8 @@ export function parseDocsRouteParams(params: any) {
   let mod = params.mod;
   let slug = Array.isArray(params.slug) ? params.slug.join("/") : params.slug;
 
-  // index page doesn't have a slug or version so we don't want to move the mod
-  // id to the slug in this case
+  // the index page doesn't have a slug or version, so we don't want to move
+  // the mod id to the slug in this case
   if (version === "") {
     version = getDocsLatestVersion();
   }
@@ -28,4 +28,11 @@ export function parseDocsRouteParams(params: any) {
     mod,
     slug
   };
+}
+
+export function removeDocsVersionFromPath(path: string, version: string) {
+  return path
+    .split("/")
+    .filter((s: string) => s !== version)
+    .join("/");
 }

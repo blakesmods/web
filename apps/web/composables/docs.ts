@@ -60,12 +60,9 @@ export const useDocsSidebarLinks = async () => {
         documents[doc.category] = [];
       }
 
-      // latest version doesn't have the version in the url
+      // the latest version doesn't have the version in the url
       if (doc._path && version.value === versions.value[0][0].label) {
-        doc._path = doc._path
-          .split("/")
-          .filter((s: string) => s !== version.value)
-          .join("/");
+        doc._path = removeDocsVersionFromPath(doc._path, version.value);
       }
 
       documents[doc.category].push(doc);

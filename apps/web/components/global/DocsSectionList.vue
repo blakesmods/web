@@ -12,13 +12,23 @@
 </template>
 
 <script setup>
-const { version, mod } = useDocsMetadata();
+const { version, mod, isLatestVersion } = useDocsMetadata();
 
-const pages = ref([]);
-
-const { data } = await useAsyncData(mod.value + "-docs-listing", () =>
-  queryContent("docs", version.value, mod.value).only(["title", "_path"]).find()
+const { data } = await useAsyncData(
+  `${mod.value}-${version.value}-docs-listing`,
+  () =>
+    queryContent("docs", version.value, mod.value)
+      .only(["title", "_path"])
+      .find()
 );
 
-pages.value = data.value.slice(1);
+const pages = computed(() =>
+  data.value.slice(1).map(doc => {
+    if (isLatestVersion.value && doc._path) {
+      doc._path = removeDocsVersionFromPath(doc._path, version.value);
+    }
+
+    return doc;
+  })
+);
 </script>
