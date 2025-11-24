@@ -1,5 +1,8 @@
 <template>
-  <div class="flex flex-col min-h-screen pt-20">
+  <div
+    class="flex flex-col min-h-screen"
+    :class="[isLatestVersion ? 'pt-20' : 'pt-32 sm:pt-28']"
+  >
     <Header />
     <main class="flex flex-auto container mx-auto px-4">
       <div class="flex flex-nowrap flex-1 max-w-full justify-center">
@@ -38,6 +41,8 @@ import SidebarContent from "~/components/wiki/SidebarContent.vue";
 import "~/assets/css/nuxt-content.scss";
 
 const toggleSidebar = useEventBus("wiki:toggleSidebar");
+
+const { isLatestVersion } = useWikiMetadata();
 
 const sidebar = ref(false);
 

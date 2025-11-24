@@ -58,6 +58,17 @@
         </UTooltip>
       </div>
     </div>
+    <div
+      v-if="!isLatestVersion"
+      class="flex flex-col w-full h-16 sm:h-8 justify-center box-border bg-yellow-50 dark:bg-yellow-400 dark:bg-opacity-10 text-yellow-500 dark:text-yellow-400 border-y border-yellow-500 dark:border-yellow-400 border-opacity-25 dark:border-opacity-25"
+    >
+      <div class="container text-center">
+        You are viewing the wiki for an older version.
+        <NuxtLink class="font-bold hover:underline" :to="latestURL">
+          View Latest ({{ getWikiLatestVersion() }})
+        </NuxtLink>
+      </div>
+    </div>
   </header>
 </template>
 
@@ -67,8 +78,10 @@ import ReactiveLogo from "~/components/default/ReactiveLogo.vue";
 import Search from "~/components/wiki/Search.vue";
 import ColorModeButton from "~/components/ColorModeButton.vue";
 
-const { version } = useWikiMetadata();
+const { mod, version, isLatestVersion } = useWikiMetadata();
 const versions = useWikiVersions();
 
 const dropdown = useModsDropdown();
+
+const latestURL = computed(() => (mod.value ? `/wiki/${mod.value}` : "/wiki"));
 </script>

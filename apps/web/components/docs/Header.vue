@@ -58,6 +58,17 @@
         </UTooltip>
       </div>
     </div>
+    <div
+      v-if="!isLatestVersion"
+      class="flex flex-col w-full h-16 sm:h-8 justify-center box-border bg-yellow-50 dark:bg-yellow-400 dark:bg-opacity-10 text-yellow-500 dark:text-yellow-400 border-y border-yellow-500 dark:border-yellow-400 border-opacity-25 dark:border-opacity-25"
+    >
+      <div class="container text-center">
+        You are viewing the docs for an older version.
+        <NuxtLink class="font-bold hover:underline" :to="latestURL">
+          View Latest Docs ({{ getDocsLatestVersion() }})
+        </NuxtLink>
+      </div>
+    </div>
   </header>
 </template>
 
@@ -69,6 +80,8 @@ import ColorModeButton from "~/components/ColorModeButton.vue";
 
 const dropdown = useModsDropdown();
 
-const { version } = useDocsMetadata();
+const { mod, version, isLatestVersion } = useDocsMetadata();
 const versions = useDocsVersions();
+
+const latestURL = computed(() => (mod.value ? `/docs/${mod.value}` : "/docs"));
 </script>
