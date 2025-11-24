@@ -1,30 +1,16 @@
 export const useWikiMetadata = () => {
   const route = useRoute();
 
-  const version = ref("");
-  const mod = ref("");
-  const category = ref("");
-  const slug = ref("");
-
-  watch(
-    () => route.path,
-    () => {
-      const params = parseWikiRouteParams(route.path);
-
-      version.value = params.version;
-      mod.value = params.mod;
-      category.value = params.category;
-      slug.value = params.slug;
-    },
-    { immediate: true }
-  );
+  const params = computed(() => parseWikiRouteParams(route.path));
 
   return {
-    version,
-    mod,
-    category,
-    slug,
-    isLatestVersion: computed(() => version.value === getDocsLatestVersion())
+    version: computed(() => params.value.version),
+    mod: computed(() => params.value.mod),
+    category: computed(() => params.value.category),
+    slug: computed(() => params.value.slug),
+    isLatestVersion: computed(
+      () => params.value.version === getWikiLatestVersion()
+    )
   };
 };
 
