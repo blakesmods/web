@@ -77,12 +77,9 @@ export const useWikiSidebarLinks = async () => {
         articles[doc._dir] = [];
       }
 
-      // latest version doesn't have the version in the url
+      // the latest version doesn't have the version in the url
       if (doc._path && version.value === versions.value[0][0].label) {
-        doc._path = doc._path
-          .split("/")
-          .filter(s => s !== version.value)
-          .join("/");
+        doc._path = removeWikiVersionFromPath(doc._path, version.value);
       }
 
       articles[doc._dir].push(doc);
@@ -128,7 +125,7 @@ export const useWikiVersions = () => {
               .limit(1)
               .count();
 
-            // if there is no page for this mod we'll just redirect to the top level page
+            // if there is no page for this mod, we'll just redirect to the top level page
             if (doc > 0) {
               // the first is the latest and doesn't need the version in the URL
               const link =
@@ -167,12 +164,9 @@ export const useWikiSearch = async () => {
       let mod: any;
 
       for (const doc of data.value) {
-        // latest version doesn't have the version in the url
+        // the latest version doesn't have the version in the url
         if (isLatestVersion.value) {
-          doc.id = doc.id
-            .split("/")
-            .filter((s: string) => s !== version.value)
-            .join("/");
+          doc.id = removeWikiVersionFromPath(doc.id, version.value);
 
           const parts = doc.id.split("/").slice(1);
 

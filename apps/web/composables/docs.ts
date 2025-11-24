@@ -147,12 +147,9 @@ export const useDocsSearch = async () => {
           documents[doc.category] = [];
         }
 
-        // latest version doesn't have the version in the url
+        // the latest version doesn't have the version in the url
         if (isLatestVersion.value) {
-          doc.id = doc.id
-            .split("/")
-            .filter((s: string) => s !== version.value)
-            .join("/");
+          doc.id = removeDocsVersionFromPath(doc.id, version.value);
         }
 
         documents[doc.category].push(doc);

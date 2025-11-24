@@ -35,3 +35,10 @@ export function parseWikiRouteParams(path: string) {
     slug
   };
 }
+
+export function removeWikiVersionFromPath(path: string, version: string) {
+  return path
+    .split("/")
+    .filter((s: string) => s !== version)
+    .join("/");
+}
