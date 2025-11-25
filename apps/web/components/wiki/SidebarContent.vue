@@ -1,5 +1,24 @@
 <template>
   <div class="flex flex-col gap-4 mr-2">
+    <UFormGroup v-if="currentMod" label="Select Mod">
+      <UDropdown
+        class="w-full"
+        :items="mods"
+        :popper="{ placement: 'bottom-start' }"
+        :ui="{ width: 'w-64' }"
+      >
+        <UButton
+          class="w-full"
+          color="gray"
+          trailing-icon="i-heroicons-chevron-down-20-solid"
+        >
+          <UAvatar class="flex-shrink-0" size="2xs" :src="currentMod.logo" />
+          <span class="w-full text-left">
+            {{ currentMod.name }}
+          </span>
+        </UButton>
+      </UDropdown>
+    </UFormGroup>
     <UFormGroup label="Select Version">
       <UDropdown
         class="w-full"
@@ -77,9 +96,12 @@
 <script setup>
 const route = useRoute();
 
-const { version, category } = useWikiMetadata();
+const { version, category, mod } = useWikiMetadata();
 const versions = useWikiVersions();
+const mods = useWikiMods();
 const articles = await useWikiSidebarLinks();
+
+const currentMod = computed(() => getMod(mod.value));
 const categories = computed(() => Object.keys(articles.value));
 
 const opened = ref([category.value]);
@@ -94,7 +116,7 @@ function onClickCategory(category) {
   }
 }
 
-// when opening a page with a new category we want to open said category
+// when opening a page with a new category, we want to open said category
 watch(category, value => {
   if (!opened.value.includes(value)) {
     opened.value.push(value);

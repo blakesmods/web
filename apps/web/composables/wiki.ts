@@ -81,6 +81,66 @@ export const useWikiSidebarLinks = async () => {
   });
 };
 
+export const useWikiMods = () => {
+  const router = useRouter();
+
+  return ref(
+    getMods()
+      .filter(m => m.has_wiki)
+      .map(m => [
+        {
+          id: m.mod_id,
+          label: m.name,
+          avatar: {
+            src: m.logo
+          },
+          click: async () => {
+            const { version, category, slug, isLatestVersion } =
+              useWikiMetadata();
+
+            const doc = await queryContent(
+              `/wiki/${version.value}/${m.mod_id}/${category.value}/${slug.value}`
+            )
+              .limit(1)
+              .count();
+
+            if (doc > 0) {
+              // the first is the latest and doesn't need the version in the URL
+              const link = isLatestVersion.value
+                ? `/wiki/${m.mod_id}/${category.value}/${slug.value}`
+                : `/wiki/${version.value}/${m.mod_id}/${category.value}/${slug.value}`;
+
+              await router.push(link);
+            } else {
+              const doc = await queryContent(
+                `/wiki/${version.value}/${m.mod_id}`
+              )
+                .limit(1)
+                .count();
+
+              // if there is no page for this mod, we'll just redirect to the top level page
+              if (doc > 0) {
+                // the first is the latest and doesn't need the version in the URL
+                const link = isLatestVersion.value
+                  ? `/wiki/${m.mod_id}`
+                  : `/wiki/${version.value}/${m.mod_id}`;
+
+                await router.push(link);
+              } else {
+                // the first is the latest and doesn't need the version in the URL
+                const link = isLatestVersion.value
+                  ? `/wiki`
+                  : `/wiki/${version.value}`;
+
+                await router.push(link);
+              }
+            }
+          }
+        }
+      ])
+  );
+};
+
 export const useWikiVersions = () => {
   const router = useRouter();
 
