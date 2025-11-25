@@ -5,7 +5,7 @@ description: The official documentation site for Mystical Agriculture, Mystical 
 
 ## Welcome to the docs! 
 
-Here you'll find documentation for the more advanced customization abilities of my mods. These pages are intended for Modpack developers. If you're a player, head on over to the [wiki](../../wiki) for gameplay documentation.
+Here you'll find documentation for the more advanced customization abilities of my mods. These pages are intended for Modpack developers. If you're a player, head on over to the [wiki](../../wiki/1.20) for gameplay documentation.
 
 Use the sidebar, or the links below to navigate to your desired mod's documentation!
 

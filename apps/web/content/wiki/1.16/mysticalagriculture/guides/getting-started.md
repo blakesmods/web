@@ -26,7 +26,7 @@ You can also get Inferium Essence by killing mobs. Every mob has about a 20% cha
 [Prosperity Shards](../items/prosperity-shard.md) are obtained by mining [Prosperity Ore](../blocks/prosperity-ore.md) in the ground. You can find the ore in the overworld between Y levels **0** and **50**.
 
 ::text-image{src="/assets/mysticalagriculture/gameplay-getting-started-2.png"}
-  Prosperity Ore generated under ground.
+  Prosperity Ore generated underground.
 ::
 
 ## Growing Inferium

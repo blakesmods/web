@@ -12,4 +12,4 @@ The Soulium Dagger is a weapon used to collect Mob Chunks for creating [Resource
 
 ## Usage
 
-Killing a mob with a Soulium Dagger will have a chance to drop a [Mob Chunk](mob-chunks.md) for that mob. Each Mob Chunk has it's drop chance listed in it's tooltip.
+Killing a mob with a Soulium Dagger will have a chance to drop a [Mob Chunk](mob-chunks.md) for that mob. Each Mob Chunk has it's drop chance listed in its tooltip.

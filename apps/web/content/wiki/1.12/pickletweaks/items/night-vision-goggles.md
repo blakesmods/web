@@ -8,4 +8,4 @@ version: 2.0.0
 
 ## Overview
 
-Night Vision Goggles are a piece of armor that provides Night Vision when equipped. There are a basic pair of Night Vision goggles as well as Compresssed Night Vision Goggles, which has more durability and provides more armor value.
+Night Vision Goggles are a piece of armor that provides Night Vision when equipped. There are a basic pair of Night Vision goggles as well as Compressed Night Vision Goggles, which has more durability and provides more armor value.

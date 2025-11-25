@@ -12,7 +12,7 @@ The Crafter is a machine for automatically crafting vanilla crafting recipes.
 
 ## Usage
 
-Crafters require energy to function. You can either provide energy via any Forge Energy compatible energy transfer or use the internal solid-fuel-based generator.
+The Crafter requires energy to function. You can either provide energy via any Forge Energy compatible energy transfer or use the internal solid-fuel-based generator.
 
 ## Screen Overview
 
