@@ -49,11 +49,11 @@ export const useDocsSidebarLinks = async () => {
       }
 
       // the latest version doesn't have the version in the url
-      if (doc._path && version.value === versions.value[0][0].label) {
+      if (doc._path && version.value === versions.value[0]![0]!.label) {
         doc._path = removeDocsVersionFromPath(doc._path, version.value);
       }
 
-      documents[doc.category].push(doc);
+      documents[doc.category]!.push(doc);
     }
 
     return documents;
@@ -90,7 +90,7 @@ export const useDocsVersions = () => {
               .limit(1)
               .count();
 
-            // if there is no page for this mod we'll just redirect to the top level page
+            // if there is no page for this mod, we'll just redirect to the top level page
             if (doc > 0) {
               // the first is the latest and doesn't need the version in the URL
               const link =
@@ -140,7 +140,7 @@ export const useDocsSearch = async () => {
           doc.id = removeDocsVersionFromPath(doc.id, version.value);
         }
 
-        documents[doc.category].push(doc);
+        documents[doc.category]!.push(doc);
       }
     }
 

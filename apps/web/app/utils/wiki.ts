@@ -1,6 +1,6 @@
 import semver from "semver";
-import categories from "~/content/wiki/.categories.json";
-import versions from "~/content/wiki/.versions.json";
+import categories from "../../content/wiki/.categories.json";
+import versions from "../../content/wiki/.versions.json";
 
 export const getWikiVersions = () => versions;
 export const getWikiLatestVersion = () => versions[0];
