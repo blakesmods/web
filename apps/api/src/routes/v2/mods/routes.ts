@@ -83,7 +83,7 @@ export const plugin: FastifyPluginAsyncZod = async fastify => {
           mod_id: z.string()
         }),
         querystring: z.object({
-          page: z.number().optional(),
+          page: z.coerce.number().min(1).optional(),
           mc_version: z.string().optional(),
           mod_loader: z.string().optional()
         })

@@ -72,6 +72,29 @@ describe("GET /v2/mods/:mod_id/files", () => {
 
     expect(response.statusCode).toBe(404);
   });
+
+  test("pagination", async () => {
+    const db = app.mongo.db!;
+    const mod = await db.collection<Mod>(Collections.Mods).findOne();
+
+    let response = await app.inject({
+      method: "GET",
+      url: `/v2/mods/${mod!.mod_id}/files?page=1`
+    });
+
+    expect(response.statusCode).toBe(200);
+
+    const body = response.json();
+
+    expect(body).toHaveProperty("data");
+
+    response = await app.inject({
+      method: "GET",
+      url: `/v2/mods/${mod!.mod_id}/files?page=`
+    });
+
+    expect(response.statusCode).toBe(400);
+  });
 });
 
 describe("GET /v2/mods/:mod_id/:mc_version_group/updates", () => {
