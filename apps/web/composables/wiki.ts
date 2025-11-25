@@ -31,6 +31,21 @@ export const useWiki = async () => {
   return page;
 };
 
+export const useWikiModArticles = async () => {
+  const { mod, version } = useWikiMetadata();
+
+  const { data: pages } = await useAsyncData(
+    `wiki/${version.value}/${mod.value}`,
+    () =>
+      queryContent("wiki", version.value, mod.value)
+        .sort({ sort: 1, $numeric: true })
+        .find(),
+    { watch: [version, mod] }
+  );
+
+  return pages;
+};
+
 export const useWikiSidebarLinks = async () => {
   const { version, mod } = useWikiMetadata();
   const versions = useWikiVersions();

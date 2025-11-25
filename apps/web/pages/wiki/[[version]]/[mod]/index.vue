@@ -1,50 +1,26 @@
 <template>
-  <div class="w-full py-4">
-    <UBreadcrumb :links="breadcrumbs" />
-    <div class="py-8 text-center">
-      <h1>{{ mod.name }} Wiki</h1>
+  <div class="w-full py-4 col-span-12 lg:col-span-9">
+    <div class="flex items-center gap-4">
+      <UButton
+        class="!inline-flex lg:!hidden"
+        ref="sidebarToggle"
+        icon="i-heroicons-bars-3-solid"
+        aria-label="View navigation button"
+        @click="onToggleSidebar"
+      />
+      <UBreadcrumb :links="breadcrumbs" />
     </div>
-
+    <h1 class="py-4">{{ mod.name }} Wiki</h1>
     <div class="flex flex-wrap md:flex-nowrap gap-8">
-      <div class="flex flex-col w-full md:w-1/2 lg:w-1/3 gap-4">
-        <Callout
-          v-if="mod.has_docs"
-          title="Modpack Developers!"
-          icon="i-heroicons-information-circle-solid"
-        >
-          <span class="flex flex-col gap-4">
-            This wiki is for gameplay documentation. For advanced configuration,
-            check out the docs.
-            <UButton
-              class="inline-flex mr-auto"
-              color="gray"
-              :to="`/docs/${mod.mod_id}`"
-            >
-              View Docs
-            </UButton>
-          </span>
-        </Callout>
-        <UCard>
-          <template #header>
-            <h2 class="text-2xl text-center">Latest Articles</h2>
-          </template>
-          <div class="flex flex-col gap-3 md:gap-1">
-            <div v-for="article in recent" class="flex items-center gap-1">
-              <ArticleLink :article="article" />
-              <small class="capitalize opacity-80">- {{ article._dir }}</small>
-            </div>
-          </div>
-        </UCard>
-      </div>
       <div
-        class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 pt-4 gap-8 w-full md:w-1/2 lg:w-2/3"
+        class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 w-full pt-4 gap-8"
       >
         <div
           v-for="category in categories"
           class="flex flex-col gap-4"
           :class="{
-            // this is a special case for desktop so that the enchantments section isn't off in no-mans land;
-            // hopefully I can remember to update this if I add new guides
+            // this is a special case for desktop so that the enchantments section isn't off in no-man's land;
+            // hopefully, I can remember to update this if I add new guides
             'xl:relative xl:-top-[448px]':
               mod.mod_id === 'mysticalagriculture' &&
               category === 'enchantments'
@@ -67,11 +43,12 @@
 
 <script setup>
 import ArticleLink from "~/components/wiki/ArticleLink.vue";
-import { coerce, rcompare } from "semver";
 
 definePageMeta({
   layout: "wiki"
 });
+
+const toggleSidebar = useEventBus("wiki:toggleSidebar");
 
 const { version, mod: modID, isLatestVersion } = useWikiMetadata();
 
@@ -90,13 +67,7 @@ useSeoMeta({
   ogDescription: description
 });
 
-const { data } = await useAsyncData(
-  `wiki/${version.value}/${modID.value}`,
-  () =>
-    queryContent("wiki", version.value, modID.value)
-      .sort({ sort: 1, $numeric: true })
-      .find()
-);
+const data = await useWikiModArticles();
 
 if (data.value.length === 0) {
   throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
@@ -114,22 +85,13 @@ for (const article of data.value) {
     articles.value[article._dir] = [];
   }
 
-  // latest version doesn't have the version in the url
+  // the latest version doesn't have the version in the url
   if (article._path && isLatestVersion.value) {
-    article._path = article._path
-      .split("/")
-      .filter(s => s !== version.value)
-      .join("/");
+    article._path = removeWikiVersionFromPath(article._path, version.value);
   }
 
   articles.value[article._dir].push(article);
 }
-
-const recent = [...data.value]
-  .sort((a, b) =>
-    rcompare(coerce(a.version) ?? "1.0.0", coerce(b.version) ?? "1.0.0")
-  )
-  .slice(0, 8);
 
 const breadcrumbs = computed(() => [
   {
@@ -147,4 +109,8 @@ const breadcrumbs = computed(() => [
 const categories = computed(() =>
   Object.keys(articles.value).filter(c => articles.value[c].length > 0)
 );
+
+function onToggleSidebar() {
+  toggleSidebar.emit();
+}
 </script>
