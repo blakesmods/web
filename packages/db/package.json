@@ -12,6 +12,6 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^9.9.0",
-    "mongodb": "^6.18.0"
+    "mongodb": "^6.21.0"
   }
 }

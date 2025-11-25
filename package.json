@@ -9,12 +9,12 @@
     "dev": "turbo run dev"
   },
   "devDependencies": {
-    "@types/node": "^22.16.5",
-    "nodemon": "^3.1.10",
+    "@types/node": "^22.19.1",
+    "nodemon": "^3.1.11",
     "prettier": "^3.6.2",
     "ts-node": "^10.9.2",
-    "turbo": "^2.5.5",
-    "typescript": "^5.8.3"
+    "turbo": "^2.6.1",
+    "typescript": "^5.9.3"
   },
   "packageManager": "pnpm@10.13.1",
   "pnpm": {

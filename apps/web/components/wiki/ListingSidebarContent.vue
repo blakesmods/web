@@ -77,7 +77,7 @@ const currentMod = computed(() => getMod(mod.value));
 const pages = await useWikiModArticles();
 
 const recent = computed(() =>
-  [...pages.value]
+  [...(pages.value || [])]
     .sort((a, b) =>
       rcompare(coerce(a.version) ?? "1.0.0", coerce(b.version) ?? "1.0.0")
     )
