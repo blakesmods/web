@@ -55,7 +55,7 @@ export default defineNuxtModule({
         pages.push({
           name: `wiki-directory-${version}`,
           path: `/wiki/${version}`,
-          file: resolver.resolve("../pages/wiki/[[version]]/index.vue"),
+          file: resolver.resolve("../app/pages/wiki/[[version]]/index.vue"),
           meta: {
             layout: "wiki"
           }

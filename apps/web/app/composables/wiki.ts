@@ -18,24 +18,28 @@ export const useWiki = async () => {
   const route = useRoute();
   const { version, mod, category, slug } = useWikiMetadata();
 
-  const { data: page } = await useAsyncData("wiki/" + route.path, () =>
-    queryContent(
-      "wiki",
-      version.value,
-      mod.value,
-      category.value,
-      slug.value
-    ).findOne()
+  const { data: page } = await useAsyncData(
+    () => `wiki-${route.path}`,
+    () =>
+      queryContent(
+        "wiki",
+        version.value,
+        mod.value,
+        category.value,
+        slug.value
+      ).findOne()
   );
 
   return page;
 };
 
 export const useWikiModArticles = async () => {
+  const route = useRoute();
   const { mod, version } = useWikiMetadata();
 
+  const key = computed(() => `wiki/${version.value}/${mod.value}`);
   const { data: pages } = await useAsyncData(
-    `wiki/${version.value}/${mod.value}`,
+    () => `wiki-mod-articles-${route.path}`,
     () =>
       queryContent("wiki", version.value, mod.value)
         .sort({ sort: 1, $numeric: true })
@@ -47,11 +51,12 @@ export const useWikiModArticles = async () => {
 };
 
 export const useWikiSidebarLinks = async () => {
+  const route = useRoute();
   const { version, mod } = useWikiMetadata();
   const versions = useWikiVersions();
 
   const { data } = await useAsyncData(
-    "wiki-sidebar-content/" + mod.value,
+    () => `wiki-sidebar-${route.path}`,
     () =>
       queryContent("wiki", version.value, mod.value)
         .only(["title", "category", "icon", "_path", "_dir"])
@@ -79,11 +84,11 @@ export const useWikiSidebarLinks = async () => {
       }
 
       // the latest version doesn't have the version in the url
-      if (doc._path && version.value === versions.value[0][0].label) {
+      if (doc._path && version.value === versions.value[0]![0]!.label) {
         doc._path = removeWikiVersionFromPath(doc._path, version.value);
       }
 
-      articles[doc._dir].push(doc);
+      articles[doc._dir]!.push(doc);
     }
 
     for (const [category, documents] of Object.entries(articles)) {
@@ -248,7 +253,7 @@ export const useWikiSearch = async () => {
           documents[mod.name] = [];
         }
 
-        documents[mod.name].push(doc);
+        documents[mod.name]!.push(doc);
       }
     }
 
