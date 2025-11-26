@@ -33,7 +33,7 @@
         >
           <NuxtLink
             v-for="mod in mods"
-            class="group flex justify-center items-center h-[100px] sm:h-[140px] md:h-[200px] bg-white dark:bg-gray-900 text-xs sm:text-base rounded-lg transition hover:z-10 hover:duration-300 hover:scale-105 active:scale-100"
+            class="group flex justify-center items-center h-[100px] md:h-[200px] bg-white dark:bg-gray-900 text-xs md:text-base rounded-lg transition hover:z-10 hover:duration-300 hover:scale-105 active:scale-100"
             :style="{
               border: `1px solid ${mod.primary_color}`,
               'box-shadow': `0 0 8px ${mod.primary_color}`
@@ -45,7 +45,7 @@
               class="flex flex-col w-full h-full p-4 justify-center items-center"
             >
               <NuxtImg
-                class="w-[50px] sm:w-[100px]"
+                class="w-[50px] md:w-[100px]"
                 width="100"
                 height="100"
                 :src="mod.logo"
