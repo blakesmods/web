@@ -2,7 +2,7 @@ import semver from "semver";
 import versions from "../../content/docs/.versions.json";
 
 export const getDocsVersions = () => versions;
-export const getDocsLatestVersion = () => versions[0];
+export const getDocsLatestVersion = () => versions[0]!;
 
 export function parseDocsRouteParams(params: any) {
   let version = params.version;

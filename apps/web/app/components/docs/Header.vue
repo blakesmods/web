@@ -80,8 +80,7 @@ import ColorModeButton from "~/components/ColorModeButton.vue";
 
 const dropdown = useModsDropdown();
 
-const { mod, version, isLatestVersion } = useDocsMetadata();
+const { version, isLatestVersion } = useDocsMetadata();
 const versions = useDocsVersions();
-
-const latestURL = computed(() => (mod.value ? `/docs/${mod.value}` : "/docs"));
+const latestURL = await useDocsLatestArticleURL();
 </script>

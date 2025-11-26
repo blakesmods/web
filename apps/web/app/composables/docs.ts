@@ -23,6 +23,32 @@ export const useDoc = async () => {
   return page;
 };
 
+export const useDocsLatestArticleURL = async () => {
+  const route = useRoute();
+  const { version, mod, slug } = useDocsMetadata();
+
+  const { data } = await useAsyncData(
+    () => `docs-latest-article-url-${route.path}`,
+    () =>
+      queryContent("docs", getDocsLatestVersion(), mod.value, slug.value)
+        .limit(1)
+        .count(),
+    { watch: [version, mod, slug] }
+  );
+
+  return computed(() => {
+    if (!mod.value) {
+      return "/docs";
+    }
+
+    if (data.value !== 1 || !slug.value) {
+      return `/docs/${mod.value}`;
+    }
+
+    return `/docs/${mod.value}/${slug.value}`;
+  });
+};
+
 export const useDocsSidebarLinks = async () => {
   const { version } = useDocsMetadata();
   const versions = useDocsVersions();

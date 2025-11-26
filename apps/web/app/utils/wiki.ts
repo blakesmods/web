@@ -3,7 +3,7 @@ import categories from "../../content/wiki/.categories.json";
 import versions from "../../content/wiki/.versions.json";
 
 export const getWikiVersions = () => versions;
-export const getWikiLatestVersion = () => versions[0];
+export const getWikiLatestVersion = () => versions[0]!;
 
 export const getWikiCategories = () => categories;
 export const getWikiCategoryName = (category: keyof typeof categories) =>

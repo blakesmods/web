@@ -78,10 +78,9 @@ import ReactiveLogo from "~/components/default/ReactiveLogo.vue";
 import Search from "~/components/wiki/Search.vue";
 import ColorModeButton from "~/components/ColorModeButton.vue";
 
-const { mod, version, isLatestVersion } = useWikiMetadata();
-const versions = useWikiVersions();
-
 const dropdown = useModsDropdown();
 
-const latestURL = computed(() => (mod.value ? `/wiki/${mod.value}` : "/wiki"));
+const { version, isLatestVersion } = useWikiMetadata();
+const versions = useWikiVersions();
+const latestURL = await useWikiLatestArticleURL();
 </script>

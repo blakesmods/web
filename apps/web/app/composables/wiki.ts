@@ -37,7 +37,6 @@ export const useWikiModArticles = async () => {
   const route = useRoute();
   const { mod, version } = useWikiMetadata();
 
-  const key = computed(() => `wiki/${version.value}/${mod.value}`);
   const { data: pages } = await useAsyncData(
     () => `wiki-mod-articles-${route.path}`,
     () =>
@@ -48,6 +47,38 @@ export const useWikiModArticles = async () => {
   );
 
   return pages;
+};
+
+export const useWikiLatestArticleURL = async () => {
+  const route = useRoute();
+  const { version, mod, category, slug } = useWikiMetadata();
+
+  const { data } = await useAsyncData(
+    () => `wiki-latest-article-url-${route.path}`,
+    () =>
+      queryContent(
+        "wiki",
+        getWikiLatestVersion(),
+        mod.value,
+        category.value,
+        slug.value
+      )
+        .limit(1)
+        .count(),
+    { watch: [version, mod, category, slug] }
+  );
+
+  return computed(() => {
+    if (!mod.value) {
+      return "/wiki";
+    }
+
+    if (data.value !== 1 || !category.value || !slug.value) {
+      return `/wiki/${mod.value}`;
+    }
+
+    return `/wiki/${mod.value}/${category.value}/${slug.value}`;
+  });
 };
 
 export const useWikiSidebarLinks = async () => {
