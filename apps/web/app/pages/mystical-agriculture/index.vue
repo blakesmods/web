@@ -6,11 +6,10 @@
         subtitle="Resource Collection Reimagined"
         :features="features"
       />
-      <FeatureCarousel
-        v-if="false"
+      <AddonCarousel
         title="Addons"
         subtitle="We're Just Getting Started"
-        description="Install these additional addons for more features and functions."
+        description="Install these official addons for even more content!"
         :features="addons"
       />
       <ScreenshotCarousel
@@ -25,8 +24,8 @@
 
 <script setup>
 import ModPage from "~/components/pages/ModPage.vue";
+import AddonCarousel from "~/components/mods/AddonCarousel.vue";
 import KeyFeatures from "~/components/mods/KeyFeatures.vue";
-import FeatureCarousel from "~/components/mods/FeatureCarousel.vue";
 import ScreenshotCarousel from "~/components/mods/ScreenshotCarousel.vue";
 
 definePageMeta({
@@ -78,7 +77,7 @@ const features = ref([
     ],
     images: [
       "/assets/mysticalagriculture/v6/items/diamond_scythe.png",
-      "/assets/mysticalagriculture/v6/blocks/harvester.png"
+      "/assets/mysticalagriculture/v7/blocks/harvester.png"
     ],
     link: "/wiki/mysticalagriculture/blocks/harvester"
   },
@@ -108,13 +107,22 @@ const addons = ref([
     title: "Mystical Agradditions",
     description: [
       "Mystical Agradditions adds tier 6 crops, Paxels, and Tinkers' construct integration."
-    ]
+    ],
+    mod: getMod("mysticalagradditions")
+  },
+  {
+    title: "Mystical Automation",
+    description: [
+      "Mystical Automation adds additional machines for automating manual processes."
+    ],
+    mod: getMod("mysticalautomation")
   },
   {
     title: "Mystical Customization",
     description: [
       "Make use of Mystical Customization to add new crops as well as modify existing crops."
-    ]
+    ],
+    mod: getMod("mysticalcustomization")
   }
 ]);
 
