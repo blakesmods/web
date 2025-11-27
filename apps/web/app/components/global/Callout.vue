@@ -1,10 +1,8 @@
 <template>
   <div
-    class="flex relative w-full mt-5 !mb-6 p-4 gap-2 rounded-lg text-gray-800 dark:text-gray-100 bg-gray-200 dark:bg-gray-800 ring-1 ring-gray-300 dark:ring-gray-700"
+    class="flex relative w-full mt-5 !mb-6 p-4 gap-2 rounded-lg text-neutral-800 dark:text-neutral-100 bg-neutral-200 dark:bg-neutral-800 ring-1 ring-neutral-300 dark:ring-neutral-700"
   >
-    <div>
-      <UIcon v-if="icon" class="w-[24px] h-[24px]" :name="icon" />
-    </div>
+    <UIcon v-if="icon" class="w-[24px] h-[24px]" :name="icon" />
     <div class="flex flex-col gap-1">
       <strong>{{ title }}</strong>
       <div class="text-sm">

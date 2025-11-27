@@ -145,7 +145,7 @@ export const useWikiMods = () => {
           avatar: {
             src: m.logo
           },
-          click: async () => {
+          onClick: async () => {
             const { version, category, slug, isLatestVersion } =
               useWikiMetadata();
 
@@ -200,7 +200,7 @@ export const useWikiVersions = () => {
       {
         id: v,
         label: v,
-        click: async () => {
+        onClick: async () => {
           const { mod, category, slug } = useWikiMetadata();
 
           const doc = await queryContent(

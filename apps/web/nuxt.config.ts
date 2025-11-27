@@ -10,37 +10,18 @@ export default defineNuxtConfig({
         lang: "en"
       },
       bodyAttrs: {
-        class:
-          "antialiased font-sans text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-900"
+        class: "antialiased font-sans bg-default"
       },
       meta: [
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
-        {
-          name: "description",
-          content: description
-        },
+        { name: "description", content: description },
         { property: "og:title", content: "Blake's Mods" },
-        {
-          property: "og:description",
-          content: description
-        },
-        {
-          name: "twitter:title",
-          content: "Blake's Mods"
-        },
-        {
-          name: "twitter:description",
-          content: description
-        },
-        {
-          name: "msapplication-TileColor",
-          content: "#ffffff"
-        },
-        {
-          name: "theme-color",
-          content: "#ffffff"
-        }
+        { property: "og:description", content: description },
+        { name: "twitter:title", content: "Blake's Mods" },
+        { name: "twitter:description", content: description },
+        { name: "msapplication-TileColor", content: "#ffffff" },
+        { name: "theme-color", content: "#ffffff" }
       ],
       link: [
         { rel: "icon", type: "image/png", href: "/favicon.png" },
@@ -79,7 +60,7 @@ export default defineNuxtConfig({
       ]
     }
   },
-  css: ["~/assets/css/main.scss"],
+  css: ["~/assets/css/main.css"],
   modules: [
     "@nuxt/ui",
     "@nuxt/image",
@@ -97,15 +78,6 @@ export default defineNuxtConfig({
       autoSubfolderIndex: false,
       crawlLinks: true,
       routes: ["/", ...docsVersionsJSON.slice(1).map(v => `/docs/${v}`)]
-    }
-  },
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          api: "modern-compiler"
-        }
-      }
     }
   },
   content: {
@@ -132,16 +104,17 @@ export default defineNuxtConfig({
     authToken: process.env.SENTRY_AUTH_TOKEN
   },
   ui: {
-    global: true,
-    icons: ["heroicons", "simple-icons"],
-    safelistColors: [
-      "white",
-      "black",
-      "red",
-      "green",
-      "blue",
-      "yellow",
-      "purple"
-    ]
+    theme: {
+      colors: [
+        "primary",
+        "secondary",
+        "success",
+        "info",
+        "error",
+        "warning",
+        "neutral",
+        "mod"
+      ]
+    }
   }
 });

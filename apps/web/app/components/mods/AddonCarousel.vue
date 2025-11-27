@@ -28,7 +28,7 @@
       <UButton
         v-for="feature in features"
         class="flex p-4 gap-2"
-        color="gray"
+        color="neutral"
         @click="current = feature"
       >
         <div class="flex items-center">

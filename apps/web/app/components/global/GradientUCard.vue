@@ -13,13 +13,9 @@
       class="w-full h-full border-none"
       v-bind="$props"
       :ui="{
-        header: {
-          base: 'pb-0 border-0'
-        },
-        body: {
-          base: '!border-0'
-        },
-        background: 'bg-gray-200 dark:bg-gray-800/90'
+        root: 'bg-neutral-200 dark:bg-neutral-800/90',
+        header: 'pb-0 border-0',
+        body: '!border-0'
       }"
     >
       <template v-if="$slots.header" #header>

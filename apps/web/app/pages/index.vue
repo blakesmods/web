@@ -9,7 +9,7 @@
   >
     <div
       v-for="tile in tiles"
-      class="relative block before:absolute before:inset-[0.5px] before:bg-white before:dark:bg-gray-900"
+      class="relative block before:absolute before:inset-[0.5px] before:bg-default"
       :key="tile"
       :class="[
         colors[tile],
@@ -33,7 +33,7 @@
         >
           <NuxtLink
             v-for="mod in mods"
-            class="group flex justify-center items-center h-[100px] md:h-[200px] bg-white dark:bg-gray-900 text-xs md:text-base rounded-lg transition hover:z-10 hover:duration-300 hover:scale-105 active:scale-100"
+            class="group flex justify-center items-center h-[100px] md:h-[200px] bg-default text-xs md:text-base rounded-lg transition hover:z-10 hover:duration-300 hover:scale-105 active:scale-100"
             :style="{
               border: `1px solid ${mod.primary_color}`,
               'box-shadow': `0 0 8px ${mod.primary_color}`
@@ -77,7 +77,10 @@
           </div>
           <div class="flex justify-center items-center gap-4">
             <span>&copy; {{ new Date().getFullYear() }} BlakeBr0</span>
-            <ThemeToggle />
+            <UColorModeSelect
+              variant="subtle"
+              trailing-icon="i-heroicons-chevron-up"
+            />
           </div>
         </div>
       </div>
@@ -91,10 +94,10 @@ definePageMeta({
 });
 
 const grays = [
-  "bg-white dark:bg-gray-900",
-  "bg-gray-200 dark:bg-gray-800",
-  "bg-gray-300 dark:bg-gray-700",
-  "bg-gray-400 dark:bg-gray-600"
+  "bg-white dark:bg-neutral-900",
+  "bg-neutral-200 dark:bg-neutral-800",
+  "bg-neutral-300 dark:bg-neutral-700",
+  "bg-neutral-400 dark:bg-neutral-600"
 ];
 
 const mods = getMods();
@@ -105,7 +108,7 @@ const columns = ref(0);
 
 const tiles = computed(() => rows.value * columns.value);
 const colors = computed(() =>
-  Array.from({ length: +tiles.value }).map((_, i) => {
+  Array.from({ length: +tiles.value }).map(_ => {
     const index = Math.floor(Math.random() * 4);
     return grays[index];
   })

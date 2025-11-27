@@ -1,22 +1,21 @@
 <template>
   <div
     v-if="previous || next"
-    class="flex justify-between items-center py-6 lg:ml-4 xl:mr-4 border-t border-gray-200 dark:border-gray-800"
+    class="flex justify-between items-center py-6 border-t border-neutral-200 dark:border-neutral-800"
   >
     <UButton
       v-if="previous"
       :to="previous._path"
       class="group gap-4"
-      color="gray"
+      color="neutral"
+      variant="subtle"
       size="lg"
       icon="i-heroicons-arrow-left"
       aria-label="Previous page button"
     >
       <div class="hidden md:flex flex-col text-right">
         {{ previous.title }}
-        <small
-          class="text-gray-600 dark:text-gray-300 group-hover:text-gray-500 dark:group-hover:text-gray-400"
-        >
+        <small class="text-muted">
           {{ formatModName(previous) }}
         </small>
       </div>
@@ -25,7 +24,8 @@
       v-if="next"
       :to="next._path"
       class="ml-auto group gap-4"
-      color="gray"
+      color="neutral"
+      variant="subtle"
       size="lg"
       icon="i-heroicons-arrow-right"
       aria-label="Next page button"

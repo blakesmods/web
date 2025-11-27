@@ -8,7 +8,7 @@
         aria-label="View navigation button"
         @click="onToggleSidebar"
       />
-      <UBreadcrumb :links="breadcrumbs" />
+      <UBreadcrumb :items="breadcrumbs" />
     </div>
     <h1 class="py-4">{{ mod.name }} Wiki</h1>
     <div class="flex flex-wrap md:flex-nowrap gap-8">

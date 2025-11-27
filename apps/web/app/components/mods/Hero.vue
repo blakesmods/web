@@ -15,7 +15,7 @@
         <div class="flex gap-4 mt-4 font-bold">
           <UButton
             size="xl"
-            variant="primary"
+            color="mod"
             trailing-icon="i-heroicons-arrow-down"
             @click="$emit('learn-more')"
           >
@@ -24,7 +24,8 @@
           <UButton
             :to="`${mod.url}/download`"
             size="xl"
-            variant="secondary"
+            color="mod"
+            variant="outline"
             trailing-icon="i-heroicons-arrow-down-tray"
           >
             Download
@@ -36,7 +37,7 @@
         class="flex w-full xl:max-w-[40%] xl:h-[550px] xl:items-center"
         :items="mod.hero_images"
         :ui="{
-          item: 'basis-full border border-gray-300 dark:border-gray-700 rounded-xl overflow-hidden'
+          item: 'basis-full border border-neutral-300 dark:border-neutral-700 rounded-xl overflow-hidden'
         }"
         v-slot="{ item }"
       >
@@ -57,13 +58,13 @@
       }"
     >
       <div
-        class="flex flex-wrap justify-around w-full p-6 md:p-10 gap-4 bg-gray-200 dark:bg-gray-800 rounded-lg"
+        class="flex flex-wrap justify-around w-full p-6 md:p-10 gap-4 bg-neutral-200 dark:bg-neutral-800 rounded-lg"
       >
         <div class="flex flex-col items-center w-full sm:w-2/5 md:w-auto">
           <USkeleton
             v-if="pending"
             class="w-[100px] h-[48px]"
-            :ui="{ background: 'dark:bg-gray-700' }"
+            :ui="{ background: 'dark:bg-neutral-700' }"
           />
           <h2 v-else :style="{ color: mod.primary_color }">{{ downloads }}+</h2>
           <span class="text-xl">Downloads</span>
@@ -72,7 +73,7 @@
           <USkeleton
             v-if="pending"
             class="w-[100px] h-[48px]"
-            :ui="{ background: 'dark:bg-gray-700' }"
+            :ui="{ background: 'dark:bg-neutral-700' }"
           />
           <h2 v-else :style="{ color: mod.primary_color }">{{ relations }}+</h2>
           <span class="text-xl">Modpacks</span>
@@ -81,7 +82,7 @@
           <USkeleton
             v-if="pending"
             class="w-[100px] h-[48px]"
-            :ui="{ background: 'dark:bg-gray-700' }"
+            :ui="{ background: 'dark:bg-neutral-700' }"
           />
           <h2 v-else :style="{ color: mod.primary_color }">
             {{ modVersion }}
@@ -92,7 +93,7 @@
           <USkeleton
             v-if="pending"
             class="w-[100px] h-[48px]"
-            :ui="{ background: 'dark:bg-gray-700' }"
+            :ui="{ background: 'dark:bg-neutral-700' }"
           />
           <h2 v-else :style="{ color: mod.primary_color }">
             {{ mcVersion }}

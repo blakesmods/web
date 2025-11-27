@@ -14,7 +14,8 @@
           <UButton
             :to="cucumberURL"
             target="_blank"
-            color="gray"
+            color="neutral"
+            variant="subtle"
             trailing-icon="i-heroicons-arrow-top-right-on-square-solid"
           >
             Get Cucumber
@@ -25,7 +26,7 @@
       <div
         class="flex flex-col md:flex-row gap-4 pb-6 mb-6 border-b border-gray-300 dark:border-gray-700"
       >
-        <UFormGroup class="w-full md:w-64" label="Minecraft Version">
+        <UFormField class="w-full md:w-64" label="Minecraft Version">
           <div class="flex">
             <USelectMenu
               class="w-full"
@@ -36,7 +37,7 @@
             />
             <UTooltip v-if="version" text="Reset">
               <UButton
-                color="gray"
+                color="neutral"
                 icon="i-heroicons-x-circle"
                 variant="ghost"
                 aria-label="Clear Minecraft version filter"
@@ -44,8 +45,8 @@
               />
             </UTooltip>
           </div>
-        </UFormGroup>
-        <UFormGroup class="w-full md:w-64" label="Mod Loader">
+        </UFormField>
+        <UFormField class="w-full md:w-64" label="Mod Loader">
           <div class="flex">
             <USelectMenu
               class="w-full"
@@ -56,7 +57,7 @@
             />
             <UTooltip v-if="loader" text="Reset">
               <UButton
-                color="gray"
+                color="neutral"
                 icon="i-heroicons-x-circle"
                 variant="ghost"
                 aria-label="Clear mod loader filter"
@@ -64,7 +65,7 @@
               />
             </UTooltip>
           </div>
-        </UFormGroup>
+        </UFormField>
       </div>
 
       <UTable
@@ -101,7 +102,7 @@
               {{ formatDownloadCount(row, "0[.]0a") }}
             </UTooltip>
             <UButton
-              color="gray"
+              color="neutral"
               :trailing-icon="
                 downloadPending && row._id === downloadPending
                   ? null
@@ -115,7 +116,7 @@
           </div>
         </template>
 
-        <template #expand="{ row }">
+        <template #expanded="{ row }">
           <div class="flex flex-wrap gap-4 p-4 justify-between">
             <div class="col-span-1">
               <h5>Java Version</h5>
@@ -170,23 +171,37 @@ const downloadPending = ref(false);
 
 const columns = [
   {
-    key: "file_name",
-    label: "File Name"
+    accessorKey: "file_name",
+    header: "File Name",
+    cell: ({ row }) =>
+      h(NuxtLink, { to: `./download/${row._id}` }, row.file_name)
   },
   {
-    key: "upload_date",
-    label: "Release Date",
-    class: "text-right"
+    accessorKey: "upload_date",
+    header: "Release Date",
+    meta: {
+      th: {
+        class: "text-right"
+      }
+    }
   },
   {
-    key: "mod_loader",
-    label: "Mod Loader",
-    class: "text-right"
+    accessorKey: "mod_loader",
+    header: "Mod Loader",
+    meta: {
+      th: {
+        class: "text-right"
+      }
+    }
   },
   {
-    key: "downloads",
-    label: "Downloads",
-    class: "text-right"
+    accessorKey: "downloads",
+    header: "Downloads",
+    meta: {
+      th: {
+        class: "text-right"
+      }
+    }
   }
 ];
 

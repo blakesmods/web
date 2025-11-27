@@ -1,20 +1,21 @@
 <template>
   <div class="flex flex-col gap-4 mr-2">
-    <UFormGroup label="Select Version">
-      <UDropdown
+    <UFormField label="Select Version">
+      <UDropdownMenu
         class="w-full"
         :items="versions"
         :popper="{ placement: 'bottom-start' }"
       >
         <UButton
           class="w-full"
-          color="gray"
+          color="neutral"
+          variant="subtle"
           trailing-icon="i-heroicons-chevron-down-20-solid"
         >
           <span class="w-full text-left">{{ version }}</span>
         </UButton>
-      </UDropdown>
-    </UFormGroup>
+      </UDropdownMenu>
+    </UFormField>
 
     <div v-for="category in categories">
       <div
@@ -31,12 +32,12 @@
         />
       </div>
       <div
-        class="flex flex-col overflow-hidden text-gray-500 dark:text-gray-400 transition duration-200 ease-in-out"
+        class="flex flex-col overflow-hidden text-muted transition duration-200 ease-in-out"
         :class="[opened.includes(category) ? 'h-full' : 'h-0']"
       >
         <NuxtLink
           v-for="document in documents[category]"
-          class="relative pl-4 py-3 md:py-1 text-sm first:mt-2 hover:text-gray-700 dark:hover:text-gray-200 border-l border-gray-300 dark:border-gray-700"
+          class="relative pl-4 py-3 md:py-1 text-sm first:mt-2 hover:text-dimmed border-l border-neutral-300 dark:border-neutral-700"
           :class="{
             '!text-primary-500 dark:!text-primary-400 font-semibold':
               document._path === route.path

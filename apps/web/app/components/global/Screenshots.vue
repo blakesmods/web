@@ -19,7 +19,10 @@
     </UCard>
   </UCarousel>
 
-  <UModal v-model="isModalOpen" :ui="{ width: 'md:max-w-2xl lg:max-w-5xl' }">
+  <UModal
+    v-model:open="isModalOpen"
+    :ui="{ width: 'md:max-w-2xl lg:max-w-5xl' }"
+  >
     <NuxtImg :src="screenshot.image" :alt="screenshot.description" />
     <h4 class="mx-4 my-2">{{ screenshot.name }}</h4>
     <p class="mx-4 my-2">{{ screenshot.description }}</p>

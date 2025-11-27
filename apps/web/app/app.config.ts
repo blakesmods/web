@@ -1,7 +1,10 @@
 export default defineAppConfig({
   ui: {
-    primary: "fuchsia",
-    gray: "neutral",
+    colors: {
+      primary: "fuchsia",
+      neutral: "neutral",
+      mod: "mod"
+    },
 
     accordion: {
       item: {
@@ -27,10 +30,9 @@ export default defineAppConfig({
       ol: "flex-wrap"
     },
     button: {
-      variant: {
-        primary: "bg-[var(--primary-color)] hover:bg-[var(--primary-color)]",
-        secondary:
-          "border-2 border-[var(--primary-color)] hover:bg-[var(--primary-color)]"
+      defaultVariants: {
+        color: "neutral",
+        variant: "subtle"
       }
     },
     card: {
@@ -41,6 +43,12 @@ export default defineAppConfig({
       },
       footer: {
         base: "border-t border-gray-300 dark:border-gray-700"
+      }
+    },
+    selectMenu: {
+      defaultVariants: {
+        color: "neutral",
+        variant: "subtle"
       }
     },
     slideover: {

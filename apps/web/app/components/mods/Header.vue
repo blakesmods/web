@@ -2,9 +2,9 @@
   <header
     class="fixed w-full top-0 z-40"
     :class="{
-      'bg-gray-100 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800 backdrop-blur':
+      'bg-neutral-100 dark:bg-neutral-900/80 border-b border-neutral-200 dark:border-neutral-800 backdrop-blur':
         (scrolled || filled) && !dropdown,
-      'bg-gray-100 dark:bg-gray-900': dropdown
+      'bg-neutral-100 dark:bg-neutral-900': dropdown
     }"
   >
     <div
@@ -32,7 +32,7 @@
         </UButton>
         <UButton
           class="inline-flex lg:hidden leading-4"
-          color="gray"
+          color="neutral"
           size="md"
           icon="i-heroicons-bars-3-solid"
           aria-label="Open navigation menu button"
@@ -40,18 +40,20 @@
         />
       </div>
 
-      <USlideover side="right" v-model="menu">
-        <div class="flex flex-nowrap gap-4">
-          <div class="flex flex-col w-full gap-4">
-            <NuxtLink class="font-bold" :to="downloadLink">Download</NuxtLink>
-            <slot />
+      <USlideover side="right" v-model:open="menu">
+        <template #content>
+          <div class="flex flex-nowrap gap-4">
+            <div class="flex flex-col w-full gap-4">
+              <NuxtLink class="font-bold" :to="downloadLink">Download</NuxtLink>
+              <slot />
+            </div>
+            <div class="relative -top-1">
+              <UButton icon="i-heroicons-x-mark" @click="menu = false">
+                Close
+              </UButton>
+            </div>
           </div>
-          <div class="relative -top-1">
-            <UButton icon="i-heroicons-x-mark" @click="menu = false">
-              Close
-            </UButton>
-          </div>
-        </div>
+        </template>
       </USlideover>
     </div>
   </header>

@@ -1,19 +1,21 @@
+@reference "./main.css";
+
 .nuxt-content {
   @apply -mb-4 py-4;
 
-  & > * {
+  > * {
     @apply mb-5;
   }
 
-  & > h2:first-child,
-  & > h3:first-child {
+  > h2:first-child,
+  > h3:first-child {
     @apply mt-0;
   }
 
   a {
     @apply text-primary-500 dark:text-primary-400;
 
-    &:hover {
+    :hover {
       @apply underline;
     }
   }
@@ -24,7 +26,7 @@
     @apply mt-8 mb-4 scroll-mt-52;
 
     a {
-      @apply text-gray-700 dark:text-gray-300 scroll-mt-36;
+      @apply text-gray-700 dark:text-gray-300 scroll-mt-36 font-bold;
 
       &:hover {
         @apply text-gray-700 dark:text-gray-300 no-underline;
@@ -43,7 +45,7 @@
   }
 
   pre {
-    @apply p-4 mt-5 mb-6 bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden hover:overflow-auto;
+    @apply p-4 mt-5 mb-6 bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 rounded-lg overflow-hidden hover:overflow-auto;
   }
 
   p code,
@@ -52,11 +54,11 @@
     padding: 1px 5px;
     border-radius: 4px;
     line-height: 1;
-    @apply bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-700;
+    @apply bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700;
   }
 
   table {
-    @apply w-full table-auto text-sm border border-gray-300 dark:border-gray-800;
+    @apply w-full table-auto text-sm border border-neutral-300 dark:border-neutral-800;
 
     th {
       @apply font-bold text-left;
@@ -64,15 +66,15 @@
 
     th,
     td {
-      @apply px-2 py-1 border-b border-gray-300 dark:border-gray-800;
+      @apply px-2 py-1 border-b border-neutral-300 dark:border-neutral-800;
     }
   }
 
-  @screen lg {
+  @variant lg {
     @apply pl-4;
   }
 
-  @screen xl {
+  @variant xl {
     @apply pr-4;
   }
 

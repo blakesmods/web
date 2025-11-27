@@ -11,7 +11,7 @@
               aria-label="View navigation button"
               @click="onToggleSidebar"
             />
-            <UBreadcrumb :links="breadcrumbs" />
+            <UBreadcrumb :items="breadcrumbs" />
             <UButton
               v-if="hasTOC"
               ref="tocToggle"
@@ -65,20 +65,27 @@
         />
       </div>
     </div>
-    <USlideover v-if="hasTOC" class="xl:hidden" position="right" v-model="toc">
-      <div class="flex flex-nowrap gap-4">
-        <div class="flex flex-col w-full">
-          <TOC :page="page" />
-          <ContentLinks
-            :edit-url="`https://github.com/blakesmods/web/edit/main/apps/web/content${page._path}.${page._extension}`"
-          />
+    <USlideover
+      v-if="hasTOC"
+      class="xl:hidden"
+      position="right"
+      v-model:open="toc"
+    >
+      <template #content>
+        <div class="flex flex-nowrap gap-4">
+          <div class="flex flex-col w-full">
+            <TOC :page="page" />
+            <ContentLinks
+              :edit-url="`https://github.com/blakesmods/web/edit/main/apps/web/content${page._path}.${page._extension}`"
+            />
+          </div>
+          <div class="relative -top-1">
+            <UButton icon="i-heroicons-x-mark" @click="toc = false">
+              Close
+            </UButton>
+          </div>
         </div>
-        <div class="relative -top-1">
-          <UButton icon="i-heroicons-x-mark" @click="toc = false">
-            Close
-          </UButton>
-        </div>
-      </div>
+      </template>
     </USlideover>
   </div>
 </template>

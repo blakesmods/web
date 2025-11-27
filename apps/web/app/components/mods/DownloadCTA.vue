@@ -47,7 +47,7 @@
           <UButton
             :to="mod.url + '/download'"
             size="xl"
-            variant="primary"
+            color="mod"
             leading-icon="i-heroicons-arrow-down-tray-solid"
           >
             Download
@@ -56,7 +56,8 @@
             :to="mod.curseforge_link"
             target="_blank"
             size="xl"
-            variant="secondary"
+            color="mod"
+            variant="outline"
             leading-icon="i-heroicons-arrow-top-right-on-square-solid"
           >
             CurseForge
@@ -65,7 +66,8 @@
             :to="mod.modrinth_link"
             target="_blank"
             size="xl"
-            variant="secondary"
+            color="mod"
+            variant="outline"
             leading-icon="i-heroicons-arrow-top-right-on-square-solid"
           >
             Modrinth

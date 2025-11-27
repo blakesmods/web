@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col gap-4 mr-2">
-    <UFormGroup v-if="currentMod" label="Select Mod">
-      <UDropdown
+    <UFormField v-if="currentMod" label="Select Mod">
+      <UDropdownMenu
         class="w-full"
         :items="mods"
         :popper="{ placement: 'bottom-start' }"
@@ -9,7 +9,7 @@
       >
         <UButton
           class="w-full"
-          color="gray"
+          color="neutral"
           trailing-icon="i-heroicons-chevron-down-20-solid"
         >
           <UAvatar class="flex-shrink-0" size="2xs" :src="currentMod.logo" />
@@ -17,23 +17,23 @@
             {{ currentMod.name }}
           </span>
         </UButton>
-      </UDropdown>
-    </UFormGroup>
-    <UFormGroup label="Select Version">
-      <UDropdown
+      </UDropdownMenu>
+    </UFormField>
+    <UFormField label="Select Version">
+      <UDropdownMenu
         class="w-full"
         :items="versions"
         :popper="{ placement: 'bottom-start' }"
       >
         <UButton
           class="w-full"
-          color="gray"
+          color="neutral"
           trailing-icon="i-heroicons-chevron-down-20-solid"
         >
           <span class="w-full text-left">{{ version }}</span>
         </UButton>
-      </UDropdown>
-    </UFormGroup>
+      </UDropdownMenu>
+    </UFormField>
 
     <div class="flex flex-col gap-4">
       <Callout
@@ -46,7 +46,7 @@
           check out the docs.
           <UButton
             class="inline-flex mr-auto"
-            color="gray"
+            color="neutral"
             :to="`/docs/${currentMod.mod_id}`"
           >
             View Docs

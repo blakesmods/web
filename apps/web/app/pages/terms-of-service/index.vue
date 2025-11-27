@@ -27,7 +27,7 @@
       <li>
         <p>
           <strong>Country</strong>
-          refers to: Manitoba, Canada
+          refers to: Canada
         </p>
       </li>
       <li>

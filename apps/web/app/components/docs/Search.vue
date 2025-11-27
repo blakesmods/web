@@ -1,44 +1,45 @@
 <template>
-  <UTooltip text="Search">
-    <template #text>
+  <UTooltip>
+    <template #content>
       <div class="flex gap-1">
         Search &bullet;
-        <UKbd size="sm">{{ metaSymbol }}</UKbd>
+        <UKbd size="sm" value="meta" />
         <UKbd size="sm">K</UKbd>
       </div>
     </template>
     <UButton
-      color="gray"
+      color="neutral"
       icon="i-heroicons-magnifying-glass"
       aria-label="Search docs button"
       @click="open = !open"
     />
   </UTooltip>
 
-  <UModal v-model="open">
-    <UCommandPalette
-      command-attribute="title"
-      :autoselect="false"
-      :groups="groups"
-      :fuse="{
-        fuseOptions: {
-          ignoreLocation: true,
-          includeMatches: true,
-          threshold: 0,
-          keys: ['title', 'content', 'category']
-        },
-        matchAllWhenSearchEmpty: false,
-        resultLimit: 10
-      }"
-      @update:model-value="onSelect"
-    />
+  <UModal v-model:open="open">
+    <template #content>
+      <UCommandPalette
+        command-attribute="title"
+        placeholder="Search docs..."
+        :autoselect="false"
+        :groups="groups"
+        :fuse="{
+          fuseOptions: {
+            ignoreLocation: true,
+            includeMatches: true,
+            threshold: 0,
+            keys: ['title', 'content', 'category']
+          },
+          matchAllWhenSearchEmpty: false,
+          resultLimit: 10
+        }"
+        @update:model-value="onSelect"
+      />
+    </template>
   </UModal>
 </template>
 
 <script setup>
 const open = ref(false);
-
-const { metaSymbol } = useShortcuts();
 
 const router = useRouter();
 const search = await useDocsSearch();

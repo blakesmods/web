@@ -37,7 +37,6 @@
               Back to List
             </ULink>
             <UButton
-              variant="primary"
               size="lg"
               trailing-icon="i-heroicons-arrow-down-tray-solid"
               :disabled="downloadPending"
@@ -96,12 +95,14 @@
       </UCard>
       <BisectHostingBanner />
     </div>
+    <Footer />
   </div>
 </template>
 
 <script setup>
 import GradientBackground from "~/components/GradientBackground.vue";
 import Header from "~/components/mods/Header.vue";
+import Footer from "~/components/default/Footer.vue";
 
 const props = defineProps({
   modId: String

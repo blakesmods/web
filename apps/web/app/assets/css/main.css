@@ -1,3 +1,15 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme static {
+  --color-mod: var(--primary-color);
+}
+
+@utility container {
+  margin: auto;
+  padding: 1rem;
+}
+
 body {
   height: 100%;
   font-family:
@@ -25,7 +37,6 @@ body {
 *::before,
 *::after {
   box-sizing: border-box;
-  margin: 0;
 }
 
 a {
@@ -59,7 +70,7 @@ h1 {
   font-size: 40px;
   line-height: 120%;
 
-  @screen sm {
+  @variant sm {
     font-size: 56px;
   }
 }

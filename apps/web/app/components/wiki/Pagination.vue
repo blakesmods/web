@@ -1,13 +1,13 @@
 <template>
   <div
     v-if="previous || next"
-    class="flex justify-between items-center py-6 lg:mx-4 border-t border-gray-200 dark:border-gray-800"
+    class="flex justify-between items-center py-6 lg:mx-4 border-t border-neutral-200 dark:border-neutral-800"
   >
     <UButton
       v-if="previous"
       :to="previous._path"
       class="group gap-4"
-      color="gray"
+      color="neutral"
       size="lg"
       icon="i-heroicons-arrow-left"
       aria-label="Previous page button"
@@ -25,7 +25,7 @@
       v-if="next"
       :to="next._path"
       class="ml-auto group gap-4"
-      color="gray"
+      color="neutral"
       size="lg"
       icon="i-heroicons-arrow-right"
       aria-label="Next page button"

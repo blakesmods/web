@@ -1,6 +1,6 @@
 <template>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <UButton v-for="mod in mods" color="gray" :to="mod.link">
+    <UButton v-for="mod in mods" color="neutral" :to="mod.link">
       <div class="flex gap-2">
         <NuxtImg
           class="w-16 h-16"
