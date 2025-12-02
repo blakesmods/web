@@ -49,6 +49,23 @@ export const useWikiModArticles = async () => {
   return pages;
 };
 
+export const useWikiModLatestArticles = async () => {
+  const { version, mod } = useWikiMetadata();
+  const { data: pages } = await useAsyncData(
+    () =>
+      `wiki-mod-latest-articles/${version.value}/${mod.value?.mod_id ?? ""}`,
+    () =>
+      queryContent("wiki", version.value, mod.value?.mod_id ?? "")
+        .where({ version: { $exists: true } })
+        .sort({ version: -1, $numeric: true })
+        .limit(8)
+        .find(),
+    { watch: [version, mod] }
+  );
+
+  return pages;
+};
+
 export const useWikiLatestArticleURL = async () => {
   const route = useRoute();
   const { version, mod, category, slug } = useWikiMetadata();

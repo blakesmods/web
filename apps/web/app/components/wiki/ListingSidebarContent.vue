@@ -36,7 +36,10 @@
     <div class="flex flex-col gap-4">
       <h2 class="text-2xl">Latest Articles</h2>
       <div class="flex flex-col gap-3 md:gap-1">
-        <div v-for="article in recent" class="flex items-center gap-1 truncate">
+        <div
+          v-for="article in articles"
+          class="flex items-center gap-1 truncate"
+        >
           <ArticleLink :article="article" />
           <small class="capitalize opacity-80">- {{ article._dir }}</small>
         </div>
@@ -61,27 +64,10 @@
 
 <script setup>
 import ArticleLink from "~/components/wiki/ArticleLink.vue";
-import { coerce, rcompare } from "semver";
 
-const { version, mod, isLatestVersion } = useWikiMetadata();
+const { version, mod } = useWikiMetadata();
 const versions = useWikiVersions();
 const mods = useWikiMods();
 
-const pages = await useWikiModArticles();
-
-const recent = computed(() =>
-  [...(pages.value || [])]
-    .sort((a, b) =>
-      rcompare(coerce(a.version) ?? "1.0.0", coerce(b.version) ?? "1.0.0")
-    )
-    .slice(0, 8)
-    .map(article => {
-      // the latest version doesn't have the version in the url
-      if (article._path && isLatestVersion.value) {
-        article._path = removeWikiVersionFromPath(article._path, version.value);
-      }
-
-      return article;
-    })
-);
+const articles = await useWikiModLatestArticles();
 </script>
