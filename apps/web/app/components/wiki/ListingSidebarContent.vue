@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col gap-4 mr-2">
-    <UFormField v-if="currentMod" label="Select Mod">
+    <UFormField v-if="mod" label="Select Mod">
       <UDropdownMenu
         class="w-full"
         :items="mods"
@@ -11,9 +11,9 @@
           class="w-full"
           trailing-icon="i-heroicons-chevron-down-20-solid"
         >
-          <UAvatar class="flex-shrink-0" size="2xs" :src="currentMod.logo" />
+          <UAvatar class="flex-shrink-0" size="2xs" :src="mod.logo" />
           <span class="w-full text-left">
-            {{ currentMod.name }}
+            {{ mod.name }}
           </span>
         </UButton>
       </UDropdownMenu>
@@ -43,17 +43,14 @@
       </div>
 
       <Alert
-        v-if="currentMod?.has_docs"
+        v-if="mod?.has_docs"
         title="Modpack Developers!"
         icon="i-heroicons-information-circle-solid"
       >
         <span class="flex flex-col gap-4">
           This wiki is for gameplay documentation. For advanced configuration,
           check out the docs.
-          <UButton
-            class="inline-flex mr-auto"
-            :to="`/docs/${currentMod.mod_id}`"
-          >
+          <UButton class="inline-flex mr-auto" :to="`/docs/${mod.mod_id}`">
             View Docs
           </UButton>
         </span>
@@ -69,8 +66,6 @@ import { coerce, rcompare } from "semver";
 const { version, mod, isLatestVersion } = useWikiMetadata();
 const versions = useWikiVersions();
 const mods = useWikiMods();
-
-const currentMod = computed(() => getMod(mod.value));
 
 const pages = await useWikiModArticles();
 

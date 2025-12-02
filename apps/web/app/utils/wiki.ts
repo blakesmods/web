@@ -12,7 +12,10 @@ export const getWikiCategoryName = (category: keyof typeof categories) =>
 export function parseWikiRouteParams(path: string) {
   const parts = path.split("/").slice(1);
 
-  let version: string, mod: string, category: string, slug: string;
+  let version: string | undefined,
+    mod: string | undefined,
+    category: string | undefined,
+    slug: string | undefined;
 
   // the latest version won't have the version in the url, which means it will
   // be the mod id

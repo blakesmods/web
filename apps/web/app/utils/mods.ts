@@ -202,7 +202,7 @@ const mods: Mod[] = [
   }
 ];
 
-export const getMod = (id: ModID) => mods.find(m => m.mod_id === id);
+export const getMod = (id: ModID | string) => mods.find(m => m.mod_id === id);
 export const getMods = () => mods;
 export const getModsExcept = (modIDs: ModID[]) =>
   mods.filter(m => !modIDs.includes(m.mod_id));

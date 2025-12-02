@@ -4,9 +4,9 @@ export const useDocsMetadata = () => {
   const params = computed(() => parseDocsRouteParams(route.params));
 
   return {
-    version: computed(() => params.value.version),
-    mod: computed(() => params.value.mod),
-    slug: computed(() => params.value.slug),
+    version: computed(() => params.value.version ?? ""),
+    mod: computed(() => getMod(params.value.mod ?? "")),
+    slug: computed(() => params.value.slug ?? ""),
     isLatestVersion: computed(
       () => params.value.version === getDocsLatestVersion()
     )
@@ -17,7 +17,12 @@ export const useDoc = async () => {
   const route = useRoute();
   const { version, mod, slug } = useDocsMetadata();
   const { data: page } = await useAsyncData("doc/" + route.path, () =>
-    queryContent("docs", version.value, mod.value, slug.value).findOne()
+    queryContent(
+      "docs",
+      version.value,
+      mod.value?.mod_id ?? "",
+      slug.value
+    ).findOne()
   );
 
   return page;
@@ -30,7 +35,12 @@ export const useDocsLatestArticleURL = async () => {
   const { data } = await useAsyncData(
     () => `docs-latest-article-url-${route.path}`,
     () =>
-      queryContent("docs", getDocsLatestVersion(), mod.value, slug.value)
+      queryContent(
+        "docs",
+        getDocsLatestVersion(),
+        mod.value?.mod_id ?? "",
+        slug.value
+      )
         .limit(1)
         .count(),
     { watch: [version, mod, slug] }
@@ -42,10 +52,10 @@ export const useDocsLatestArticleURL = async () => {
     }
 
     if (data.value !== 1 || !slug.value) {
-      return `/docs/${mod.value}`;
+      return `/docs/${mod.value.mod_id}`;
     }
 
-    return `/docs/${mod.value}/${slug.value}`;
+    return `/docs/${mod.value.mod_id}/${slug.value}`;
   });
 };
 
@@ -99,7 +109,7 @@ export const useDocsVersions = () => {
           const { mod, slug } = useDocsMetadata();
 
           const doc = await queryContent(
-            `/docs/${v}/${mod.value}/${slug.value}`
+            `/docs/${v}/${mod.value?.mod_id}/${slug.value}`
           )
             .limit(1)
             .count();
@@ -108,12 +118,12 @@ export const useDocsVersions = () => {
             // the first is the latest and doesn't need the version in the URL
             const link =
               i === 0
-                ? `/docs/${mod.value}/${slug.value}`
-                : `/docs/${v}/${mod.value}/${slug.value}`;
+                ? `/docs/${mod.value?.mod_id}/${slug.value}`
+                : `/docs/${v}/${mod.value?.mod_id}/${slug.value}`;
 
             await router.push(link);
           } else {
-            const doc = await queryContent(`/docs/${v}/${mod.value}`)
+            const doc = await queryContent(`/docs/${v}/${mod.value?.mod_id}`)
               .limit(1)
               .count();
 
@@ -121,7 +131,9 @@ export const useDocsVersions = () => {
             if (doc > 0) {
               // the first is the latest and doesn't need the version in the URL
               const link =
-                i === 0 ? `/docs/${mod.value}` : `/docs/${v}/${mod.value}`;
+                i === 0
+                  ? `/docs/${mod.value?.mod_id}`
+                  : `/docs/${v}/${mod.value?.mod_id}`;
 
               await router.push(link);
             } else {
