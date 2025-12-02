@@ -32,12 +32,12 @@
         />
       </div>
       <div
-        class="flex flex-col overflow-hidden text-muted transition duration-200 ease-in-out"
+        class="flex flex-col gap-3 md:gap-1 overflow-hidden text-muted transition duration-200 ease-in-out"
         :class="[opened.includes(category) ? 'h-full' : 'h-0']"
       >
         <NuxtLink
           v-for="document in documents[category]"
-          class="relative pl-4 py-3 md:py-1 text-sm first:mt-2 hover:text-dimmed border-l border-neutral-300 dark:border-neutral-700"
+          class="relative pl-2 py-0.5 text-sm first:mt-2 hover:text-dimmed border-l border-neutral-300 dark:border-neutral-700"
           :class="{
             '!text-primary-500 dark:!text-primary-400 font-semibold':
               document._path === route.path

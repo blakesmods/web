@@ -49,50 +49,26 @@
         />
       </div>
       <div
-        class="flex flex-col overflow-hidden text-neutral-500 dark:text-neutral-400"
+        class="flex flex-col gap-3 md:gap-1 overflow-hidden text-neutral-500 dark:text-neutral-400"
         :class="[opened.includes(category) ? 'h-full' : 'h-0']"
       >
-        <NuxtLink
+        <ArticleLink
           v-for="article in articles[category]"
-          class="flex relative pl-2 py-1.5 md:py-1 text-sm first:mt-2 hover:text-neutral-700 dark:hover:text-neutral-200 border-l border-neutral-300 dark:border-neutral-700"
+          :article="article"
           :class="{
             '!text-primary-500 dark:!text-primary-400 font-semibold':
-              article._path === route.path
+              article._path === route.path,
+            'first:mt-2': true
           }"
-          :to="article._path"
-        >
-          <UPopover
-            v-if="article.icon"
-            class="my-auto pr-1 w-5 h-4"
-            mode="hover"
-            :popper="{ placement: 'top' }"
-          >
-            <NuxtImg
-              class="w-4 h-4"
-              width="16"
-              height="16"
-              :src="article.icon"
-              :alt="article.title"
-            />
-
-            <template #panel>
-              <NuxtImg
-                class="w-16 h-16 pixelated"
-                width="64"
-                height="64"
-                :alt="article.title"
-                :src="article.icon"
-              />
-            </template>
-          </UPopover>
-          {{ article.title }}
-        </NuxtLink>
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import ArticleLink from "~/components/wiki/ArticleLink.vue";
+
 const route = useRoute();
 
 const { version, category, mod } = useWikiMetadata();
