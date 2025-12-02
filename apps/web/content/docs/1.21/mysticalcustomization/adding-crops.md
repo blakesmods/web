@@ -10,7 +10,7 @@ Mystical Customization allows you easily add your own crops.
 
 Crops are added via JSON files placed in `/config/mysticalcustomization/crops/`. Each file represents a new crop to be added.
 
-::callout{title="Important" icon="i-heroicons-information-circle-solid"}
+::alert{title="Important" icon="i-heroicons-information-circle-solid"}
 The name of the file is used as the crop's ID. The ID **must** be all lowercase with underscores '_' in place of spaces. 
 ::
 
@@ -29,7 +29,7 @@ You can manually define the display name for this crop. Omitting this field will
 
 ### Type
 
-::u-badge{label="Required"}
+::badge{label="Required"}
 ::
 
 You must assign this crop to a type, using that type's ID. Learn more about types and how to add your own [here](adding-types.md).
@@ -40,13 +40,13 @@ You must assign this crop to a type, using that type's ID. Learn more about type
 }
 ```
 
-::callout{title="Tip" icon="i-heroicons-light-bulb-solid"}
+::alert{title="Tip" icon="i-heroicons-light-bulb-solid"}
 You can see all the registered types in-game with the `/mysticalcustomization types` command.
 ::
 
 ### Tier
 
-::u-badge{label="Required"}
+::badge{label="Required"}
 ::
 
 You must assign this crop to a tier, using the tier's ID. Learn more about tiers and how to add your own [here](adding-tiers.md).
@@ -56,7 +56,7 @@ You must assign this crop to a tier, using the tier's ID. Learn more about tiers
 }
 ```
 
-::callout{title="Tip" icon="i-heroicons-light-bulb-solid"}
+::alert{title="Tip" icon="i-heroicons-light-bulb-solid"}
 You can see all the registered tiers in-game with the `/mysticalcustomization tiers` command.
 ::
 
@@ -104,7 +104,7 @@ You should set the textures you want to use for your crop, essence and seeds.
 }
 ```
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 Due to changes in Minecraft, this option now uses **Model Locations** instead of textures. Mystical Agriculture comes with models for each of the default textures listed below. If you would like to use your own, see [Custom Models](#custom-models).
 ::
 
@@ -287,7 +287,7 @@ You can specify your own essence item. This is the item that will drop from the 
 }
 ```
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 Setting this value will prevent the default essence item from being registered. If you still want that item to be registered, you can set this value in the `configure-crops.json` file instead.
 ::
 

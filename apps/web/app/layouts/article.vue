@@ -1,7 +1,7 @@
 <template>
   <div
     class="flex flex-col min-h-screen"
-    :class="[isLatestVersion ? 'pt-20' : 'pt-32 sm:pt-28']"
+    :class="[isLatestVersion ? 'pt-16' : 'pt-28 sm:pt-24']"
   >
     <Header />
     <main class="flex flex-auto container mx-auto px-4">
@@ -22,9 +22,12 @@
             </template>
           </USlideover>
           <div
-            class="hidden lg:block min-w-[244px] max-h-96 lg:max-h-full col-span-3 pr-4 py-4 z-20 rounded overflow-y-auto lg:overflow-y-visible"
+            class="hidden lg:block min-w-[244px] max-h-96 lg:max-h-full col-span-3 pr-4 py-4 z-20 overflow-y-auto lg:overflow-y-visible"
           >
-            <div class="sticky top-24 w-full">
+            <div
+              class="sticky w-full"
+              :class="[isLatestVersion ? 'top-24' : 'top-32']"
+            >
               <SidebarContent />
             </div>
           </div>

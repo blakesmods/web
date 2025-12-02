@@ -12,7 +12,7 @@
 
     <span
       v-if="filename"
-      class="text-gray-400 dark:text-gray-500 absolute right-3 bottom-3 text-sm group-hover:opacity-0 transition-opacity"
+      class="text-neutral-400 dark:text-neutral-500 absolute right-3 bottom-3 text-sm group-hover:opacity-0 transition-opacity"
     >
       {{ filename }}
     </span>

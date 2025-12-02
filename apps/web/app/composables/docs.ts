@@ -94,7 +94,7 @@ export const useDocsVersions = () => {
       {
         id: v,
         label: v,
-        onClick: async () => {
+        onSelect: async () => {
           const { mod, slug } = useDocsMetadata();
 
           const doc = await queryContent(

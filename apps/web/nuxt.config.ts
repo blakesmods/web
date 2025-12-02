@@ -104,6 +104,7 @@ export default defineNuxtConfig({
     authToken: process.env.SENTRY_AUTH_TOKEN
   },
   ui: {
+    content: true,
     theme: {
       colors: [
         "primary",
@@ -112,8 +113,7 @@ export default defineNuxtConfig({
         "info",
         "error",
         "warning",
-        "neutral",
-        "mod"
+        "neutral"
       ]
     }
   }

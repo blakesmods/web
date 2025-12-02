@@ -8,7 +8,7 @@ Extended Crafting allows you to easily add your own Flux Crafting recipes using 
 
 ## Datapacks
 
-::callout{title="Prerequisites" icon="i-heroicons-information-circle-solid"}
+::alert{title="Prerequisites" icon="i-heroicons-information-circle-solid"}
 - You can learn more about using vanilla datapacks <a href="https://minecraft.gamepedia.com/Data_pack" target="_blank">here</a>.
 - You can learn more about creating recipe JSON files <a href="https://minecraft.gamepedia.com/Recipe" target="_blank">here</a>.
 ::
@@ -38,7 +38,7 @@ This section will go over the values available to use in an Ender Crafting recip
 | `ingredients`    | ✓        | An array of 1-9 input items.                                                                                                  |
 | `result`         | ✓        | The item that this recipe will output once finished                                                                           |
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 Crafting Time will decrease depending on how many Alternators are in range. See the config settings for more information.
 ::
 
@@ -89,7 +89,7 @@ Crafting Time will decrease depending on how many Alternators are in range. See 
 
 Extended Crafting comes with CraftTweaker support built-in. You can make use of CraftTweaker to easily manage Flux Crafting recipes.
 
-::callout{title="Recipe Manager Support" icon="i-heroicons-information-circle-solid"}
+::alert{title="Recipe Manager Support" icon="i-heroicons-information-circle-solid"}
 CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:extendedcrafting:flux_crafter\>**!
 ::
 
@@ -107,7 +107,7 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
 | `power_required` | ✓        | The amount of FE this recipe needs per craft.                                                                                                                         |
 | `power_rate`     |          | The amount of FE/t this recipe should take from each Flux Alternator. If omitted will use the default set in the config file.                                         |
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 Crafting Time will decrease depending on how many Alternators are in range. See the config settings for more information.
 ::
 
@@ -135,7 +135,7 @@ Crafting Time will decrease depending on how many Alternators are in range. See 
 | `power_required` | ✓        | The amount of FE this recipe needs per craft.                                                                                 |
 | `power_rate`     |          | The amount of FE/t this recipe should take from each Flux Alternator. If omitted will use the default set in the config file. |
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 Crafting Time will decrease depending on how many Alternators are in range. See the config settings for more information.
 ::
 

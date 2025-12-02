@@ -46,7 +46,7 @@
       </div>
       <div class="flex flex-col w-full gap-8">
         <FileList :mod="mod.mod_id" />
-        <BisectHostingBanner />
+        <BisectHostingBanner source="downloads" />
       </div>
     </div>
     <Footer />

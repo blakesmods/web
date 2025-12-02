@@ -2,47 +2,46 @@ export default defineAppConfig({
   ui: {
     colors: {
       primary: "fuchsia",
-      neutral: "neutral",
-      mod: "mod"
+      neutral: "neutral"
     },
 
     accordion: {
-      item: {
-        base: "flex flex-col gap-4 border border-gray-200 dark:border-gray-800 rounded",
-        padding: "p-4"
+      slots: {
+        item: "flex flex-col p-4 gap-4 border border-neutral-200 dark:border-neutral-800 rounded"
       }
     },
     alert: {
-      title: "text-base font-bold",
-      color: {
-        white: {
-          solid:
-            "text-gray-800 dark:text-gray-100 bg-gray-200 dark:bg-gray-800 ring-1 ring-gray-300 dark:ring-gray-700"
-        }
+      slots: {
+        title: "text-base font-bold"
+      },
+      defaultVariants: {
+        variant: "subtle"
       }
     },
     badge: {
-      default: {
+      defaultVariants: {
         variant: "subtle"
       }
     },
     breadcrumb: {
-      ol: "flex-wrap"
+      slots: {
+        item: "flex-wrap"
+      }
     },
     button: {
+      slots: {
+        base: "cursor-pointer disabled:cursor-default"
+      },
       defaultVariants: {
         color: "neutral",
         variant: "subtle"
       }
     },
     card: {
-      base: "border border-gray-300 dark:border-gray-700",
-      background: "bg-gray-200 dark:bg-gray-800",
-      header: {
-        base: "border-b border-gray-300 dark:border-gray-700"
-      },
-      footer: {
-        base: "border-t border-gray-300 dark:border-gray-700"
+      slots: {
+        root: "bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700",
+        header: "border-b border-neutral-300 dark:border-neutral-700",
+        footer: "border-t border-neutral-300 dark:border-neutral-700"
       }
     },
     selectMenu: {
@@ -52,15 +51,8 @@ export default defineAppConfig({
       }
     },
     slideover: {
-      padding: "p-8",
-      base: "overflow-y-auto z-20"
-    },
-    table: {
-      wrapper:
-        "relative overflow-x-auto rounded-md bg-gray-100 dark:bg-gray-900 ring-1 ring-inset ring-gray-300 dark:ring-gray-700",
-      td: {
-        color: "text-gray-800 dark:text-gray-100",
-        padding: "px-4 py-2"
+      slots: {
+        content: 'p-8 overflow-y-auto "z-20"'
       }
     }
   }

@@ -7,7 +7,7 @@ version: 2.0.0
 
 ## Overview
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 By default there are no tools marked as useless. Whether this feature is used or not will depend on the modpack.
 ::
 

@@ -8,7 +8,7 @@ Extended Crafting allows you to easily add your own Compressor recipes using bot
 
 ## Datapacks
 
-::callout{title="Prerequisites" icon="i-heroicons-information-circle-solid"}
+::alert{title="Prerequisites" icon="i-heroicons-information-circle-solid"}
 - You can learn more about using vanilla datapacks <a href="https://minecraft.gamepedia.com/Data_pack" target="_blank">here</a>.
 - You can learn more about creating recipe JSON files <a href="https://minecraft.gamepedia.com/Recipe" target="_blank">here</a>.
 ::
@@ -26,7 +26,7 @@ This section will go over the values available to use in a Compressor recipe. Sy
 | `catalyst`   | ✓        | The catalyst item. This item does not get consumed.                                 |
 | `result`     | ✓        | The item that this recipe will output once finished.                                |
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 The amount of time (in ticks) a Compression recipe takes to complete is power_cost / power_rate.
 ::
 
@@ -53,7 +53,7 @@ The amount of time (in ticks) a Compression recipe takes to complete is power_co
 
 Extended Crafting comes with CraftTweaker support built-in. You can make use of CraftTweaker to easily manage Compression Crafting recipes.
 
-::callout{title="Recipe Manager Support" icon="i-heroicons-information-circle-solid"}
+::alert{title="Recipe Manager Support" icon="i-heroicons-information-circle-solid"}
 CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:extendedcrafting:compressor\>**!
 ::
 
@@ -75,7 +75,7 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
 | `power_cost`  | ✓        | The amount of FE required to complete the crafting stage of compression.                                                                                  |
 | `power_rate`  |          | The rate the recipe should consume FE during the crafting stage.  If this parameter isn't added, it will use the default rate defined in the config file. |
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 The amount of time (in ticks) a Compression recipe takes to complete is power_cost / power_rate.
 ::
 

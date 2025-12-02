@@ -12,7 +12,7 @@ The Infusion Altar is the core component of the multi-block Infusion crafting st
 
 ## Usage
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 Make sure you have <a href="https://www.curseforge.com/minecraft/mc-mods/jei">Just Enough Items</a> installed to easily view all available Infusion recipes.
 ::
 

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex justify-center border-t border-gray-200 dark:border-gray-800"
+    class="flex justify-center border-t border-neutral-200 dark:border-neutral-800"
     :style="{ 'background-color': mod.primary_color + '20' }"
   >
     <div class="container flex flex-col w-full relative py-16 z-10 gap-8">
@@ -46,8 +46,9 @@
         <div class="flex flex-wrap justify-center gap-8">
           <UButton
             :to="mod.url + '/download'"
+            class="btn-mod"
             size="xl"
-            color="mod"
+            variant="ghost"
             leading-icon="i-heroicons-arrow-down-tray-solid"
           >
             Download
@@ -55,9 +56,9 @@
           <UButton
             :to="mod.curseforge_link"
             target="_blank"
+            class="btn-mod-outline"
             size="xl"
-            color="mod"
-            variant="outline"
+            variant="ghost"
             leading-icon="i-heroicons-arrow-top-right-on-square-solid"
           >
             CurseForge
@@ -65,9 +66,9 @@
           <UButton
             :to="mod.modrinth_link"
             target="_blank"
+            class="btn-mod-outline"
             size="xl"
-            color="mod"
-            variant="outline"
+            variant="ghost"
             leading-icon="i-heroicons-arrow-top-right-on-square-solid"
           >
             Modrinth

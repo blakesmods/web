@@ -10,7 +10,7 @@ Mystical Customization allows you easily add your own crop types.
 
 Crop types are added via JSON files placed in `/config/mysticalcustomization/types/`. Each file represents a new crop type to be added.
 
-::callout{title="Important" icon="i-heroicons-information-circle-solid"}
+::alert{title="Important" icon="i-heroicons-information-circle-solid"}
 The name of the file is used as the crop type's ID. The ID **must** be all lowercase with underscores '_' in place of spaces. 
 ::
 
@@ -18,12 +18,12 @@ The name of the file is used as the crop type's ID. The ID **must** be all lower
 
 This section will go over the values available to use in crop type file. Syntax can be inferred from the example JSON below.
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 Any field below marked with a <span class="text-primary-500">purple</span> badge is required. Any field marked with a <span class="text-green-500">green</span> badge requires at least the version specified.
 ::
 
 ### Textures
-::u-badge{label="Required"}
+::badge{label="Required"}
 ::
 
 You must assign a stem texture for this crop type. This location is used for every crop growth stage (0-7), which are differentiated by an `_#` suffix.
@@ -40,7 +40,7 @@ You must assign a stem texture for this crop type. This location is used for eve
 - `mysticalagriculture:block/mystical_mob_crop`
 
 ### Crafting Seed
-::u-badge{label="Required"}
+::badge{label="Required"}
 ::
 
 You must set an item to use as the crafting seed for all crops of this type.

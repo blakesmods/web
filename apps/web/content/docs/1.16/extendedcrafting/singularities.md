@@ -56,7 +56,7 @@ You need to use an NBT ingredient for Singularities. In the NBT tag you need to 
 }
 ```
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 You can find the Singularity ID by enabling advanced tooltips (f3 + h), and seeing what it says.
 ::
 

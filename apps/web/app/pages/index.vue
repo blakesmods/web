@@ -21,10 +21,10 @@
     ></div>
     <div class="absolute inset-0 min-h-screen z-10">
       <div
-        class="container flex flex-col justify-between h-full mx-auto py-8 gap-8 font-bold"
+        class="container flex flex-col md:justify-between h-full mx-auto py-8 gap-8 font-bold"
       >
         <h1
-          class="flex w-full max-w-[300px] md:max-w-[600px] h-1/4 mx-auto justify-center items-center"
+          class="flex w-full max-w-[300px] md:max-w-[600px] md:h-1/4 mx-auto justify-center items-center"
         >
           <Logo class="md:scale-[2]" />
         </h1>
@@ -100,7 +100,8 @@ const grays = [
   "bg-neutral-400 dark:bg-neutral-600"
 ];
 
-const mods = getMods();
+// the grid is designed for 8 mods, so we can hide cucumber "for now"
+const mods = getMods().filter(m => m.mod_id !== "cucumber");
 
 const el = ref(null);
 const rows = ref(0);

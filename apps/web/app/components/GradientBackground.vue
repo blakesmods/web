@@ -15,7 +15,7 @@
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <g style="mix-blend-mode: soft-light" opacity="0.12">
+    <g style="mix-blend-mode: soft-light" opacity="0.05">
       <rect
         x="71.6666"
         y="341"

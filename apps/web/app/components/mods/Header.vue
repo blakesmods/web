@@ -23,17 +23,17 @@
       >
         <UButton
           :to="downloadLink"
-          size="md"
-          variant="primary"
+          class="btn-mod"
+          size="lg"
+          variant="ghost"
           trailing-icon="i-heroicons-arrow-down-tray-solid"
           aria-label="Download page button link"
         >
-          <span class="hidden sm:inline-flex font-bold">Download</span>
+          Download
         </UButton>
         <UButton
           class="inline-flex lg:hidden leading-4"
-          color="neutral"
-          size="md"
+          size="lg"
           icon="i-heroicons-bars-3-solid"
           aria-label="Open navigation menu button"
           @click="menu = !menu"

@@ -6,7 +6,7 @@
     <Header />
     <main class="flex flex-auto container mx-auto px-4">
       <div class="flex flex-nowrap flex-1 max-w-full justify-center">
-        <div class="grid grid-cols-12 relative w-full min-h-[800px]">
+        <div class="docs grid grid-cols-12 relative w-full min-h-[800px]">
           <USlideover side="left" v-model:open="sidebar">
             <template #content>
               <div class="flex flex-nowrap gap-4">
@@ -22,9 +22,14 @@
             </template>
           </USlideover>
           <div
-            class="hidden lg:block sticky top-24 min-w-[244px] max-h-96 lg:max-h-[calc(100vh-96px)] col-span-3 pr-2 py-8 z-20 rounded overflow-y-auto"
+            class="hidden lg:block min-w-[244px] max-h-96 lg:max-h-full col-span-3 pr-4 py-8 z-20 overflow-y-auto lg:overflow-y-visible"
           >
-            <SidebarContent />
+            <div
+              class="sticky w-full"
+              :class="[isLatestVersion ? 'top-24' : 'top-32']"
+            >
+              <SidebarContent />
+            </div>
           </div>
           <slot />
         </div>

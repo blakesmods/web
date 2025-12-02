@@ -4,7 +4,7 @@ title: Usage in Recipes
 category: Iron Jetpacks
 ---
 
-::callout{title="Important" icon="i-heroicons-information-circle-solid"}
+::alert{title="Important" icon="i-heroicons-information-circle-solid"}
 These ingredients are only available in version 5.0.0 or later!
 ::
 
@@ -22,7 +22,7 @@ You need to use a Jetpack Component ingredient for Jetpacks and their crafting c
 | `component` | ✓        | The item you want. Must be one of `jetpack`, `cell`, `thruster` or `capacitor`. |
 | `jetpack`   | ✓        | The Jetpack ID.                                                                 |
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 You can find the Jetpack ID by enabling advanced tooltips (F3 + h), and checking the ID by hovering over a Jetpack.
 ::
 

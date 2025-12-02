@@ -14,44 +14,40 @@
       <div class="flex gap-2">
         <UDropdownMenu :items="versions">
           <UTooltip text="Select Version">
-            <UButton
-              class="w-full"
-              color="neutral"
-              trailing-icon="i-heroicons-chevron-down-20-solid"
-            >
-              <span class="w-full text-left">{{ version }}</span>
+            <UButton trailing-icon="i-heroicons-chevron-down-20-solid">
+              {{ version }}
             </UButton>
           </UTooltip>
         </UDropdownMenu>
         <Search />
-        <UColorModeButton variant="subtle" />
+        <UTooltip text="Change Theme">
+          <UColorModeButton variant="subtle" />
+        </UTooltip>
         <UTooltip text="CurseForge">
           <UButton
             to="https://www.curseforge.com/members/blakebr0/projects"
-            class="flex justify-center w-8 p-0 fill-neutral-700 dark:fill-neutral-200 hover:fill-neutral-500 dark:hover:fill-neutral-400"
+            class="hidden sm:flex justify-center w-8 fill-neutral-700 dark:fill-neutral-200"
             target="_blank"
-            color="neutral"
             aria-label="CurseForge"
           >
-            <CurseForgeLogo width="20px" />
+            <CurseForgeLogo class="shrink-0 size-5" width="20px" />
           </UButton>
         </UTooltip>
         <UTooltip text="Modrinth">
           <UButton
             to="https://modrinth.com/user/BlakeBr0"
-            class="flex justify-center w-8 p-0 fill-neutral-700 dark:fill-neutral-200 hover:fill-neutral-500 dark:hover:fill-neutral-400"
+            class="hidden sm:flex justify-center w-8 fill-neutral-700 dark:fill-neutral-200"
             target="_blank"
-            color="neutral"
             aria-label="Modrinth"
           >
-            <ModrinthLogo width="20px" />
+            <ModrinthLogo class="shrink-0 size-5" width="20px" />
           </UButton>
         </UTooltip>
         <UTooltip text="GitHub">
           <UButton
             to="https://github.com/blakesmods"
+            class="hidden sm:flex"
             target="_blank"
-            color="neutral"
             icon="i-simple-icons-github"
             aria-label="GitHub"
           />
@@ -64,7 +60,10 @@
     >
       <div class="container text-center">
         You are viewing the wiki for an older version.
-        <NuxtLink class="font-bold hover:underline" :to="latestURL">
+        <NuxtLink
+          class="font-bold !text-warning hover:!underline underline-offset-4"
+          :to="latestURL"
+        >
           View Latest ({{ getWikiLatestVersion() }})
         </NuxtLink>
       </div>

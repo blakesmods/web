@@ -8,7 +8,7 @@ Extended Crafting allows you to easily add your own Combination Crafting recipes
 
 ## Datapacks
 
-::callout{title="Prerequisites" icon="i-heroicons-information-circle-solid"}
+::alert{title="Prerequisites" icon="i-heroicons-information-circle-solid"}
 - You can learn more about using vanilla datapacks <a href="https://minecraft.gamepedia.com/Data_pack" target="_blank">here</a>.
 - You can learn more about creating recipe JSON files <a href="https://minecraft.gamepedia.com/Recipe" target="_blank">here</a>.
 ::
@@ -26,7 +26,7 @@ This section will go over the values available to use in a Combination Crafting 
 | `ingredients` | ✓        | An array of 1-48 items that will be placed on the Pedestals.                        |
 | `result`      | ✓        | The item that this recipe will output once finished.                                |
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 The amount of time (in ticks) a Combination recipe takes to complete is power_cost / power_rate.
 ::
 
@@ -75,7 +75,7 @@ The amount of time (in ticks) a Combination recipe takes to complete is power_co
 
 Extended Crafting comes with CraftTweaker support built-in. You can make use of CraftTweaker to easily manage Combination Crafting recipes.
 
-::callout{title="Recipe Manager Support" icon="i-heroicons-information-circle-solid"}
+::alert{title="Recipe Manager Support" icon="i-heroicons-information-circle-solid"}
 CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:extendedcrafting:combination\>**!
 ::
 
@@ -95,7 +95,7 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
 | `power_cost` | ✓        | The amount of FE required to craft this recipe.                                                                                                                                             |
 | `power_rate` |          | The rate the recipe should consume FE. powerCost / powerRate = the number of ticks required to craft the recipe. If this isn't defined it will use the default value defined in the config. |
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 The amount of time (in ticks) a combination recipe takes to complete is power_cost / power_rate.
 ::
 

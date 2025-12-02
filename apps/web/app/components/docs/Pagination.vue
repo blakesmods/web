@@ -7,8 +7,6 @@
       v-if="previous"
       :to="previous._path"
       class="group gap-4"
-      color="neutral"
-      variant="subtle"
       size="lg"
       icon="i-heroicons-arrow-left"
       aria-label="Previous page button"
@@ -24,8 +22,6 @@
       v-if="next"
       :to="next._path"
       class="ml-auto group gap-4"
-      color="neutral"
-      variant="subtle"
       size="lg"
       icon="i-heroicons-arrow-right"
       aria-label="Next page button"
@@ -33,9 +29,7 @@
     >
       <div class="hidden md:flex flex-col">
         {{ next.title }}
-        <small
-          class="text-gray-600 dark:text-gray-300 group-hover:text-gray-500 dark:group-hover:text-gray-400"
-        >
+        <small class="text-muted">
           {{ formatModName(next) }}
         </small>
       </div>
@@ -60,20 +54,20 @@ const { data } = await useAsyncData(
 const previous = computed(() => data.value[0]);
 const next = computed(() => data.value[1]);
 
-// latest version doesn't have the version in the url
+// the latest version doesn't have the version in the url
 if (isLatestVersion.value) {
   if (previous.value) {
-    previous.value._path = previous.value._path
-      .split("/")
-      .filter(s => s !== version.value)
-      .join("/");
+    previous.value._path = removeDocsVersionFromPath(
+      previous.value._path,
+      version.value
+    );
   }
 
   if (next.value) {
-    next.value._path = next.value._path
-      .split("/")
-      .filter(s => s !== version.value)
-      .join("/");
+    next.value._path = removeDocsVersionFromPath(
+      next.value._path,
+      version.value
+    );
   }
 }
 

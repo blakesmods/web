@@ -4,18 +4,19 @@
       class="flex flex-col xl:flex-row w-full items-center xl:justify-between gap-8"
     >
       <div
-        class="flex flex-col justify-center items-center xl:items-start gap-4"
+        class="flex flex-col justify-center items-center xl:items-start gap-4 xl: h-[550px]"
       >
         <h1
           class="text-center xl:text-left xl:whitespace-nowrap text-4xl md:text-[52px] uppercase"
         >
           {{ mod.name }}
         </h1>
-        <h2 class="text-center text-2xl font-montserrat">{{ mod.tagline }}</h2>
-        <div class="flex gap-4 mt-4 font-bold">
+        <h2 class="text-center text-xl !font-montserrat">{{ mod.tagline }}</h2>
+        <div class="flex gap-4 mt-4">
           <UButton
+            class="btn-mod"
+            variant="ghost"
             size="xl"
-            color="mod"
             trailing-icon="i-heroicons-arrow-down"
             @click="$emit('learn-more')"
           >
@@ -23,9 +24,9 @@
           </UButton>
           <UButton
             :to="`${mod.url}/download`"
+            class="btn-mod-outline"
+            variant="ghost"
             size="xl"
-            color="mod"
-            variant="outline"
             trailing-icon="i-heroicons-arrow-down-tray"
           >
             Download
@@ -33,16 +34,15 @@
         </div>
       </div>
       <UCarousel
-        ref="carouselRef"
-        class="flex w-full xl:max-w-[40%] xl:h-[550px] xl:items-center"
+        class="flex w-full xl:max-w-[40%] xl:items-center"
+        loop
+        dots
         :items="mod.hero_images"
-        :ui="{
-          item: 'basis-full border border-neutral-300 dark:border-neutral-700 rounded-xl overflow-hidden'
-        }"
+        :autoplay="{ delay: 5000 }"
         v-slot="{ item }"
       >
         <NuxtImg
-          class="w-full"
+          class="basis-full border border-neutral-300 dark:border-neutral-700 rounded-xl overflow-hidden"
           width="1920"
           height="1080"
           :src="item"
@@ -112,8 +112,6 @@ const props = defineProps({
   mod: Object
 });
 
-const carouselRef = ref();
-
 const { data, pending } = await useAPI(`/v2/mods/${props.mod.mod_id}`);
 
 const downloads = computed(() =>
@@ -146,16 +144,4 @@ const mcVersion = computed(() =>
     ? data.value.data.latest_release.mc_version
     : "N/A"
 );
-
-onMounted(() => {
-  setInterval(() => {
-    if (!carouselRef.value) return;
-
-    if (carouselRef.value.page === carouselRef.value.pages) {
-      return carouselRef.value.select(0);
-    }
-
-    carouselRef.value.next();
-  }, 5000);
-});
 </script>

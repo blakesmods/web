@@ -22,7 +22,7 @@ mods.extendedcrafting.EnderCrafting.addShaped(<output>, [[<>, <>, <>], [<>, <>, 
 | `<>`      | ✓        | An input ingredient for the slot shown. These input arrays work in the same way as the normal crafting recipes, check out the CraftTweaker wiki for more information. |
 | `seconds` |          | The amount of seconds this recipe should take with a single Alternator. If this parameter isn't added, it will use the default rate defined in the config file.       |
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 Crafting Time will decrease depending on how many Alternators are in range. See the config settings for more information.
 ::
 
@@ -48,7 +48,7 @@ mods.extendedcrafting.EnderCrafting.addShapeless(<output>, [inputs], seconds);
 | `inputs`  | ✓        | An array of 1-9 items required to make the recipe.                                                                                                              |
 | `seconds` |          | The amount of seconds this recipe should take with a single Alternator. If this parameter isn't added, it will use the default rate defined in the config file. |
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 Crafting Time will decrease depending on how many Alternators are in range. See the config settings for more information.
 ::
 

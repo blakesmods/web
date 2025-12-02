@@ -27,7 +27,7 @@ mods.extendedcrafting.CompressionCrafting.addRecipe(<output>, <input>, inputCoun
 | `powerCost`  | ✓        | The amount of FE required to complete the crafting stage of compression.                                                                                  |
 | `powerRate`  |          | The rate the recipe should consume FE during the crafting stage.  If this parameter isn't added, it will use the default rate defined in the config file. |
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 The amount of time (in ticks) a Compression recipe takes to complete is powerCost / powerRate.
 ::
 

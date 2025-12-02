@@ -24,7 +24,7 @@
           <div
             class="hidden lg:block min-w-[244px] max-h-96 lg:max-h-full col-span-3 pr-4 py-4 z-20 rounded overflow-y-auto lg:overflow-y-visible"
           >
-            <div class="sticky top-36 w-full">
+            <div class="sticky top-24 w-full">
               <ListingSidebarContent />
             </div>
           </div>

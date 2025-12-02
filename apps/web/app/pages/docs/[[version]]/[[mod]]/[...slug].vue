@@ -37,13 +37,14 @@
       <Pagination :current="page" />
     </div>
     <div
-      class="hidden xl:block col-span-2 min-w-[220px] max-h-96 xl:max-h-min py-8 pl-4 z-10 xl:z-0 rounded overflow-y-auto xl:overflow-y-visible"
+      class="hidden xl:block col-span-2 min-w-[220px] min-h-full max-h-96 py-8 pl-4 z-10 xl:z-0 overflow-y-auto xl:overflow-y-visible"
     >
-      <div class="sticky top-36 w-full space-y-4">
+      <div
+        class="sticky w-full space-y-4"
+        :class="[isLatestVersion ? 'top-24' : 'top-32']"
+      >
         <TOC v-if="hasTOC" :page="page" />
-        <ContentLinks
-          :edit-url="`https://github.com/blakesmods/web/edit/main/apps/web/content${page._path}.${page._extension}`"
-        />
+        <ContentLinks :page="page" />
       </div>
     </div>
     <USlideover v-if="hasTOC" class="xl:hidden" side="right" v-model:open="toc">
@@ -51,9 +52,7 @@
         <div class="flex flex-nowrap gap-4">
           <div class="flex flex-col w-full">
             <TOC :page="page" />
-            <ContentLinks
-              :edit-url="`https://github.com/blakesmods/web/edit/main/apps/web/content${page._path}.${page._extension}`"
-            />
+            <ContentLinks :page="page" />
           </div>
           <div class="relative -top-1">
             <UButton icon="i-heroicons-x-mark" @click="toc = false">

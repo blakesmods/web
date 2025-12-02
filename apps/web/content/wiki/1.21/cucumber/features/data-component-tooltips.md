@@ -7,7 +7,7 @@ version: 8.0.0
 
 ## Overview
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 By default, Data Component Tooltips are disabled. You can enable them in the `cucumber-client.toml` config file. 
 ::
 

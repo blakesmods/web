@@ -1,30 +1,15 @@
 <template>
-  <a
-    v-if="vertical"
-    class="m-auto"
-    href="https://bisecthosting.com/blakesmods?r=web+vertical"
-    target="_blank"
-  >
-    <img
-      src="/img/bisect-vertical.png"
-      alt="Bisect Hosting banner code blakesmods"
-    />
-  </a>
-  <a
-    v-else
-    class="m-auto"
-    href="https://bisecthosting.com/blakesmods?r=web+horizontal"
-    target="_blank"
-  >
-    <img
-      src="/img/bisect-horizontal.png"
-      alt="Bisect Hosting banner code blakesmods"
-    />
+  <a class="m-auto" target="_blank" :href="url">
+    <img src="/img/bisect.webp" alt="Bisect Hosting banner code blakesmods" />
   </a>
 </template>
 
 <script setup>
-defineProps({
-  vertical: Boolean
+const props = defineProps({
+  source: String
 });
+
+const url = computed(
+  () => `https://bisecthosting.com/blakesmods?r=${props.source}`
+);
 </script>

@@ -9,7 +9,6 @@
       >
         <UButton
           class="w-full"
-          color="neutral"
           trailing-icon="i-heroicons-chevron-down-20-solid"
         >
           <UAvatar class="flex-shrink-0" size="2xs" :src="currentMod.logo" />

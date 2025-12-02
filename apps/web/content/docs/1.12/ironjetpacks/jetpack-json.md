@@ -16,12 +16,12 @@ After initial load, all the default jetpack JSON files will be generated. You ca
 
 This section will go over the values available to use in jetpack file. Syntax can be inferred from the example json below.
 
-::callout{title="Tip" icon="i-heroicons-light-bulb-solid"}
+::alert{title="Tip" icon="i-heroicons-light-bulb-solid"}
 Use the stats of the default jetpacks to decide what the values should be for your custom jetpacks, since the values themselves are quite cryptic.
 ::
 
 ### Name
-::u-badge{label="Required"}
+::badge{label="Required"}
 ::
 
 The name of the jetpack. **This name must be all lower case and have underscores for spaces.** This will be used for registry names as well as localized names. The name will be formatted automatically for localized names, including spaces and capitalization.
@@ -31,12 +31,12 @@ The name of the jetpack. **This name must be all lower case and have underscores
 }
 ```
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 Translation keys will be automatically created for the provided jetpack name. For example, a jetpack with the name "emerald" will have the translation key "jetpack.emerald.name". You can use this key in your Resource Pack translation files to translate the name into different languages.
 ::
 
 ### Disable
-::u-badge{label="Required"}
+::badge{label="Required"}
 ::
 
 You can set the disable field to true to disable a jetpack. Alternatively, you could just delete the JSON file.
@@ -47,7 +47,7 @@ You can set the disable field to true to disable a jetpack. Alternatively, you c
 ```
 
 ### Tier
-::u-badge{label="Required"}
+::badge{label="Required"}
 ::
 
 The crafting tier of the jetpack. Make sure there is at least 1 jetpack per tier, in succession (ex 1, 2, 3 all have at least one jetpack). Tier -1 is creative.
@@ -58,7 +58,7 @@ The crafting tier of the jetpack. Make sure there is at least 1 jetpack per tier
 ```
 
 ### Color
-::u-badge{label="Required"}
+::badge{label="Required"}
 ::
 
 The color of the jetpack and related items as a HEX value.
@@ -69,7 +69,7 @@ The color of the jetpack and related items as a HEX value.
 ```
 
 ### Armor Points
-::u-badge{label="Required"}
+::badge{label="Required"}
 ::
 
 The amount of armor the jetpack should give when worn.
@@ -80,7 +80,7 @@ The amount of armor the jetpack should give when worn.
 ```
 
 ### Enchantability
-::u-badge{label="Required"}
+::badge{label="Required"}
 ::
 
 How enchantable the jetpack should be.
@@ -91,7 +91,7 @@ How enchantable the jetpack should be.
 ```
 
 ### Crafting Material
-::u-badge{label="Required"}
+::badge{label="Required"}
 ::
 
 The material used to craft the jetpack and its components. Syntax is `modid:itemid` for items and `ore:oreDictValue` for OreDictionary entries. You can also set the value to `"null"` to disable the recipes.
@@ -120,7 +120,7 @@ The item rarity of this jetpack. This is basically just used to change the color
 ```
 
 ### Capacity
-::u-badge{label="Required"}
+::badge{label="Required"}
 ::
 
 How much FE (energy) this jetpack can hold.
@@ -131,7 +131,7 @@ How much FE (energy) this jetpack can hold.
 ```
 
 ### Usage
-::u-badge{label="Required"}
+::badge{label="Required"}
 ::
 
 How much FE this jetpack should use when flying/hovering.
@@ -142,7 +142,7 @@ How much FE this jetpack should use when flying/hovering.
 ```
 
 ### Vertical Speed
-::u-badge{label="Required"}
+::badge{label="Required"}
 ::
 
 How fast the jetpack should fly upwards.
@@ -153,7 +153,7 @@ How fast the jetpack should fly upwards.
 ```
 
 ### Vertical Acceleration
-::u-badge{label="Required"}
+::badge{label="Required"}
 ::
 
 How fast the initial takeoff is.
@@ -164,7 +164,7 @@ How fast the initial takeoff is.
 ```
 
 ### Sideways Speed
-::u-badge{label="Required"}
+::badge{label="Required"}
 ::
 
 How fast the jetpack should make you move forwards (when holding forwards).
@@ -175,7 +175,7 @@ How fast the jetpack should make you move forwards (when holding forwards).
 ```
 
 ### Descending Hover Speed
-::u-badge{label="Required"}
+::badge{label="Required"}
 ::
 
 How fast the jetpack should descend when hover mode is on, and you're sneaking.
@@ -186,7 +186,7 @@ How fast the jetpack should descend when hover mode is on, and you're sneaking.
 ```
 
 ### Hover Speed
-::u-badge{label="Required"}
+::badge{label="Required"}
 ::
 
 How fast the jetpack should descend when hovering.
@@ -197,7 +197,7 @@ How fast the jetpack should descend when hovering.
 ```
 
 ### Sprint Speed Multiplier
-::u-badge{label="Required"}
+::badge{label="Required"}
 ::
 
 How much faster the player should fly when sprinting while flying forwards.
@@ -208,7 +208,7 @@ How much faster the player should fly when sprinting while flying forwards.
 ```
 
 ### Sprint Fuel Multiplier
-::u-badge{label="Required"}
+::badge{label="Required"}
 ::
 
 How much more fuel should the jetpack use while sprinting.
