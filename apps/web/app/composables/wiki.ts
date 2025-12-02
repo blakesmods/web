@@ -4,10 +4,10 @@ export const useWikiMetadata = () => {
   const params = computed(() => parseWikiRouteParams(route.path));
 
   return {
-    version: computed(() => params.value.version),
-    mod: computed(() => params.value.mod),
-    category: computed(() => params.value.category),
-    slug: computed(() => params.value.slug),
+    version: computed(() => params.value.version ?? ""),
+    mod: computed(() => getMod(params.value.mod ?? "")),
+    category: computed(() => params.value.category ?? ""),
+    slug: computed(() => params.value.slug ?? ""),
     isLatestVersion: computed(
       () => params.value.version === getWikiLatestVersion()
     )
@@ -24,7 +24,7 @@ export const useWiki = async () => {
       queryContent(
         "wiki",
         version.value,
-        mod.value,
+        mod.value?.mod_id ?? "",
         category.value,
         slug.value
       ).findOne()
@@ -35,12 +35,12 @@ export const useWiki = async () => {
 
 export const useWikiModArticles = async () => {
   const route = useRoute();
-  const { mod, version } = useWikiMetadata();
+  const { version, mod } = useWikiMetadata();
 
   const { data: pages } = await useAsyncData(
     () => `wiki-mod-articles-${route.path}`,
     () =>
-      queryContent("wiki", version.value, mod.value)
+      queryContent("wiki", version.value, mod.value?.mod_id ?? "")
         .sort({ sort: 1, $numeric: true })
         .find(),
     { watch: [version, mod] }
@@ -59,7 +59,7 @@ export const useWikiLatestArticleURL = async () => {
       queryContent(
         "wiki",
         getWikiLatestVersion(),
-        mod.value,
+        mod.value?.mod_id ?? "",
         category.value,
         slug.value
       )
@@ -74,10 +74,10 @@ export const useWikiLatestArticleURL = async () => {
     }
 
     if (data.value !== 1 || !category.value || !slug.value) {
-      return `/wiki/${mod.value}`;
+      return `/wiki/${mod.value.mod_id}`;
     }
 
-    return `/wiki/${mod.value}/${category.value}/${slug.value}`;
+    return `/wiki/${mod.value.mod_id}/${category.value}/${slug.value}`;
   });
 };
 
@@ -89,7 +89,7 @@ export const useWikiSidebarLinks = async () => {
   const { data } = await useAsyncData(
     () => `wiki-sidebar-${route.path}`,
     () =>
-      queryContent("wiki", version.value, mod.value)
+      queryContent("wiki", version.value, mod.value?.mod_id ?? "")
         .only(["title", "category", "icon", "_path", "_dir"])
         .sort({ sort: 1, $numeric: true })
         .find(),
@@ -204,7 +204,7 @@ export const useWikiVersions = () => {
           const { mod, category, slug } = useWikiMetadata();
 
           const doc = await queryContent(
-            `/wiki/${v}/${mod.value}/${category.value}/${slug.value}`
+            `/wiki/${v}/${mod.value?.mod_id}/${category.value}/${slug.value}`
           )
             .limit(1)
             .count();
@@ -213,12 +213,12 @@ export const useWikiVersions = () => {
             // the first is the latest and doesn't need the version in the URL
             const link =
               i === 0
-                ? `/wiki/${mod.value}/${category.value}/${slug.value}`
-                : `/wiki/${v}/${mod.value}/${category.value}/${slug.value}`;
+                ? `/wiki/${mod.value?.mod_id}/${category.value}/${slug.value}`
+                : `/wiki/${v}/${mod.value?.mod_id}/${category.value}/${slug.value}`;
 
             await router.push(link);
           } else {
-            const doc = await queryContent(`/wiki/${v}/${mod.value}`)
+            const doc = await queryContent(`/wiki/${v}/${mod.value?.mod_id}`)
               .limit(1)
               .count();
 
@@ -226,7 +226,9 @@ export const useWikiVersions = () => {
             if (doc > 0) {
               // the first is the latest and doesn't need the version in the URL
               const link =
-                i === 0 ? `/wiki/${mod.value}` : `/wiki/${v}/${mod.value}`;
+                i === 0
+                  ? `/wiki/${mod.value?.mod_id}`
+                  : `/wiki/${v}/${mod.value?.mod_id}`;
 
               await router.push(link);
             } else {

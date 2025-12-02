@@ -101,8 +101,7 @@ definePageMeta({
 const route = useRoute();
 const toggleSidebar = useEventBus("wiki:toggleSidebar");
 
-const { version, mod: modID, isLatestVersion } = useWikiMetadata();
-const mod = getMod(modID.value);
+const { version, mod, isLatestVersion } = useWikiMetadata();
 
 const page = await useWiki();
 
@@ -110,7 +109,7 @@ if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
 }
 
-const title = `${page.value.title} · ${mod.name} Wiki`;
+const title = `${page.value.title} · ${mod.value.name} Wiki`;
 const description = parseDescription(page.value);
 
 useSeoMeta({
@@ -136,7 +135,7 @@ const breadcrumbs = computed(() =>
       label: version.value
     },
     pathParts.length > 3 && {
-      label: mod.name,
+      label: mod.value.name,
       to: pathParts.length > 4 ? pathParts.slice(0, 4).join("/") : undefined
     },
     pathParts.length > 4 && {

@@ -50,8 +50,8 @@ const props = defineProps({
   page: Object
 });
 
-const { mod: modID } = useDocsMetadata();
-const mod = getMod(modID.value);
+const { mod } = useDocsMetadata();
+
 const editURL = computed(
   () =>
     `https://github.com/blakesmods/web/edit/main/apps/web/content${props.page._path}.${props.page._extension}`

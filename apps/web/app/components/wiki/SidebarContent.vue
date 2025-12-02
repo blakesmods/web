@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col gap-4 mr-2">
-    <UFormField v-if="currentMod" label="Select Mod">
+    <UFormField v-if="mod" label="Select Mod">
       <UDropdownMenu
         class="w-full"
         :items="mods"
@@ -11,9 +11,9 @@
           class="w-full"
           trailing-icon="i-heroicons-chevron-down-20-solid"
         >
-          <UAvatar class="flex-shrink-0" size="2xs" :src="currentMod.logo" />
+          <UAvatar class="flex-shrink-0" size="2xs" :src="mod.logo" />
           <span class="w-full text-left">
-            {{ currentMod.name }}
+            {{ mod.name }}
           </span>
         </UButton>
       </UDropdownMenu>
@@ -71,12 +71,11 @@ import ArticleLink from "~/components/wiki/ArticleLink.vue";
 
 const route = useRoute();
 
-const { version, category, mod } = useWikiMetadata();
+const { version, mod, category } = useWikiMetadata();
 const versions = useWikiVersions();
 const mods = useWikiMods();
 const articles = await useWikiSidebarLinks();
 
-const currentMod = computed(() => getMod(mod.value));
 const categories = computed(() => Object.keys(articles.value));
 
 const opened = ref([category.value]);

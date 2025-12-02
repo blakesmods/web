@@ -15,9 +15,9 @@
 const { version, mod, isLatestVersion } = useDocsMetadata();
 
 const { data } = await useAsyncData(
-  `${mod.value}-${version.value}-docs-listing`,
+  `${mod.value?.mod_id}-${version.value}-docs-listing`,
   () =>
-    queryContent("docs", version.value, mod.value)
+    queryContent("docs", version.value, mod.value?.mod_id ?? "")
       .only(["title", "_path"])
       .find()
 );

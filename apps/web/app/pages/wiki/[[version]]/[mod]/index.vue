@@ -50,15 +50,14 @@ definePageMeta({
 
 const toggleSidebar = useEventBus("wiki:toggleSidebar");
 
-const { version, mod: modID, isLatestVersion } = useWikiMetadata();
+const { version, mod, isLatestVersion } = useWikiMetadata();
 
-const mod = getMod(modID.value);
 if (!mod) {
   throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
 }
 
-const title = mod.name + " Wiki";
-const description = `View wiki articles about ${mod.name}.`;
+const title = mod.value.name + " Wiki";
+const description = `View wiki articles about ${mod.value.name}.`;
 
 useSeoMeta({
   title,
@@ -102,7 +101,7 @@ const breadcrumbs = computed(() => [
     label: version.value
   },
   {
-    label: mod.name
+    label: mod.value.name
   }
 ]);
 
