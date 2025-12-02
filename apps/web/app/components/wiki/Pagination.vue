@@ -42,14 +42,12 @@ const props = defineProps({
   current: Object
 });
 
-const { version, isLatestVersion } = useWikiMetadata();
-
-const parts = props.current._path.split("/").slice(1);
+const { version, mod, category, isLatestVersion } = useWikiMetadata();
 
 const { data } = await useAsyncData(
   "wiki/" + props.current._path + "/pagination",
   () =>
-    queryContent(parts[0], parts[1], parts[2])
+    queryContent("wiki", version.value, mod.value.mod_id, category.value)
       .sort({ sort: 1, $numeric: true })
       .findSurround(props.current._path)
 );
