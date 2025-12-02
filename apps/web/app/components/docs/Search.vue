@@ -46,12 +46,12 @@ const search = await useDocsSearch();
 
 const groups = computed(() =>
   Object.entries(search.value).map(([key, value]) => ({
-    key: key,
+    id: key,
     label: key,
-    commands: value.map(doc => ({
+    items: value.map(doc => ({
       id: doc.id,
       icon: "i-heroicons-document",
-      title: [...doc.titles, doc.title].join(" > "),
+      label: [...doc.titles, doc.title].join(" > "),
       content: doc.content,
       to: doc.id
     }))
