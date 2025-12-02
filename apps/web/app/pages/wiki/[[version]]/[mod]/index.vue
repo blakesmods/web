@@ -45,7 +45,8 @@
 import ArticleLink from "~/components/wiki/ArticleLink.vue";
 
 definePageMeta({
-  layout: "wiki"
+  layout: "wiki",
+  middleware: "ignore-js-map"
 });
 
 const toggleSidebar = useEventBus("wiki:toggleSidebar");
