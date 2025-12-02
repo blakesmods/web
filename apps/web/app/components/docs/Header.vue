@@ -29,7 +29,7 @@
         <UTooltip text="CurseForge">
           <UButton
             to="https://www.curseforge.com/members/blakebr0/projects"
-            class="hidden sm:flex justify-center w-8 fill-neutral-700 dark:fill-neutral-200 hover:fill-neutral-500 dark:hover:fill-neutral-400"
+            class="hidden sm:flex justify-center w-8 fill-neutral-700 dark:fill-neutral-200"
             target="_blank"
             aria-label="CurseForge"
           >
@@ -39,7 +39,7 @@
         <UTooltip text="Modrinth">
           <UButton
             to="https://modrinth.com/user/BlakeBr0"
-            class="hidden sm:flex justify-center w-8 fill-neutral-700 dark:fill-neutral-200 hover:fill-neutral-500 dark:hover:fill-neutral-400"
+            class="hidden sm:flex justify-center w-8 fill-neutral-700 dark:fill-neutral-200"
             target="_blank"
             aria-label="Modrinth"
           >
