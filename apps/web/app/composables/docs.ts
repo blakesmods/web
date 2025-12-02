@@ -60,12 +60,11 @@ export const useDocsLatestArticleURL = async () => {
 };
 
 export const useDocsSidebarLinks = async () => {
-  const route = useRoute();
   const { version } = useDocsMetadata();
   const versions = useDocsVersions();
 
   const { data } = await useAsyncData(
-    () => `docs-sidebar-${route.path}`,
+    () => `docs-sidebar-${version.value}`,
     () =>
       queryContent("docs", version.value)
         .only(["title", "category", "hidden", "_path"])

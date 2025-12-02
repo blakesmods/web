@@ -50,10 +50,10 @@ export const useWikiModArticles = async () => {
 };
 
 export const useWikiModLatestArticles = async () => {
+  const route = useRoute();
   const { version, mod } = useWikiMetadata();
   const { data: pages } = await useAsyncData(
-    () =>
-      `wiki-mod-latest-articles/${version.value}/${mod.value?.mod_id ?? ""}`,
+    () => `wiki-mod-latest-articles-${route.path}`,
     () =>
       queryContent("wiki", version.value, mod.value?.mod_id ?? "")
         .where({ version: { $exists: true } })
@@ -99,12 +99,11 @@ export const useWikiLatestArticleURL = async () => {
 };
 
 export const useWikiSidebarLinks = async () => {
-  const route = useRoute();
   const { version, mod } = useWikiMetadata();
   const versions = useWikiVersions();
 
   const { data } = await useAsyncData(
-    () => `wiki-sidebar-${route.path}`,
+    () => `wiki-sidebar-${version.value}-${mod.value?.mod_id ?? ""}`,
     () =>
       queryContent("wiki", version.value, mod.value?.mod_id ?? "")
         .only(["title", "category", "icon", "_path", "_dir"])
