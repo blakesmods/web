@@ -46,11 +46,11 @@
 </template>
 
 <script setup>
-const { mod } = useDocsMetadata();
-
 const props = defineProps({
   page: Object
 });
+
+const { mod } = useDocsMetadata();
 
 const editURL = computed(
   () =>
