@@ -25,7 +25,7 @@
 
     <div class="h-full z-10 relative">
       <div
-        class="container flex flex-col w-full h-full pt-28 md:pt-40 pb-12 pr-4 justify-between"
+        class="container flex flex-col h-full pt-28 md:pt-40 pb-12 pr-4 justify-between"
       >
         <div class="flex h-full my-auto items-center">
           <Hero :mod="mod" @learn-more="onClickLearnMore" />

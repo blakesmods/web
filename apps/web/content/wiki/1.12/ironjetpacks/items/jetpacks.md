@@ -8,7 +8,7 @@ version: 1.0.0
 
 ## Overview
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 Jetpacks in this mod are completely configurable. Jetpack stats and materials may differ from modpack to modpack.
 ::
 

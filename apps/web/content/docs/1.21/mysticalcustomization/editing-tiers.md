@@ -82,7 +82,7 @@ You can modify the base chance of a second seed/essence dropping from this crop 
 }
 ```
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 This value gets overridden by the `baseSecondaryChance` value of a crop if specified.
 ::
 

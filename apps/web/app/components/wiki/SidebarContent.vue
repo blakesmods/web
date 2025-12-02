@@ -1,15 +1,14 @@
 <template>
   <div class="flex flex-col gap-4 mr-2">
-    <UFormGroup v-if="currentMod" label="Select Mod">
-      <UDropdown
+    <UFormField v-if="currentMod" label="Select Mod">
+      <UDropdownMenu
         class="w-full"
         :items="mods"
-        :popper="{ placement: 'bottom-start' }"
+        :content="{ align: 'left' }"
         :ui="{ width: 'w-64' }"
       >
         <UButton
           class="w-full"
-          color="gray"
           trailing-icon="i-heroicons-chevron-down-20-solid"
         >
           <UAvatar class="flex-shrink-0" size="2xs" :src="currentMod.logo" />
@@ -17,23 +16,23 @@
             {{ currentMod.name }}
           </span>
         </UButton>
-      </UDropdown>
-    </UFormGroup>
-    <UFormGroup label="Select Version">
-      <UDropdown
+      </UDropdownMenu>
+    </UFormField>
+    <UFormField label="Select Version">
+      <UDropdownMenu
         class="w-full"
         :items="versions"
-        :popper="{ placement: 'bottom-start' }"
+        :content="{ align: 'left' }"
       >
         <UButton
           class="w-full"
-          color="gray"
+          color="neutral"
           trailing-icon="i-heroicons-chevron-down-20-solid"
         >
           <span class="w-full text-left">{{ version }}</span>
         </UButton>
-      </UDropdown>
-    </UFormGroup>
+      </UDropdownMenu>
+    </UFormField>
 
     <div v-for="category in categories">
       <div
@@ -50,50 +49,26 @@
         />
       </div>
       <div
-        class="flex flex-col overflow-hidden text-gray-500 dark:text-gray-400"
+        class="flex flex-col gap-3 md:gap-1 overflow-hidden text-neutral-500 dark:text-neutral-400"
         :class="[opened.includes(category) ? 'h-full' : 'h-0']"
       >
-        <NuxtLink
+        <ArticleLink
           v-for="article in articles[category]"
-          class="flex relative pl-2 py-1.5 md:py-1 text-sm first:mt-2 hover:text-gray-700 dark:hover:text-gray-200 border-l border-gray-300 dark:border-gray-700"
+          :article="article"
           :class="{
             '!text-primary-500 dark:!text-primary-400 font-semibold':
-              article._path === route.path
+              article._path === route.path,
+            'first:mt-2': true
           }"
-          :to="article._path"
-        >
-          <UPopover
-            v-if="article.icon"
-            class="my-auto pr-1 w-5 h-4"
-            mode="hover"
-            :popper="{ placement: 'top' }"
-          >
-            <NuxtImg
-              class="w-4 h-4"
-              width="16"
-              height="16"
-              :src="article.icon"
-              :alt="article.title"
-            />
-
-            <template #panel>
-              <NuxtImg
-                class="w-16 h-16 pixelated"
-                width="64"
-                height="64"
-                :alt="article.title"
-                :src="article.icon"
-              />
-            </template>
-          </UPopover>
-          {{ article.title }}
-        </NuxtLink>
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import ArticleLink from "~/components/wiki/ArticleLink.vue";
+
 const route = useRoute();
 
 const { version, category, mod } = useWikiMetadata();

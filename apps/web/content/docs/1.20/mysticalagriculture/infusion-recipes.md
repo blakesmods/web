@@ -8,7 +8,7 @@ Mystical Agriculture allows you easily add your own Infusion Crafting recipes us
 
 ## Datapacks
 
-::callout{title="Prerequisites" icon="i-heroicons-information-circle-solid"}
+::alert{title="Prerequisites" icon="i-heroicons-information-circle-solid"}
 - You can learn more about using vanilla datapacks <a href="https://minecraft.gamepedia.com/Data_pack" target="_blank">here</a>.
 - You can learn more about creating recipe JSON files <a href="https://minecraft.gamepedia.com/Recipe" target="_blank">here</a>.
 ::
@@ -60,7 +60,7 @@ This section will go over the values available to use in an Infusion Crafting re
 
 Mystical Agriculture allows you easily add your own Infusion Crafting recipes using CraftTweaker.
 
-::callout{title="Recipe Manager Support" icon="i-heroicons-information-circle-solid"}
+::alert{title="Recipe Manager Support" icon="i-heroicons-information-circle-solid"}
 CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:mysticalagriculture:infusion\>**!
 ::
 

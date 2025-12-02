@@ -1,3 +1,16 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@source "../../../content/**/*.md";
+
+@theme {
+  --font-montserrat: Montserrat, sans-serif;
+}
+
+@utility container {
+  @apply mx-auto px-8;
+}
+
 body {
   height: 100%;
   font-family:
@@ -25,14 +38,13 @@ body {
 *::before,
 *::after {
   box-sizing: border-box;
-  margin: 0;
 }
 
 a {
   text-decoration: none;
 
   &:hover {
-    @apply text-gray-700/80 dark:text-gray-300/80;
+    @apply text-neutral-700/80 dark:text-neutral-300/80;
   }
 }
 
@@ -59,7 +71,7 @@ h1 {
   font-size: 40px;
   line-height: 120%;
 
-  @screen sm {
+  @variant sm {
     font-size: 56px;
   }
 }
@@ -84,6 +96,16 @@ strong {
   image-rendering: pixelated;
 }
 
+.btn-mod {
+  background-color: var(--primary-color);
+  border: none;
+}
+
+.btn-mod-outline {
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+}
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.25s;
@@ -92,39 +114,4 @@ strong {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
-}
-
-html {
-  ::-webkit-scrollbar {
-    background-color: transparent;
-    height: 0.6em;
-    width: 0.6em;
-  }
-
-  ::-webkit-scrollbar-track {
-    background-color: rgb(var(--color-gray-100));
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: rgb(var(--color-gray-300));
-    border-radius: 0.6em;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: rgb(var(--color-gray-400));
-  }
-
-  &.dark {
-    ::-webkit-scrollbar-track {
-      background-color: rgb(var(--color-gray-800));
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background-color: rgb(var(--color-gray-700));
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background-color: rgb(var(--color-gray-600));
-    }
-  }
 }

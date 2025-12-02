@@ -8,8 +8,14 @@
         :alt="`${current.title} Feature Image`"
       />
       <div class="flex gap-4">
-        <UButton variant="primary" :to="current.mod.url">Learn More</UButton>
-        <UButton variant="primary" :to="`${current.mod.url}/download`">
+        <UButton :to="current.mod.url" class="btn-mod" variant="ghost">
+          Learn More
+        </UButton>
+        <UButton
+          :to="`${current.mod.url}/download`"
+          class="btn-mod"
+          variant="ghost"
+        >
           Download
         </UButton>
       </div>
@@ -28,7 +34,7 @@
       <UButton
         v-for="feature in features"
         class="flex p-4 gap-2"
-        color="gray"
+        color="neutral"
         @click="current = feature"
       >
         <div class="flex items-center">

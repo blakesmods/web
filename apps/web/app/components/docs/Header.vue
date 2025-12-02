@@ -1,8 +1,8 @@
 <template>
   <header
-    class="fixed w-full top-0 z-40 shadow backdrop-blur border-b border-gray-200 dark:border-gray-800 bg-gray-100/75 dark:bg-gray-900/75"
+    class="fixed w-full top-0 z-40 shadow backdrop-blur border-b border-neutral-200 dark:border-neutral-800 bg-neutral-100/75 dark:bg-neutral-900/75"
     :class="{
-      '!bg-gray-100 dark:!bg-gray-900': dropdown
+      '!bg-neutral-100 dark:!bg-neutral-900': dropdown
     }"
   >
     <div class="container flex h-16 m-auto px-4 justify-between items-center">
@@ -12,46 +12,45 @@
       </div>
 
       <div class="flex gap-2">
-        <UDropdown :items="versions">
+        <UDropdownMenu :items="versions">
           <UTooltip text="Select Version">
             <UButton
               class="w-full"
-              color="gray"
               trailing-icon="i-heroicons-chevron-down-20-solid"
             >
-              <span class="w-full text-left">{{ version }}</span>
+              {{ version }}
             </UButton>
           </UTooltip>
-        </UDropdown>
+        </UDropdownMenu>
         <Search />
-        <ColorModeButton />
-        <UTooltip class="hidden sm:flex" text="CurseForge">
+        <UTooltip text="Change Theme">
+          <UColorModeButton variant="subtle" />
+        </UTooltip>
+        <UTooltip text="CurseForge">
           <UButton
             to="https://www.curseforge.com/members/blakebr0/projects"
-            class="flex justify-center w-8 p-0 fill-gray-700 dark:fill-gray-200 hover:fill-gray-500 dark:hover:fill-gray-400"
+            class="hidden sm:flex justify-center w-8 fill-neutral-700 dark:fill-neutral-200"
             target="_blank"
-            color="gray"
             aria-label="CurseForge"
           >
-            <CurseForgeLogo width="20px" />
+            <CurseForgeLogo class="shrink-0 size-5" width="20px" />
           </UButton>
         </UTooltip>
-        <UTooltip class="hidden sm:flex" text="Modrinth">
+        <UTooltip text="Modrinth">
           <UButton
             to="https://modrinth.com/user/BlakeBr0"
-            class="flex justify-center w-8 p-0 fill-gray-700 dark:fill-gray-200 hover:fill-gray-500 dark:hover:fill-gray-400"
+            class="hidden sm:flex justify-center w-8 fill-neutral-700 dark:fill-neutral-200"
             target="_blank"
-            color="gray"
             aria-label="Modrinth"
           >
-            <ModrinthLogo width="20px" />
+            <ModrinthLogo class="shrink-0 size-5" width="20px" />
           </UButton>
         </UTooltip>
-        <UTooltip class="hidden sm:flex" text="GitHub">
+        <UTooltip text="GitHub">
           <UButton
             to="https://github.com/blakesmods"
+            class="hidden sm:flex"
             target="_blank"
-            color="gray"
             icon="i-simple-icons-github"
             aria-label="GitHub"
           />
@@ -60,11 +59,14 @@
     </div>
     <div
       v-if="!isLatestVersion"
-      class="flex flex-col w-full h-16 sm:h-8 justify-center box-border bg-yellow-50 dark:bg-yellow-400 dark:bg-opacity-10 text-yellow-500 dark:text-yellow-400 border-y border-yellow-500 dark:border-yellow-400 border-opacity-25 dark:border-opacity-25"
+      class="flex flex-col w-full h-16 sm:h-8 justify-center box-border bg-warning/10 text-warning ring ring-inset ring-warning/25"
     >
       <div class="container text-center">
         You are viewing the docs for an older version.
-        <NuxtLink class="font-bold hover:underline" :to="latestURL">
+        <NuxtLink
+          class="font-bold !text-warning hover:!underline underline-offset-4"
+          :to="latestURL"
+        >
           View Latest Docs ({{ getDocsLatestVersion() }})
         </NuxtLink>
       </div>
@@ -76,7 +78,6 @@
 import ModsDropdown from "~/components/default/ModsDropdown.vue";
 import ReactiveLogo from "~/components/default/ReactiveLogo.vue";
 import Search from "~/components/docs/Search.vue";
-import ColorModeButton from "~/components/ColorModeButton.vue";
 
 const dropdown = useModsDropdown();
 

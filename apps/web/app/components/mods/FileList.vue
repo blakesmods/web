@@ -1,7 +1,9 @@
 <template>
   <div class="files w-full">
     <UCard
-      :ui="{ header: { background: 'bg-white dark:bg-gray-900 rounded-t-lg' } }"
+      :ui="{
+        header: 'bg-white dark:bg-neutral-900 rounded-t-lg'
+      }"
     >
       <template #header>
         <div
@@ -14,7 +16,6 @@
           <UButton
             :to="cucumberURL"
             target="_blank"
-            color="gray"
             trailing-icon="i-heroicons-arrow-top-right-on-square-solid"
           >
             Get Cucumber
@@ -23,20 +24,20 @@
       </template>
 
       <div
-        class="flex flex-col md:flex-row gap-4 pb-6 mb-6 border-b border-gray-300 dark:border-gray-700"
+        class="flex flex-col md:flex-row gap-4 pb-6 mb-6 border-b border-neutral-300 dark:border-neutral-700"
       >
-        <UFormGroup class="w-full md:w-64" label="Minecraft Version">
+        <UFormField class="w-full md:w-64" label="Minecraft Version">
           <div class="flex">
             <USelectMenu
               class="w-full"
               placeholder="Select..."
               searchable
-              :options="versions"
+              variant="outline"
+              :items="versions"
               v-model="version"
             />
             <UTooltip v-if="version" text="Reset">
               <UButton
-                color="gray"
                 icon="i-heroicons-x-circle"
                 variant="ghost"
                 aria-label="Clear Minecraft version filter"
@@ -44,19 +45,19 @@
               />
             </UTooltip>
           </div>
-        </UFormGroup>
-        <UFormGroup class="w-full md:w-64" label="Mod Loader">
+        </UFormField>
+        <UFormField class="w-full md:w-64" label="Mod Loader">
           <div class="flex">
             <USelectMenu
               class="w-full"
               placeholder="Select..."
               searchable
-              :options="loaders"
+              variant="outline"
+              :items="loaders"
               v-model="loader"
             />
             <UTooltip v-if="loader" text="Reset">
               <UButton
-                color="gray"
                 icon="i-heroicons-x-circle"
                 variant="ghost"
                 aria-label="Clear mod loader filter"
@@ -64,91 +65,46 @@
               />
             </UTooltip>
           </div>
-        </UFormGroup>
+        </UFormField>
       </div>
 
       <UTable
         :columns="columns"
-        :rows="files"
+        :data="files"
         :loading="pending"
-        v-model:expand="expand"
+        :ui="{
+          root: 'bg-white dark:bg-neutral-900 ring ring-inset ring-accented rounded-md'
+        }"
+        v-model:expanded="expanded"
       >
-        <template #file_name-data="{ row }">
-          <NuxtLink :to="`./download/${row._id}`">
-            {{ row.file_name }}
-          </NuxtLink>
-        </template>
-        <template #upload_date-data="{ row }">
-          <div class="flex justify-end items-center">
-            <UTooltip
-              :text="formatDate(row.upload_date, 'ddd, MMM D, YYYY h:mm A')"
-            >
-              {{ formatDate(row.upload_date, "MM/DD/YYYY") }}
-            </UTooltip>
-          </div>
-        </template>
-        <template #mod_loader-data="{ row }">
-          <div class="flex justify-end items-center">
-            {{ row.mod_loader }}
-          </div>
-        </template>
-        <template #downloads-data="{ row }">
-          <div class="flex justify-end items-center">
-            <UTooltip
-              class="mr-4 font-bold"
-              :text="`${formatDownloadCount(row, '0,0')} downloads`"
-            >
-              {{ formatDownloadCount(row, "0[.]0a") }}
-            </UTooltip>
-            <UButton
-              color="gray"
-              :trailing-icon="
-                downloadPending && row._id === downloadPending
-                  ? null
-                  : 'i-heroicons-arrow-down-tray-solid'
-              "
-              :disabled="downloadPending"
-              :loading="downloadPending && row._id === downloadPending"
-              :aria-label="`Download file ${row.file_name}`"
-              @click="onDownloadFile(row)"
-            />
-          </div>
-        </template>
-
-        <template #expand="{ row }">
-          <div class="flex flex-wrap gap-4 p-4 justify-between">
-            <div class="col-span-1">
-              <h5>Java Version</h5>
-              <span>{{ row.java_version }}</span>
+        <template #expanded="{ row }">
+          <div class="grid grid-cols-6 lg:grid-cols-12 gap-4">
+            <div class="col-span-2">
+              <h4>Java Version</h4>
+              <span>{{ row.original.java_version }}</span>
             </div>
-            <div class="col-span-1">
-              <h5>Minecraft Version</h5>
-              <span>{{ row.mc_version }}</span>
+            <div class="col-span-3">
+              <h4>Minecraft Version</h4>
+              <span>{{ row.original.mc_version }}</span>
             </div>
-            <div class="col-span-1">
-              <h5>File Size</h5>
-              <span>{{ formatNumber(row.file_size, "0.00 b") }}</span>
+            <div class="col-span-2">
+              <h4>File Size</h4>
+              <span>{{ formatNumber(row.original.file_size, "0.00 b") }}</span>
             </div>
-            <div class="col-span-2 lg:col-span-5 xl:col-span-2">
-              <h5>MD5 Hash</h5>
-              <span>{{ row.md5_hash }}</span>
+            <div class="col-span-6 lg:col-span-5 xl:col-span-2">
+              <h4>MD5 Hash</h4>
+              <span>{{ row.original.md5_hash }}</span>
             </div>
-            <div class="w-full">
+            <div class="col-span-12">
               <h4>Changelog</h4>
-              <span v-html="row.changelog"></span>
+              <span class="text-pretty" v-html="row.original.changelog"></span>
             </div>
           </div>
         </template>
       </UTable>
 
       <div class="flex p-4 justify-center">
-        <UPagination
-          show-last
-          show-first
-          :page-count="10"
-          :total="count"
-          v-model="page"
-        />
+        <UPagination :items-per-page="10" :total="count" v-model:page="page" />
       </div>
     </UCard>
   </div>
@@ -170,30 +126,93 @@ const downloadPending = ref(false);
 
 const columns = [
   {
-    key: "file_name",
-    label: "File Name"
+    id: "expand",
+    cell: ({ row }) =>
+      h(UButton, {
+        variant: "ghost",
+        icon: "i-lucide-chevron-down",
+        square: true,
+        "aria-label": "Expand",
+        ui: {
+          leadingIcon: [
+            "transition-transform",
+            row.getIsExpanded() ? "duration-200 rotate-180" : ""
+          ]
+        },
+        onClick: () => row.toggleExpanded()
+      })
   },
   {
-    key: "upload_date",
-    label: "Release Date",
-    class: "text-right"
+    accessorKey: "file_name",
+    header: "File Name",
+    cell: ({ row }) =>
+      h(
+        NuxtLink,
+        { to: `./download/${row.original._id}` },
+        () => row.original.file_name
+      )
   },
   {
-    key: "mod_loader",
-    label: "Mod Loader",
-    class: "text-right"
+    accessorKey: "upload_date",
+    header: "Release Date",
+    cell: ({ row }) =>
+      h(
+        UTooltip,
+        {
+          text: formatDate(row.original.upload_date, "ddd, MMM D, YYYY h:mm A")
+        },
+        () => formatDate(row.original.upload_date, "MM/DD/YYYY")
+      ),
+    meta: {
+      class: {
+        th: "text-end",
+        td: "text-end"
+      }
+    }
   },
   {
-    key: "downloads",
-    label: "Downloads",
-    class: "text-right"
+    accessorKey: "mod_loader",
+    header: "Mod Loader",
+    cell: ({ row }) => row.original.mod_loader,
+    meta: {
+      class: {
+        th: "text-end",
+        td: "text-end"
+      }
+    }
+  },
+  {
+    accessorKey: "downloads",
+    header: "Downloads",
+    cell: ({ row }) =>
+      h("div", { class: "flex justify-end items-center gap-4" }, [
+        h(
+          UTooltip,
+          { text: `${formatDownloadCount(row.original, "0,0")} downloads` },
+          () => formatDownloadCount(row.original, "0[.]0a")
+        ),
+        h(UButton, {
+          color: "neutral",
+          trailingIcon:
+            downloadPending.value && row.original._id === downloadPending.value
+              ? null
+              : "i-heroicons-arrow-down-tray-solid",
+          disabled: downloadPending.value,
+          loading:
+            downloadPending.value && row.original._id === downloadPending.value,
+          "aria-label": `Download file ${row.original.file_name}`
+        })
+      ]),
+    meta: {
+      class: {
+        th: "text-end",
+        td: "text-end"
+      }
+    }
   }
 ];
 
-const expand = ref({
-  openedRows: [],
-  row: {}
-});
+const expanded = ref({});
 
 const page = computed({
   get: () => Number(route.query.page ?? 1),
@@ -287,10 +306,7 @@ function formatDownloadCount(file, format) {
 }
 
 watch(files, () => {
-  expand.value = {
-    openedRows: [],
-    row: {}
-  };
+  expanded.value = {};
 });
 
 watch(data, value => {

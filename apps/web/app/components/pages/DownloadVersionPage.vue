@@ -32,13 +32,18 @@
       <UCard>
         <div class="flex flex-col gap-4">
           <div class="flex justify-between">
-            <ULink :to="`${mod.url}/download`" size="lg">
-              <i class="pi pi-arrow-left"></i>
-              Back to List
-            </ULink>
             <UButton
-              variant="primary"
+              :to="listURL"
+              leading-icon="i-heroicons-arrow-left"
               size="lg"
+              variant="outline"
+            >
+              Back to List
+            </UButton>
+            <UButton
+              class="btn-mod"
+              size="lg"
+              variant="ghost"
               trailing-icon="i-heroicons-arrow-down-tray-solid"
               :disabled="downloadPending"
               :aria-label="`Download file ${file.file_name}`"
@@ -87,21 +92,23 @@
               <span>{{ formatDownloadCount(file, "0,0") }} downloads</span>
             </div>
           </div>
-          <UDivider />
+          <USeparator />
           <div>
             <h4>Changelog</h4>
             <span v-html="file.changelog"></span>
           </div>
         </div>
       </UCard>
-      <BisectHostingBanner />
+      <BisectHostingBanner source="version" />
     </div>
+    <Footer />
   </div>
 </template>
 
 <script setup>
 import GradientBackground from "~/components/GradientBackground.vue";
 import Header from "~/components/mods/Header.vue";
+import Footer from "~/components/default/Footer.vue";
 
 const props = defineProps({
   modId: String
@@ -123,6 +130,8 @@ useSeoMeta({
 
 const file = ref({});
 const downloadPending = ref(false);
+
+const listURL = computed(() => `${mod.url}/download`);
 
 const { data } = await useAPI(`/v2/files/${params.version}/info`);
 

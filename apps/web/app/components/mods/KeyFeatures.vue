@@ -33,7 +33,7 @@
           :to="feature.link"
         >
           <h4
-            class="flex items-center gap-2"
+            class="flex items-center gap-2 hover:underline underline-offset-4"
             style="color: var(--primary-color)"
           >
             Learn More
@@ -46,7 +46,7 @@
           @click="feature.onClick"
         >
           <h4
-            class="flex items-center gap-2"
+            class="flex items-center gap-2 hover:underline underline-offset-4"
             style="color: var(--primary-color)"
           >
             Learn More

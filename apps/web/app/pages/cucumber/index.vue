@@ -34,7 +34,9 @@
               >
                 {{ mod.name }}
               </NuxtLink>
-              <span class="text-gray-700/80 dark:text-gray-200/80 leading-snug">
+              <span
+                class="text-neutral-700/80 dark:text-neutral-200/80 leading-snug"
+              >
                 {{ mod.tagline }}
               </span>
               <div class="flex flex-1 items-end gap-4">

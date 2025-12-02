@@ -8,7 +8,7 @@ version: 1.0.0
 
 ## Overview
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 Extended Crafting is a mod built specifically for modpack makers. What you can craft using the different crafting mechanisms will differ from modpack to modpack.
 ::
 

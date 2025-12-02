@@ -45,7 +45,7 @@ You can change the crop type of a crop using that crop type's ID. Learn more abo
 }
 ```
 
-::callout{title="Tip" icon="i-heroicons-light-bulb-solid"}
+::alert{title="Tip" icon="i-heroicons-light-bulb-solid"}
 You can see all the registered types in-game with the `/mysticalcustomization types` command.
 ::
 
@@ -58,7 +58,7 @@ You can change the crop tier of a crop using the crop tier's ID. Learn more abou
 }
 ```
 
-::callout{title="Tip" icon="i-heroicons-light-bulb-solid"}
+::alert{title="Tip" icon="i-heroicons-light-bulb-solid"}
 You can see all the registered tiers in-game with the `/mysticalcustomization tiers` command.
 ::
 

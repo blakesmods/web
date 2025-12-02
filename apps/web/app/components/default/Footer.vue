@@ -1,10 +1,10 @@
 <template>
   <footer
-    class="block dark:bg-gray-800/25 shadow-md shadow-gray-900 border-t border-gray-200 dark:border-gray-800"
+    class="block dark:bg-neutral-800/25 shadow-md shadow-neutral-900 border-t border-neutral-200 dark:border-neutral-800"
   >
     <div class="flex pt-20 pb-8">
       <div
-        class="container grid grid-cols-1 md:grid-cols-3 lg:flex justify-between w-full flex-wrap mx-auto px-4 gap-8"
+        class="container grid grid-cols-1 md:grid-cols-3 lg:flex justify-between flex-wrap mx-auto px-4 gap-8"
       >
         <div class="flex flex-col col-span-full items-start gap-y-2">
           <NuxtLink
@@ -77,7 +77,7 @@
       </div>
     </div>
     <div
-      class="flex md:justify-center flex-col md:flex-row container min-h-16 justify-between items-center mx-auto p-4 gap-2 border-t border-gray-200 dark:border-gray-800"
+      class="flex md:justify-center flex-col md:flex-row container min-h-16 justify-between items-center mx-auto p-4 gap-2 border-t border-neutral-200 dark:border-neutral-800"
     >
       <div class="flex justify-center items-center gap-4">
         <span>
@@ -90,8 +90,10 @@
             MIT License
           </a>
         </span>
-
-        <ThemeToggle />
+        <UColorModeSelect
+          variant="subtle"
+          trailing-icon="i-heroicons-chevron-up"
+        />
       </div>
     </div>
   </footer>
@@ -100,7 +102,6 @@
 <script setup>
 import CurseForgeLogo from "~/components/CurseForgeLogo.vue";
 import ModrinthLogo from "~/components/ModrinthLogo.vue";
-import ThemeToggle from "~/components/ThemeToggle.vue";
 
 const mods = getMods();
 

@@ -8,7 +8,7 @@ Extended Crafting allows you easily add your own Combination Crafting recipes us
 
 ## Datapacks
 
-::callout{title="Prerequisites" icon="i-heroicons-information-circle-solid"}
+::alert{title="Prerequisites" icon="i-heroicons-information-circle-solid"}
 - You can learn more about using vanilla datapacks <a href="https://minecraft.gamepedia.com/Data_pack" target="_blank">here</a>.
 - You can learn more about creating recipe JSON files <a href="https://minecraft.gamepedia.com/Recipe" target="_blank">here</a>.
 ::
@@ -26,7 +26,7 @@ This section will go over the values available to use in a Combination Crafting 
 | `ingredients` | ✓        | An array of 1-48 items that will be placed on the Pedestals.                        |
 | `result`      | ✓        | The item that this recipe will output once finished.                                |
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 The amount of time (in ticks) a Combination recipe takes to complete is powerCost / powerRate.
 ::
 

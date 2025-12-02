@@ -8,7 +8,7 @@ Extended Crafting allows you easily add your own Extended Crafting Table recipes
 
 ## Datapacks
 
-::callout{title="Prerequisites" icon="i-heroicons-information-circle-solid"}
+::alert{title="Prerequisites" icon="i-heroicons-information-circle-solid"}
 - You can learn more about using vanilla datapacks <a href="https://minecraft.gamepedia.com/Data_pack" target="_blank">here</a>.
 - You can learn more about creating recipe JSON files <a href="https://minecraft.gamepedia.com/Recipe" target="_blank">here</a>.
 ::

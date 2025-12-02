@@ -57,7 +57,7 @@ You need to use a Data Component ingredient for singularities. In the Components
 }
 ```
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 You can find the singularity ID by enabling advanced tooltips (f3 + h), and seeing what it says.
 ::
 

@@ -8,7 +8,7 @@ Mystical Agriculture allows you easily add your own Awakening recipes using both
 
 ## Datapacks
 
-::callout{title="Prerequisites" icon="i-heroicons-information-circle-solid"}
+::alert{title="Prerequisites" icon="i-heroicons-information-circle-solid"}
 - You can learn more about using vanilla datapacks <a href="https://minecraft.gamepedia.com/Data_pack" target="_blank">here</a>.
 - You can learn more about creating recipe JSON files <a href="https://minecraft.gamepedia.com/Recipe" target="_blank">here</a>.
 ::
@@ -90,7 +90,7 @@ This file is a single JSON object where the keys are the item IDs and the values
 
 Mystical Agriculture allows you easily add your own Awakening Crafting recipes using CraftTweaker.
 
-::callout{title="Recipe Manager Support" icon="i-heroicons-information-circle-solid"}
+::alert{title="Recipe Manager Support" icon="i-heroicons-information-circle-solid"}
 CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:mysticalagriculture:awakening\>**!
 ::
 

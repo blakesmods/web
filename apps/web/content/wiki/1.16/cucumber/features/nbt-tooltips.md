@@ -7,7 +7,7 @@ version: 4.1.6
 
 ## Overview
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 By default, NBT Tooltips are disabled. You can enable them in the `cucumber-client.toml` config file. 
 ::
 

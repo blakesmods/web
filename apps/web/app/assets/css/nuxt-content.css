@@ -1,0 +1,88 @@
+@reference "./main.css";
+
+.nuxt-content {
+  @apply -mb-4 py-4;
+
+  > * {
+    @apply mb-5;
+  }
+
+  > h2:first-child,
+  > h3:first-child {
+    @apply mt-0;
+  }
+
+  a {
+    @apply text-primary-500 dark:text-primary-400;
+
+    &:hover {
+      @apply underline underline-offset-4;
+    }
+  }
+
+  h2,
+  h3,
+  h4 {
+    @apply mt-8 mb-4 scroll-mt-52;
+
+    a {
+      @apply text-neutral-700 dark:text-neutral-300 scroll-mt-36 font-bold;
+
+      &:hover {
+        @apply text-neutral-700 dark:text-neutral-300 no-underline;
+      }
+    }
+  }
+
+  ul {
+    list-style: disc;
+    padding: 0 0 0 24px;
+
+    li {
+      @apply m-0;
+    }
+  }
+
+  ol {
+    list-style: decimal;
+    padding: 0 0 0 24px;
+
+    li {
+      @apply m-0;
+    }
+  }
+
+  pre {
+    @apply p-4 mt-5 mb-6 bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 rounded-lg overflow-hidden hover:overflow-auto;
+  }
+
+  p code,
+  li code,
+  td code {
+    padding: 1px 5px;
+    border-radius: 4px;
+    line-height: 1;
+    @apply bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700;
+  }
+
+  table {
+    @apply w-full table-auto text-sm border border-neutral-300 dark:border-neutral-800;
+
+    th {
+      @apply font-bold text-left;
+    }
+
+    th,
+    td {
+      @apply px-2 py-1 border-b border-neutral-300 dark:border-neutral-800;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    font-size: 80%;
+
+    table {
+      font-size: 80%;
+    }
+  }
+}

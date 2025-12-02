@@ -12,7 +12,7 @@ The Enchanter is a block that can apply enchantments to books, tools or armor us
 
 ## Usage
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 Make sure you have <a href="https://www.curseforge.com/minecraft/mc-mods/jei">Just Enough Items</a> installed to easily view all available Enchanter recipes.
 ::
 

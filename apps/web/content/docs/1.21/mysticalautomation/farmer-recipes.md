@@ -8,7 +8,7 @@ Mystical Automation allows you to easily add your own Farmer recipes using both 
 
 ## Datapacks
 
-::callout{title="Prerequisites" icon="i-heroicons-information-circle-solid"}
+::alert{title="Prerequisites" icon="i-heroicons-information-circle-solid"}
 - You can learn more about using vanilla datapacks <a href="https://minecraft.gamepedia.com/Data_pack" target="_blank">here</a>.
 - You can learn more about creating recipe JSON files <a href="https://minecraft.gamepedia.com/Recipe" target="_blank">here</a>.
 ::
@@ -62,7 +62,7 @@ This section will go over the values available to use in a Farmer recipe. Syntax
 
 Mystical Automation allows you to easily add your own Farmer recipes using CraftTweaker.
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en/tutorial/Recipes/RecipeManagers" target="_blank">Recipe Managers</a>! Access all applicable methods using **\<recipetype:mysticalautomation:farmer\>**!
 ::
 

@@ -1,15 +1,14 @@
 <template>
   <div class="flex flex-col gap-4 mr-2">
-    <UFormGroup v-if="currentMod" label="Select Mod">
-      <UDropdown
+    <UFormField v-if="currentMod" label="Select Mod">
+      <UDropdownMenu
         class="w-full"
         :items="mods"
-        :popper="{ placement: 'bottom-start' }"
+        :content="{ align: 'left' }"
         :ui="{ width: 'w-64' }"
       >
         <UButton
           class="w-full"
-          color="gray"
           trailing-icon="i-heroicons-chevron-down-20-solid"
         >
           <UAvatar class="flex-shrink-0" size="2xs" :src="currentMod.logo" />
@@ -17,26 +16,33 @@
             {{ currentMod.name }}
           </span>
         </UButton>
-      </UDropdown>
-    </UFormGroup>
-    <UFormGroup label="Select Version">
-      <UDropdown
+      </UDropdownMenu>
+    </UFormField>
+    <UFormField label="Select Version">
+      <UDropdownMenu
         class="w-full"
         :items="versions"
-        :popper="{ placement: 'bottom-start' }"
+        :content="{ align: 'left' }"
       >
         <UButton
           class="w-full"
-          color="gray"
           trailing-icon="i-heroicons-chevron-down-20-solid"
         >
           <span class="w-full text-left">{{ version }}</span>
         </UButton>
-      </UDropdown>
-    </UFormGroup>
+      </UDropdownMenu>
+    </UFormField>
 
     <div class="flex flex-col gap-4">
-      <Callout
+      <h2 class="text-2xl">Latest Articles</h2>
+      <div class="flex flex-col gap-3 md:gap-1">
+        <div v-for="article in recent" class="flex items-center gap-1 truncate">
+          <ArticleLink :article="article" />
+          <small class="capitalize opacity-80">- {{ article._dir }}</small>
+        </div>
+      </div>
+
+      <Alert
         v-if="currentMod?.has_docs"
         title="Modpack Developers!"
         icon="i-heroicons-information-circle-solid"
@@ -46,20 +52,12 @@
           check out the docs.
           <UButton
             class="inline-flex mr-auto"
-            color="gray"
             :to="`/docs/${currentMod.mod_id}`"
           >
             View Docs
           </UButton>
         </span>
-      </Callout>
-      <h2 class="text-2xl">Latest Articles</h2>
-      <div class="flex flex-col gap-3 md:gap-1">
-        <div v-for="article in recent" class="flex items-center gap-1 truncate">
-          <ArticleLink :article="article" />
-          <small class="capitalize opacity-80">- {{ article._dir }}</small>
-        </div>
-      </div>
+      </Alert>
     </div>
   </div>
 </template>

@@ -10,7 +10,7 @@ Mystical Customization allows you easily add your own crop tiers.
 
 Crop tiers are added via JSON files placed in `/config/mysticalcustomization/tiers/`. Each file represents a new crop tier to be added.
 
-::callout{title="Important" icon="i-heroicons-information-circle-solid"}
+::alert{title="Important" icon="i-heroicons-information-circle-solid"}
 The name of the file is used as the crop tier's ID. The ID **must** be all lowercase with underscores '_' in place of spaces. 
 ::
 
@@ -30,7 +30,7 @@ You can manually define the display name for this crop tier.
 Omitting this field will auto generate a translation key with the format `cropTier.mysticalcustomization.{id}`.
 
 ### Value
-::u-badge{label="Required"}
+::badge{label="Required"}
 ::
 
 You must assign an integer tier value to this tier. This is used internally to sort tiers. Higher value = higher tier. For example `mysticalagriculture:elemental` has a tier value of 1.
@@ -41,7 +41,7 @@ You must assign an integer tier value to this tier. This is used internally to s
 ```
 
 ### Essence
-::u-badge{label="Required"}
+::badge{label="Required"}
 ::
 
 You must set an essence item to be used in the crafting recipes of this tier's seeds.

@@ -8,7 +8,7 @@ Extended Crafting allows you easily add your own Ender Crafting recipes using bo
 
 ## Datapacks
 
-::callout{title="Prerequisites" icon="i-heroicons-information-circle-solid"}
+::alert{title="Prerequisites" icon="i-heroicons-information-circle-solid"}
 - You can learn more about using vanilla datapacks <a href="https://minecraft.gamepedia.com/Data_pack" target="_blank">here</a>.
 - You can learn more about creating recipe JSON files <a href="https://minecraft.gamepedia.com/Recipe" target="_blank">here</a>.
 ::
@@ -36,7 +36,7 @@ This section will go over the values available to use in an Ender Crafting recip
 | `ingredients`  | ✓        | An array of 1-9 input items.                                                      |
 | `result`       | ✓        | The item that this recipe will output once finished.                              |
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 Crafting Time will decrease depending on how many Alternators are in range. See the config settings for more information.
 ::
 
@@ -98,7 +98,7 @@ mods.extendedcrafting.EnderCrafting.addShaped(name, <output>, [[<>, <>, <>], [<>
 | `<>`      | ✓        | An input ingredient for the slot shown. These input arrays work in the same way as the normal crafting recipes, check out the CraftTweaker wiki for more information. |
 | `seconds` |          | The amount of seconds this recipe should take with a single Alternator. If this parameter isn't added, it will use the default rate defined in the config file.       |
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 Crafting Time will decrease depending on how many Alternators are in range. See the config settings for more information.
 ::
 
@@ -125,7 +125,7 @@ mods.extendedcrafting.EnderCrafting.addShapeless(name, <output>, [inputs], secon
 | `inputs`  | ✓        | An array of 1-9 items required to make the recipe.                                                                                                              |
 | `seconds` |          | The amount of seconds this recipe should take with a single Alternator. If this parameter isn't added, it will use the default rate defined in the config file. |
 
-::callout{title="Note" icon="i-heroicons-information-circle-solid"}
+::alert{title="Note" icon="i-heroicons-information-circle-solid"}
 Crafting Time will decrease depending on how many Alternators are in range. See the config settings for more information.
 ::
 
