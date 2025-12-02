@@ -101,7 +101,7 @@ const grays = [
 ];
 
 // the grid is designed for 8 mods, so we can hide cucumber "for now"
-const mods = getMods().filter(m => m.mod_id !== "cucumber");
+const mods = getModsExcept("cucumber");
 
 const el = ref(null);
 const rows = ref(0);
