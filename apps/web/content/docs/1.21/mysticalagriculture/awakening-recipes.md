@@ -75,6 +75,8 @@ This section will go over the values available to use in an Awakening recipe. Sy
 
 By default, the 4 elemental essences have colors assigned. To set the colors for any additional items you plan on using, you can create a resource pack containing an `essence_vessel_colors.json` file.
 
+You can also place this file in a datapack at `mysticalagriculture/essence_vessel_colors.json` and it will be synced from the server to the client.
+
 This file is a single JSON object where the keys are the item IDs and the values are hex color codes. Below is the `essence_vessel_colors.json` included in the mod by default.
 ```json
 {
@@ -114,6 +116,23 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
   [<tag:item:c:ingots/iron>, <item:minecraft:stick>],
   [<item:mysticalagriculture:air_essence> * 10, <item:mysticalagriculture:earth_essence> * 20, <item:mysticalagriculture:water_essence> * 30, <item:mysticalagriculture:fire_essence> * 40]
 );
+```
+
+### Setting an Essence Vessel Color
+
+```java
+<recipetype:mysticalagriculture:awakening>.setEssenceVesselColor(<input>, "color");
+```
+
+| Field   | Required | Description                    |
+|---------|----------|--------------------------------|
+| `input` | ✓        | The item to assign a color to. |
+| `color` | ✓        | The color as a hex value.      |
+
+#### Example
+
+```java
+<recipetype:mysticalagriculture:awakening>.setEssenceVesselColor(<item:mysticalagriculture:diamond_essence>, "#89ddf7");
 ```
 
 ### Removing Recipes
