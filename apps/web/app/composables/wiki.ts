@@ -51,8 +51,8 @@ export const useWikiModArticles = async () => {
 
 export const useWikiModLatestArticles = async () => {
   const route = useRoute();
-  const { version, mod } = useWikiMetadata();
-  const { data: pages } = await useAsyncData(
+  const { version, mod, isLatestVersion } = useWikiMetadata();
+  const { data } = await useAsyncData(
     () => `wiki-mod-latest-articles-${route.path}`,
     () =>
       queryContent("wiki", version.value, mod.value?.mod_id ?? "")
@@ -63,7 +63,19 @@ export const useWikiModLatestArticles = async () => {
     { watch: [version, mod] }
   );
 
-  return pages;
+  return computed(() => {
+    if (!data.value) {
+      return [];
+    }
+
+    for (const article of data.value) {
+      if (article._path && isLatestVersion.value) {
+        article._path = removeWikiVersionFromPath(article._path, version.value);
+      }
+    }
+
+    return data.value;
+  });
 };
 
 export const useWikiLatestArticleURL = async () => {
