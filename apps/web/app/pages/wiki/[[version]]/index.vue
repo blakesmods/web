@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col py-4 gap-y-8 col-span-12 lg:col-span-9">
     <UButton
-      class="lg:!hidden mr-auto"
+      class="lg:hidden! mr-auto"
       ref="sidebarToggle"
       icon="i-heroicons-bars-3-solid"
       aria-label="View navigation button"
@@ -16,7 +16,8 @@
 import Mods from "~/components/wiki/Mods.vue";
 
 definePageMeta({
-  layout: "wiki"
+  layout: "wiki",
+  middleware: "ignore-js-map"
 });
 
 const toggleSidebar = useEventBus("wiki:toggleSidebar");

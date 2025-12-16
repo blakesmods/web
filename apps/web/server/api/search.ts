@@ -1,13 +1,14 @@
-import { serverQueryContent } from "#content/server";
-import type { ParsedContent } from "@nuxt/content";
-
 export default defineEventHandler(async event => {
   const query = getQuery(event);
-  const content = await serverQueryContent(event, query.search as string)
-    .where({ hidden: { $ne: true } })
-    .find();
+  const collection = query.collection as string;
+  const version = query.version as string;
 
-  return content.map(page => splitPageIntoSections(page)).flat();
+  const content: any[] = await queryCollection(event, collection)
+    .where("path", "LIKE", `/${collection}/${version}%`)
+    .where("hidden", "!=", true)
+    .all();
+
+  return content.flatMap(page => splitPageIntoSections(page));
 });
 
 //
@@ -30,9 +31,9 @@ type Section = {
 const HEADING = /^h([1-6])$/;
 const isHeading = (tag: string) => HEADING.test(tag);
 
-export function splitPageIntoSections(page: ParsedContent) {
-  const ignoredTags = ["style", "pre"];
-  const path = page._path ?? "";
+export function splitPageIntoSections(page: any) {
+  const ignoredTags = ["style", "pre", "code"];
+  const path = page.path ?? "";
 
   const sections: Section[] = [];
 
@@ -128,7 +129,3 @@ function extractTextFromAst(node: any, ignoredTags: string[] = []) {
 
   return text;
 }
-
-//
-//
-//

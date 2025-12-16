@@ -3,7 +3,7 @@
     <UButton
       :icon="icon"
       variant="solid"
-      class="absolute right-3 top-3 opacity-0 group-hover:opacity-100 transition-opacity z-[1]"
+      class="absolute right-3 top-3 opacity-0 group-hover:opacity-100 transition-opacity z-1"
       size="xs"
       tabindex="-1"
       aria-label="Copy code snippet button"
@@ -45,7 +45,7 @@ const props = defineProps({
   }
 });
 
-const clipboard = useCopyToClipboard({ timeout: 2000 });
+const clipboard = useClipboard({ timeout: 2000 });
 const icon = ref("i-heroicons-clipboard-document-solid");
 
 function copy() {

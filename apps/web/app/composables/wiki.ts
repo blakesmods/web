@@ -18,16 +18,17 @@ export const useWiki = async () => {
   const route = useRoute();
   const { version, mod, category, slug } = useWikiMetadata();
 
-  const { data: page } = await useAsyncData(
-    () => `wiki-${route.path}`,
-    () =>
-      queryContent(
-        "wiki",
-        version.value,
-        mod.value?.mod_id ?? "",
-        category.value,
-        slug.value
-      ).findOne()
+  const { data: page } = await useAsyncData(route.path, () =>
+    queryCollection("wiki")
+      .path(
+        createWikiPath(
+          version.value,
+          mod.value?.mod_id,
+          category.value,
+          slug.value
+        )
+      )
+      .first()
   );
 
   return page;
@@ -40,9 +41,14 @@ export const useWikiModArticles = async () => {
   const { data: pages } = await useAsyncData(
     () => `wiki-mod-articles-${route.path}`,
     () =>
-      queryContent("wiki", version.value, mod.value?.mod_id ?? "")
-        .sort({ sort: 1, $numeric: true })
-        .find(),
+      queryCollection("wiki")
+        .where(
+          "path",
+          "LIKE",
+          `${createWikiPath(version.value, mod.value?.mod_id)}%`
+        )
+        .order("sort", "ASC")
+        .all(),
     { watch: [version, mod] }
   );
 
@@ -55,11 +61,16 @@ export const useWikiModLatestArticles = async () => {
   const { data } = await useAsyncData(
     () => `wiki-mod-latest-articles-${route.path}`,
     () =>
-      queryContent("wiki", version.value, mod.value?.mod_id ?? "")
-        .where({ version: { $exists: true } })
-        .sort({ version: -1, $numeric: true })
+      queryCollection("wiki")
+        .where(
+          "path",
+          "LIKE",
+          `${createWikiPath(version.value, mod.value?.mod_id)}/%`
+        )
+        .where("version", "IS NOT NULL")
+        .order("version", "DESC")
         .limit(8)
-        .find(),
+        .all(),
     { watch: [version, mod] }
   );
 
@@ -69,8 +80,8 @@ export const useWikiModLatestArticles = async () => {
     }
 
     for (const article of data.value) {
-      if (article._path && isLatestVersion.value) {
-        article._path = removeWikiVersionFromPath(article._path, version.value);
+      if (article.path && isLatestVersion.value) {
+        article.path = removeWikiVersionFromPath(article.path, version.value);
       }
     }
 
@@ -85,15 +96,17 @@ export const useWikiLatestArticleURL = async () => {
   const { data } = await useAsyncData(
     () => `wiki-latest-article-url-${route.path}`,
     () =>
-      queryContent(
-        "wiki",
-        getWikiLatestVersion(),
-        mod.value?.mod_id ?? "",
-        category.value,
-        slug.value
-      )
-        .limit(1)
-        .count(),
+      queryCollection("wiki")
+        .path(
+          createWikiPath(
+            version.value,
+            mod.value?.mod_id,
+            category.value,
+            slug.value
+          )
+        )
+        .select("path")
+        .first(),
     { watch: [version, mod, category, slug] }
   );
 
@@ -102,7 +115,7 @@ export const useWikiLatestArticleURL = async () => {
       return "/wiki";
     }
 
-    if (data.value !== 1 || !category.value || !slug.value) {
+    if (!data.value || !category.value || !slug.value) {
       return `/wiki/${mod.value.mod_id}`;
     }
 
@@ -117,10 +130,14 @@ export const useWikiSidebarLinks = async () => {
   const { data } = await useAsyncData(
     () => `wiki-sidebar-${version.value}-${mod.value?.mod_id ?? ""}`,
     () =>
-      queryContent("wiki", version.value, mod.value?.mod_id ?? "")
-        .only(["title", "category", "icon", "_path", "_dir"])
-        .sort({ sort: 1, $numeric: true })
-        .find(),
+      queryCollection("wiki")
+        .where(
+          "path",
+          "LIKE",
+          createWikiPathSQL(version.value, mod.value?.mod_id)
+        )
+        .order("sort", "ASC")
+        .all(),
     { watch: [version, mod] }
   );
 
@@ -134,20 +151,23 @@ export const useWikiSidebarLinks = async () => {
     }
 
     for (const doc of data.value) {
-      if (!doc._path) {
+      if (!doc.path) {
         continue;
       }
 
-      if (!articles[doc._dir]) {
-        articles[doc._dir] = [];
+      const parts = doc.path.split("/").slice(1);
+      const dir = parts.at(-2)!;
+
+      if (!articles[dir]) {
+        articles[dir] = [];
       }
 
       // the latest version doesn't have the version in the url
-      if (doc._path && version.value === versions.value[0]![0]!.label) {
-        doc._path = removeWikiVersionFromPath(doc._path, version.value);
+      if (doc.path && version.value === versions.value[0]![0]!.label) {
+        doc.path = removeWikiVersionFromPath(doc.path, version.value);
       }
 
-      articles[doc._dir]!.push(doc);
+      articles[dir]!.push(doc);
     }
 
     for (const [category, documents] of Object.entries(articles)) {
@@ -177,9 +197,10 @@ export const useWikiMods = () => {
             const { version, category, slug, isLatestVersion } =
               useWikiMetadata();
 
-            const doc = await queryContent(
-              `/wiki/${version.value}/${m.mod_id}/${category.value}/${slug.value}`
-            )
+            const doc = await queryCollection("wiki")
+              .path(
+                `/wiki/${version.value}/${m.mod_id}/${category.value}/${slug.value}`
+              )
               .limit(1)
               .count();
 
@@ -191,9 +212,12 @@ export const useWikiMods = () => {
 
               await router.push(link);
             } else {
-              const doc = await queryContent(
-                `/wiki/${version.value}/${m.mod_id}`
-              )
+              const doc = await queryCollection("wiki")
+                .where(
+                  "path",
+                  "LIKE",
+                  createWikiPathSQL(version.value, m.mod_id)
+                )
                 .limit(1)
                 .count();
 
@@ -231,9 +255,10 @@ export const useWikiVersions = () => {
         onClick: async () => {
           const { mod, category, slug } = useWikiMetadata();
 
-          const doc = await queryContent(
-            `/wiki/${v}/${mod.value?.mod_id}/${category.value}/${slug.value}`
-          )
+          const doc = await queryCollection("wiki")
+            .path(
+              `/wiki/${v}/${mod.value?.mod_id}/${category.value}/${slug.value}`
+            )
             .limit(1)
             .count();
 
@@ -246,7 +271,8 @@ export const useWikiVersions = () => {
 
             await router.push(link);
           } else {
-            const doc = await queryContent(`/wiki/${v}/${mod.value?.mod_id}`)
+            const doc = await queryCollection("wiki")
+              .where("path", "LIKE", createWikiPathSQL(v, mod.value?.mod_id))
               .limit(1)
               .count();
 
@@ -275,7 +301,8 @@ export const useWikiVersions = () => {
 export const useWikiSearch = async () => {
   const { version, isLatestVersion } = useWikiMetadata();
   const query = computed(() => ({
-    search: `wiki/${version.value}`
+    collection: "wiki",
+    version: version.value
   }));
 
   const { data } = await useFetch("/api/search", {

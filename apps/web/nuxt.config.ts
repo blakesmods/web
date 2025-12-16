@@ -1,4 +1,5 @@
 import docsVersionsJSON from "./content/docs/.versions.json";
+import wikiCategoriesJSON from "./content/wiki/.categories.json";
 
 const description =
   "Official home of Mystical Agriculture, Pickle Tweaks, Iron Jetpacks, Extended Crafting, Mystical Agradditions, Mystical Automation, Mystical Customization, More Buckets and Cucumber Library!";
@@ -81,11 +82,29 @@ export default defineNuxtConfig({
     }
   },
   content: {
-    highlight: {
-      preload: ["java", "json5"],
-      theme: {
-        default: "github-light",
-        dark: "github-dark"
+    build: {
+      markdown: {
+        highlight: {
+          langs: ["java", "json5"],
+          theme: {
+            default: "github-light",
+            dark: "github-dark"
+          }
+        }
+      }
+    }
+  },
+  hooks: {
+    "content:file:afterParse"(ctx) {
+      const { file, content } = ctx;
+      // automatically add category to wiki articles based on directory
+      if (file.id.startsWith("wiki")) {
+        const dir = file.dirname?.split("/").pop();
+        if (dir) {
+          content.category = (wikiCategoriesJSON as any)[dir] || dir;
+        } else {
+          content.category = "Uncategorized";
+        }
       }
     }
   },

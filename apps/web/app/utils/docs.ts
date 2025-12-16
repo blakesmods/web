@@ -32,6 +32,27 @@ export function parseDocsRouteParams(params: any) {
   };
 }
 
+export function createDocsPath(version?: string, mod?: string, slug?: string) {
+  let path: string = "/docs";
+  if (slug) {
+    path = `/docs/${version}/${mod}/${slug}`;
+  } else if (mod) {
+    path = `/docs/${version}/${mod}`;
+  } else if (version) {
+    path = `/docs/${version}`;
+  }
+
+  return path;
+}
+
+export function createDocsPathSQL(
+  version?: string,
+  mod?: string,
+  slug?: string
+) {
+  return `${createDocsPath(version, mod, slug)}%`;
+}
+
 export function removeDocsVersionFromPath(path: string, version: string) {
   return path
     .split("/")

@@ -39,6 +39,35 @@ export function parseWikiRouteParams(path: string) {
   };
 }
 
+export function createWikiPath(
+  version?: string,
+  mod?: string,
+  category?: string,
+  slug?: string
+) {
+  let path: string = "/wiki";
+  if (slug) {
+    path = `/wiki/${version}/${mod}/${category}/${slug}`;
+  } else if (category) {
+    path = `/wiki/${version}/${mod}/${category}`;
+  } else if (mod) {
+    path = `/wiki/${version}/${mod}`;
+  } else if (version) {
+    path = `/wiki/${version}`;
+  }
+
+  return path;
+}
+
+export function createWikiPathSQL(
+  version?: string,
+  mod?: string,
+  category?: string,
+  slug?: string
+) {
+  return `${createWikiPath(version, mod, category, slug)}%`;
+}
+
 export function removeWikiVersionFromPath(path: string, version: string) {
   return path
     .split("/")

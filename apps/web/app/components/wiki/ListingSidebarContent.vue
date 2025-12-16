@@ -11,7 +11,7 @@
           class="w-full"
           trailing-icon="i-heroicons-chevron-down-20-solid"
         >
-          <UAvatar class="flex-shrink-0" size="2xs" :src="mod.logo" />
+          <UAvatar class="shrink-0" size="2xs" :src="mod.logo" />
           <span class="w-full text-left">
             {{ mod.name }}
           </span>
@@ -41,7 +41,7 @@
           class="flex items-center gap-1 truncate"
         >
           <ArticleLink :article="article" />
-          <small class="capitalize opacity-80">- {{ article._dir }}</small>
+          <small class="text-muted">- {{ article.category }}</small>
         </div>
       </div>
 

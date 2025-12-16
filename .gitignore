@@ -92,3 +92,4 @@ sw.*
 .vercel
 .turbo
 .output
+.data

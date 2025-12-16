@@ -5,7 +5,7 @@
   >
     <UButton
       v-if="previous"
-      :to="previous._path"
+      :to="previous.path"
       class="group gap-4"
       size="lg"
       icon="i-heroicons-arrow-left"
@@ -20,7 +20,7 @@
     </UButton>
     <UButton
       v-if="next"
-      :to="next._path"
+      :to="next.path"
       class="ml-auto group gap-4"
       size="lg"
       icon="i-heroicons-arrow-right"
@@ -44,11 +44,9 @@ const props = defineProps({
 
 const { version, isLatestVersion } = useDocsMetadata();
 
-const parts = props.current._path.split("/").slice(1);
-
 const { data } = await useAsyncData(
-  "doc/" + props.current._path + "/pagination",
-  () => queryContent(parts[0], parts[1]).findSurround(props.current._path)
+  "docs/" + props.current.path + "/pagination",
+  () => queryCollectionItemSurroundings("docs", props.current.path)
 );
 
 const previous = computed(() => data.value[0]);
@@ -57,22 +55,19 @@ const next = computed(() => data.value[1]);
 // the latest version doesn't have the version in the url
 if (isLatestVersion.value) {
   if (previous.value) {
-    previous.value._path = removeDocsVersionFromPath(
-      previous.value._path,
+    previous.value.path = removeDocsVersionFromPath(
+      previous.value.path,
       version.value
     );
   }
 
   if (next.value) {
-    next.value._path = removeDocsVersionFromPath(
-      next.value._path,
-      version.value
-    );
+    next.value.path = removeDocsVersionFromPath(next.value.path, version.value);
   }
 }
 
 function formatModName(document) {
-  const modID = document._path.split("/")[isLatestVersion.value ? 2 : 3];
+  const modID = document.path.split("/")[isLatestVersion.value ? 2 : 3];
   const mod = getMod(modID);
   return mod ? mod.name : modID;
 }
