@@ -80,7 +80,7 @@ Mystical Agriculture allows you easily add your own Awakening Crafting recipes u
 
 ### Adding A Recipe
 
-```java
+```zenscript
 mods.mysticalagriculture.AwakeningCrafting.addRecipe(name, <output>, [inputs], [essences], transferNBT);
 ```
 
@@ -94,13 +94,13 @@ mods.mysticalagriculture.AwakeningCrafting.addRecipe(name, <output>, [inputs], [
 
 #### Example
 
-```java
+```zenscript
 mods.mysticalagriculture.AwakeningCrafting.addRecipe("test", <item:minecraft:stick> * 10, [<item:minecraft:diamond>, <tag:forge:ingots/iron>, <item:minecraft:stick>], [10, 20, 30, 40]);
 ```
 
 ### Removing Recipes
 
-```java
+```zenscript
 mods.mysticalagriculture.AwakeningCrafting.remove(<output>);
 ```
 

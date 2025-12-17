@@ -55,7 +55,7 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
 
 ### Adding A Recipe
 
-```java
+```zenscript
 <recipetype:mysticalagriculture:soulium_spawner>.addRecipe(name, <input>, input_count, [entities]);
 ```
 
@@ -68,7 +68,7 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
 
 #### Example
 
-```java
+```zenscript
 <recipetype:mysticalagriculture:soulium_spawner>.addRecipe("test_spawner", <item:minecraft:apple>, 20, ["minecraft:zombie"]);
 <recipetype:mysticalagriculture:soulium_spawner>.addRecipe("test_spawner_weights", <item:minecraft:carrot>, 16, ["minecraft:skeleton@5", "minecraft:wither_skeleton@1"]);
 ```
@@ -76,7 +76,7 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
 ### Removing Recipes
 #### Remove By Entity ID
 
-```java
+```zenscript
 <recipetype:mysticalagriculture:soulium_spawner>.removeByEntity("entity");
 ```
 

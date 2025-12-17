@@ -87,7 +87,7 @@ Extended Crafting comes with CraftTweaker support built-in. You can make use of 
 
 ### Adding A Shaped Recipe
 
-```java
+```zenscript
 mods.extendedcrafting.EnderCrafting.addShaped(name, <output>, [[<>, <>, <>], [<>, <>, <>], [<>, <>, <>]], seconds);  
 ```
 
@@ -104,7 +104,7 @@ Crafting Time will decrease depending on how many Alternators are in range. See 
 
 #### Example
 
-```java
+```zenscript
 mods.extendedcrafting.EnderCrafting.addShaped("test_shaped", <item:minecraft:stick>, [
   [<tag:items:forge:ingots/iron>, <item:minecraft:air>, <item:minecraft:air>], 
   [<tag:items:forge:ingots/gold>, <tag:items:forge:ingots/gold>, <item:minecraft:air>], 
@@ -114,7 +114,7 @@ mods.extendedcrafting.EnderCrafting.addShaped("test_shaped", <item:minecraft:sti
 
 ### Adding A Shapeless Recipe
 
-```java
+```zenscript
 mods.extendedcrafting.EnderCrafting.addShapeless(name, <output>, [inputs], seconds); 
 ```
 
@@ -131,7 +131,7 @@ Crafting Time will decrease depending on how many Alternators are in range. See 
 
 #### Example
 
-```java
+```zenscript
 mods.extendedcrafting.EnderCrafting.addShapeless("test_shapeless", <item:minecraft:cobblestone>, [
   <tag:items:forge:gems/diamond>, <tag:items:forge:gems/diamond>, <tag:items:forge:gems/diamond>, <tag:items:forge:gems/diamond>, <tag:items:forge:gems/diamond>, <tag:items:forge:gems/diamond>
 ], 30);
@@ -139,7 +139,7 @@ mods.extendedcrafting.EnderCrafting.addShapeless("test_shapeless", <item:minecra
 
 ### Removing Recipes
 
-```java
+```zenscript
 mods.extendedcrafting.EnderCrafting.remove(<output>);
 ```
 

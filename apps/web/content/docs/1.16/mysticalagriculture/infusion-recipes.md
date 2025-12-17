@@ -61,7 +61,7 @@ Mystical Agriculture allows you easily add your own Infusion Crafting recipes us
 
 ### Adding A Recipe
 
-```java
+```zenscript
 mods.mysticalagriculture.InfusionCrafting.addRecipe(name, <output>, [inputs]);
 ```
 
@@ -73,13 +73,13 @@ mods.mysticalagriculture.InfusionCrafting.addRecipe(name, <output>, [inputs]);
 
 #### Example
 
-```java
+```zenscript
 mods.mysticalagriculture.InfusionCrafting.addRecipe("test", <item:minecraft:stick> * 10, [<item:minecraft:diamond>, <tag:forge:ingots/iron>, <item:minecraft:stick>]);
 ```
 
 ### Removing Recipes
 
-```java
+```zenscript
 mods.mysticalagriculture.InfusionCrafting.remove(<output>);
 ```
 

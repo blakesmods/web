@@ -12,7 +12,7 @@ Extended Crafting comes with CraftTweaker support built-in. You can make use of 
 
 ### Adding A Recipe
 
-```java
+```zenscript
 mods.extendedcrafting.CompressionCrafting.addRecipe(<output>, <input>, inputCount, <catalyst>, powerCost);    
 mods.extendedcrafting.CompressionCrafting.addRecipe(<output>, <input>, inputCount, <catalyst>, powerCost, powerRate);
 ```
@@ -33,13 +33,13 @@ The amount of time (in ticks) a Compression recipe takes to complete is powerCos
 
 #### Example
 
-```java
+```zenscript
 mods.extendedcrafting.CompressionCrafting.addRecipe(<minecraft:stick>, <minecraft:apple>, 50000, <minecraft:cobblestone>, 2000000, 200);
 ```
 
 ### Removing Recipes
 
-```java
+```zenscript
 mods.extendedcrafting.CompressionCrafting.remove(<output>);
 ```
 

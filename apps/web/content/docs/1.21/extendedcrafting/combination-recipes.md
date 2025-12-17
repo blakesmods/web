@@ -81,7 +81,7 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
 
 ### Adding A Recipe
 
-```java
+```zenscript
 <recipetype:extendedcrafting:combination>.addRecipe(name, <output>, <input>, [<inputs>], power_cost);
 <recipetype:extendedcrafting:combination>.addRecipe(name, <output>, <input>, [<inputs>], power_cost, power_rate);
 ```
@@ -101,13 +101,13 @@ The amount of time (in ticks) a combination recipe takes to complete is power_co
 
 #### Example
 
-```java
+```zenscript
 <recipetype:extendedcrafting:combination>.addRecipe("test", <item:minecraft:stick> * 10, <item:minecraft:diamond>, [<tag:item:c:ingots/iron>, <item:minecraft:stick>], 10000, 100);
 ```
 
 ### Removing Recipes
 
-```java
+```zenscript
 <recipetype:extendedcrafting:combination>.remove(<output>);
 ```
 

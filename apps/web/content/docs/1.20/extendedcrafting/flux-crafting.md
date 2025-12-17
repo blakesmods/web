@@ -95,7 +95,7 @@ CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.
 
 ### Adding A Shaped Recipe
 
-```java
+```zenscript
 mods.extendedcrafting.FluxCrafting.addShaped(name, <output>, [[<>, <>, <>], [<>, <>, <>], [<>, <>, <>]], powerRequired, powerRate);  
 ```
 
@@ -113,7 +113,7 @@ Crafting Time will decrease depending on how many Alternators are in range. See 
 
 #### Example
 
-```java
+```zenscript
 mods.extendedcrafting.FluxCrafting.addShaped("test_shaped", <item:minecraft:stick>, [
   [<tag:items:forge:ingots/iron>, <item:minecraft:air>, <item:minecraft:air>], 
   [<tag:items:forge:ingots/gold>, <tag:items:forge:ingots/gold>, <item:minecraft:air>], 
@@ -123,7 +123,7 @@ mods.extendedcrafting.FluxCrafting.addShaped("test_shaped", <item:minecraft:stic
 
 ### Adding A Shapeless Recipe
 
-```java
+```zenscript
 mods.extendedcrafting.FluxCrafting.addShapeless(name, <output>, [inputs], powerRequired, powerRate); 
 ```
 
@@ -141,7 +141,7 @@ Crafting Time will decrease depending on how many Alternators are in range. See 
 
 #### Example
 
-```java
+```zenscript
 mods.extendedcrafting.FluxCrafting.addShapeless("test_shapeless", <item:minecraft:cobblestone>, [
   <tag:items:forge:gems/diamond>, <tag:itemsforge:gems/diamond>, <tag:itemsforge:gems/diamond>, <tag:items:forge:gems/diamond>, <tag:itemsforge:gems/diamond>, <tag:itemsforge:gems/diamond>
 ], 1000000);
@@ -149,7 +149,7 @@ mods.extendedcrafting.FluxCrafting.addShapeless("test_shapeless", <item:minecraf
 
 ### Removing Recipes
 
-```java
+```zenscript
 mods.extendedcrafting.FluxCrafting.remove(<output>);
 ```
 

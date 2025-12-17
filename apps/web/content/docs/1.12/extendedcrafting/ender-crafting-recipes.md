@@ -12,7 +12,7 @@ Extended Crafting comes with CraftTweaker support built-in. You can make use of 
 
 ### Adding A Shaped Recipe
 
-```java
+```zenscript
 mods.extendedcrafting.EnderCrafting.addShaped(<output>, [[<>, <>, <>], [<>, <>, <>], [<>, <>, <>]], seconds);  
 ```
 
@@ -28,7 +28,7 @@ Crafting Time will decrease depending on how many Alternators are in range. See 
 
 #### Example
 
-```java
+```zenscript
 mods.extendedcrafting.EnderCrafting.addShaped(<minecraft:stick>, [
   [<minecraft:apple>, <minecraft:apple>, <minecraft:apple>], 
   [<minecraft:carrot>, <minecraft:carrot>, <minecraft:apple>], 
@@ -38,7 +38,7 @@ mods.extendedcrafting.EnderCrafting.addShaped(<minecraft:stick>, [
 
 ### Adding A Shapeless Recipe
 
-```java
+```zenscript
 mods.extendedcrafting.EnderCrafting.addShapeless(<output>, [inputs], seconds); 
 ```
 
@@ -54,7 +54,7 @@ Crafting Time will decrease depending on how many Alternators are in range. See 
 
 #### Example
 
-```java
+```zenscript
 mods.extendedcrafting.EnderCrafting.addShapeless(<minecraft:cobblestone>, [
   <minecraft:diamond>, <minecraft:diamond>, <minecraft:diamond>, <minecraft:diamond>, <minecraft:diamond>, <minecraft:diamond>
 ], 30);
@@ -62,7 +62,7 @@ mods.extendedcrafting.EnderCrafting.addShapeless(<minecraft:cobblestone>, [
 
 ### Removing Recipes
 
-```java
+```zenscript
 mods.extendedcrafting.EnderCrafting.remove(<output>);
 ```
 

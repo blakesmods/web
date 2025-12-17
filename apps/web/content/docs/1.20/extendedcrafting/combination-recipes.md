@@ -81,7 +81,7 @@ CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.
 
 ### Adding A Recipe
 
-```java
+```zenscript
 mods.extendedcrafting.CombinationCrafting.addRecipe(name, <output>, powerCost, [inputs]);
 mods.extendedcrafting.CombinationCrafting.addRecipe(name, <output>, powerCost, [inputs], powerRate);
 ```
@@ -96,13 +96,13 @@ mods.extendedcrafting.CombinationCrafting.addRecipe(name, <output>, powerCost, [
 
 #### Example
 
-```java
+```zenscript
 mods.extendedcrafting.CombinationCrafting.addRecipe("test", <item:minecraft:stick> * 10, 10000, [<item:minecraft:diamond>, <tag:forge:ingots/iron>, <item:minecraft:stick>], 100);
 ```
 
 ### Removing Recipes
 
-```java
+```zenscript
 mods.extendedcrafting.CombinationCrafting.remove(<output>);
 ```
 

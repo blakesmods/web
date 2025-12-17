@@ -60,7 +60,7 @@ CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.
 
 ### Adding A Recipe
 
-```java
+```zenscript
 mods.extendedcrafting.CompressionCrafting.addRecipe(name, <input>, <output>, inputCount, <catalyst>, powerCost);    
 mods.extendedcrafting.CompressionCrafting.addRecipe(name, <input>, <output>, inputCount, <catalyst>, powerCost, powerRate);
 ```
@@ -82,13 +82,13 @@ The amount of time (in ticks) a Compression recipe takes to complete is powerCos
 
 #### Example
 
-```java
+```zenscript
 mods.extendedcrafting.CompressionCrafting.addRecipe("test", <tag:forge:ingots/iron>, <item:minecraft:apple>, 50000, <tag:forge:ingots/gold>, 2000000, 200);
 ```
 
 ### Removing Recipes
 
-```java
+```zenscript
 mods.extendedcrafting.CompressionCrafting.remove(<output>);
 ```
 

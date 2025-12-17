@@ -85,7 +85,7 @@ export default defineNuxtConfig({
     build: {
       markdown: {
         highlight: {
-          langs: ["java", "json5"],
+          langs: ["json", "json5", "zenscript"],
           theme: {
             default: "github-light",
             dark: "github-dark"

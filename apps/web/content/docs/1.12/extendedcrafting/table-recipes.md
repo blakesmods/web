@@ -12,7 +12,7 @@ Extended Crafting comes with CraftTweaker support built-in. You can make use of 
 
 ### Adding A Shaped Recipe
 
-```java
+```zenscript
 mods.extendedcrafting.TableCrafting.addShaped(<output>, [[<>, <>, <>], [<>, <>, <>], [<>, <>, <>]]);  
 mods.extendedcrafting.TableCrafting.addShaped(<output>, [[<>, <>, <>, <>, <>], [<>, <>, <>, <>, <>], [<>, <>, <>, <>, <>], [<>, <>, <>, <>, <>], [<>, <>, <>, <>, <>]]);  
 mods.extendedcrafting.TableCrafting.addShaped(<output>, [[<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>]]);  
@@ -32,7 +32,7 @@ mods.extendedcrafting.TableCrafting.addShaped(tier, <output>, [[<>, <>, <>, <>, 
 
 #### Example
 
-```java
+```zenscript
 mods.extendedcrafting.TableCrafting.addShaped(2, <minecraft:stick>, [
   [<minecraft:emerald>, <minecraft:air>, <minecraft:air>], 
   [<minecraft:apple>, <minecraft:apple>, <minecraft:air>], 
@@ -42,7 +42,7 @@ mods.extendedcrafting.TableCrafting.addShaped(2, <minecraft:stick>, [
 
 ### Adding A Shapeless Recipe
 
-```java
+```zenscript
 mods.extendedcrafting.TableCrafting.addShapeless(<output>, [<input>, <input>]); 
 mods.extendedcrafting.TableCrafting.addShapeless(tier, <output>, [<input>, <input>]);  
 ```
@@ -55,7 +55,7 @@ mods.extendedcrafting.TableCrafting.addShapeless(tier, <output>, [<input>, <inpu
 
 #### Example
 
-```java
+```zenscript
 mods.extendedcrafting.TableCrafting.addShaped(2, <item:minecraft:stick>, [
   <minecraft:emerald>, <minecraft:emerald>, <minecraft:apple>, <minecraft:apple>
 ]);
@@ -63,7 +63,7 @@ mods.extendedcrafting.TableCrafting.addShaped(2, <item:minecraft:stick>, [
 
 ### Removing Recipes
 
-```java
+```zenscript
 mods.extendedcrafting.TableCrafting.remove(<output>);
 ```
 
