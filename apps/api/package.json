@@ -23,7 +23,7 @@
     "fastify-type-provider-zod": "^5.1.0",
     "numeral": "^2.0.6",
     "semver": "^7.7.3",
-    "zod": "^4.1.13"
+    "zod": "^4.2.1"
   },
   "devDependencies": {
     "@types/numeral": "^2.0.5",
