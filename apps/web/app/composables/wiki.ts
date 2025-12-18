@@ -99,7 +99,7 @@ export const useWikiLatestArticleURL = async () => {
       queryCollection("wiki")
         .path(
           createWikiPath(
-            version.value,
+            getWikiLatestVersion(),
             mod.value?.mod_id,
             category.value,
             slug.value

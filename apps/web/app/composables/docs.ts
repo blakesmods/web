@@ -35,7 +35,7 @@ export const useDocsLatestArticleURL = async () => {
     () =>
       queryCollection("docs")
         .path(
-          `/docs/${getDocsLatestVersion()}/${mod.value?.mod_id}/${slug.value}`
+          createDocsPath(getDocsLatestVersion(), mod.value?.mod_id, slug.value)
         )
         .limit(1)
         .first(),
