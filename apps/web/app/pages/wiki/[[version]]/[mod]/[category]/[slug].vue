@@ -175,8 +175,8 @@ function parseDescription(page) {
   if (index > -1 && index + 1 < page.body.value.length) {
     // the special case for the second nested children is for links
     return page.body.value[index + 1]
-      .splice(2)
-      .reduce((a, b) => a + (Array.isArray(b) ? b.splice(2).join(" ") : b), "");
+      .slice(2)
+      .reduce((a, b) => a + (Array.isArray(b) ? b.slice(2).join(" ") : b), "");
   }
 }
 </script>
