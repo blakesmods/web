@@ -7,7 +7,7 @@
         <div class="flex flex-col w-full gap-4">
           <div class="flex items-center gap-4">
             <UButton
-              class="!inline-flex lg:!hidden"
+              class="inline-flex! lg:hidden!"
               ref="sidebarToggle"
               icon="i-heroicons-bars-3-solid"
               aria-label="View navigation button"
@@ -17,7 +17,7 @@
             <UButton
               v-if="hasTOC"
               ref="tocToggle"
-              class="!inline-flex xl:!hidden ml-auto"
+              class="inline-flex! xl:hidden! ml-auto"
               icon="i-heroicons-bars-3-solid"
               aria-label="View table of contents button"
               @click="toc = !toc"
@@ -27,9 +27,7 @@
         </div>
       </div>
 
-      <ContentRenderer :value="page">
-        <ContentRendererMarkdown class="nuxt-content" :value="page" />
-      </ContentRenderer>
+      <ContentRenderer class="nuxt-content" :value="page" />
 
       <div class="flex justify-between lg:px-4 py-4">
         <span v-if="false">Last Updated: {{ lastUpdated }}</span>
@@ -80,7 +78,11 @@ const toggleSidebar = useEventBus("docs:toggleSidebar");
 const page = await useDoc();
 
 if (!page.value) {
-  throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
+  throw createError({
+    statusCode: 404,
+    statusMessage: "Page Not Found",
+    fatal: true
+  });
 }
 
 const title = page.value.category
@@ -91,12 +93,14 @@ const description = page.value.description;
 useSeoMeta({
   title,
   ogTitle: title,
+  twitterTitle: title,
   description,
-  ogDescription: description
+  ogDescription: description,
+  twitterDescription: description
 });
 
 const toc = ref(false);
-const pathParts = page.value._path.split("/");
+const pathParts = page.value.path.split("/");
 
 const { version, isLatestVersion } = useDocsMetadata();
 

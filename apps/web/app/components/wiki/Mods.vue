@@ -10,7 +10,7 @@
           alt=""
         />
         <div class="flex flex-col justify-center gap-1 mx-2">
-          <h2 class="text-lg">
+          <h2 class="text-xl!">
             {{ mod.title }}
           </h2>
           <span v-if="!articles[mod.path]" class="opacity-80">
@@ -31,13 +31,17 @@ const { version, isLatestVersion } = useWikiMetadata();
 
 const { data } = await useAsyncData(
   `wiki-mod-directory/${version.value}`,
-  () => queryContent("wiki", version.value).only(["_path"]).find(),
+  () =>
+    queryCollection("wiki")
+      .where("path", "LIKE", createWikiPathSQL(version.value))
+      .select("path")
+      .all(),
   { watch: [version] }
 );
 
 const articles = computed(() =>
   data.value.reduce((acc, val) => {
-    const parts = val._path.split("/");
+    const parts = val.path.split("/");
 
     if (!acc[parts[3]]) {
       acc[parts[3]] = 0;

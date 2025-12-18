@@ -54,6 +54,6 @@ const { mod } = useDocsMetadata();
 
 const editURL = computed(
   () =>
-    `https://github.com/blakesmods/web/edit/main/apps/web/content${props.page._path}.${props.page._extension}`
+    `https://github.com/blakesmods/web/edit/main/apps/web/content${props.page.path}.${props.page.extension}`
 );
 </script>

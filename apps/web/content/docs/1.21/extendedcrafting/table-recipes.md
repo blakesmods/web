@@ -163,7 +163,7 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
 
 ### Adding A Shaped Recipe
 
-```java
+```zenscript
 <recipetype:extendedcrafting:table>.addShaped(name, <output>, [[<>, <>, <>], [<>, <>, <>], [<>, <>, <>]]);  
 <recipetype:extendedcrafting:table>.addShaped(name, <output>, [[<>, <>, <>, <>, <>], [<>, <>, <>, <>, <>], [<>, <>, <>, <>, <>], [<>, <>, <>, <>, <>], [<>, <>, <>, <>, <>]]);  
 <recipetype:extendedcrafting:table>.addShaped(name, <output>, [[<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>]]);  
@@ -184,7 +184,7 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
 
 #### Example
 
-```java
+```zenscript
 <recipetype:extendedcrafting:table>.addShaped("test_shaped", 2, <item:minecraft:stick>, [
   [<tag:item:c:ingots/iron>, <item:minecraft:air>, <item:minecraft:air>], 
   [<tag:item:c:ingots/gold>, <tag:item:c:ingots/gold>, <item:minecraft:air>], 
@@ -194,7 +194,7 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
 
 ### Adding A Shapeless Recipe
 
-```java
+```zenscript
 <recipetype:extendedcrafting:table>.addShapeless(name, <output>, [<input>, <input>]); 
 <recipetype:extendedcrafting:table>.addShapeless(name, tier, <output>, [<input>, <input>]);  
 ```
@@ -208,7 +208,7 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
 
 #### Example
 
-```java
+```zenscript
 <recipetype:extendedcrafting:table>.addShaped("test_shaped", 2, <item:minecraft:stick>, [
   <tag:item:c:ingots/iron>, <tag:item:c:ingots/iron>, <tag:item:c:ingots/iron>, <tag:item:c:ingots/iron>
 ]);
@@ -216,7 +216,7 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
 
 ### Removing Recipes
 
-```java
+```zenscript
 <recipetype:extendedcrafting:table>.remove(<output>);
 ```
 

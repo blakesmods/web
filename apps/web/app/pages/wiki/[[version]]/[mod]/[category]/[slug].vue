@@ -7,7 +7,7 @@
         <div class="flex flex-col w-full gap-4">
           <div class="flex items-center gap-4">
             <UButton
-              class="!inline-flex lg:!hidden"
+              class="inline-flex! lg:hidden!"
               ref="sidebarToggle"
               icon="i-heroicons-bars-3-solid"
               aria-label="View navigation button"
@@ -17,7 +17,7 @@
             <UButton
               v-if="hasTOC"
               ref="tocToggle"
-              class="!inline-flex xl:!hidden ml-auto"
+              class="inline-flex! xl:hidden! ml-auto"
               icon="i-heroicons-bars-3-solid"
               aria-label="View table of contents button"
               @click="toc = !toc"
@@ -40,9 +40,7 @@
         </div>
       </div>
 
-      <ContentRenderer :value="page">
-        <ContentRendererMarkdown class="nuxt-content" :value="page" />
-
+      <ContentRenderer class="nuxt-content" :value="page">
         <template #empty>
           <div class="nuxt-content">
             This page is currently empty. Check back soon! 👀
@@ -106,7 +104,11 @@ const { version, mod, isLatestVersion } = useWikiMetadata();
 const page = await useWiki();
 
 if (!page.value) {
-  throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
+  throw createError({
+    statusCode: 404,
+    statusMessage: "Page Not Found",
+    fatal: true
+  });
 }
 
 const title = `${page.value.title} · ${mod.value.name} Wiki`;
@@ -115,15 +117,14 @@ const description = parseDescription(page.value);
 useSeoMeta({
   title,
   ogTitle: title,
+  twitterTitle: title,
   description,
   ogDescription: description,
-  robots: {
-    noindex: page.value._empty
-  }
+  twitterDescription: description
 });
 
 const toc = ref(false);
-const pathParts = page.value._path.split("/");
+const pathParts = page.value.path.split("/");
 
 const breadcrumbs = computed(() =>
   [
@@ -167,16 +168,15 @@ function parseDescription(page) {
     return page.description;
   }
 
-  const index = page.body.children.findIndex(
-    c => c.tag === "h2" && c.children[0]?.value === "Overview"
+  const index = page.body.value.findIndex(
+    c => c[0] === "h2" && c[2] === "Overview"
   );
 
-  if (index > -1 && index + 1 < page.body.children.length) {
+  if (index > -1 && index + 1 < page.body.value.length) {
     // the special case for the second nested children is for links
-    return page.body.children[index + 1].children?.reduce(
-      (a, b) => a + (b.children ? b.children[0].value : b.value),
-      ""
-    );
+    return page.body.value[index + 1]
+      .slice(2)
+      .reduce((a, b) => a + (Array.isArray(b) ? b.slice(2).join(" ") : b), "");
   }
 }
 </script>

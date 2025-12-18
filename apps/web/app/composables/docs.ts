@@ -16,13 +16,11 @@ export const useDocsMetadata = () => {
 export const useDoc = async () => {
   const route = useRoute();
   const { version, mod, slug } = useDocsMetadata();
-  const { data: page } = await useAsyncData("doc/" + route.path, () =>
-    queryContent(
-      "docs",
-      version.value,
-      mod.value?.mod_id ?? "",
-      slug.value
-    ).findOne()
+
+  const { data: page } = await useAsyncData(route.path, () =>
+    queryCollection("docs")
+      .path(createDocsPath(version.value, mod.value?.mod_id, slug.value))
+      .first()
   );
 
   return page;
@@ -35,14 +33,12 @@ export const useDocsLatestArticleURL = async () => {
   const { data } = await useAsyncData(
     () => `docs-latest-article-url-${route.path}`,
     () =>
-      queryContent(
-        "docs",
-        getDocsLatestVersion(),
-        mod.value?.mod_id ?? "",
-        slug.value
-      )
+      queryCollection("docs")
+        .path(
+          createDocsPath(getDocsLatestVersion(), mod.value?.mod_id, slug.value)
+        )
         .limit(1)
-        .count(),
+        .first(),
     { watch: [version, mod, slug] }
   );
 
@@ -51,7 +47,7 @@ export const useDocsLatestArticleURL = async () => {
       return "/docs";
     }
 
-    if (data.value !== 1 || !slug.value) {
+    if (!data.value || !slug.value) {
       return `/docs/${mod.value.mod_id}`;
     }
 
@@ -66,9 +62,10 @@ export const useDocsSidebarLinks = async () => {
   const { data } = await useAsyncData(
     () => `docs-sidebar-${version.value}`,
     () =>
-      queryContent("docs", version.value)
-        .only(["title", "category", "hidden", "_path"])
-        .find(),
+      queryCollection("docs")
+        .where("path", "LIKE", createDocsPathSQL(version.value))
+        .select("title", "category", "hidden", "path")
+        .all(),
     { watch: [version] }
   );
 
@@ -85,8 +82,8 @@ export const useDocsSidebarLinks = async () => {
       }
 
       // the latest version doesn't have the version in the url
-      if (doc._path && version.value === versions.value[0]![0]!.label) {
-        doc._path = removeDocsVersionFromPath(doc._path, version.value);
+      if (doc.path && version.value === versions.value[0]![0]!.label) {
+        doc.path = removeDocsVersionFromPath(doc.path, version.value);
       }
 
       documents[doc.category]!.push(doc);
@@ -107,9 +104,8 @@ export const useDocsVersions = () => {
         onSelect: async () => {
           const { mod, slug } = useDocsMetadata();
 
-          const doc = await queryContent(
-            `/docs/${v}/${mod.value?.mod_id}/${slug.value}`
-          )
+          const doc = await queryCollection("docs")
+            .path(`/docs/${v}/${mod.value?.mod_id}/${slug.value}`)
             .limit(1)
             .count();
 
@@ -122,7 +118,8 @@ export const useDocsVersions = () => {
 
             await router.push(link);
           } else {
-            const doc = await queryContent(`/docs/${v}/${mod.value?.mod_id}`)
+            const doc = await queryCollection("docs")
+              .path(`/docs/${v}/${mod.value?.mod_id}`)
               .limit(1)
               .count();
 
@@ -151,7 +148,8 @@ export const useDocsVersions = () => {
 export const useDocsSearch = async () => {
   const { version, isLatestVersion } = useDocsMetadata();
   const query = computed(() => ({
-    search: `docs/${version.value}`
+    collection: "docs",
+    version: version.value
   }));
 
   const { data } = await useFetch("/api/search", {

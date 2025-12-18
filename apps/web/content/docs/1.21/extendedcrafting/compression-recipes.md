@@ -59,7 +59,7 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
 
 ### Adding A Recipe
 
-```java
+```zenscript
 <recipetype:extendedcrafting:compressor>.addRecipe(name, <input>, <output>, input_count, <catalyst>, power_cost);    
 <recipetype:extendedcrafting:compressor>.addRecipe(name, <input>, <output>, input_count, <catalyst>, power_cost, power_rate);
 ```
@@ -81,13 +81,13 @@ The amount of time (in ticks) a Compression recipe takes to complete is power_co
 
 #### Example
 
-```java
+```zenscript
 <recipetype:extendedcrafting:compressor>.addRecipe("test", <tag:item:c:ingots/iron>, <item:minecraft:apple>, 50000, <tag:item:c:ingots/gold>, 2000000, 200);
 ```
 
 ### Removing Recipes
 
-```java
+```zenscript
 <recipetype:extendedcrafting:compressor>.remove(<output>);
 ```
 

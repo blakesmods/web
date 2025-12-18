@@ -39,10 +39,10 @@
           v-for="document in documents[category]"
           class="relative pl-2 py-0.5 text-sm first:mt-2 hover:text-dimmed border-l border-neutral-300 dark:border-neutral-700"
           :class="{
-            '!text-primary-500 dark:!text-primary-400 font-semibold':
-              document._path === route.path
+            'text-primary-500! dark:text-primary-400! font-semibold':
+              document.path === route.path
           }"
-          :to="document._path"
+          :to="document.path"
         >
           {{ document.title }}
         </NuxtLink>

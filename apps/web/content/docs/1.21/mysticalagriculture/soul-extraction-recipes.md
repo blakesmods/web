@@ -48,7 +48,7 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
 
 ### Adding A Recipe
 
-```java
+```zenscript
 <recipetype:mysticalagriculture:soul_extraction>.addRecipe(name, <input>, "type", souls);
 ```
 
@@ -61,14 +61,14 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
 
 #### Example
 
-```java
+```zenscript
 <recipetype:mysticalagriculture:soul_extraction>.addRecipe("test", <tag:item:c:ingots/iron>, "mysticalagriculture:spider", 0.5);
 ```
 
 ### Removing Recipes
 #### Remove By Item
 
-```java
+```zenscript
 <recipetype:mysticalagriculture:soul_extraction>.removeByInput(<output>);
 ```
 
@@ -78,7 +78,7 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
 
 #### Remove By Mob Soul Type
 
-```java
+```zenscript
 <recipetype:mysticalagriculture:soul_extraction>.removeByMobSoulType("type");
 ```
 

@@ -95,7 +95,7 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
 
 ### Adding A Shaped Recipe
 
-```java
+```zenscript
 <recipetype:extendedcrafting:flux_crafter>.addShaped(name, <output>, [[<>, <>, <>], [<>, <>, <>], [<>, <>, <>]], power_required, power_rate);  
 ```
 
@@ -113,7 +113,7 @@ Crafting Time will decrease depending on how many Alternators are in range. See 
 
 #### Example
 
-```java
+```zenscript
 <recipetype:extendedcrafting:flux_crafter>.addShaped("test_shaped", <item:minecraft:stick>, [
   [<tag:item:c:ingots/iron>, <item:minecraft:air>, <item:minecraft:air>], 
   [<tag:item:c:ingots/gold>, <tag:item:c:ingots/gold>, <item:minecraft:air>], 
@@ -123,7 +123,7 @@ Crafting Time will decrease depending on how many Alternators are in range. See 
 
 ### Adding A Shapeless Recipe
 
-```java
+```zenscript
 <recipetype:extendedcrafting:flux_crafter>.addShapeless(name, <output>, [inputs], power_required, power_rate); 
 ```
 
@@ -141,7 +141,7 @@ Crafting Time will decrease depending on how many Alternators are in range. See 
 
 #### Example
 
-```java
+```zenscript
 <recipetype:extendedcrafting:flux_crafter>.addShapeless("test_shapeless", <item:minecraft:cobblestone>, [
   <tag:item:c:gems/diamond>, <tag:item:c:gems/diamond>, <tag:item:c:gems/diamond>, <tag:item:c:gems/diamond>, <tag:item:c:gems/diamond>, <tag:item:c:gems/diamond>
 ], 1000000);
@@ -149,7 +149,7 @@ Crafting Time will decrease depending on how many Alternators are in range. See 
 
 ### Removing Recipes
 
-```java
+```zenscript
 <recipetype:extendedcrafting:flux_crafter>.remove(<output>);
 ```
 

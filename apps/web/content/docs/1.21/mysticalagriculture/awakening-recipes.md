@@ -97,7 +97,7 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
 
 ### Adding A Recipe
 
-```java
+```zenscript
 <recipetype:mysticalagriculture:awakening>.addRecipe(name, <output>, <input>, [<inputs>], [<essence>, <essence>, <essence>, <essence>]);
 ```
 
@@ -111,7 +111,7 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
 
 #### Example
 
-```java
+```zenscript
 <recipetype:mysticalagriculture:awakening>.addRecipe("test", <item:minecraft:stick> * 10, <item:minecraft:diamond>,
   [<tag:item:c:ingots/iron>, <item:minecraft:stick>],
   [<item:mysticalagriculture:air_essence> * 10, <item:mysticalagriculture:earth_essence> * 20, <item:mysticalagriculture:water_essence> * 30, <item:mysticalagriculture:fire_essence> * 40]
@@ -120,7 +120,7 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
 
 ### Setting an Essence Vessel Color
 
-```java
+```zenscript
 <recipetype:mysticalagriculture:awakening>.setEssenceVesselColor(<input>, "color");
 ```
 
@@ -131,13 +131,13 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
 
 #### Example
 
-```java
+```zenscript
 <recipetype:mysticalagriculture:awakening>.setEssenceVesselColor(<item:mysticalagriculture:diamond_essence>, "#89ddf7");
 ```
 
 ### Removing Recipes
 
-```java
+```zenscript
 <recipetype:mysticalagriculture:awakening>.remove(<output>);
 ```
 

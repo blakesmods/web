@@ -47,7 +47,7 @@ CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.
 
 ### Adding A recipe
 
-```java
+```zenscript
 mods.mysticalagriculture.ReprocessorCrafting.addRecipe(name, <output>, <input>);
 ```
 
@@ -59,13 +59,13 @@ mods.mysticalagriculture.ReprocessorCrafting.addRecipe(name, <output>, <input>);
 
 #### Example
 
-```java
+```zenscript
 mods.mysticalagriculture.ReprocessorCrafting.addRecipe("test_reprocessor", <item:minecraft:apple>, <tag:items:forge:ingots/iron>);
 ```
 
 ### Removing Recipes
 
-```java
+```zenscript
 mods.mysticalagriculture.ReprocessorCrafting.remove(<output>);
 ```
 

@@ -52,7 +52,7 @@ CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.
 
 ### Adding a recipe
 
-```java
+```zenscript
 mods.mysticalagriculture.EnchanterCrafting.addRecipe(name, <enchantment>, [<inputs>]);
 ```
 
@@ -64,7 +64,7 @@ mods.mysticalagriculture.EnchanterCrafting.addRecipe(name, <enchantment>, [<inpu
 
 #### Example
 
-```java
+```zenscript
 mods.mysticalagriculture.EnchanterCrafting.addRecipe("fancy_sharpness", "minecraft:protection", [
     <item:minecraft:carrot> * 24, <item:minecraft:cobblestone> * 128
 ]);
@@ -72,7 +72,7 @@ mods.mysticalagriculture.EnchanterCrafting.addRecipe("fancy_sharpness", "minecra
 
 ### Removing Recipes
 
-```java
+```zenscript
 mods.mysticalagriculture.EnchanterCrafting.remove(<enchantment>);
 ```
 

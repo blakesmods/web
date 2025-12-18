@@ -163,7 +163,7 @@ CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.
 
 ### Adding A Shaped Recipe
 
-```java
+```zenscript
 mods.extendedcrafting.TableCrafting.addShaped(name, <output>, [[<>, <>, <>], [<>, <>, <>], [<>, <>, <>]]);  
 mods.extendedcrafting.TableCrafting.addShaped(name, <output>, [[<>, <>, <>, <>, <>], [<>, <>, <>, <>, <>], [<>, <>, <>, <>, <>], [<>, <>, <>, <>, <>], [<>, <>, <>, <>, <>]]);  
 mods.extendedcrafting.TableCrafting.addShaped(name, <output>, [[<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>], [<>, <>, <>, <>, <>, <>, <>]]);  
@@ -184,7 +184,7 @@ mods.extendedcrafting.TableCrafting.addShaped(name, tier, <output>, [[<>, <>, <>
 
 #### Example
 
-```java
+```zenscript
 mods.extendedcrafting.TableCrafting.addShaped("test_shaped", 2, <item:minecraft:stick>, [
   [<tag:forge:ingots/iron>, <item:minecraft:air>, <item:minecraft:air>], 
   [<tag:forge:ingots/gold>, <tag:forge:ingots/gold>, <item:minecraft:air>], 
@@ -194,7 +194,7 @@ mods.extendedcrafting.TableCrafting.addShaped("test_shaped", 2, <item:minecraft:
 
 ### Adding A Shapeless Recipe
 
-```java
+```zenscript
 mods.extendedcrafting.TableCrafting.addShapeless(name, <output>, [<input>, <input>]); 
 mods.extendedcrafting.TableCrafting.addShapeless(name, tier, <output>, [<input>, <input>]);  
 ```
@@ -208,7 +208,7 @@ mods.extendedcrafting.TableCrafting.addShapeless(name, tier, <output>, [<input>,
 
 #### Example
 
-```java
+```zenscript
 mods.extendedcrafting.TableCrafting.addShaped("test_shaped", 2, <item:minecraft:stick>, [
   <tag:forge:ingots/iron>, <tag:forge:ingots/iron>, <tag:forge:ingots/iron>, <tag:forge:ingots/iron>
 ]);
@@ -216,7 +216,7 @@ mods.extendedcrafting.TableCrafting.addShaped("test_shaped", 2, <item:minecraft:
 
 ### Removing Recipes
 
-```java
+```zenscript
 mods.extendedcrafting.TableCrafting.remove(<output>);
 ```
 

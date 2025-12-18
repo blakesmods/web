@@ -2,7 +2,7 @@
   <div class="w-full py-4 col-span-12 lg:col-span-9">
     <div class="flex items-center gap-4">
       <UButton
-        class="!inline-flex lg:!hidden"
+        class="inline-flex! lg:hidden!"
         ref="sidebarToggle"
         icon="i-heroicons-bars-3-solid"
         aria-label="View navigation button"
@@ -23,7 +23,7 @@
             // hopefully, I can remember to update this if I add new guides
             'xl:relative xl:-top-[448px]':
               mod.mod_id === 'mysticalagriculture' &&
-              category === 'enchantments'
+              category === 'Enchantments'
           }"
         >
           <h2 class="capitalize text-2xl">
@@ -54,7 +54,11 @@ const toggleSidebar = useEventBus("wiki:toggleSidebar");
 const { version, mod, isLatestVersion } = useWikiMetadata();
 
 if (!mod) {
-  throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
+  throw createError({
+    statusCode: 404,
+    statusMessage: "Page Not Found",
+    fatal: true
+  });
 }
 
 const title = mod.value.name + " Wiki";
@@ -70,7 +74,11 @@ useSeoMeta({
 const data = await useWikiModArticles();
 
 if (data.value.length === 0) {
-  throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
+  throw createError({
+    statusCode: 404,
+    statusMessage: "Page Not Found",
+    fatal: true
+  });
 }
 
 const articles = ref(
@@ -81,16 +89,16 @@ const articles = ref(
 );
 
 for (const article of data.value) {
-  if (!articles.value[article._dir]) {
-    articles.value[article._dir] = [];
+  if (!articles.value[article.category]) {
+    articles.value[article.category] = [];
   }
 
   // the latest version doesn't have the version in the url
-  if (article._path && isLatestVersion.value) {
-    article._path = removeWikiVersionFromPath(article._path, version.value);
+  if (article.path && isLatestVersion.value) {
+    article.path = removeWikiVersionFromPath(article.path, version.value);
   }
 
-  articles.value[article._dir].push(article);
+  articles.value[article.category].push(article);
 }
 
 const breadcrumbs = computed(() => [
@@ -107,7 +115,9 @@ const breadcrumbs = computed(() => [
 ]);
 
 const categories = computed(() =>
-  Object.keys(articles.value).filter(c => articles.value[c].length > 0)
+  Object.values(getWikiCategories()).filter(
+    c => articles.value[c] && articles.value[c].length > 0
+  )
 );
 
 function onToggleSidebar() {

@@ -11,7 +11,7 @@
           class="w-full"
           trailing-icon="i-heroicons-chevron-down-20-solid"
         >
-          <UAvatar class="flex-shrink-0" size="2xs" :src="mod.logo" />
+          <UAvatar class="shrink-0" size="2xs" :src="mod.logo" />
           <span class="w-full text-left">
             {{ mod.name }}
           </span>
@@ -56,8 +56,8 @@
           v-for="article in articles[category]"
           :article="article"
           :class="{
-            '!text-primary-500 dark:!text-primary-400 font-semibold':
-              article._path === route.path,
+            'text-primary-500! dark:text-primary-400! font-semibold':
+              article.path === route.path,
             'first:mt-2': true
           }"
         />

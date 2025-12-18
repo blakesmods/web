@@ -1,7 +1,7 @@
 <template>
   <NuxtLink
     class="flex relative py-0.5 pl-2 text-sm border-l border-neutral-300 dark:border-neutral-700"
-    :to="article._path"
+    :to="article.path"
   >
     <UPopover
       v-if="article.icon"

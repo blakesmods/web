@@ -15,7 +15,7 @@ export const useAPI = async (
     const toast = useToast();
 
     toast.add({
-      color: "red",
+      color: "error",
       title: "An unknown error occurred.",
       description: "Please try again later."
     });

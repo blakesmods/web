@@ -65,7 +65,7 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
 
 ### Adding A Recipe
 
-```java
+```zenscript
 <recipetype:mysticalagriculture:infusion>.addRecipe(name, <output>, <input>, [<inputs>]);
 ```
 
@@ -78,13 +78,13 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
 
 #### Example
 
-```java
+```zenscript
 <recipetype:mysticalagriculture:infusion>.addRecipe("test", <item:minecraft:stick> * 10, <item:minecraft:diamond>, [<tag:forge:ingots/iron>, <item:minecraft:stick>]);
 ```
 
 ### Removing Recipes
 
-```java
+```zenscript
 <recipetype:mysticalagriculture:infusion>.remove(<output>);
 ```
 

@@ -4,7 +4,7 @@
     <NuxtLink
       v-for="page in pages"
       class="flex pl-2 py-0.5 md:py-0.5 text-sm border-l border-neutral-300 dark:border-neutral-700"
-      :to="page._path"
+      :to="page.path"
     >
       {{ page.title }}
     </NuxtLink>
@@ -17,15 +17,16 @@ const { version, mod, isLatestVersion } = useDocsMetadata();
 const { data } = await useAsyncData(
   `${mod.value?.mod_id}-${version.value}-docs-listing`,
   () =>
-    queryContent("docs", version.value, mod.value?.mod_id ?? "")
-      .only(["title", "_path"])
-      .find()
+    queryCollection("docs")
+      .where("path", "LIKE", createDocsPathSQL(version.value, mod.value.mod_id))
+      .select("title", "path")
+      .all()
 );
 
 const pages = computed(() =>
   data.value.slice(1).map(doc => {
-    if (isLatestVersion.value && doc._path) {
-      doc._path = removeDocsVersionFromPath(doc._path, version.value);
+    if (isLatestVersion.value && doc.path) {
+      doc.path = removeDocsVersionFromPath(doc.path, version.value);
     }
 
     return doc;

@@ -48,7 +48,7 @@ CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.
 
 ### Adding A Recipe
 
-```java
+```zenscript
 mods.mysticalagriculture.SoulExtractorCrafting.addRecipe(name, <output>, <input>);
 ```
 
@@ -61,14 +61,14 @@ mods.mysticalagriculture.SoulExtractorCrafting.addRecipe(name, <output>, <input>
 
 #### Example
 
-```java
+```zenscript
 mods.mysticalagriculture.SoulExtractorCrafting.addRecipe("test", <tag:forge:ingots/iron>, "mysticalagriculture:spider", 0.5);
 ```
 
 ### Removing Recipes
 #### Remove By Item
 
-```java
+```zenscript
 mods.mysticalagriculture.SoulExtractorCrafting.remove(<output>);
 ```
 
@@ -78,7 +78,7 @@ mods.mysticalagriculture.SoulExtractorCrafting.remove(<output>);
 
 #### Remove By Mob Soul Type
 
-```java
+```zenscript
 mods.mysticalagriculture.SoulExtractorCrafting.remove("type");
 ```
 

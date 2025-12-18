@@ -5,7 +5,7 @@
   >
     <UButton
       v-if="previous"
-      :to="previous._path"
+      :to="previous.path"
       class="group gap-4"
       size="lg"
       icon="i-heroicons-arrow-left"
@@ -20,7 +20,7 @@
     </UButton>
     <UButton
       v-if="next"
-      :to="next._path"
+      :to="next.path"
       class="ml-auto group gap-4"
       size="lg"
       icon="i-heroicons-arrow-right"
@@ -45,11 +45,15 @@ const props = defineProps({
 const { version, mod, category, isLatestVersion } = useWikiMetadata();
 
 const { data } = await useAsyncData(
-  "wiki/" + props.current._path + "/pagination",
+  "wiki/" + props.current.path + "/pagination",
   () =>
-    queryContent("wiki", version.value, mod.value.mod_id, category.value)
-      .sort({ sort: 1, $numeric: true })
-      .findSurround(props.current._path)
+    queryCollectionItemSurroundings("wiki", props.current.path)
+      .where(
+        "path",
+        "LIKE",
+        createWikiPathSQL(version.value, mod.value.mod_id, category.value)
+      )
+      .order("sort", "ASC")
 );
 
 const previous = computed(() => data.value[0]);
@@ -58,22 +62,19 @@ const next = computed(() => data.value[1]);
 // the latest version doesn't have the version in the url
 if (isLatestVersion.value) {
   if (previous.value) {
-    previous.value._path = removeWikiVersionFromPath(
-      previous.value._path,
+    previous.value.path = removeWikiVersionFromPath(
+      previous.value.path,
       version.value
     );
   }
 
   if (next.value) {
-    next.value._path = removeWikiVersionFromPath(
-      next.value._path,
-      version.value
-    );
+    next.value.path = removeWikiVersionFromPath(next.value.path, version.value);
   }
 }
 
 function formatModName(document) {
-  const modID = document._path.split("/")[isLatestVersion.value ? 2 : 3];
+  const modID = document.path.split("/")[isLatestVersion.value ? 2 : 3];
   const mod = getMod(modID);
   return mod ? mod.name : modID;
 }

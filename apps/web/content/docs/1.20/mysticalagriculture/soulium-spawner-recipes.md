@@ -55,7 +55,7 @@ CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.
 
 ### Adding A Recipe
 
-```java
+```zenscript
 mods.mysticalagriculture.SouliumSpawnerCrafting.addRecipe(name, <input>, <inputCount>, [<entities>]);
 ```
 
@@ -68,7 +68,7 @@ mods.mysticalagriculture.SouliumSpawnerCrafting.addRecipe(name, <input>, <inputC
 
 #### Example
 
-```java
+```zenscript
 mods.mysticalagriculture.SouliumSpawnerCrafting.addRecipe("test_spawner", <item:minecraft:apple>, 20, ["minecraft:zombie"]);
 mods.mysticalagriculture.SouliumSpawnerCrafting.addRecipe("test_spawner_weights", <item:minecraft:carrot>, 16, ["minecraft:skeleton@5", "minecraft:wither_skeleton@1"]);
 ```
@@ -76,7 +76,7 @@ mods.mysticalagriculture.SouliumSpawnerCrafting.addRecipe("test_spawner_weights"
 ### Removing Recipes
 #### Remove By Entity ID
 
-```java
+```zenscript
 mods.mysticalagriculture.SouliumSpawnerCrafting.remove("entity");
 ```
 

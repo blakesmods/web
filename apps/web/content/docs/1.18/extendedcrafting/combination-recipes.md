@@ -77,7 +77,7 @@ Extended Crafting comes with CraftTweaker support built-in. You can make use of 
 
 ### Adding A Recipe
 
-```java
+```zenscript
 mods.extendedcrafting.CombinationCrafting.addRecipe(name, <output>, powerCost, [inputs]);
 mods.extendedcrafting.CombinationCrafting.addRecipe(name, <output>, powerCost, [inputs], powerRate);
 ```
@@ -92,13 +92,13 @@ mods.extendedcrafting.CombinationCrafting.addRecipe(name, <output>, powerCost, [
 
 #### Example
 
-```java
+```zenscript
 mods.extendedcrafting.CombinationCrafting.addRecipe("test", <item:minecraft:stick> * 10, 10000, [<item:minecraft:diamond>, <tag:forge:ingots/iron>, <item:minecraft:stick>], 100);
 ```
 
 ### Removing Recipes
 
-```java
+```zenscript
 mods.extendedcrafting.CombinationCrafting.remove(<output>);
 ```
 

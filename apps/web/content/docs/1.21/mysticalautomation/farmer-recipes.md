@@ -68,7 +68,7 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
 
 ### Adding A Recipe
 
-```java
+```zenscript
 <recipetype:mysticalautomation:farmer>.addRecipe(name, <seeds>, <soil>, stages, {results...});
 <recipetype:mysticalautomation:farmer>.addRecipe(name, <seeds>, <soil>, <crux>, stages, {results...});
 ```
@@ -84,7 +84,7 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
 
 #### Example
 
-```java
+```zenscript
 <recipetype:mysticalautomation:farmer>.addRecipe("test_farmer_no_crux",
   <item:mysticalagriculture:prosperity_seed_base>, <item:mysticalagriculture:inferium_farmland>, 3,
   {
@@ -104,7 +104,7 @@ CraftTweaker integration supports <a href="https://docs.blamejared.com/1.21.1/en
 
 ### Removing Recipes
 
-```java
+```zenscript
 <recipetype:mysticalautomation:farmer>.removeBySeeds(<seeds>);
 ```
 

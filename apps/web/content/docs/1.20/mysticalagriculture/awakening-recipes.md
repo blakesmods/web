@@ -96,7 +96,7 @@ CraftTweaker integration now supports <a href="https://docs.blamejared.com/1.20.
 
 ### Adding A Recipe
 
-```java
+```zenscript
 mods.mysticalagriculture.AwakeningCrafting.addRecipe(name, <output>, [inputs], [essences], transferNBT);
 ```
 
@@ -110,7 +110,7 @@ mods.mysticalagriculture.AwakeningCrafting.addRecipe(name, <output>, [inputs], [
 
 #### Example
 
-```java
+```zenscript
 mods.mysticalagriculture.AwakeningCrafting.addRecipe("test", <item:minecraft:stick> * 10,
   [<item:minecraft:diamond>, <tag:forge:ingots/iron>, <item:minecraft:stick>],
   [<item:mysticalagriculture:air_essence> * 10, <item:mysticalagriculture:earth_essence> * 20, <item:mysticalagriculture:water_essence> * 30, <item:mysticalagriculture:fire_essence> * 40]
@@ -119,7 +119,7 @@ mods.mysticalagriculture.AwakeningCrafting.addRecipe("test", <item:minecraft:sti
 
 ### Removing Recipes
 
-```java
+```zenscript
 mods.mysticalagriculture.AwakeningCrafting.remove(<output>);
 ```
 
