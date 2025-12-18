@@ -104,7 +104,11 @@ const { version, mod, isLatestVersion } = useWikiMetadata();
 const page = await useWiki();
 
 if (!page.value) {
-  throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
+  throw createError({
+    statusCode: 404,
+    statusMessage: "Page Not Found",
+    fatal: true
+  });
 }
 
 const title = `${page.value.title} · ${mod.value.name} Wiki`;

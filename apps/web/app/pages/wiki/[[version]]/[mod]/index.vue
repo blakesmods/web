@@ -54,7 +54,11 @@ const toggleSidebar = useEventBus("wiki:toggleSidebar");
 const { version, mod, isLatestVersion } = useWikiMetadata();
 
 if (!mod) {
-  throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
+  throw createError({
+    statusCode: 404,
+    statusMessage: "Page Not Found",
+    fatal: true
+  });
 }
 
 const title = mod.value.name + " Wiki";
@@ -70,7 +74,11 @@ useSeoMeta({
 const data = await useWikiModArticles();
 
 if (data.value.length === 0) {
-  throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
+  throw createError({
+    statusCode: 404,
+    statusMessage: "Page Not Found",
+    fatal: true
+  });
 }
 
 const articles = ref(

@@ -78,7 +78,11 @@ const toggleSidebar = useEventBus("docs:toggleSidebar");
 const page = await useDoc();
 
 if (!page.value) {
-  throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
+  throw createError({
+    statusCode: 404,
+    statusMessage: "Page Not Found",
+    fatal: true
+  });
 }
 
 const title = page.value.category
