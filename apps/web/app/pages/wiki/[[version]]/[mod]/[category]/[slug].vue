@@ -48,6 +48,8 @@
         </template>
       </ContentRenderer>
 
+      <ContentEditSeparator :page="page" />
+
       <div class="flex flex-col gap-2 mb-4">
         <Pagination :current="page" />
         <BisectHostingBanner source="wiki" />
@@ -88,6 +90,7 @@
 </template>
 
 <script setup>
+import ContentEditSeparator from "~/components/ContentEditSeparator.vue";
 import TOC from "~/components/TOC.vue";
 import Pagination from "~/components/wiki/Pagination.vue";
 

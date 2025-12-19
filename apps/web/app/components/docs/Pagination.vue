@@ -1,8 +1,5 @@
 <template>
-  <div
-    v-if="previous || next"
-    class="flex justify-between items-center py-6 border-t border-neutral-200 dark:border-neutral-800"
-  >
+  <div v-if="previous || next" class="flex justify-between items-center py-6">
     <UButton
       v-if="previous"
       :to="previous.path"

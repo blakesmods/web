@@ -2,14 +2,6 @@
   <div class="flex flex-col">
     <h4 class="mb-2">Useful Links</h4>
     <div class="flex flex-col gap-1 text-muted">
-      <a
-        :href="editURL"
-        target="_blank"
-        class="flex items-center gap-2 text-sm hover:text-neutral-700 dark:hover:text-neutral-200"
-      >
-        <UIcon name="i-simple-icons-github" width="16px" />
-        Edit This Page
-      </a>
       <template v-if="mod">
         <NuxtLink
           :to="mod.url"
@@ -51,9 +43,4 @@ const props = defineProps({
 });
 
 const { mod } = useDocsMetadata();
-
-const editURL = computed(
-  () =>
-    `https://github.com/blakesmods/web/edit/main/apps/web/content${props.page.path}.${props.page.extension}`
-);
 </script>

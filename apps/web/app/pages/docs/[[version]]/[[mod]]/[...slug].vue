@@ -28,10 +28,7 @@
       </div>
 
       <ContentRenderer class="nuxt-content" :value="page" />
-
-      <div class="flex justify-between lg:px-4 py-4">
-        <span v-if="false">Last Updated: {{ lastUpdated }}</span>
-      </div>
+      <ContentEditSeparator :page="page" />
       <Pagination :current="page" />
     </div>
     <div
