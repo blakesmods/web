@@ -310,8 +310,7 @@ export const useWikiSearch = async () => {
 
   const { data } = await useFetch("/api/search", {
     query,
-    lazy: true,
-    server: false
+    key: () => `wiki-search/${version.value}`
   });
 
   return computed(() => {

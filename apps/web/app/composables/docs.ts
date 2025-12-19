@@ -155,8 +155,7 @@ export const useDocsSearch = async () => {
 
   const { data } = await useFetch("/api/search", {
     query,
-    lazy: true,
-    server: false
+    key: () => `docs-search/${version.value}`
   });
 
   return computed(() => {
