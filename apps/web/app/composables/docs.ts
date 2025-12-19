@@ -37,6 +37,7 @@ export const useDocsLatestArticleURL = async () => {
         .path(
           createDocsPath(getDocsLatestVersion(), mod.value?.mod_id, slug.value)
         )
+        .select("path")
         .limit(1)
         .first(),
     { watch: [version, mod, slug] }
@@ -64,7 +65,7 @@ export const useDocsSidebarLinks = async () => {
     () =>
       queryCollection("docs")
         .where("path", "LIKE", createDocsPathSQL(version.value))
-        .select("title", "category", "hidden", "path")
+        .select("path", "title", "category", "hidden")
         .all(),
     { watch: [version] }
   );
@@ -162,7 +163,7 @@ export const useDocsSearch = async () => {
     const documents = {} as Record<string, any[]>;
 
     if (data.value) {
-      for (const doc of data.value) {
+      for (const doc of data.value as any[]) {
         if (!doc.category) {
           continue;
         }

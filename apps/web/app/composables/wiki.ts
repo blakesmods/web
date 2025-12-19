@@ -45,8 +45,9 @@ export const useWikiModArticles = async () => {
         .where(
           "path",
           "LIKE",
-          `${createWikiPath(version.value, mod.value?.mod_id)}%`
+          createWikiPathSQL(version.value, mod.value?.mod_id)
         )
+        .select("path", "title", "category", "sort", "icon")
         .order("sort", "ASC")
         .all(),
     { watch: [version, mod] }
@@ -65,9 +66,10 @@ export const useWikiModLatestArticles = async () => {
         .where(
           "path",
           "LIKE",
-          `${createWikiPath(version.value, mod.value?.mod_id)}/%`
+          createWikiPathSQL(version.value, mod.value?.mod_id)
         )
         .where("version", "IS NOT NULL")
+        .select("path", "title", "category", "icon", "version")
         .order("version", "DESC")
         .limit(8)
         .all(),
@@ -136,6 +138,7 @@ export const useWikiSidebarLinks = async () => {
           "LIKE",
           createWikiPathSQL(version.value, mod.value?.mod_id)
         )
+        .select("path", "title", "sort", "icon")
         .order("sort", "ASC")
         .all(),
     { watch: [version, mod] }
@@ -317,7 +320,7 @@ export const useWikiSearch = async () => {
     if (data.value) {
       let mod: any;
 
-      for (const doc of data.value) {
+      for (const doc of data.value as any[]) {
         // the latest version doesn't have the version in the url
         if (isLatestVersion.value) {
           doc.id = removeWikiVersionFromPath(doc.id, version.value);
