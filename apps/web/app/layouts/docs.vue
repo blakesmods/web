@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="flex flex-col min-h-screen"
-    :class="[isLatestVersion ? 'pt-16' : 'pt-28 sm:pt-24']"
-  >
+  <div class="flex flex-col min-h-screen">
     <Header />
     <main class="flex flex-auto container mx-auto px-4">
       <div class="flex flex-nowrap flex-1 max-w-full justify-center">

@@ -1,6 +1,6 @@
 <template>
   <header
-    class="fixed w-full top-0 z-40 shadow backdrop-blur border-b border-neutral-200 dark:border-neutral-800 bg-neutral-100/75 dark:bg-neutral-900/75"
+    class="sticky top-0 inset-x-0 z-40 shadow backdrop-blur border-b border-neutral-200 dark:border-neutral-800 bg-neutral-100/75 dark:bg-neutral-900/75"
     :class="{
       'bg-neutral-100! dark:bg-neutral-900!': dropdown
     }"

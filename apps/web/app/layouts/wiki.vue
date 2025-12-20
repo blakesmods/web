@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="flex flex-col min-h-screen"
-    :class="[isLatestVersion ? 'pt-20' : 'pt-32 sm:pt-28']"
-  >
+  <div class="flex flex-col min-h-screen">
     <Header />
     <main class="flex flex-auto container mx-auto px-4">
       <div class="flex flex-nowrap flex-1 max-w-full justify-center">
@@ -24,7 +21,10 @@
           <div
             class="hidden lg:block min-w-[244px] max-h-96 lg:max-h-full col-span-3 pr-4 py-4 z-20 rounded overflow-y-auto lg:overflow-y-visible"
           >
-            <div class="sticky top-24 w-full">
+            <div
+              class="sticky w-full"
+              :class="[isLatestVersion ? 'top-24' : 'top-32']"
+            >
               <ListingSidebarContent />
             </div>
           </div>
