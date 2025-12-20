@@ -7,7 +7,9 @@ export default defineContentConfig({
       source: "docs/**/*.md",
       schema: z.object({
         category: z.string(),
-        hidden: z.boolean().optional().default(false)
+        hidden: z.boolean().optional().default(false),
+        minecraft: z.string(),
+        mod: z.string().optional()
       })
     }),
     wiki: defineCollection({
@@ -18,7 +20,9 @@ export default defineContentConfig({
         sort: z.number(),
         icon: z.string().optional(),
         category: z.string(),
-        hidden: z.boolean().optional().default(false)
+        hidden: z.boolean().optional().default(false),
+        minecraft: z.string(),
+        mod: z.string().optional()
       })
     })
   }

@@ -97,13 +97,20 @@ export default defineNuxtConfig({
   hooks: {
     "content:file:afterParse"(ctx) {
       const { file, content } = ctx;
-      // automatically add category to wiki articles based on directory
+      if (file.id.startsWith("docs")) {
+        const parts = file.id.split("/");
+        if (parts.length === 5) {
+          content.minecraft = parts[2];
+          content.mod = parts[3];
+        }
+      }
+
       if (file.id.startsWith("wiki")) {
-        const dir = file.dirname?.split("/").pop();
-        if (dir) {
-          content.category = (wikiCategoriesJSON as any)[dir] || dir;
-        } else {
-          content.category = "Uncategorized";
+        const parts = file.id.split("/");
+        if (parts.length === 6) {
+          content.minecraft = parts[2];
+          content.mod = parts[3];
+          content.category = (wikiCategoriesJSON as any)[parts[4]!] || parts[4];
         }
       }
     }
