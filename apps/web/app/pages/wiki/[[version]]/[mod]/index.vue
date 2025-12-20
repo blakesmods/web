@@ -1,6 +1,6 @@
 <template>
-  <div class="w-full py-4 col-span-12 lg:col-span-9">
-    <div class="flex items-center gap-4">
+  <div class="w-full col-span-12 lg:col-span-9 py-4 lg:pl-4 xl:pr-4">
+    <div class="flex items-center gap-4 pt-4">
       <UButton
         class="inline-flex! lg:hidden!"
         ref="sidebarToggle"

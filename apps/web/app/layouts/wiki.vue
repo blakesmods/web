@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col min-h-screen">
     <Header />
-    <main class="flex flex-auto container mx-auto px-4">
+    <UMain class="flex flex-auto container mx-auto px-4">
       <div class="flex flex-nowrap flex-1 max-w-full justify-center">
         <div class="docs grid grid-cols-12 relative w-full min-h-[800px]">
           <USlideover side="left" v-model:open="sidebar">
@@ -19,7 +19,7 @@
             </template>
           </USlideover>
           <div
-            class="hidden lg:block min-w-[244px] max-h-96 lg:max-h-full col-span-3 pr-4 py-4 z-20 rounded overflow-y-auto lg:overflow-y-visible"
+            class="hidden lg:block min-w-[244px] h-full col-span-3 pr-4 py-4 z-20 rounded overflow-y-auto lg:overflow-y-visible"
           >
             <div
               class="sticky w-full"
@@ -31,7 +31,7 @@
           <slot />
         </div>
       </div>
-    </main>
+    </UMain>
     <Footer />
   </div>
 </template>
