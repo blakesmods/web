@@ -29,29 +29,7 @@
 <script setup>
 const { version, isLatestVersion } = useWikiMetadata();
 
-const { data } = await useAsyncData(
-  `wiki-mod-directory/${version.value}`,
-  () =>
-    queryCollection("wiki")
-      .where("path", "LIKE", createWikiPathSQL(version.value))
-      .select("path")
-      .all(),
-  { watch: [version] }
-);
-
-const articles = computed(() =>
-  data.value.reduce((acc, val) => {
-    const parts = val.path.split("/");
-
-    if (!acc[parts[3]]) {
-      acc[parts[3]] = 0;
-    }
-
-    acc[parts[3]]++;
-
-    return acc;
-  }, {})
-);
+const articles = await useWikiModDirectoryCounts();
 
 const mods = computed(() =>
   getMods().map(mod => ({

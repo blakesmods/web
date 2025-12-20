@@ -12,24 +12,5 @@
 </template>
 
 <script setup>
-const { version, mod, isLatestVersion } = useDocsMetadata();
-
-const { data } = await useAsyncData(
-  `${mod.value?.mod_id}-${version.value}-docs-listing`,
-  () =>
-    queryCollection("docs")
-      .where("path", "LIKE", createDocsPathSQL(version.value, mod.value.mod_id))
-      .select("title", "path")
-      .all()
-);
-
-const pages = computed(() =>
-  data.value.slice(1).map(doc => {
-    if (isLatestVersion.value && doc.path) {
-      doc.path = removeDocsVersionFromPath(doc.path, version.value);
-    }
-
-    return doc;
-  })
-);
+const pages = await useDocsSectionArticles();
 </script>

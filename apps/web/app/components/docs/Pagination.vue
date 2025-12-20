@@ -39,29 +39,9 @@ const props = defineProps({
   current: Object
 });
 
-const { version, isLatestVersion } = useDocsMetadata();
+const { isLatestVersion } = useDocsMetadata();
 
-const { data } = await useAsyncData(
-  "docs/" + props.current.path + "/pagination",
-  () => queryCollectionItemSurroundings("docs", props.current.path)
-);
-
-const previous = computed(() => data.value[0]);
-const next = computed(() => data.value[1]);
-
-// the latest version doesn't have the version in the url
-if (isLatestVersion.value) {
-  if (previous.value) {
-    previous.value.path = removeDocsVersionFromPath(
-      previous.value.path,
-      version.value
-    );
-  }
-
-  if (next.value) {
-    next.value.path = removeDocsVersionFromPath(next.value.path, version.value);
-  }
-}
+const [previous, next] = await useDocsPagination();
 
 function formatModName(document) {
   const modID = document.path.split("/")[isLatestVersion.value ? 2 : 3];

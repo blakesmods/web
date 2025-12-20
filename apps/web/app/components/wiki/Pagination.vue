@@ -39,36 +39,9 @@ const props = defineProps({
   current: Object
 });
 
-const { version, mod, category, isLatestVersion } = useWikiMetadata();
+const { isLatestVersion } = useWikiMetadata();
 
-const { data } = await useAsyncData(
-  "wiki/" + props.current.path + "/pagination",
-  () =>
-    queryCollectionItemSurroundings("wiki", props.current.path)
-      .where(
-        "path",
-        "LIKE",
-        createWikiPathSQL(version.value, mod.value.mod_id, category.value)
-      )
-      .order("sort", "ASC")
-);
-
-const previous = computed(() => data.value[0]);
-const next = computed(() => data.value[1]);
-
-// the latest version doesn't have the version in the url
-if (isLatestVersion.value) {
-  if (previous.value) {
-    previous.value.path = removeWikiVersionFromPath(
-      previous.value.path,
-      version.value
-    );
-  }
-
-  if (next.value) {
-    next.value.path = removeWikiVersionFromPath(next.value.path, version.value);
-  }
-}
+const [previous, next] = await useWikiPagination();
 
 function formatModName(document) {
   const modID = document.path.split("/")[isLatestVersion.value ? 2 : 3];

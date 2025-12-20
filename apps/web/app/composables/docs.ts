@@ -26,6 +26,38 @@ export const useDoc = async () => {
   return page;
 };
 
+export const useDocsPagination = async () => {
+  const route = useRoute();
+  const { version, mod, slug, isLatestVersion } = useDocsMetadata();
+
+  const { data } = await useAsyncData("docs-pagination" + route.path, () =>
+    queryCollectionItemSurroundings(
+      "docs",
+      createDocsPath(version.value, mod.value?.mod_id, slug.value)
+    )
+  );
+
+  const previous = computed(() => {
+    const doc = data.value?.[0];
+    if (doc && isLatestVersion.value) {
+      doc.path = removeDocsVersionFromPath(doc.path, version.value);
+    }
+
+    return doc;
+  });
+
+  const next = computed(() => {
+    const doc = data.value?.[1];
+    if (doc && isLatestVersion.value) {
+      doc.path = removeDocsVersionFromPath(doc.path, version.value);
+    }
+
+    return doc;
+  });
+
+  return [previous, next] as const;
+};
+
 export const useDocsLatestArticleURL = async () => {
   const route = useRoute();
   const { version, mod, slug } = useDocsMetadata();
@@ -182,4 +214,33 @@ export const useDocsSearch = async () => {
 
     return documents;
   });
+};
+
+export const useDocsSectionArticles = async () => {
+  const route = useRoute();
+  const { version, mod, isLatestVersion } = useDocsMetadata();
+
+  const { data } = await useAsyncData(
+    () => `docs-listing-${route.path}`,
+    () =>
+      queryCollection("docs")
+        .where(
+          "path",
+          "LIKE",
+          createDocsPathSQL(version.value, mod.value?.mod_id)
+        )
+        .select("title", "path")
+        .all()
+  );
+
+  return computed(
+    () =>
+      data.value?.slice(1).map(doc => {
+        if (isLatestVersion.value && doc.path) {
+          doc.path = removeDocsVersionFromPath(doc.path, version.value);
+        }
+
+        return doc;
+      }) ?? []
+  );
 };

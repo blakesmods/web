@@ -34,6 +34,49 @@ export const useWiki = async () => {
   return page;
 };
 
+export const useWikiPagination = async () => {
+  const route = useRoute();
+  const { version, mod, category, slug, isLatestVersion } = useWikiMetadata();
+
+  const { data } = await useAsyncData("wiki-pagination" + route.path, () =>
+    queryCollectionItemSurroundings(
+      "wiki",
+      createWikiPath(
+        version.value,
+        mod.value?.mod_id,
+        category.value,
+        slug.value
+      )
+    )
+      .where(
+        "path",
+        "LIKE",
+        createWikiPathSQL(version.value, mod.value?.mod_id, category.value)
+      )
+      .order("sort", "ASC")
+  );
+
+  const previous = computed(() => {
+    const article = data.value?.[0];
+    if (article && isLatestVersion.value) {
+      article.path = removeWikiVersionFromPath(article.path, version.value);
+    }
+
+    return article;
+  });
+
+  const next = computed(() => {
+    const article = data.value?.[1];
+    if (article && isLatestVersion.value) {
+      article.path = removeWikiVersionFromPath(article.path, version.value);
+    }
+
+    return article;
+  });
+
+  return [previous, next] as const;
+};
+
 export const useWikiModArticles = async () => {
   const route = useRoute();
   const { version, mod } = useWikiMetadata();
@@ -349,4 +392,40 @@ export const useWikiSearch = async () => {
 
     return documents;
   });
+};
+
+export const useWikiModDirectoryCounts = async () => {
+  const route = useRoute();
+  const { version } = useWikiMetadata();
+
+  const { data } = await useAsyncData(
+    route.path,
+    () =>
+      queryCollection("wiki")
+        .where("path", "LIKE", createWikiPathSQL(version.value))
+        .select("path")
+        .all(),
+    { watch: [version] }
+  );
+
+  return computed(
+    () =>
+      data.value?.reduce(
+        (acc, val) => {
+          const mod = val.path.split("/")[3];
+          if (!mod) {
+            return acc;
+          }
+
+          if (!acc[mod]) {
+            acc[mod] = 0;
+          }
+
+          acc[mod]++;
+
+          return acc;
+        },
+        {} as Record<string, number>
+      ) ?? {}
+  );
 };
