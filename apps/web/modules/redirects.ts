@@ -19,6 +19,9 @@ const redirects = {
   "/docs/extendedcrafting/adding-singularities": "/docs/extendedcrafting/singularities",
   "/docs/extendedcrafting/removing-singularities": "/docs/extendedcrafting/singularities",
   "/docs/extendedcrafting/singularities-in-recipes": "/docs/extendedcrafting/singularities",
+  "/docs/extendedcrafting/1.19/flux-crafting": "/docs/extendedcrafting/1.19/flux-crafting-recipes",
+  "/docs/extendedcrafting/1.20/flux-crafting": "/docs/extendedcrafting/1.20/flux-crafting-recipes",
+  "/docs/extendedcrafting/flux-crafting": "/docs/extendedcrafting/flux-crafting-recipes",
 
   "/guides": "/wiki",
   "/guides/mysticalagriculture": "/wiki/mysticalagriculture",
