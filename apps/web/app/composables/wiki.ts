@@ -276,7 +276,6 @@ export const useWikiVersions = async () => {
     () =>
       queryCollection("wiki")
         .where("mod", "=", mod.value?.mod_id)
-        .where("path", "LIKE", `%/${slug.value}`)
         .select("path", "minecraft")
         .order("minecraft", "DESC")
         .all(),
@@ -285,15 +284,27 @@ export const useWikiVersions = async () => {
 
   return computed(() =>
     getWikiVersions().map(v => {
-      let doc = data.value?.find(
-        d => d.minecraft === v && d.path.endsWith(slug.value)
-      );
+      let doc: any;
+      if (slug.value) {
+        doc = data.value?.find(
+          d => d.minecraft === v && d.path.endsWith(slug.value)
+        );
+      }
 
       if (!doc) {
-        doc = {
-          minecraft: v,
-          path: `/wiki/${v}/${mod.value?.mod_id}`
-        };
+        const hasAny = data.value?.some(d => d.minecraft === v);
+
+        if (hasAny) {
+          doc = {
+            minecraft: v,
+            path: `/wiki/${v}/${mod.value?.mod_id}`
+          };
+        } else {
+          doc = {
+            minecraft: v,
+            path: `/wiki/${v}`
+          };
+        }
       }
 
       if (doc.minecraft === getWikiLatestVersion()) {
