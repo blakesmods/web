@@ -82,6 +82,6 @@ import Search from "~/components/docs/Search.vue";
 const dropdown = useModsDropdown();
 
 const { version, isLatestVersion } = useDocsMetadata();
-const versions = useDocsVersions();
+const versions = await useDocsVersions();
 const latestURL = await useDocsLatestArticleURL();
 </script>

@@ -79,6 +79,6 @@ import Search from "~/components/wiki/Search.vue";
 const dropdown = useModsDropdown();
 
 const { version, isLatestVersion } = useWikiMetadata();
-const versions = useWikiVersions();
+const versions = await useWikiVersions();
 const latestURL = await useWikiLatestArticleURL();
 </script>

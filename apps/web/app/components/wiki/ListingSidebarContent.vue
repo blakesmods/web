@@ -66,8 +66,8 @@
 import ArticleLink from "~/components/wiki/ArticleLink.vue";
 
 const { version, mod } = useWikiMetadata();
-const versions = useWikiVersions();
-const mods = useWikiMods();
+const versions = await useWikiVersions();
+const mods = await useWikiMods();
 
 const articles = await useWikiModLatestArticles();
 </script>

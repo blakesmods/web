@@ -97,11 +97,11 @@ export default defineNuxtConfig({
   hooks: {
     "content:file:afterParse"(ctx) {
       const { file, content } = ctx;
-      if (file.id.startsWith("docs")) {
+      if (file.id.startsWith("docs") && !file.id.endsWith("index.md")) {
         const parts = file.id.split("/");
-        if (parts.length === 5) {
+        if (parts.length === 4 || parts.length === 5) {
           content.minecraft = parts[2];
-          content.mod = parts[3];
+          content.mod = parts[3]!.replace(".md", "");
         }
       }
 

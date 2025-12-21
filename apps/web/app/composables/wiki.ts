@@ -170,7 +170,6 @@ export const useWikiLatestArticleURL = async () => {
 
 export const useWikiSidebarLinks = async () => {
   const { version, mod } = useWikiMetadata();
-  const versions = useWikiVersions();
 
   const { data } = await useAsyncData(
     () => `wiki-sidebar-${version.value}-${mod.value?.mod_id ?? ""}`,
@@ -209,7 +208,7 @@ export const useWikiSidebarLinks = async () => {
       }
 
       // the latest version doesn't have the version in the url
-      if (doc.path && version.value === versions.value[0]![0]!.label) {
+      if (doc.path && version.value === getWikiLatestVersion()) {
         doc.path = removeWikiVersionFromPath(doc.path, version.value);
       }
 
@@ -226,121 +225,89 @@ export const useWikiSidebarLinks = async () => {
   });
 };
 
-export const useWikiMods = () => {
-  const router = useRouter();
+export const useWikiMods = async () => {
+  const { version, mod, slug } = useWikiMetadata();
 
-  return ref(
+  const { data } = await useAsyncData(
+    () => `wiki-mods-${version.value}/${slug.value ?? "index"}`,
+    () =>
+      queryCollection("wiki")
+        .where("minecraft", "=", version.value)
+        .select("path", "minecraft", "mod")
+        .order("minecraft", "DESC")
+        .all(),
+    { watch: [mod, slug] }
+  );
+
+  return computed(() =>
     getMods()
       .filter(m => m.has_wiki)
-      .map(m => [
-        {
-          id: m.mod_id,
-          label: m.name,
-          avatar: {
-            src: m.logo
-          },
-          onClick: async () => {
-            const { version, category, slug, isLatestVersion } =
-              useWikiMetadata();
+      .filter(m =>
+        data.value?.some(
+          d => d.minecraft === version.value && d.mod === m.mod_id
+        )
+      )
+      .map(m => {
+        let path = `/wiki/${version.value}/${m.mod_id}`;
 
-            const doc = await queryCollection("wiki")
-              .path(
-                `/wiki/${version.value}/${m.mod_id}/${category.value}/${slug.value}`
-              )
-              .limit(1)
-              .count();
-
-            if (doc > 0) {
-              // the first is the latest and doesn't need the version in the URL
-              const link = isLatestVersion.value
-                ? `/wiki/${m.mod_id}/${category.value}/${slug.value}`
-                : `/wiki/${version.value}/${m.mod_id}/${category.value}/${slug.value}`;
-
-              await router.push(link);
-            } else {
-              const doc = await queryCollection("wiki")
-                .where(
-                  "path",
-                  "LIKE",
-                  createWikiPathSQL(version.value, m.mod_id)
-                )
-                .limit(1)
-                .count();
-
-              // if there is no page for this mod, we'll just redirect to the top level page
-              if (doc > 0) {
-                // the first is the latest and doesn't need the version in the URL
-                const link = isLatestVersion.value
-                  ? `/wiki/${m.mod_id}`
-                  : `/wiki/${version.value}/${m.mod_id}`;
-
-                await router.push(link);
-              } else {
-                // the first is the latest and doesn't need the version in the URL
-                const link = isLatestVersion.value
-                  ? `/wiki`
-                  : `/wiki/${version.value}`;
-
-                await router.push(link);
-              }
-            }
-          }
+        if (version.value === getWikiLatestVersion()) {
+          path = `/wiki/${m.mod_id}`;
         }
-      ])
+
+        return [
+          {
+            id: m.mod_id,
+            label: m.name,
+            avatar: {
+              src: m.logo
+            },
+            to: path
+          }
+        ];
+      })
   );
 };
 
-export const useWikiVersions = () => {
-  const router = useRouter();
+export const useWikiVersions = async () => {
+  const { mod, slug } = useWikiMetadata();
 
-  return ref(
-    getWikiVersions().map((v, i) => [
-      {
-        id: v,
-        label: v,
-        onClick: async () => {
-          const { mod, category, slug } = useWikiMetadata();
+  const { data } = await useAsyncData(
+    () => `wiki-versions-${mod.value?.mod_id}/${slug.value ?? "index"}`,
+    () =>
+      queryCollection("wiki")
+        .where("mod", "=", mod.value?.mod_id)
+        .where("path", "LIKE", `%/${slug.value}`)
+        .select("path", "minecraft")
+        .order("minecraft", "DESC")
+        .all(),
+    { watch: [mod, slug] }
+  );
 
-          const doc = await queryCollection("wiki")
-            .path(
-              `/wiki/${v}/${mod.value?.mod_id}/${category.value}/${slug.value}`
-            )
-            .limit(1)
-            .count();
+  return computed(() =>
+    getWikiVersions().map(v => {
+      let doc = data.value?.find(
+        d => d.minecraft === v && d.path.endsWith(slug.value)
+      );
 
-          if (doc > 0) {
-            // the first is the latest and doesn't need the version in the URL
-            const link =
-              i === 0
-                ? `/wiki/${mod.value?.mod_id}/${category.value}/${slug.value}`
-                : `/wiki/${v}/${mod.value?.mod_id}/${category.value}/${slug.value}`;
-
-            await router.push(link);
-          } else {
-            const doc = await queryCollection("wiki")
-              .where("path", "LIKE", createWikiPathSQL(v, mod.value?.mod_id))
-              .limit(1)
-              .count();
-
-            // if there is no page for this mod, we'll just redirect to the top level page
-            if (doc > 0) {
-              // the first is the latest and doesn't need the version in the URL
-              const link =
-                i === 0
-                  ? `/wiki/${mod.value?.mod_id}`
-                  : `/wiki/${v}/${mod.value?.mod_id}`;
-
-              await router.push(link);
-            } else {
-              // the first is the latest and doesn't need the version in the URL
-              const link = i === 0 ? `/wiki` : `/wiki/${v}`;
-
-              await router.push(link);
-            }
-          }
-        }
+      if (!doc) {
+        doc = {
+          minecraft: v,
+          path: `/wiki/${v}/${mod.value?.mod_id}`
+        };
       }
-    ])
+
+      if (doc.minecraft === getWikiLatestVersion()) {
+        doc.path = removeWikiVersionFromPath(doc.path, doc.minecraft);
+      }
+
+      return [
+        {
+          id: doc.minecraft,
+          label: doc.minecraft,
+          to: doc.path
+        }
+      ];
+    })
   );
 };
 

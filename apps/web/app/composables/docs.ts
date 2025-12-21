@@ -90,7 +90,6 @@ export const useDocsLatestArticleURL = async () => {
 
 export const useDocsSidebarLinks = async () => {
   const { version } = useDocsMetadata();
-  const versions = useDocsVersions();
 
   const { data } = await useAsyncData(
     () => `docs-sidebar-${version.value}`,
@@ -115,7 +114,7 @@ export const useDocsSidebarLinks = async () => {
       }
 
       // the latest version doesn't have the version in the url
-      if (doc.path && version.value === versions.value[0]![0]!.label) {
+      if (doc.path && version.value === getDocsLatestVersion()) {
         doc.path = removeDocsVersionFromPath(doc.path, version.value);
       }
 
@@ -126,55 +125,61 @@ export const useDocsSidebarLinks = async () => {
   });
 };
 
-export const useDocsVersions = () => {
-  const router = useRouter();
+export const useDocsVersions = async () => {
+  const { mod, slug } = useDocsMetadata();
 
-  return ref(
-    getDocsVersions().map((v, i) => [
-      {
-        id: v,
-        label: v,
-        onSelect: async () => {
-          const { mod, slug } = useDocsMetadata();
+  const { data } = await useAsyncData(
+    () => `docs-versions-${mod.value?.mod_id}/${slug.value ?? "index"}`,
+    () =>
+      queryCollection("docs")
+        .where("mod", "=", mod.value?.mod_id)
+        .orWhere(group =>
+          group
+            .where("path", "LIKE", `%/${slug.value}`)
+            .where("path", "LIKE", `%/${mod.value?.mod_id}`)
+        )
+        .select("path", "minecraft")
+        .order("minecraft", "DESC")
+        .all(),
+    { watch: [mod, slug] }
+  );
 
-          const doc = await queryCollection("docs")
-            .path(`/docs/${v}/${mod.value?.mod_id}/${slug.value}`)
-            .limit(1)
-            .count();
+  return computed(() =>
+    getDocsVersions().map(v => {
+      let doc = data.value?.find(
+        d => d.minecraft === v && d.path.endsWith(slug.value)
+      );
 
-          if (doc > 0) {
-            // the first is the latest and doesn't need the version in the URL
-            const link =
-              i === 0
-                ? `/docs/${mod.value?.mod_id}/${slug.value}`
-                : `/docs/${v}/${mod.value?.mod_id}/${slug.value}`;
+      if (!doc) {
+        const index = data.value?.find(
+          d => d.minecraft === v && !d.path.endsWith(slug.value)
+        );
 
-            await router.push(link);
-          } else {
-            const doc = await queryCollection("docs")
-              .path(`/docs/${v}/${mod.value?.mod_id}`)
-              .limit(1)
-              .count();
-
-            // if there is no page for this mod, we'll just redirect to the top level page
-            if (doc > 0) {
-              // the first is the latest and doesn't need the version in the URL
-              const link =
-                i === 0
-                  ? `/docs/${mod.value?.mod_id}`
-                  : `/docs/${v}/${mod.value?.mod_id}`;
-
-              await router.push(link);
-            } else {
-              // the first is the latest and doesn't need the version in the URL
-              const link = i === 0 ? `/docs` : `/docs/${v}`;
-
-              await router.push(link);
+        if (!index) {
+          return [
+            {
+              id: v,
+              label: v,
+              to: v === getDocsLatestVersion() ? "/docs" : `/docs/${v}`
             }
-          }
+          ];
         }
+
+        doc = index;
       }
-    ])
+
+      if (doc.minecraft === getDocsLatestVersion()) {
+        doc.path = removeDocsVersionFromPath(doc.path, doc.minecraft);
+      }
+
+      return [
+        {
+          id: doc.minecraft,
+          label: doc.minecraft,
+          to: doc.path
+        }
+      ];
+    })
   );
 };
 
