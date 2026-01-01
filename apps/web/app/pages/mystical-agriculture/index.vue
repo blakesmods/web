@@ -10,7 +10,7 @@
         title="Addons"
         subtitle="We're Just Getting Started"
         description="Install these official addons for even more content!"
-        :features="addons"
+        :addons="addons"
       />
       <ScreenshotCarousel
         v-if="false"

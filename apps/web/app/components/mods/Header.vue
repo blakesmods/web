@@ -8,7 +8,7 @@
     }"
   >
     <div
-      class="flex container h-16 m-auto mt-[1px] px-4 justify-between items-center"
+      class="flex container h-16 m-auto mt-px px-4 justify-between items-center"
     >
       <div class="flex items-center leading-4 gap-2 md:gap-4">
         <ReactiveLogo />

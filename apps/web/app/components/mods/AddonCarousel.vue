@@ -1,57 +1,76 @@
 <template>
-  <div class="grid grid-cols-1 lg:grid-cols-2 my-20 gap-8">
-    <div class="flex flex-col justify-center items-center gap-4">
-      <h3>{{ current.title }}</h3>
+  <div id="addons" class="text-center scroll-mt-24 mt-8">
+    <span class="text-[24px] font-semibold" style="color: var(--primary-color)">
+      {{ title }}
+    </span>
+    <h2>{{ subtitle }}</h2>
+    <p class="my-2">{{ description }}</p>
+  </div>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+    <GradientUCard
+      class="m-auto"
+      :style="{
+        '--primary-color': current.mod.primary_color,
+        '--secondary-color': current.mod.secondary_color
+      }"
+    >
       <NuxtImg
         class="rounded-xl overflow-hidden shadow-lg"
         :src="current.mod.hero_images[0]"
         :alt="`${current.title} Feature Image`"
       />
-      <div class="flex gap-4">
-        <UButton :to="current.mod.url" class="btn-mod" variant="ghost">
-          Learn More
-        </UButton>
-        <UButton
-          :to="`${current.mod.url}/download`"
-          class="btn-mod"
-          variant="ghost"
-        >
-          Download
-        </UButton>
-      </div>
-    </div>
-    <div class="flex flex-col gap-4 order-first lg:order-last">
-      <div>
-        <span
-          class="text-[24px] font-semibold"
-          style="color: var(--primary-color)"
-        >
-          {{ title }}
-        </span>
-        <h2>{{ subtitle }}</h2>
-        <p class="my-2">{{ description }}</p>
-      </div>
-      <UButton
-        v-for="feature in features"
-        class="flex p-4 gap-2"
-        color="neutral"
-        @click="current = feature"
+    </GradientUCard>
+    <div class="flex flex-col justify-center gap-4 order-first lg:order-last">
+      <UCard
+        v-for="addon in addons"
+        class="flex flex-col"
+        variant="soft"
+        :ui="{
+          body: 'p-0!'
+        }"
       >
-        <div class="flex items-center">
-          <NuxtImg :src="feature.mod.logo" width="64" height="64" alt="" />
-        </div>
-        <div class="flex flex-col gap-2 text-start">
-          <span
-            class="block text-lg"
-            :class="{ 'font-bold': feature === current }"
+        <UButton
+          class="flex w-full p-4 gap-2"
+          :class="{
+            'bg-accented/75': addon === current
+          }"
+          @click="current = addon"
+        >
+          <div class="flex items-center">
+            <NuxtImg :src="addon.mod.logo" width="64" height="64" alt="" />
+          </div>
+          <div class="flex flex-col gap-2 text-start">
+            <span
+              class="block text-lg"
+              :class="{ 'font-bold': addon === current }"
+            >
+              {{ addon.title }}
+            </span>
+            <p v-for="line in addon.description">
+              {{ line }}
+            </p>
+          </div>
+        </UButton>
+        <div v-if="addon === current" class="flex gap-4 justify-center m-4">
+          <UButton
+            :to="addon.mod.url"
+            class="btn-mod-outline"
+            :style="`border-color: ${addon.mod.primary_color}`"
+            variant="ghost"
           >
-            {{ feature.title }}
-          </span>
-          <p v-for="line in feature.description">
-            {{ line }}
-          </p>
+            Learn More
+          </UButton>
+          <UButton
+            :to="`${addon.mod.url}/download`"
+            class="btn-mod"
+            :style="`background: ${addon.mod.primary_color}`"
+            variant="ghost"
+            trailing-icon="i-heroicons-arrow-down-tray-solid"
+          >
+            Download
+          </UButton>
         </div>
-      </UButton>
+      </UCard>
     </div>
   </div>
 </template>
@@ -61,8 +80,8 @@ const props = defineProps({
   title: String,
   subtitle: String,
   description: String,
-  features: Array
+  addons: Array
 });
 
-const current = ref(props.features[0]);
+const current = ref(props.addons[0]);
 </script>
