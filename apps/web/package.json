@@ -7,7 +7,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "prepare": "nuxt prepare"
+    "prepare": "nuxt prepare",
+    "test": "vitest"
   },
   "devDependencies": {
     "@iconify-json/heroicons": "^1.2.3",
@@ -15,6 +16,7 @@
     "@iconify-json/simple-icons": "^1.2.63",
     "@nuxt/content": "^3.9.0",
     "@nuxt/image": "^2.0.0",
+    "@nuxt/test-utils": "^3.21.0",
     "@nuxt/ui": "^4.3.0",
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/sitemap": "^7.5.0",
@@ -23,13 +25,17 @@
     "@sentry/nuxt": "^10.32.0",
     "@types/numeral": "^2.0.5",
     "@types/semver": "^7.7.1",
+    "@vue/test-utils": "^2.4.6",
     "@vueuse/core": "^14.1.0",
     "@vueuse/nuxt": "^14.1.0",
     "better-sqlite3": "^12.5.0",
     "dayjs": "^1.11.19",
+    "happy-dom": "^20.0.11",
     "numeral": "^2.0.6",
     "nuxt": "^4.2.2",
+    "playwright-core": "^1.57.0",
     "semver": "^7.7.3",
-    "tailwindcss": "^4.1.18"
+    "tailwindcss": "^4.1.18",
+    "vitest": "^3.2.4"
   }
 }
