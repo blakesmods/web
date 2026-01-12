@@ -1,5 +1,6 @@
 import { Db } from "mongodb";
 import { Mod, ModStats } from "../models";
+import { Collections } from "../collections";
 
 export async function createModStats(db: Db) {
   const mods = await db.collection<Mod>("mods").find().toArray();
@@ -16,8 +17,8 @@ export async function createModStats(db: Db) {
     stats.push(stat);
   }
 
-  await db.collection("mod_stats").deleteMany({});
-  await db.collection("mod_stats").insertMany(stats);
+  await db.collection(Collections.ModStats).deleteMany({});
+  await db.collection(Collections.ModStats).insertMany(stats);
 
   console.log(`Created ${mods.length} mod stats`);
 }

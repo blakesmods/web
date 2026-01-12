@@ -1,9 +1,10 @@
 import { faker } from "@faker-js/faker";
 import { Db } from "mongodb";
 import { Mod, ModFile } from "../models";
+import { Collections } from "../collections";
 
 export async function createModFiles(db: Db) {
-  const mods = await db.collection<Mod>("mods").find().toArray();
+  const mods = await db.collection<Mod>(Collections.Mods).find().toArray();
 
   const files = [];
 
@@ -53,8 +54,8 @@ export async function createModFiles(db: Db) {
     }
   }
 
-  await db.collection("mod_files").deleteMany({});
-  await db.collection("mod_files").insertMany(files);
+  await db.collection(Collections.ModFiles).deleteMany({});
+  await db.collection(Collections.ModFiles).insertMany(files);
 
   console.log(`Created ${files.length} mod files`);
 }
