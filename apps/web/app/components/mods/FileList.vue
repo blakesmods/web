@@ -197,10 +197,11 @@ const columns = [
             downloadPending.value && row.original._id === downloadPending.value
               ? null
               : "i-heroicons-arrow-down-tray-solid",
-          disabled: downloadPending.value,
+          disabled: !!downloadPending.value,
           loading:
             downloadPending.value && row.original._id === downloadPending.value,
-          "aria-label": `Download file ${row.original.file_name}`
+          "aria-label": `Download file ${row.original.file_name}`,
+          onClick: () => onDownloadFile(row.original)
         })
       ]),
     meta: {
@@ -274,7 +275,7 @@ const params = computed(() => ({
   mod_loader: loader.value
 }));
 
-const { data, execute, pending } = await useAPI(`/v2/mods/${props.mod}/files`, {
+const { data, execute, status } = await useAPI(`/v2/mods/${props.mod}/files`, {
   params,
   server: false, // going to call this client side
   immediate: false // prevent from ever making the call on the server
@@ -289,7 +290,9 @@ async function onDownloadFile(file) {
 
   const { data } = await useAPI(`/v2/files/${file._id}`);
 
-  if (data.value.success) {
+  console.log(data.value);
+
+  if (false && data.value.success) {
     window.open(data.value.data.url, "_self");
   }
 
