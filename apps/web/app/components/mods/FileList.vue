@@ -290,9 +290,7 @@ async function onDownloadFile(file) {
 
   const { data } = await useAPI(`/v2/files/${file._id}`);
 
-  console.log(data.value);
-
-  if (false && data.value.success) {
+  if (data.value.success) {
     window.open(data.value.data.url, "_self");
   }
 
