@@ -71,7 +71,7 @@
       <UTable
         :columns="columns"
         :data="files"
-        :loading="pending"
+        :loading="status === 'idle' || status === 'pending'"
         :ui="{
           root: 'bg-white dark:bg-neutral-900 ring ring-inset ring-accented rounded-md'
         }"
