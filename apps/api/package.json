@@ -18,7 +18,7 @@
     "bson": "^6.10.4",
     "dayjs": "^1.11.19",
     "dotenv": "^16.6.1",
-    "fastify": "^5.6.2",
+    "fastify": "^5.7.1",
     "fastify-blipp": "3.1.0",
     "fastify-type-provider-zod": "^5.1.0",
     "numeral": "^2.0.6",
