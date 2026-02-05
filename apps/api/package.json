@@ -19,12 +19,12 @@
     "cacheable": "^2.3.2",
     "dayjs": "^1.11.19",
     "dotenv": "^16.6.1",
-    "fastify": "^5.7.1",
+    "fastify": "^5.7.4",
     "fastify-blipp": "3.1.0",
     "fastify-type-provider-zod": "^5.1.0",
     "numeral": "^2.0.6",
-    "semver": "^7.7.3",
-    "zod": "^4.3.5"
+    "semver": "^7.7.4",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@types/numeral": "^2.0.5",
