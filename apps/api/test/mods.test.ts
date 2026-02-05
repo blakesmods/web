@@ -112,12 +112,19 @@ describe("GET /v2/mods/:mod_id/:mc_version_group/updates", () => {
 
     expect(response.statusCode).toBe(200);
 
+    const hasLaunch = await app.cache.hasLaunch(
+      mod!.mod_id,
+      file!.mc_version_group,
+      "127.0.0.1"
+    );
+
+    expect(hasLaunch).toBe(true);
+
     const body = response.json();
 
     expect(body).toHaveProperty("homepage");
     expect(body).toHaveProperty("promos");
     expect(body).toHaveProperty(file!.mc_version);
-    expect(body).toHaveProperty(file!.mc_version_group);
   });
 
   test("invalid mod_id", async () => {

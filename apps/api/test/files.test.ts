@@ -48,6 +48,10 @@ describe("GET /v2/files/:file_id", () => {
     expect(mod!.site_downloads).toBe(oldModSiteDownloads + 1);
     expect(newStatsDownloads).toBe(oldStatsDownloads + 1);
 
+    const hasDownload = await app.cache.hasDownload(file!._id, "127.0.0.1");
+
+    expect(hasDownload).toBe(true);
+
     const body = response.json();
 
     expect(body).toHaveProperty("data.url");

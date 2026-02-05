@@ -6,6 +6,7 @@ import { z } from "zod";
 
 export const plugin: FastifyPluginAsyncZod = async fastify => {
   const db = fastify.mongo.db!;
+  const cache = fastify.cache;
 
   fastify.get("/", async (request, reply) => {
     const mods = await db.collection<Mod>(Collections.Mods).find().toArray();
@@ -215,16 +216,26 @@ export const plugin: FastifyPluginAsyncZod = async fastify => {
         }
       }
 
-      await db.collection<ModStats>(Collections.ModStats).updateOne(
-        {
-          mod_id
-        },
-        {
-          $inc: {
-            [`launches.${mc_version_group}.${dayjs().format("YYYY.M.D")}`]: 1
-          }
-        }
+      const hasLaunch = await cache.hasLaunch(
+        mod_id,
+        mc_version_group,
+        request.ip
       );
+
+      if (!hasLaunch) {
+        await db.collection<ModStats>(Collections.ModStats).updateOne(
+          {
+            mod_id
+          },
+          {
+            $inc: {
+              [`launches.${mc_version_group}.${dayjs().format("YYYY.M.D")}`]: 1
+            }
+          }
+        );
+
+        await cache.setLaunch(mod_id, mc_version_group, request.ip);
+      }
 
       return {
         // NOTE: the website uses the same slug format (includes dashes)

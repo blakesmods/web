@@ -6,6 +6,7 @@ import { z } from "zod";
 
 export const plugin: FastifyPluginAsyncZod = async fastify => {
   const db = fastify.mongo.db!;
+  const cache = fastify.cache;
 
   fastify.get(
     "/:file_id",
@@ -39,20 +40,25 @@ export const plugin: FastifyPluginAsyncZod = async fastify => {
         };
       }
 
-      await db
-        .collection<Mod>(Collections.Mods)
-        .updateOne({ mod_id: file.mod_id }, { $inc: { site_downloads: 1 } });
+      const hasDownload = await cache.hasDownload(file._id, request.ip);
+      if (!hasDownload) {
+        await db
+          .collection<Mod>(Collections.Mods)
+          .updateOne({ mod_id: file.mod_id }, { $inc: { site_downloads: 1 } });
 
-      await db
-        .collection<ModFile>(Collections.ModFiles)
-        .updateOne({ _id: file._id! }, { $inc: { site_downloads: 1 } });
+        await db
+          .collection<ModFile>(Collections.ModFiles)
+          .updateOne({ _id: file._id! }, { $inc: { site_downloads: 1 } });
 
-      await db
-        .collection<ModStats>(Collections.ModStats)
-        .updateOne(
-          { mod_id: file.mod_id },
-          { $inc: { [`downloads.${dayjs().format("YYYY.M.D")}`]: 1 } }
-        );
+        await db
+          .collection<ModStats>(Collections.ModStats)
+          .updateOne(
+            { mod_id: file.mod_id },
+            { $inc: { [`downloads.${dayjs().format("YYYY.M.D")}`]: 1 } }
+          );
+
+        await cache.setDownload(file._id, request.ip);
+      }
 
       const fileURL = "https://maven.blakesmods.com" + file.maven_path;
 
