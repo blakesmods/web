@@ -237,6 +237,27 @@ export const plugin: FastifyPluginAsyncZod = async fastify => {
         await cache.setLaunch(mod_id, mc_version_group, request.ip);
       }
 
+      const hasUniqueLaunch = await cache.hasUniqueLaunch(
+        mod_id,
+        mc_version_group,
+        request.ip
+      );
+
+      if (!hasUniqueLaunch) {
+        await db.collection<ModStats>(Collections.ModStats).updateOne(
+          {
+            mod_id
+          },
+          {
+            $inc: {
+              [`unique_launches.${mc_version_group}.${dayjs().format("YYYY.M.D")}`]: 1
+            }
+          }
+        );
+
+        await cache.setUniqueLaunch(mod_id, mc_version_group, request.ip);
+      }
+
       return {
         // NOTE: the website uses the same slug format (includes dashes)
         homepage: `https://blakesmods.com/${mod!.curseforge_slug}`,

@@ -30,6 +30,14 @@ class Cache {
   async hasLaunch(mod: string, version: string, ip: string) {
     return this.cache.has(`launch:${mod}:${version}:${ip}`);
   }
+
+  async setUniqueLaunch(mod: string, version: string, ip: string) {
+    return this.cache.set(`unique_launch:${mod}:${version}:${ip}`, 1, "24h");
+  }
+
+  async hasUniqueLaunch(mod: string, version: string, ip: string) {
+    return this.cache.has(`unique_launch:${mod}:${version}:${ip}`);
+  }
 }
 
 export default async function (fastify: FastifyInstance) {

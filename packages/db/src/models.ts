@@ -45,6 +45,7 @@ export interface ModStats {
   mod_id: string;
   downloads: Record<any, any>;
   launches: Record<any, any>;
+  unique_launches: Record<any, any>;
 }
 
 export interface PageViews {
