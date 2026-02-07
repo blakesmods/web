@@ -38,6 +38,14 @@ class Cache {
   async hasUniqueLaunch(mod: string, version: string, ip: string) {
     return this.cache.has(`unique_launch:${mod}:${version}:${ip}`);
   }
+
+  async setPageView(mod: string, source: string, ip: string) {
+    return this.cache.set(`page_view:${mod}:${source}:${ip}`, 1, "10m");
+  }
+
+  async hasPageView(mod: string, source: string, ip: string) {
+    return this.cache.has(`page_view:${mod}:${source}:${ip}`);
+  }
 }
 
 export default async function (fastify: FastifyInstance) {

@@ -5,6 +5,7 @@ import { z } from "zod";
 
 export const plugin: FastifyPluginAsyncZod = async fastify => {
   const db = fastify.mongo.db!;
+  const cache = fastify.cache;
 
   fastify.get(
     "/:mod_id",
@@ -41,15 +42,21 @@ export const plugin: FastifyPluginAsyncZod = async fastify => {
         return `Banner ${mod_id} not found.`;
       }
 
-      await db.collection<PageViews>(Collections.PageViews).updateOne(
-        { mod_id },
-        {
-          $inc: {
-            [`${source}.${dayjs().format("YYYY.M.D")}`]: 1
-          }
-        },
-        { upsert: true }
-      );
+      const hasPageView = await cache.hasPageView(mod_id, source, request.ip);
+
+      if (!hasPageView) {
+        await db.collection<PageViews>(Collections.PageViews).updateOne(
+          { mod_id },
+          {
+            $inc: {
+              [`${source}.${dayjs().format("YYYY.M.D")}`]: 1
+            }
+          },
+          { upsert: true }
+        );
+
+        await cache.setPageView(mod_id, source, request.ip);
+      }
 
       reply.redirect(
         `https://blakesmods.com/img/banner/${mod_id}_title.png`,
