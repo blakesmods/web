@@ -224,14 +224,13 @@ export const plugin: FastifyPluginAsyncZod = async fastify => {
 
       if (!hasLaunch) {
         await db.collection<ModStats>(Collections.ModStats).updateOne(
-          {
-            mod_id
-          },
+          { mod_id },
           {
             $inc: {
               [`launches.${mc_version_group}.${dayjs().format("YYYY.M.D")}`]: 1
             }
-          }
+          },
+          { upsert: true }
         );
 
         await cache.setLaunch(mod_id, mc_version_group, request.ip);
@@ -245,14 +244,13 @@ export const plugin: FastifyPluginAsyncZod = async fastify => {
 
       if (!hasUniqueLaunch) {
         await db.collection<ModStats>(Collections.ModStats).updateOne(
-          {
-            mod_id
-          },
+          { mod_id },
           {
             $inc: {
               [`unique_launches.${mc_version_group}.${dayjs().format("YYYY.M.D")}`]: 1
             }
-          }
+          },
+          { upsert: true }
         );
 
         await cache.setUniqueLaunch(mod_id, mc_version_group, request.ip);

@@ -54,7 +54,8 @@ export const plugin: FastifyPluginAsyncZod = async fastify => {
           .collection<ModStats>(Collections.ModStats)
           .updateOne(
             { mod_id: file.mod_id },
-            { $inc: { [`downloads.${dayjs().format("YYYY.M.D")}`]: 1 } }
+            { $inc: { [`downloads.${dayjs().format("YYYY.M.D")}`]: 1 } },
+            { upsert: true }
           );
 
         await cache.setDownload(file._id, request.ip);
