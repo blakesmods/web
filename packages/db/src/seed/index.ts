@@ -2,6 +2,7 @@ import { MongoClient } from "mongodb";
 import { createModFiles } from "./mod_files";
 import { createModStats } from "./mod_stats";
 import { createMods } from "./mods";
+import { createPageViews } from "./page_views";
 
 async function main() {
   const client = new MongoClient("mongodb://root:example@localhost:27017");
@@ -13,6 +14,7 @@ async function main() {
   await createMods(db);
   await createModFiles(db);
   await createModStats(db);
+  await createPageViews(db);
 
   await client.close();
 
