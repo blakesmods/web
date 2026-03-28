@@ -12,16 +12,16 @@
     "@blakesmods/db": "workspace:*",
     "@fastify/autoload": "^6.3.1",
     "@fastify/cookie": "^11.0.2",
-    "@fastify/cors": "^10.1.0",
-    "@fastify/mongodb": "^9.0.2",
-    "@sentry/node": "^9.47.1",
-    "bson": "^6.10.4",
+    "@fastify/cors": "^11.2.0",
+    "@fastify/mongodb": "^10.0.0",
+    "@sentry/node": "^10.46.0",
+    "bson": "^7.2.0",
     "cacheable": "^2.3.3",
     "dayjs": "^1.11.19",
-    "dotenv": "^16.6.1",
+    "dotenv": "^17.3.1",
     "fastify": "^5.7.4",
-    "fastify-blipp": "3.1.0",
-    "fastify-type-provider-zod": "^5.1.0",
+    "fastify-blipp": "4.0.0",
+    "fastify-type-provider-zod": "^6.1.0",
     "numeral": "^2.0.6",
     "semver": "^7.7.4",
     "zod": "^4.3.6"
@@ -30,6 +30,6 @@
     "@types/numeral": "^2.0.5",
     "@types/semver": "^7.7.1",
     "ts-node": "^10.9.2",
-    "vitest": "^3.2.4"
+    "vitest": "^4.1.2"
   }
 }

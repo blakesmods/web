@@ -8,11 +8,11 @@
     "seed": "ts-node ./src/seed/index.ts"
   },
   "dependencies": {
-    "bson": "^6.10.4"
+    "bson": "^7.2.0"
   },
   "devDependencies": {
-    "@faker-js/faker": "^9.9.0",
+    "@faker-js/faker": "^10.4.0",
     "dayjs": "^1.11.19",
-    "mongodb": "^6.21.0"
+    "mongodb": "^7.1.1"
   }
 }
