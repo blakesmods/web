@@ -16,7 +16,7 @@
       "groupName": "github actions"
     },
     {
-      "matchPaths": ["apps/web/**"],
+      "matchFileNames": ["apps/web/**"],
       "matchPackageNames": ["sharp"],
       "enabled": false
     }
