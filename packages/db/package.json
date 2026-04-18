@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^10.4.0",
-    "dayjs": "^1.11.19",
+    "dayjs": "^1.11.20",
     "mongodb": "^7.1.1"
   }
 }

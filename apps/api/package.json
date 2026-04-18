@@ -14,12 +14,12 @@
     "@fastify/cookie": "^11.0.2",
     "@fastify/cors": "^11.2.0",
     "@fastify/mongodb": "^10.0.0",
-    "@sentry/node": "^10.46.0",
+    "@sentry/node": "^10.49.0",
     "bson": "^7.2.0",
-    "cacheable": "^2.3.3",
-    "dayjs": "^1.11.19",
-    "dotenv": "^17.3.1",
-    "fastify": "^5.7.4",
+    "cacheable": "^2.3.4",
+    "dayjs": "^1.11.20",
+    "dotenv": "^17.4.2",
+    "fastify": "^5.8.5",
     "fastify-blipp": "4.0.0",
     "fastify-type-provider-zod": "^6.1.0",
     "numeral": "^2.0.6",
@@ -30,6 +30,6 @@
     "@types/numeral": "^2.0.5",
     "@types/semver": "^7.7.1",
     "ts-node": "^10.9.2",
-    "vitest": "^4.1.2"
+    "vitest": "^4.1.4"
   }
 }
