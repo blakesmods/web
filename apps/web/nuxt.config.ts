@@ -74,7 +74,9 @@ export default defineNuxtConfig({
   sourcemap: {
     client: "hidden"
   },
+  compatibilityDate: "2026-04-19",
   nitro: {
+    preset: "cloudflare_pages",
     prerender: {
       autoSubfolderIndex: false,
       crawlLinks: true,
