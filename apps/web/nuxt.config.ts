@@ -115,6 +115,11 @@ export default defineNuxtConfig({
       }
     }
   },
+  vite: {
+    optimizeDeps: {
+      include: ["dayjs", "numeral", "semver"]
+    }
+  },
   site: {
     url: "https://blakesmods.com"
   },
