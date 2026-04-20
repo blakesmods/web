@@ -77,11 +77,8 @@ export default defineNuxtConfig({
   compatibilityDate: "2026-04-19",
   nitro: {
     cloudflare: {
-      pages: {
-        routes: {
-          exclude: ["/docs/*", "/wiki/*"]
-        }
-      }
+      deployConfig: true,
+      nodeCompat: true
     },
     prerender: {
       autoSubfolderIndex: false,
