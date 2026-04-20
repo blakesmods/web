@@ -32,7 +32,7 @@ jobs:
 
       - name: Build
         env:
-          NITRO_PRESET: cloudflare_module
+          NITRO_PRESET: cloudflare_pages
           SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
           SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
@@ -43,7 +43,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: deploy dist --project-name=blakesmods
+          command: pages deploy dist --project-name=blakesmods
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           workingDirectory: apps/web
           packageManager: pnpm
