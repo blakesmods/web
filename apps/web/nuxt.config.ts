@@ -74,7 +74,12 @@ export default defineNuxtConfig({
   sourcemap: {
     client: "hidden"
   },
+  compatibilityDate: "2026-04-19",
   nitro: {
+    cloudflare: {
+      deployConfig: true,
+      nodeCompat: true
+    },
     prerender: {
       autoSubfolderIndex: false,
       crawlLinks: true,
@@ -113,6 +118,11 @@ export default defineNuxtConfig({
           content.category = (wikiCategoriesJSON as any)[parts[4]!] || parts[4];
         }
       }
+    }
+  },
+  vite: {
+    optimizeDeps: {
+      include: ["dayjs", "numeral", "semver"]
     }
   },
   site: {
