@@ -14,7 +14,7 @@
     "@fastify/cookie": "^11.0.2",
     "@fastify/cors": "^11.2.0",
     "@fastify/mongodb": "^10.0.0",
-    "@sentry/node": "^10.50.0",
+    "@sentry/node": "^10.51.0",
     "bson": "^7.2.0",
     "cacheable": "^2.3.4",
     "dayjs": "^1.11.20",
@@ -24,7 +24,7 @@
     "fastify-type-provider-zod": "^6.1.0",
     "numeral": "^2.0.6",
     "semver": "^7.7.4",
-    "zod": "^4.3.6"
+    "zod": "^4.4.2"
   },
   "devDependencies": {
     "@types/numeral": "^2.0.5",
