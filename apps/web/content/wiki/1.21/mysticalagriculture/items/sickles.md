@@ -8,4 +8,4 @@ version: 6.0.1
 
 ## Overview
 
-Sickles are a tool used to clear large amount of organic materials. Sickles break blocks in a cubic area around the block you break.
+Sickles are a tool used to clear large amount of organic materials. Sickles break blocks in a cubic area around the block you break. Used to take off the ground the seed you break and all the seeds around.
