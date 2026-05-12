@@ -12,7 +12,7 @@ The Soulium Spawner is a machine that uses [Mob Essences](../items/resource-esse
 
 ## Usage
 
-The Soulium Spawner require energy to function. You can either provide energy via any Forge Energy compatible energy transfer, or use the internal solid-fuel based generator.
+The Soulium Spawner requires energy to function. You can either provide energy via any Forge Energy compatible energy transfer, or use the internal solid-fuel based generator.
 
 Place some essences in the input slot and provide power. After processing time has completed a mob will be spawned randomly in a 3 block radius around the spawner. The spawner can be upgraded with a [Machine Upgrade](../items/machine-upgrades.md) to increase the operation speed.
 
