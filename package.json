@@ -17,15 +17,7 @@
     "turbo": "^2.9.16",
     "typescript": "^6.0.3"
   },
-  "packageManager": "pnpm@10.34.1",
-  "pnpm": {
-    "overrides": {
-      "sharp": "0.34.5"
-    },
-    "onlyBuiltDependencies": [
-      "better-sqlite3"
-    ]
-  },
+  "packageManager": "pnpm@11.5.0",
   "volta": {
     "node": "24.16.0"
   }

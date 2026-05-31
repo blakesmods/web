@@ -15,11 +15,6 @@
     {
       "matchManagers": ["github-actions"],
       "groupName": "github actions"
-    },
-    {
-      "matchFileNames": ["apps/web/**"],
-      "matchPackageNames": ["sharp"],
-      "enabled": false
     }
   ]
 }
