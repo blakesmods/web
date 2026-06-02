@@ -16,7 +16,7 @@
         target="_blank"
       >
         <UIcon name="i-simple-icons-github" />
-        Report Issue
+        Suggest Changes
       </NuxtLink>
     </div>
   </USeparator>
