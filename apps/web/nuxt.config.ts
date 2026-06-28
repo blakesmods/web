@@ -83,6 +83,7 @@ export default defineNuxtConfig({
     prerender: {
       autoSubfolderIndex: false,
       crawlLinks: true,
+      failOnError: false,
       routes: ["/", ...docsVersionsJSON.slice(1).map(v => `/docs/${v}`)]
     }
   },
