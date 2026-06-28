@@ -1,6 +1,7 @@
 packages:
   - "apps/*"
   - "packages/*"
+
 allowBuilds:
   '@parcel/watcher': false
   '@sentry/cli': false
@@ -8,3 +9,6 @@ allowBuilds:
   esbuild: false
   sharp: false
   vue-demi: false
+
+overrides:
+  sharp: 0.33.4
