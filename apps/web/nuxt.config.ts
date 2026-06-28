@@ -79,12 +79,13 @@ export default defineNuxtConfig({
     cloudflare: {
       deployConfig: true,
       nodeCompat: true
-    },
-    prerender: {
-      autoSubfolderIndex: false,
-      crawlLinks: true,
-      routes: ["/", ...docsVersionsJSON.slice(1).map(v => `/docs/${v}`)]
     }
+    // prerender: {
+    //   autoSubfolderIndex: false,
+    //   crawlLinks: true,
+    //   failOnError: false,
+    //   routes: ["/", ...docsVersionsJSON.slice(1).map(v => `/docs/${v}`)]
+    // }
   },
   content: {
     build: {
