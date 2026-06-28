@@ -2,7 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
   "schedule": ["* * * * 6L"],
-  "ignoreDeps": ["sharp"],
+  "ignoreDeps": ["@nuxt/ui", "sharp"],
   "packageRules": [
     {
       "matchManagers": ["npm"],
