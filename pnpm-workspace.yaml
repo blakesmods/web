@@ -1,10 +1,11 @@
 packages:
   - "apps/*"
   - "packages/*"
+
 allowBuilds:
   '@parcel/watcher': false
   '@sentry/cli': false
   better-sqlite3: true
   esbuild: false
-  sharp: false
-  vue-demi: false
+  sharp: true
+  vue-demi: true
