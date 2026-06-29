@@ -74,7 +74,7 @@ You can assign the crafting ingredient used to craft this crop's seed. This can 
 }
 ```
 
-#### Item with Components
+#### Item with NBT
 
 ```json
 {

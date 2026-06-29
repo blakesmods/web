@@ -76,7 +76,7 @@ You can change the crafting ingredient used to craft a crop's seed. This can be 
 }
 ```
 
-#### Item with Components
+#### Item with NBT
 
 ```json
 {
