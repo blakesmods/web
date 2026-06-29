@@ -74,15 +74,17 @@ You can assign the crafting ingredient used to craft this crop's seed. This can 
 }
 ```
 
-#### Item with NBT
+#### Item with Components
 
 ```json
 {
   "ingredient": {
     "item": "mysticalagriculture:soul_jar",
-    "nbt": {
-      "Type": "mysticalagriculture:skeleton",
-      "Souls": 5.0
+    "components": {
+      "mysticalagriculture:soul_jar": {
+        "type": "mysticalagriculture:skeleton",
+        "souls": 5.0
+      }
     }
   }
 }
