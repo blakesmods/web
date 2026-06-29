@@ -62,11 +62,38 @@ You can see all the registered tiers in-game with the `/mysticalcustomization ti
 
 ### Ingredient
 
-You can assign the crafting ingredient used to craft this crop's seed. This can be either an item or a tag, and uses the same syntax as a crafting recipe.
+You can assign the crafting ingredient used to craft this crop's seed. This can be either an item or tag and uses the same syntax as a crafting recipe.
+
+#### Item
+
 ```json
 {
   "ingredient": {
     "item": "minecraft:iron_ingot"
+  }
+}
+```
+
+#### Item with Components
+
+```json
+{
+  "ingredient": {
+    "item": "mysticalagriculture:soul_jar",
+    "nbt": {
+      "Type": "mysticalagriculture:skeleton",
+      "Souls": 5.0
+    }
+  }
+}
+```
+
+#### Tag
+
+```json
+{
+  "ingredient": {
+    "tag": "c:ingots/iron"
   }
 }
 ```
