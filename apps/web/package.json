@@ -28,7 +28,7 @@
     "@vue/test-utils": "^2.4.10",
     "@vueuse/core": "^14.3.0",
     "@vueuse/nuxt": "^14.3.0",
-    "better-sqlite3": "^12.10.0",
+    "better-sqlite3": "^13.0.1",
     "dayjs": "^1.11.21",
     "happy-dom": "^20.9.0",
     "numeral": "^2.0.6",
