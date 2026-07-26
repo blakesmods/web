@@ -15,7 +15,7 @@
     "tailwindcss": "^4.3.0",
     "ts-node": "^10.9.2",
     "turbo": "^2.9.16",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.2"
   },
   "packageManager": "pnpm@11.5.0",
   "volta": {
