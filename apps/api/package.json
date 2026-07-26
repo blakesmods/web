@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "start": "node -r dotenv/config dist/index.js",
-    "dev": "nodemon -r dotenv/config src/index.ts",
+    "dev": "tsx --watch -r dotenv/config src/index.ts",
     "test": "vitest"
   },
   "dependencies": {
@@ -29,7 +29,6 @@
   "devDependencies": {
     "@types/numeral": "^2.0.5",
     "@types/semver": "^7.7.1",
-    "ts-node": "^10.9.2",
     "vitest": "^4.1.10"
   }
 }
