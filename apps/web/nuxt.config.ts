@@ -139,6 +139,11 @@ export default defineNuxtConfig({
     project: process.env.SENTRY_PROJECT,
     authToken: process.env.SENTRY_AUTH_TOKEN
   },
+  icon: {
+    clientBundle: {
+      scan: true
+    }
+  },
   ui: {
     content: true,
     theme: {
