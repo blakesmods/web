@@ -10,9 +10,9 @@ The `cucumber-tags.json` file is used to configure the output item of recipes th
 
 ## How To Use It
 
-This file is a simple list of key-value pairs. The key being the tag and the value being the item that recipes using that tag should output. This file will automatically populate with any tags used by this system during recipe loading. If there is no entry for a tag, or the output item is `"null"`, an entry will attempt to be added for one of the items in that tag.
+This file is a simple list of key-value pairs. The key being the tag, and the value being the item that recipes using that tag should output. This file will automatically populate with any tags used by this system during recipe loading. If there is no entry for a tag, or the output item is `"null"`, an entry will attempt to be added for one of the items in that tag.
 
-There should be no need to add an entry manually. Once you load into a world, all applicable entries should be generated. You can then change the item ids to the ones you want to use.
+There should be no need to add an entry manually. Once you load into a world, all applicable entries should be generated. You can then change the item IDs to the ones you want to use.
 
 ## Example Config
 
