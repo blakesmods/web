@@ -1,4 +1,5 @@
 import docsVersionsJSON from "./content/docs/.versions.json";
+import wikiVersionsJSON from "./content/wiki/.versions.json";
 import wikiCategoriesJSON from "./content/wiki/.categories.json";
 
 const description =
@@ -83,7 +84,11 @@ export default defineNuxtConfig({
     prerender: {
       autoSubfolderIndex: false,
       crawlLinks: true,
-      routes: ["/", ...docsVersionsJSON.slice(1).map(v => `/docs/${v}`)]
+      routes: ["/"],
+      ignore: [
+        ...docsVersionsJSON.slice(1).map(v => `/docs/${v}`),
+        ...wikiVersionsJSON.slice(1).map(v => `/wiki/${v}`)
+      ]
     }
   },
   content: {
