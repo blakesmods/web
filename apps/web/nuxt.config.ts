@@ -1,4 +1,5 @@
 import docsVersionsJSON from "./content/docs/.versions.json";
+import wikiVersionsJSON from "./content/wiki/.versions.json";
 import wikiCategoriesJSON from "./content/wiki/.categories.json";
 
 const description =
@@ -78,12 +79,25 @@ export default defineNuxtConfig({
   nitro: {
     cloudflare: {
       deployConfig: true,
-      nodeCompat: true
+      nodeCompat: true,
+      wrangler: {
+        d1_databases: [
+          {
+            binding: "DB",
+            database_name: "blakesmods-content",
+            database_id: "48dd872d-e666-4415-ac57-9d79cf04aee9"
+          }
+        ]
+      }
     },
     prerender: {
       autoSubfolderIndex: false,
       crawlLinks: true,
-      routes: ["/", ...docsVersionsJSON.slice(1).map(v => `/docs/${v}`)]
+      routes: ["/"],
+      ignore: [
+        ...docsVersionsJSON.slice(1).map(v => `/docs/${v}`),
+        ...wikiVersionsJSON.slice(1).map(v => `/wiki/${v}`)
+      ]
     }
   },
   content: {
