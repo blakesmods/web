@@ -79,7 +79,16 @@ export default defineNuxtConfig({
   nitro: {
     cloudflare: {
       deployConfig: true,
-      nodeCompat: true
+      nodeCompat: true,
+      wrangler: {
+        d1_databases: [
+          {
+            binding: "DB",
+            database_name: "blakesmods-content",
+            database_id: "48dd872d-e666-4415-ac57-9d79cf04aee9"
+          }
+        ]
+      }
     },
     prerender: {
       autoSubfolderIndex: false,
