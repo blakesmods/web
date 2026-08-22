@@ -8,7 +8,7 @@ export default defineNitroPlugin(
     beforeSend(event) {
       const message = event.exception?.values?.[0]?.value;
 
-      if (message?.startsWith("Page not found:")) {
+      if (message?.includes("Page not found:")) {
         return null;
       }
 
