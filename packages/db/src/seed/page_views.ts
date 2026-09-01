@@ -30,7 +30,9 @@ export async function createPageViews(db: Db) {
   }
 
   await db.collection(Collections.PageViews).deleteMany({});
-  await db.collection(Collections.PageViews).insertMany(views);
+  await db
+    .collection<Partial<PageViews>>(Collections.PageViews)
+    .insertMany(views);
 
   console.log(`Created ${mods.length} mod page views`);
 }

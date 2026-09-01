@@ -9,7 +9,7 @@ export async function createModFiles(db: Db) {
   const files = [];
 
   for (const mod of mods) {
-    for (let i = 0; i < 16; i++) {
+    for (let i = 1; i < 16; i++) {
       const name = mod.mod_name.replace(/ /g, "");
       const version = faker.system.semver().split(".").map(Number);
       const mcVersions = faker.helpers.arrayElements(
@@ -55,7 +55,7 @@ export async function createModFiles(db: Db) {
   }
 
   await db.collection(Collections.ModFiles).deleteMany({});
-  await db.collection(Collections.ModFiles).insertMany(files);
+  await db.collection<Partial<ModFile>>(Collections.ModFiles).insertMany(files);
 
   console.log(`Created ${files.length} mod files`);
 }

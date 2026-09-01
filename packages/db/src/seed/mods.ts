@@ -1,4 +1,5 @@
-import { Db, ObjectId } from "mongodb";
+import { ObjectId } from "bson";
+import { Db } from "mongodb";
 import { Mod } from "../models";
 import { Collections } from "../collections";
 
@@ -133,7 +134,7 @@ export async function createMods(db: Db) {
   ];
 
   await db.collection(Collections.Mods).deleteMany({});
-  await db.collection(Collections.Mods).insertMany(mods);
+  await db.collection<Mod>(Collections.Mods).insertMany(mods);
 
   console.log(`Created ${mods.length} mods`);
 }
