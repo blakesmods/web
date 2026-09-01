@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
-    "test": "turbo run test",
+    "test": "turbo run test --output-logs=new-only",
     "lint": "turbo run lint",
     "dev": "turbo run dev"
   },
@@ -14,7 +14,8 @@
     "tailwindcss": "^4.3.3",
     "turbo": "^2.10.5",
     "tsx": "^4.23.1",
-    "typescript": "^7.0.2"
+    "typescript": "^7.0.2",
+    "wait-on": "^9.1.0"
   },
   "packageManager": "pnpm@11.15.1",
   "volta": {

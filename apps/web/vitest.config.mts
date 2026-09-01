@@ -7,7 +7,14 @@ export default defineConfig({
       {
         test: {
           name: "unit",
-          include: ["test/{e2e,unit}/*.{test,spec}.ts"],
+          include: ["test/unit/*.{test,spec}.ts"],
+          environment: "node"
+        }
+      },
+      {
+        test: {
+          name: "e2e",
+          include: ["test/e2e/*.{test,spec}.ts"],
           environment: "node"
         }
       },
@@ -16,7 +23,18 @@ export default defineConfig({
           name: "nuxt",
           include: ["test/nuxt/*.{test,spec}.ts"],
           environment: "nuxt"
-        }
+        },
+        plugins: [
+          {
+            name: "ignore-bun-test",
+            enforce: "pre",
+            resolveId(id) {
+              if (id === "bun:test") {
+                return { id: "bun:test", external: true };
+              }
+            }
+          }
+        ]
       })
     ]
   }

@@ -7,6 +7,7 @@ export default defineConfig({
         inline: ["@fastify/autoload"]
       }
     },
+    dir: "./test",
     environment: "node"
   }
 });
