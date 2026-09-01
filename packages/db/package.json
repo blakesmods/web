@@ -5,7 +5,7 @@
   "types": "src/index.ts",
   "private": true,
   "scripts": {
-    "seed": "ts-node ./src/seed/index.ts"
+    "seed": "tsx ./src/seed/index.ts"
   },
   "dependencies": {
     "bson": "^7.3.1"

@@ -16,12 +16,12 @@ export default async function (fastify: FastifyInstance) {
 
   fastify.decorate("sentry", Sentry);
 
-  fastify.addHook("onError", async (request, reply, error) => {
+  fastify.addHook("onError", async (request, _reply, error) => {
     if (
       // ignore 400 bad request
-      reply.statusCode === 400 ||
+      error.statusCode === 400 ||
       // ignore 401 unauthorized
-      reply.statusCode === 401
+      error.statusCode === 401
     ) {
       return;
     }

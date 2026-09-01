@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "start": "node -r dotenv/config dist/index.js",
+    "start": "node -r dotenv/config dist/src/index.js",
     "dev": "tsx --watch -r dotenv/config src/index.ts",
     "test": "vitest"
   },

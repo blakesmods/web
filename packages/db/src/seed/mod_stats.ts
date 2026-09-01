@@ -48,7 +48,9 @@ export async function createModStats(db: Db) {
   }
 
   await db.collection(Collections.ModStats).deleteMany({});
-  await db.collection(Collections.ModStats).insertMany(stats);
+  await db
+    .collection<Partial<ModStats>>(Collections.ModStats)
+    .insertMany(stats);
 
   console.log(`Created ${mods.length} mod stats`);
 }

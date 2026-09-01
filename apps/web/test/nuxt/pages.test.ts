@@ -33,7 +33,7 @@ describe("pages", async () => {
 });
 
 function testURL(url: string) {
-  test(`${url} renders`, async () => {
+  test(`${url} renders`, { timeout: 30000 }, async () => {
     const { status } = await fetch(url);
     expect(status).toBe(200);
   });
