@@ -9,7 +9,9 @@ afterAll(async () => app.close());
 describe("GET /v2/files/:file_id", () => {
   test("valid request", async () => {
     const db = app.mongo.db!;
-    let file = await db.collection<ModFile>(Collections.ModFiles).findOne();
+    let file = await db.collection<ModFile>(Collections.ModFiles).findOne({
+      released: true
+    });
     let mod = await db.collection<Mod>(Collections.Mods).findOne({
       mod_id: file!.mod_id
     });
@@ -74,12 +76,28 @@ describe("GET /v2/files/:file_id", () => {
 
     expect(response.statusCode).toBe(404);
   });
+
+  test("unreleased file_id", async () => {
+    const db = app.mongo.db!;
+    let file = await db.collection<ModFile>(Collections.ModFiles).findOne({
+      released: false
+    });
+
+    const response = await app.inject({
+      method: "GET",
+      url: `/v2/files/${file!._id}`
+    });
+
+    expect(response.statusCode).toBe(404);
+  });
 });
 
 describe("GET /v2/files/:file_id/info", () => {
   test("valid request", async () => {
     const db = app.mongo.db!;
-    const file = await db.collection<ModFile>(Collections.ModFiles).findOne();
+    const file = await db.collection<ModFile>(Collections.ModFiles).findOne({
+      released: true
+    });
 
     const response = await app.inject({
       method: "GET",
@@ -97,6 +115,20 @@ describe("GET /v2/files/:file_id/info", () => {
     const response = await app.inject({
       method: "GET",
       url: "/v2/files/invalid/info"
+    });
+
+    expect(response.statusCode).toBe(404);
+  });
+
+  test("unreleased file_id", async () => {
+    const db = app.mongo.db!;
+    let file = await db.collection<ModFile>(Collections.ModFiles).findOne({
+      released: false
+    });
+
+    const response = await app.inject({
+      method: "GET",
+      url: `/v2/files/${file!._id}/info`
     });
 
     expect(response.statusCode).toBe(404);

@@ -26,7 +26,7 @@ export async function createModFiles(db: Db) {
         file_size: faker.number.int(10000000),
         java_version: 17,
         maven_path: faker.system.filePath(),
-        mc_version: mcVersion.join("."),
+        mc_version: mcVersions[0],
         mc_version_group: mcVersion.slice(0, 2).join("."),
         mc_version_parts: {
           major: mcVersion[0],
@@ -45,7 +45,7 @@ export async function createModFiles(db: Db) {
         mod_loader: faker.helpers.arrayElement(["Forge", "NeoForge"]),
         modrinth_downloads: faker.number.int(10000000),
         modrinth_id: faker.string.nanoid(12),
-        released: faker.helpers.arrayElement([true, true, true, false]),
+        released: i % 3 === 0,
         site_downloads: faker.number.int(10000000),
         upload_date: faker.date.past()
       };
