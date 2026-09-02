@@ -47,9 +47,9 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: versions upload .output --name blakesmods
+          command: versions upload --name blakesmods
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          workingDirectory: apps/web
+          workingDirectory: apps/web/.output
 
       - name: Comment Preview URL on PR
         uses: actions/github-script@v7
