@@ -47,7 +47,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: versions upload --name blakesmods
+          command: versions upload .output --name blakesmods
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           workingDirectory: apps/web
 
