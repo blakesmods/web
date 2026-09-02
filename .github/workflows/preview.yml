@@ -50,7 +50,6 @@ jobs:
           command: versions upload --name blakesmods
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           workingDirectory: apps/web
-          packageManager: pnpm
 
       - name: Comment Preview URL on PR
         uses: actions/github-script@v7
