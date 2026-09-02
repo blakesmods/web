@@ -102,7 +102,8 @@ describe("GET /v2/mods/:mod_id/:mc_version_group/updates", () => {
     const db = app.mongo.db!;
     const mod = await db.collection<Mod>(Collections.Mods).findOne();
     const file = await db.collection<ModFile>(Collections.ModFiles).findOne({
-      mod_id: mod!.mod_id
+      mod_id: mod!.mod_id,
+      released: true
     });
 
     const response = await app.inject({
