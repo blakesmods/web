@@ -12,13 +12,13 @@
     "@types/node": "^24.13.3",
     "prettier": "^3.9.6",
     "tailwindcss": "^4.3.3",
-    "turbo": "^2.10.5",
-    "tsx": "^4.23.1",
+    "turbo": "^2.10.12",
+    "tsx": "^4.23.12",
     "typescript": "^7.0.2",
     "wait-on": "^9.1.0"
   },
-  "packageManager": "pnpm@11.15.1",
+  "packageManager": "pnpm@11.24.0",
   "volta": {
-    "node": "24.18.0"
+    "node": "24.20.0"
   }
 }
