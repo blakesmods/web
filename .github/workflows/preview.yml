@@ -1,0 +1,68 @@
+name: Deploy Web Preview
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - pnpm-lock.yaml
+      - apps/web/**/*
+  workflow_dispatch:
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+    name: Deploy Worker Preview
+
+    permissions:
+      pull-requests: write
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24.x
+          cache: pnpm
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        env:
+          NITRO_PRESET: cloudflare_module
+          SENTRY_AUTH: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+        run: pnpm build --filter @blakesmods/web
+
+      - name: Publish Preview Deployment
+        id: wrangler_deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: versions upload --name blakesmods
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          workingDirectory: apps/web
+          packageManager: pnpm
+
+      - name: Comment Preview URL on PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const deploymentUrl = "${{ steps.wrangler_deploy.outputs.deployment-url }}";
+
+            const commentBody = `🚀 **Cloudflare Worker Preview Deployed!**\n\n🔗 [View Preview Deployment](${deploymentUrl})`;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: commentBody
+            })
