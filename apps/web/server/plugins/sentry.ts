@@ -4,15 +4,6 @@ export default defineNitroPlugin(
   sentryCloudflareNitroPlugin({
     dsn: "https://472cc4db584747768a1cb08281f678c4@o1148345.ingest.sentry.io/6219844",
     tracesSampleRate: 0.1,
-    ignoreErrors: [/^Page not found:/],
-    beforeSend(event) {
-      const message = event.exception?.values?.[0]?.value;
-
-      if (message?.includes("Page not found:")) {
-        return null;
-      }
-
-      return event;
-    }
+    ignoreErrors: [/^Page not found:/]
   })
 );
