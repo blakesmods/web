@@ -16,10 +16,10 @@ This section will go over the values available to use in a singularity JSON. Syn
 
 | Field                     | Required | Description                                                                                                      |
 |---------------------------|----------|------------------------------------------------------------------------------------------------------------------|
-| `name`                    | ✓        | The name of this singularity. You can either put the name you want to see here, or a translation key.            |
-| `overlay_color`           | ✓        | The overlay color for the item.                                                                                  |
-| `underlay_color`          | ✓        | The underlay color for the item.                                                                                 |
-| `ingredient`              | ✓        | The item used to create this singularity.                                                                        |
+| `name`                    | ✓       | The name of this singularity. You can either put the name you want to see here, or a translation key.            |
+| `overlay_color`           | ✓       | The overlay color for the item.                                                                                  |
+| `underlay_color`          | ✓       | The underlay color for the item.                                                                                 |
+| `ingredient`              | ✓       | The item used to create this singularity.                                                                        |
 | `ingredient_count`        |          | The amount of materials required to create this singularity. If omitted will use the default set in the config.  |
 | `in_ultimate_singularity` |          | Whether this singularity should be a part of the Ultimate Singularity recipe. If omitted will default to `true`. |
 | `enabled`                 |          | Whether this singularity should be registered. If omitted will default to `true`.                                |
@@ -29,8 +29,8 @@ This section will go over the values available to use in a singularity JSON. Syn
 ```json
 {
   "name": "singularity.extendedcrafting.diamond",
-  "overlay_color": 10943721,
-  "underlay_color": 1748136,
+  "overlay_color": "#A6FCE9",
+  "underlay_color": "#1AACA8",
   "ingredient": "minecraft:diamond"
 }
 ```
