@@ -7,3 +7,5 @@
 //     ignoreErrors: [/^Page not found:/]
 //   })
 // );
+
+export default defineNitroPlugin(() => {});
