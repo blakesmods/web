@@ -14,7 +14,7 @@
     "@fastify/cookie": "^11.1.2",
     "@fastify/cors": "^11.3.0",
     "@fastify/mongodb": "^10.0.1",
-    "@sentry/node": "^10.75.2",
+    "@sentry/node": "^10.75.3",
     "bson": "^7.3.3",
     "cacheable": "^2.5.0",
     "dayjs": "^1.11.23",

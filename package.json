@@ -9,11 +9,11 @@
     "dev": "turbo run dev"
   },
   "devDependencies": {
-    "@types/node": "^24.13.6",
-    "prettier": "^3.9.8",
+    "@types/node": "^24.19.0",
+    "prettier": "^3.9.9",
     "tailwindcss": "^4.3.3",
-    "turbo": "^2.11.2",
     "tsx": "^4.23.15",
+    "turbo": "^2.11.4",
     "typescript": "^7.0.2",
     "wait-on": "^9.1.0"
   },
