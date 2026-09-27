@@ -17,7 +17,7 @@
     "typescript": "^7.0.2",
     "wait-on": "^9.1.0"
   },
-  "packageManager": "pnpm@11.27.1",
+  "packageManager": "pnpm@12.6.0",
   "volta": {
     "node": "24.21.0"
   }

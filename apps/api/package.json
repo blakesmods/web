@@ -18,7 +18,7 @@
     "bson": "^7.3.3",
     "cacheable": "^2.5.0",
     "dayjs": "^1.11.23",
-    "dotenv": "^17.4.2",
+    "dotenv": "^18.0.3",
     "fastify": "^5.12.5",
     "fastify-blipp": "4.0.0",
     "fastify-type-provider-zod": "^7.0.0",
@@ -29,6 +29,6 @@
   "devDependencies": {
     "@types/numeral": "^2.0.5",
     "@types/semver": "^7.8.0",
-    "vitest": "^4.1.11"
+    "vitest": "^5.0.1"
   }
 }
