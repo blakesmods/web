@@ -9,16 +9,16 @@
     "dev": "turbo run dev"
   },
   "devDependencies": {
-    "@types/node": "^24.13.3",
-    "prettier": "^3.9.6",
+    "@types/node": "^24.19.0",
+    "prettier": "^3.9.9",
     "tailwindcss": "^4.3.3",
-    "turbo": "^2.10.12",
-    "tsx": "^4.23.12",
+    "tsx": "^4.23.15",
+    "turbo": "^2.11.4",
     "typescript": "^7.0.2",
     "wait-on": "^9.1.0"
   },
-  "packageManager": "pnpm@11.24.0",
+  "packageManager": "pnpm@11.27.1",
   "volta": {
-    "node": "24.20.0"
+    "node": "24.21.0"
   }
 }
