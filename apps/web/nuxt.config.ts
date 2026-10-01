@@ -87,7 +87,16 @@ export default defineNuxtConfig({
             database_name: "blakesmods-content",
             database_id: "48dd872d-e666-4415-ac57-9d79cf04aee9"
           }
-        ]
+        ],
+        previews: {
+          d1_databases: [
+            {
+              binding: "DB",
+              database_name: "blakesmods-content-preview",
+              database_id: "cf3a09e9-8b4f-4d5a-a281-1718f431cdd6"
+            }
+          ]
+        }
       }
     },
     prerender: {
