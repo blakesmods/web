@@ -77,7 +77,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Delete Preview
-        run: npx wrangler preview delete --name "pr-${{ github.event.pull_request.number }}" --skip-confirmation --worker-name blakesmods
+        run: npx wrangler preview delete --skip-confirmation --worker-name blakesmods
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
