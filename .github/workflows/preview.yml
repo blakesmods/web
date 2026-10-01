@@ -43,17 +43,33 @@ jobs:
         run: |
           DB_NAME="blakesmods-content-pr-${PR_NUMBER}"
 
-          OUTPUT=$(npx wrangler d1 create "$DB_NAME" --json)
+          DATABASES=$(npx wrangler d1 list --json)
 
-          DB_ID=$(echo "$OUTPUT" | jq -r '.database_id')
+          DB_ID=$(echo "$DATABASES" | jq -r \
+            --arg name "$DB_NAME" \
+            '.[] | select(.name == $name) | .uuid' | head -n 1)
 
           if [ -z "$DB_ID" ] || [ "$DB_ID" = "null" ]; then
-            echo "Failed to obtain database ID"
+            echo "Creating $DB_NAME..."
+
+            npx wrangler d1 create "$DB_NAME"
+
+            DATABASES=$(npx wrangler d1 list --json)
+
+            DB_ID=$(echo "$DATABASES" | jq -r \
+              --arg name "$DB_NAME" \
+              '.[] | select(.name == $name) | .uuid' | head -n 1)
+          else
+            echo "Reusing existing $DB_NAME"
+          fi
+
+          if [ -z "$DB_ID" ] || [ "$DB_ID" = "null" ]; then
+            echo "Could not determine D1 database ID"
             exit 1
           fi
 
-          echo "db_name=$DB_NAME" >> "$GITHUB_OUTPUT"
-          echo "db_id=$DB_ID" >> "$GITHUB_OUTPUT"
+          echo "database_name=$DB_NAME" >> "$GITHUB_OUTPUT"
+          echo "database_id=$DB_ID" >> "$GITHUB_OUTPUT"
 
       - name: Build
         env:
