@@ -74,8 +74,8 @@ jobs:
       - name: Build
         env:
           NITRO_PRESET: cloudflare_module
-          PREVIEW_DB_NAME: ${{ steps.create_db.outputs.db_name }}
-          PREVIEW_DB_ID: ${{ steps.create_db.outputs.db_id }}
+          PREVIEW_DB_NAME: ${{ steps.create_db.outputs.database_name }}
+          PREVIEW_DB_ID: ${{ steps.create_db.outputs.database_id }}
           SENTRY_AUTH: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
           SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
