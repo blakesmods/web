@@ -15,7 +15,8 @@
     "tsx": "^4.23.15",
     "turbo": "^2.11.4",
     "typescript": "^7.0.2",
-    "wait-on": "^9.1.0"
+    "wait-on": "^9.1.0",
+    "wrangler": "^4.145.0"
   },
   "packageManager": "pnpm@12.6.0",
   "volta": {
