@@ -34,9 +34,32 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Create D1 Database
+        id: create_db
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          DB_NAME="blakesmods-content-pr-${PR_NUMBER}"
+
+          OUTPUT=$(npx wrangler d1 create "$DB_NAME" --json)
+
+          DB_ID=$(echo "$OUTPUT" | jq -r '.database_id')
+
+          if [ -z "$DB_ID" ] || [ "$DB_ID" = "null" ]; then
+            echo "Failed to obtain database ID"
+            exit 1
+          fi
+
+          echo "db_name=$DB_NAME" >> "$GITHUB_OUTPUT"
+          echo "db_id=$DB_ID" >> "$GITHUB_OUTPUT"
+
       - name: Build
         env:
           NITRO_PRESET: cloudflare_module
+          PREVIEW_DB_NAME: ${{ steps.create_db.outputs.db_name }}
+          PREVIEW_DB_ID: ${{ steps.create_db.outputs.db_id }}
           SENTRY_AUTH: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
           SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
@@ -81,3 +104,11 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      - name: Delete D1 database
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          wrangler d1 delete "blakesmods-content-pr-${PR_NUMBER}" --skip-confirmation
