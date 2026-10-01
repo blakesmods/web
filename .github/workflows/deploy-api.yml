@@ -42,4 +42,4 @@ jobs:
     steps:
       - name: Trigger Deployment
         run: |
-          curl --request GET '${{ secrets.INFRASTRUCTURE_WEBHOOK_API }}' --header 'Authorization: Bearer ${{ secrets.INFRASTRUCTURE_TOKEN }}'
+          curl --request POST '${{ secrets.INFRASTRUCTURE_WEBHOOK_API }}' --header 'Authorization: Bearer ${{ secrets.INFRASTRUCTURE_TOKEN }}'
