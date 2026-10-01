@@ -88,6 +88,7 @@ export default defineNuxtConfig({
             database_id: "48dd872d-e666-4415-ac57-9d79cf04aee9"
           }
         ],
+        // @ts-expect-error
         previews: {
           d1_databases: [
             {
