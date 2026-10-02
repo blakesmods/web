@@ -93,8 +93,8 @@ export default defineNuxtConfig({
           d1_databases: [
             {
               binding: "DB",
-              database_name: "blakesmods-content-preview",
-              database_id: "cf3a09e9-8b4f-4d5a-a281-1718f431cdd6"
+              database_name: process.env.PREVIEW_DB_NAME,
+              database_id: process.env.PREVIEW_DB_ID
             }
           ]
         }

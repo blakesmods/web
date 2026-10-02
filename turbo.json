@@ -6,7 +6,14 @@
     },
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".output/**"]
+      "outputs": ["dist/**", ".output/**"],
+      "env": [
+        "PREVIEW_DB_NAME",
+        "PREVIEW_DB_ID",
+        "SENTRY_AUTH",
+        "SENTRY_ORG",
+        "SENTRY_PROJECT"
+      ]
     },
     "test": {
       "dependsOn": ["build"],
