@@ -11,7 +11,7 @@ jobs:
 
     services:
       mongodb:
-        image: mongo:8.2
+        image: mongo:9.0
         ports:
           - 27017:27017
         env:
