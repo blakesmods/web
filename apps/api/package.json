@@ -10,25 +10,25 @@
   },
   "dependencies": {
     "@blakesmods/db": "workspace:*",
-    "@fastify/autoload": "^6.5.0",
-    "@fastify/cookie": "^11.1.2",
-    "@fastify/cors": "^11.3.0",
-    "@fastify/mongodb": "^10.0.1",
+    "@fastify/autoload": "^6.5.1",
+    "@fastify/cookie": "^11.1.3",
+    "@fastify/cors": "^11.3.1",
+    "@fastify/mongodb": "^10.0.2",
     "@sentry/node": "^11.8.0",
     "bson": "^7.3.3",
     "cacheable": "^2.5.0",
     "dayjs": "^1.11.23",
-    "dotenv": "^18.0.3",
-    "fastify": "^5.12.5",
+    "dotenv": "^18.0.8",
+    "fastify": "^5.12.7",
     "fastify-blipp": "4.0.0",
     "fastify-type-provider-zod": "^7.0.0",
     "numeral": "^2.0.6",
     "semver": "^7.8.5",
-    "zod": "^4.6.5"
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@types/numeral": "^2.0.5",
     "@types/semver": "^7.8.0",
-    "vitest": "^5.0.1"
+    "vitest": "^5.0.5"
   }
 }

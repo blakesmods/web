@@ -9,17 +9,17 @@
     "dev": "turbo run dev"
   },
   "devDependencies": {
-    "@types/node": "^24.19.0",
-    "prettier": "^3.9.9",
+    "@types/node": "^24.19.2",
+    "prettier": "^3.9.10",
     "tailwindcss": "^4.3.3",
     "tsx": "^4.23.15",
-    "turbo": "^2.11.4",
+    "turbo": "^2.11.10",
     "typescript": "^7.0.2",
-    "wait-on": "^9.1.0",
-    "wrangler": "^4.145.0"
+    "wait-on": "^9.5.1",
+    "wrangler": "^4.151.3"
   },
-  "packageManager": "pnpm@12.6.0",
+  "packageManager": "pnpm@12.14.0",
   "volta": {
-    "node": "24.21.0"
+    "node": "24.22.1"
   }
 }
