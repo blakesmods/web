@@ -68,7 +68,7 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@nuxt/content",
     "@nuxtjs/google-fonts",
-    "@sentry/nuxt/module",
+    // "@sentry/nuxt/module", spams page not found errors for some reason
     "@vueuse/nuxt",
     "@nuxtjs/sitemap" // sitemap module must be last
   ],
